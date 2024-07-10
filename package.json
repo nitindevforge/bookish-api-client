@@ -1,11 +1,10 @@
 {
-  "name": "",
-  "version": "",
+  "name": "@nitin2912/bookish-api-client",
   "description": "OpenAPI client for ",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "https://github.com/GIT_USER_ID/GIT_REPO_ID.git"
+    "url": "git+https://github.com/nitindevforge/bookish-api-client.git"
   },
   "keywords": [
     "fetch",
@@ -28,12 +27,18 @@
     "prepare": "npm run build"
   },
   "dependencies": {
-    "whatwg-fetch": "^3.0.0",
     "es6-promise": "^4.2.4",
-    "url-parse": "^1.4.3"
+    "npmrc": "^1.1.1",
+    "url-parse": "^1.4.3",
+    "whatwg-fetch": "^3.0.0"
   },
   "devDependencies": {
-    "typescript": "^4.0",
-    "@types/url-parse": "1.4.4"
-  }
+    "@types/url-parse": "1.4.4",
+    "typescript": "^4.0"
+  },
+  "bugs": {
+    "url": "https://github.com/nitindevforge/bookish-api-client/issues"
+  },
+  "homepage": "https://github.com/nitindevforge/bookish-api-client#readme",
+  "version": "1.2.0"
 }
