@@ -50,6 +50,6 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
     }
 }
 
-export const server1 = new ServerConfiguration<{  }>("http://localhost:3000", {  })
+export const server1 = new ServerConfiguration<{  "scheme": "http" | "https",  "host": "localhost:3000"  }>("{scheme}://{host}", {  "scheme": "https" , "host": "localhost:3000"  })
 
 export const servers = [server1];

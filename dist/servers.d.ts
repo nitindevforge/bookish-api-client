@@ -13,5 +13,11 @@ export declare class ServerConfiguration<T extends {
     private getUrl;
     makeRequestContext(endpoint: string, httpMethod: HttpMethod): RequestContext;
 }
-export declare const server1: ServerConfiguration<{}>;
-export declare const servers: ServerConfiguration<{}>[];
+export declare const server1: ServerConfiguration<{
+    scheme: "http" | "https";
+    host: "localhost:3000";
+}>;
+export declare const servers: ServerConfiguration<{
+    scheme: "http" | "https";
+    host: "localhost:3000";
+}>[];

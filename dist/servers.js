@@ -27,6 +27,6 @@ var ServerConfiguration = (function () {
     return ServerConfiguration;
 }());
 exports.ServerConfiguration = ServerConfiguration;
-exports.server1 = new ServerConfiguration("http://localhost:3000", {});
+exports.server1 = new ServerConfiguration("{scheme}://{host}", { "scheme": "https", "host": "localhost:3000" });
 exports.servers = [exports.server1];
 //# sourceMappingURL=servers.js.map
