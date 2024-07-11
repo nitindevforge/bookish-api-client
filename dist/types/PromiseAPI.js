@@ -22,12 +22,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerCreateUser(signupPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (_options) {
-        var result = this.api.authControllerForgetPasswordWithHttpInfo(_options);
+    PromiseAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (forgetPasswordPayloadDto, _options) {
+        var result = this.api.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerForgetPassword = function (_options) {
-        var result = this.api.authControllerForgetPassword(_options);
+    PromiseAuthApi.prototype.authControllerForgetPassword = function (forgetPasswordPayloadDto, _options) {
+        var result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerLoginWithHttpInfo = function (loginPayloadDto, _options) {

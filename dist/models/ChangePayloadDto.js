@@ -10,6 +10,12 @@ var ChangePayloadDto = (function () {
     ChangePayloadDto.discriminator = undefined;
     ChangePayloadDto.attributeTypeMap = [
         {
+            "name": "email",
+            "baseName": "email",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "confirmPassword",
             "baseName": "confirmPassword",
             "type": "string",

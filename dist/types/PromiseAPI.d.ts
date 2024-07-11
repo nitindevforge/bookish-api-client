@@ -1,6 +1,7 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -16,8 +17,8 @@ export declare class PromiseAuthApi {
     authControllerChangePassword(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<PasswordChangeResponseDto>;
     authControllerCreateUserWithHttpInfo(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
-    authControllerForgetPasswordWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>>;
-    authControllerForgetPassword(_options?: Configuration): Promise<void>;
+    authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerUserMeWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

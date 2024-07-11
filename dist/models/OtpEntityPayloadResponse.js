@@ -14,6 +14,12 @@ var OtpEntityPayloadResponse = (function () {
             "baseName": "otp",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "email",
+            "baseName": "email",
+            "type": "string",
+            "format": ""
         }
     ];
     return OtpEntityPayloadResponse;

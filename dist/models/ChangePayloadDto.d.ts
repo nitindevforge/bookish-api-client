@@ -1,4 +1,5 @@
 export declare class ChangePayloadDto {
+    'email': string;
     'confirmPassword': string;
     'newPassword': string;
     static readonly discriminator: string | undefined;

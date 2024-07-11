@@ -1,6 +1,7 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -16,6 +17,7 @@ export interface AuthApiAuthControllerCreateUserRequest {
     signupPayloadDto: SignupPayloadDto;
 }
 export interface AuthApiAuthControllerForgetPasswordRequest {
+    forgetPasswordPayloadDto: ForgetPasswordPayloadDto;
 }
 export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
@@ -35,8 +37,8 @@ export declare class ObjectAuthApi {
     authControllerChangePassword(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<PasswordChangeResponseDto>;
     authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto>;
-    authControllerForgetPasswordWithHttpInfo(param?: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<void>>;
-    authControllerForgetPassword(param?: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<void>;
+    authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUserMeWithHttpInfo(param?: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

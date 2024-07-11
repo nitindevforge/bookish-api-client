@@ -2,6 +2,7 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -61,16 +62,18 @@ export class PromiseAuthApi {
     }
 
     /**
+     * @param forgetPasswordPayloadDto 
      */
-    public authControllerForgetPasswordWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.authControllerForgetPasswordWithHttpInfo(_options);
+    public authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
+     * @param forgetPasswordPayloadDto 
      */
-    public authControllerForgetPassword(_options?: Configuration): Promise<void> {
-        const result = this.api.authControllerForgetPassword(_options);
+    public authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     }
 

@@ -19,12 +19,10 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerCreateUser(param.signupPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.authControllerForgetPasswordWithHttpInfo(options).toPromise();
+        return this.api.authControllerForgetPasswordWithHttpInfo(param.forgetPasswordPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerForgetPassword = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.authControllerForgetPassword(options).toPromise();
+        return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerLoginWithHttpInfo = function (param, options) {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto, options).toPromise();

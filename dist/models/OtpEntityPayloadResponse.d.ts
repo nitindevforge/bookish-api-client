@@ -1,5 +1,6 @@
 export declare class OtpEntityPayloadResponse {
     'otp': string;
+    'email': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

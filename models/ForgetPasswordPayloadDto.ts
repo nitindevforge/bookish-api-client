@@ -12,19 +12,12 @@
 
 import { HttpFile } from '../http/http';
 
-export class OtpEntityPayloadResponse {
-    'otp': string;
+export class ForgetPasswordPayloadDto {
     'email': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "otp",
-            "baseName": "otp",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "email",
             "baseName": "email",
@@ -33,7 +26,7 @@ export class OtpEntityPayloadResponse {
         }    ];
 
     static getAttributeTypeMap() {
-        return OtpEntityPayloadResponse.attributeTypeMap;
+        return ForgetPasswordPayloadDto.attributeTypeMap;
     }
 
     public constructor() {

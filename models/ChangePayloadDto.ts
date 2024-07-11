@@ -13,12 +13,19 @@
 import { HttpFile } from '../http/http';
 
 export class ChangePayloadDto {
+    'email': string;
     'confirmPassword': string;
     'newPassword': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "email",
+            "baseName": "email",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "confirmPassword",
             "baseName": "confirmPassword",

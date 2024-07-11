@@ -2,6 +2,7 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -37,6 +38,12 @@ export interface AuthApiAuthControllerCreateUserRequest {
 }
 
 export interface AuthApiAuthControllerForgetPasswordRequest {
+    /**
+     * 
+     * @type ForgetPasswordPayloadDto
+     * @memberof AuthApiauthControllerForgetPassword
+     */
+    forgetPasswordPayloadDto: ForgetPasswordPayloadDto
 }
 
 export interface AuthApiAuthControllerLoginRequest {
@@ -107,15 +114,15 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
-        return this.api.authControllerForgetPasswordWithHttpInfo( options).toPromise();
+    public authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerForgetPasswordWithHttpInfo(param.forgetPasswordPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.authControllerForgetPassword( options).toPromise();
+    public authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto,  options).toPromise();
     }
 
     /**

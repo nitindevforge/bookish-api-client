@@ -16,6 +16,7 @@ http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/ChangePayloadDto.ts
+models/ForgetPasswordPayloadDto.ts
 models/LoginPayloadDto.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadResponse.ts

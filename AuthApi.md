@@ -30,6 +30,7 @@ const apiInstance = new .AuthApi(configuration);
 let body:.AuthApiAuthControllerChangePasswordRequest = {
   // ChangePayloadDto
   changePayloadDto: {
+    email: "email_example",
     confirmPassword: "confirmPassword_example",
     newPassword: "newPassword_example",
   },
@@ -54,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -66,7 +67,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
-**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -129,7 +129,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **authControllerForgetPassword**
-> authControllerForgetPassword()
+> void authControllerForgetPassword(forgetPasswordPayloadDto)
 
 
 ### Example
@@ -142,7 +142,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
-let body:any = {};
+let body:.AuthApiAuthControllerForgetPasswordRequest = {
+  // ForgetPasswordPayloadDto
+  forgetPasswordPayloadDto: {
+    email: "email_example",
+  },
+};
 
 apiInstance.authControllerForgetPassword(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -151,27 +156,30 @@ apiInstance.authControllerForgetPassword(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **forgetPasswordPayloadDto** | **ForgetPasswordPayloadDto**|  |
 
 
 ### Return type
 
-void (empty response body)
+**void**
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -336,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **authControllerVerifyOtp**
-> authControllerVerifyOtp(otpEntityPayloadResponse)
+> void authControllerVerifyOtp(otpEntityPayloadResponse)
 
 
 ### Example
@@ -353,6 +361,7 @@ let body:.AuthApiAuthControllerVerifyOtpRequest = {
   // OtpEntityPayloadResponse
   otpEntityPayloadResponse: {
     otp: "otp_example",
+    email: "email_example",
   },
 };
 
@@ -371,11 +380,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**void**
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -386,7 +395,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**401** | Unauthorized |  -  |
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
