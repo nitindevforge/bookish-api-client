@@ -16,6 +16,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
+__exportStar(require("../models/OtpEntityPayloadResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);

@@ -3,6 +3,7 @@ import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -22,8 +23,12 @@ export declare class ObservableAuthApi {
     authControllerForgetPassword(_options?: Configuration): Observable<void>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
+    authControllerUserMeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
+    authControllerUserMe(_options?: Configuration): Observable<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<UserResponseDto>;
+    authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Observable<HttpInfo<void>>;
+    authControllerVerifyOtp(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Observable<void>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class ObservableDefaultApi {
@@ -33,8 +38,6 @@ export declare class ObservableDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Observable<void>;
-    appControllerSendEmailWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
-    appControllerSendEmail(_options?: Configuration): Observable<void>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export declare class ObservableFriendsApi {

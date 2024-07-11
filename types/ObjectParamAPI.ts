@@ -3,6 +3,7 @@ import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -47,6 +48,9 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto
 }
 
+export interface AuthApiAuthControllerUserMeRequest {
+}
+
 export interface AuthApiAuthControllerUserRoleUpdateRequest {
     /**
      * 
@@ -54,6 +58,15 @@ export interface AuthApiAuthControllerUserRoleUpdateRequest {
      * @memberof AuthApiauthControllerUserRoleUpdate
      */
     userRolePayloadDto: UserRolePayloadDto
+}
+
+export interface AuthApiAuthControllerVerifyOtpRequest {
+    /**
+     * 
+     * @type OtpEntityPayloadResponse
+     * @memberof AuthApiauthControllerVerifyOtp
+     */
+    otpEntityPayloadResponse: OtpEntityPayloadResponse
 }
 
 export class ObjectAuthApi {
@@ -122,6 +135,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUserMeWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUserMe( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerUserRoleUpdateWithHttpInfo(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUserRoleUpdateWithHttpInfo(param.userRolePayloadDto,  options).toPromise();
     }
@@ -133,15 +160,26 @@ export class ObjectAuthApi {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto,  options).toPromise();
     }
 
+    /**
+     * @param param the request object
+     */
+    public authControllerVerifyOtpWithHttpInfo(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadResponse,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerVerifyOtp(param.otpEntityPayloadResponse,  options).toPromise();
+    }
+
 }
 
 import { ObservableDefaultApi } from "./ObservableAPI";
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";
 
 export interface DefaultApiAppControllerGetHelloRequest {
-}
-
-export interface DefaultApiAppControllerSendEmailRequest {
 }
 
 export class ObjectDefaultApi {
@@ -163,20 +201,6 @@ export class ObjectDefaultApi {
      */
     public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<void> {
         return this.api.appControllerGetHello( options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public appControllerSendEmailWithHttpInfo(param: DefaultApiAppControllerSendEmailRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
-        return this.api.appControllerSendEmailWithHttpInfo( options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public appControllerSendEmail(param: DefaultApiAppControllerSendEmailRequest = {}, options?: Configuration): Promise<void> {
-        return this.api.appControllerSendEmail( options).toPromise();
     }
 
 }

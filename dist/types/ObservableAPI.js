@@ -118,9 +118,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerLogin = function (loginPayloadDto, _options) {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserMe(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_9 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -139,25 +139,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_10(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
-        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserMe = function (_options) {
+        return this.authControllerUserMeWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    return ObservableAuthApi;
-}());
-exports.ObservableAuthApi = ObservableAuthApi;
-var DefaultApi_1 = require("../apis/DefaultApi");
-var ObservableDefaultApi = (function () {
-    function ObservableDefaultApi(configuration, requestFactory, responseProcessor) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new DefaultApi_1.DefaultApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new DefaultApi_1.DefaultApiResponseProcessor();
-    }
-    ObservableDefaultApi.prototype.appControllerGetHelloWithHttpInfo = function (_options) {
+    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.appControllerGetHello(_options);
+        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_11 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -176,15 +166,15 @@ var ObservableDefaultApi = (function () {
                 var middleware = _a[_i];
                 _loop_12(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.appControllerGetHelloWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
         }));
     };
-    ObservableDefaultApi.prototype.appControllerGetHello = function (_options) {
-        return this.appControllerGetHelloWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
+        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableDefaultApi.prototype.appControllerSendEmailWithHttpInfo = function (_options) {
+    ObservableAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadResponse, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.appControllerSendEmail(_options);
+        var requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_13 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -203,25 +193,25 @@ var ObservableDefaultApi = (function () {
                 var middleware = _a[_i];
                 _loop_14(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.appControllerSendEmailWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerVerifyOtpWithHttpInfo(rsp); }));
         }));
     };
-    ObservableDefaultApi.prototype.appControllerSendEmail = function (_options) {
-        return this.appControllerSendEmailWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerVerifyOtp = function (otpEntityPayloadResponse, _options) {
+        return this.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    return ObservableDefaultApi;
+    return ObservableAuthApi;
 }());
-exports.ObservableDefaultApi = ObservableDefaultApi;
-var FriendsApi_1 = require("../apis/FriendsApi");
-var ObservableFriendsApi = (function () {
-    function ObservableFriendsApi(configuration, requestFactory, responseProcessor) {
+exports.ObservableAuthApi = ObservableAuthApi;
+var DefaultApi_1 = require("../apis/DefaultApi");
+var ObservableDefaultApi = (function () {
+    function ObservableDefaultApi(configuration, requestFactory, responseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
+        this.requestFactory = requestFactory || new DefaultApi_1.DefaultApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new DefaultApi_1.DefaultApiResponseProcessor();
     }
-    ObservableFriendsApi.prototype.userControllerGetSearchUserWithHttpInfo = function (search, page, limit, _options) {
+    ObservableDefaultApi.prototype.appControllerGetHelloWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.userControllerGetSearchUser(search, page, limit, _options);
+        var requestContextPromise = this.requestFactory.appControllerGetHello(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_15 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -239,6 +229,43 @@ var ObservableFriendsApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_16(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.appControllerGetHelloWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableDefaultApi.prototype.appControllerGetHello = function (_options) {
+        return this.appControllerGetHelloWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    return ObservableDefaultApi;
+}());
+exports.ObservableDefaultApi = ObservableDefaultApi;
+var FriendsApi_1 = require("../apis/FriendsApi");
+var ObservableFriendsApi = (function () {
+    function ObservableFriendsApi(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
+    }
+    ObservableFriendsApi.prototype.userControllerGetSearchUserWithHttpInfo = function (search, page, limit, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.userControllerGetSearchUser(search, page, limit, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_17 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_17(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_18 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_18(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.userControllerGetSearchUserWithHttpInfo(rsp); }));
         }));

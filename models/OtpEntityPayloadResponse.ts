@@ -12,28 +12,21 @@
 
 import { HttpFile } from '../http/http';
 
-export class ChangePayloadDto {
-    'confirmPassword': string;
-    'newPassword': string;
+export class OtpEntityPayloadResponse {
+    'otp': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "confirmPassword",
-            "baseName": "confirmPassword",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "newPassword",
-            "baseName": "newPassword",
+            "name": "otp",
+            "baseName": "otp",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return ChangePayloadDto.attributeTypeMap;
+        return OtpEntityPayloadResponse.attributeTypeMap;
     }
 
     public constructor() {

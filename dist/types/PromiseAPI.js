@@ -38,12 +38,28 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerLogin(loginPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
+        var result = this.api.authControllerUserMeWithHttpInfo(_options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUserMe = function (_options) {
+        var result = this.api.authControllerUserMe(_options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
         var result = this.api.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
         var result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadResponse, _options) {
+        var result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerVerifyOtp = function (otpEntityPayloadResponse, _options) {
+        var result = this.api.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
         return result.toPromise();
     };
     return PromiseAuthApi;
@@ -60,14 +76,6 @@ var PromiseDefaultApi = (function () {
     };
     PromiseDefaultApi.prototype.appControllerGetHello = function (_options) {
         var result = this.api.appControllerGetHello(_options);
-        return result.toPromise();
-    };
-    PromiseDefaultApi.prototype.appControllerSendEmailWithHttpInfo = function (_options) {
-        var result = this.api.appControllerSendEmailWithHttpInfo(_options);
-        return result.toPromise();
-    };
-    PromiseDefaultApi.prototype.appControllerSendEmail = function (_options) {
-        var result = this.api.appControllerSendEmail(_options);
         return result.toPromise();
     };
     return PromiseDefaultApi;

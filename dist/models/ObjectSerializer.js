@@ -17,6 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
+__exportStar(require("../models/OtpEntityPayloadResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
@@ -29,6 +30,7 @@ __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
+var OtpEntityPayloadResponse_1 = require("../models/OtpEntityPayloadResponse");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
@@ -53,6 +55,7 @@ var enumsMap = new Set([]);
 var typeMap = {
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
+    "OtpEntityPayloadResponse": OtpEntityPayloadResponse_1.OtpEntityPayloadResponse,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,

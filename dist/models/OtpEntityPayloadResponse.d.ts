@@ -1,6 +1,5 @@
-export declare class ChangePayloadDto {
-    'confirmPassword': string;
-    'newPassword': string;
+export declare class OtpEntityPayloadResponse {
+    'otp': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

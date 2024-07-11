@@ -3,6 +3,7 @@ import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -90,6 +91,20 @@ export class PromiseAuthApi {
     }
 
     /**
+     */
+    public authControllerUserMeWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerUserMeWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public authControllerUserMe(_options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerUserMe(_options);
+        return result.toPromise();
+    }
+
+    /**
      * @param userRolePayloadDto 
      */
     public authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
@@ -102,6 +117,22 @@ export class PromiseAuthApi {
      */
     public authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param otpEntityPayloadResponse 
+     */
+    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param otpEntityPayloadResponse 
+     */
+    public authControllerVerifyOtp(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
         return result.toPromise();
     }
 
@@ -135,20 +166,6 @@ export class PromiseDefaultApi {
      */
     public appControllerGetHello(_options?: Configuration): Promise<void> {
         const result = this.api.appControllerGetHello(_options);
-        return result.toPromise();
-    }
-
-    /**
-     */
-    public appControllerSendEmailWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.appControllerSendEmailWithHttpInfo(_options);
-        return result.toPromise();
-    }
-
-    /**
-     */
-    public appControllerSendEmail(_options?: Configuration): Promise<void> {
-        const result = this.api.appControllerSendEmail(_options);
         return result.toPromise();
     }
 

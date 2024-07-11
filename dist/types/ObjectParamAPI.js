@@ -32,11 +32,25 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerLogin = function (param, options) {
         return this.api.authControllerLogin(param.loginPayloadDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerUserMeWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerUserMeWithHttpInfo(options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUserMe = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerUserMe(options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (param, options) {
         return this.api.authControllerUserRoleUpdateWithHttpInfo(param.userRolePayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUserRoleUpdate = function (param, options) {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (param, options) {
+        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadResponse, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerVerifyOtp = function (param, options) {
+        return this.api.authControllerVerifyOtp(param.otpEntityPayloadResponse, options).toPromise();
     };
     return ObjectAuthApi;
 }());
@@ -53,14 +67,6 @@ var ObjectDefaultApi = (function () {
     ObjectDefaultApi.prototype.appControllerGetHello = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.appControllerGetHello(options).toPromise();
-    };
-    ObjectDefaultApi.prototype.appControllerSendEmailWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.appControllerSendEmailWithHttpInfo(options).toPromise();
-    };
-    ObjectDefaultApi.prototype.appControllerSendEmail = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.appControllerSendEmail(options).toPromise();
     };
     return ObjectDefaultApi;
 }());
