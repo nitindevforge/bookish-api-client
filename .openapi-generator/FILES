@@ -19,7 +19,7 @@ models/ChangePayloadDto.ts
 models/ForgetPasswordPayloadDto.ts
 models/LoginPayloadDto.ts
 models/ObjectSerializer.ts
-models/OtpEntityPayloadResponse.ts
+models/OtpEntityPayloadDto.ts
 models/PasswordChangeResponse.ts
 models/PasswordChangeResponseDto.ts
 models/PermissionResponseDto.ts

@@ -18,7 +18,7 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
-__exportStar(require("../models/OtpEntityPayloadResponse"), exports);
+__exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
@@ -32,7 +32,7 @@ __exportStar(require("../models/UserRolePayloadDto"), exports);
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
-var OtpEntityPayloadResponse_1 = require("../models/OtpEntityPayloadResponse");
+var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
@@ -58,7 +58,7 @@ var typeMap = {
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
-    "OtpEntityPayloadResponse": OtpEntityPayloadResponse_1.OtpEntityPayloadResponse,
+    "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,

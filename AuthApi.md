@@ -344,7 +344,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **authControllerVerifyOtp**
-> void authControllerVerifyOtp(otpEntityPayloadResponse)
+> void authControllerVerifyOtp(otpEntityPayloadDto)
 
 
 ### Example
@@ -358,8 +358,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
 let body:.AuthApiAuthControllerVerifyOtpRequest = {
-  // OtpEntityPayloadResponse
-  otpEntityPayloadResponse: {
+  // OtpEntityPayloadDto
+  otpEntityPayloadDto: {
     otp: "otp_example",
     email: "email_example",
   },
@@ -375,7 +375,7 @@ apiInstance.authControllerVerifyOtp(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **otpEntityPayloadResponse** | **OtpEntityPayloadResponse**|  |
+ **otpEntityPayloadDto** | **OtpEntityPayloadDto**|  |
 
 
 ### Return type

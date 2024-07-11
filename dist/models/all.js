@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
-__exportStar(require("../models/OtpEntityPayloadResponse"), exports);
+__exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);

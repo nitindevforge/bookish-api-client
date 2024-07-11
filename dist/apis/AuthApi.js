@@ -253,7 +253,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerVerifyOtp = function (otpEntityPayloadResponse, _options) {
+    AuthApiRequestFactory.prototype.authControllerVerifyOtp = function (otpEntityPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, defaultAuth;
@@ -261,8 +261,8 @@ var AuthApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (otpEntityPayloadResponse === null || otpEntityPayloadResponse === undefined) {
-                            throw new baseapi_1.RequiredError("AuthApi", "authControllerVerifyOtp", "otpEntityPayloadResponse");
+                        if (otpEntityPayloadDto === null || otpEntityPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerVerifyOtp", "otpEntityPayloadDto");
                         }
                         localVarPath = '/v1/auth/verify-otp';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
@@ -271,7 +271,7 @@ var AuthApiRequestFactory = (function (_super) {
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(otpEntityPayloadResponse, "OtpEntityPayloadResponse", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(otpEntityPayloadDto, "OtpEntityPayloadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
                         if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];

@@ -45,10 +45,10 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (param, options) {
-        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadResponse, options).toPromise();
+        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerVerifyOtp = function (param, options) {
-        return this.api.authControllerVerifyOtp(param.otpEntityPayloadResponse, options).toPromise();
+        return this.api.authControllerVerifyOtp(param.otpEntityPayloadDto, options).toPromise();
     };
     return ObjectAuthApi;
 }());

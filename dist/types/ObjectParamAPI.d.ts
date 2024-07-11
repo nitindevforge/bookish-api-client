@@ -3,7 +3,7 @@ import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -28,7 +28,7 @@ export interface AuthApiAuthControllerUserRoleUpdateRequest {
     userRolePayloadDto: UserRolePayloadDto;
 }
 export interface AuthApiAuthControllerVerifyOtpRequest {
-    otpEntityPayloadResponse: OtpEntityPayloadResponse;
+    otpEntityPayloadDto: OtpEntityPayloadDto;
 }
 export declare class ObjectAuthApi {
     private api;

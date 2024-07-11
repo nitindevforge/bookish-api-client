@@ -11,7 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -257,14 +257,14 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param otpEntityPayloadResponse 
+     * @param otpEntityPayloadDto 
      */
-    public async authControllerVerifyOtp(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'otpEntityPayloadResponse' is not null or undefined
-        if (otpEntityPayloadResponse === null || otpEntityPayloadResponse === undefined) {
-            throw new RequiredError("AuthApi", "authControllerVerifyOtp", "otpEntityPayloadResponse");
+        // verify required parameter 'otpEntityPayloadDto' is not null or undefined
+        if (otpEntityPayloadDto === null || otpEntityPayloadDto === undefined) {
+            throw new RequiredError("AuthApi", "authControllerVerifyOtp", "otpEntityPayloadDto");
         }
 
 
@@ -282,7 +282,7 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(otpEntityPayloadResponse, "OtpEntityPayloadResponse", ""),
+            ObjectSerializer.serialize(otpEntityPayloadDto, "OtpEntityPayloadDto", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

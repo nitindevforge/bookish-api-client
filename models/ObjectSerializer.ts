@@ -1,7 +1,7 @@
 export * from '../models/ChangePayloadDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/LoginPayloadDto';
-export * from '../models/OtpEntityPayloadResponse';
+export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';
 export * from '../models/PermissionResponseDto';
@@ -16,7 +16,7 @@ export * from '../models/UserRolePayloadDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -47,7 +47,7 @@ let typeMap: {[index: string]: any} = {
     "ChangePayloadDto": ChangePayloadDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
     "LoginPayloadDto": LoginPayloadDto,
-    "OtpEntityPayloadResponse": OtpEntityPayloadResponse,
+    "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto,
     "PermissionResponseDto": PermissionResponseDto,

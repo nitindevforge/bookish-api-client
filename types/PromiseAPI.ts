@@ -4,7 +4,7 @@ import { Configuration} from '../configuration'
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -124,18 +124,18 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param otpEntityPayloadResponse 
+     * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options);
+    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param otpEntityPayloadResponse 
+     * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtp(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Promise<void> {
-        const result = this.api.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
+    public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerVerifyOtp(otpEntityPayloadDto, _options);
         return result.toPromise();
     }
 

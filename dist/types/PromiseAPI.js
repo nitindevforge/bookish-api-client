@@ -54,12 +54,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadResponse, _options) {
-        var result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options);
+    PromiseAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
+        var result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerVerifyOtp = function (otpEntityPayloadResponse, _options) {
-        var result = this.api.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
+    PromiseAuthApi.prototype.authControllerVerifyOtp = function (otpEntityPayloadDto, _options) {
+        var result = this.api.authControllerVerifyOtp(otpEntityPayloadDto, _options);
         return result.toPromise();
     };
     return PromiseAuthApi;

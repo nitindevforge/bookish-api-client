@@ -4,7 +4,7 @@ import { Configuration} from '../configuration'
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -70,10 +70,10 @@ export interface AuthApiAuthControllerUserRoleUpdateRequest {
 export interface AuthApiAuthControllerVerifyOtpRequest {
     /**
      * 
-     * @type OtpEntityPayloadResponse
+     * @type OtpEntityPayloadDto
      * @memberof AuthApiauthControllerVerifyOtp
      */
-    otpEntityPayloadResponse: OtpEntityPayloadResponse
+    otpEntityPayloadDto: OtpEntityPayloadDto
 }
 
 export class ObjectAuthApi {
@@ -171,14 +171,14 @@ export class ObjectAuthApi {
      * @param param the request object
      */
     public authControllerVerifyOtpWithHttpInfo(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<HttpInfo<void>> {
-        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadResponse,  options).toPromise();
+        return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<void> {
-        return this.api.authControllerVerifyOtp(param.otpEntityPayloadResponse,  options).toPromise();
+        return this.api.authControllerVerifyOtp(param.otpEntityPayloadDto,  options).toPromise();
     }
 
 }

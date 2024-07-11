@@ -5,7 +5,7 @@ import {mergeMap, map} from  '../rxjsStub';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { OtpEntityPayloadResponse } from '../models/OtpEntityPayloadResponse';
+import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
@@ -206,10 +206,10 @@ export class ObservableAuthApi {
     }
 
     /**
-     * @param otpEntityPayloadResponse 
+     * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Observable<HttpInfo<void>> {
-        const requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadResponse, _options);
+    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -228,10 +228,10 @@ export class ObservableAuthApi {
     }
 
     /**
-     * @param otpEntityPayloadResponse 
+     * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtp(otpEntityPayloadResponse: OtpEntityPayloadResponse, _options?: Configuration): Observable<void> {
-        return this.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadResponse, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Observable<void> {
+        return this.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }
