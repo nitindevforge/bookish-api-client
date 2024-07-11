@@ -2,6 +2,7 @@ import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext, HttpInfo } from '../http/http';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -21,9 +22,9 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
 export declare class AuthApiResponseProcessor {
     authControllerChangePasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PasswordChangeResponseDto>>;
     authControllerCreateUserWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
-    authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserMeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
-    authControllerVerifyOtpWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerVerifyOtpWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
 }

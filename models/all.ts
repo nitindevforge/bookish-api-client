@@ -1,4 +1,6 @@
 export * from '../models/ChangePayloadDto'
+export * from '../models/ForgetPasswordEntityResponse'
+export * from '../models/ForgetPasswordEntityResponseDto'
 export * from '../models/ForgetPasswordPayloadDto'
 export * from '../models/LoginPayloadDto'
 export * from '../models/OtpEntityPayloadDto'

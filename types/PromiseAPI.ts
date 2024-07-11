@@ -2,6 +2,8 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
+import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -64,7 +66,7 @@ export class PromiseAuthApi {
     /**
      * @param forgetPasswordPayloadDto 
      */
-    public authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+    public authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         const result = this.api.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     }
@@ -72,7 +74,7 @@ export class PromiseAuthApi {
     /**
      * @param forgetPasswordPayloadDto 
      */
-    public authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<void> {
+    public authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         const result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     }
@@ -126,7 +128,7 @@ export class PromiseAuthApi {
     /**
      * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+    public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         const result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options);
         return result.toPromise();
     }
@@ -134,7 +136,7 @@ export class PromiseAuthApi {
     /**
      * @param otpEntityPayloadDto 
      */
-    public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<void> {
+    public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         const result = this.api.authControllerVerifyOtp(otpEntityPayloadDto, _options);
         return result.toPromise();
     }

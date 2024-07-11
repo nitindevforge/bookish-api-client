@@ -1,4 +1,6 @@
 export * from '../models/ChangePayloadDto';
+export * from '../models/ForgetPasswordEntityResponse';
+export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
@@ -14,6 +16,8 @@ export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
+import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -45,6 +49,8 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "ChangePayloadDto": ChangePayloadDto,
+    "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
+    "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
     "LoginPayloadDto": LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,

@@ -16,6 +16,8 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
+__exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
@@ -30,6 +32,8 @@ __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
+var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
@@ -56,6 +60,8 @@ var primitives = [
 var enumsMap = new Set([]);
 var typeMap = {
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
+    "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,

@@ -9,6 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -365,18 +366,22 @@ export class AuthApiResponseProcessor {
      * @params response Response returned by the server for a request to authControllerForgetPassword
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void >> {
+     public async authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, undefined);
+            const body: ForgetPasswordEntityResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ForgetPasswordEntityResponseDto", ""
+            ) as ForgetPasswordEntityResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: ForgetPasswordEntityResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "ForgetPasswordEntityResponseDto", ""
+            ) as ForgetPasswordEntityResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -483,18 +488,22 @@ export class AuthApiResponseProcessor {
      * @params response Response returned by the server for a request to authControllerVerifyOtp
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async authControllerVerifyOtpWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void >> {
+     public async authControllerVerifyOtpWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, undefined);
+            const body: ForgetPasswordEntityResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "ForgetPasswordEntityResponseDto", ""
+            ) as ForgetPasswordEntityResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: void = ObjectSerializer.deserialize(
+            const body: ForgetPasswordEntityResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "void", ""
-            ) as void;
+                "ForgetPasswordEntityResponseDto", ""
+            ) as ForgetPasswordEntityResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
