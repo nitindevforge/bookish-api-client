@@ -10,30 +10,31 @@
  * Do not edit the class manually.
  */
 
+import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
-export class SignupPayloadDto {
-    'email': string;
-    'password': string;
+export class FriendResponseDto {
+    'data': Array<UserDetails>;
+    'count': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "email",
-            "baseName": "email",
-            "type": "string",
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<UserDetails>",
             "format": ""
         },
         {
-            "name": "password",
-            "baseName": "password",
-            "type": "string",
+            "name": "count",
+            "baseName": "count",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return SignupPayloadDto.attributeTypeMap;
+        return FriendResponseDto.attributeTypeMap;
     }
 
     public constructor() {

@@ -86,12 +86,12 @@ var PromiseFriendsApi = (function () {
     function PromiseFriendsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_3.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseFriendsApi.prototype.userControllerGetSearchUserWithHttpInfo = function (search, page, limit, _options) {
-        var result = this.api.userControllerGetSearchUserWithHttpInfo(search, page, limit, _options);
+    PromiseFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (search, page, limit, _options) {
+        var result = this.api.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
     };
-    PromiseFriendsApi.prototype.userControllerGetSearchUser = function (search, page, limit, _options) {
-        var result = this.api.userControllerGetSearchUser(search, page, limit, _options);
+    PromiseFriendsApi.prototype.friendControllerGetFriends = function (search, page, limit, _options) {
+        var result = this.api.friendControllerGetFriends(search, page, limit, _options);
         return result.toPromise();
     };
     return PromiseFriendsApi;

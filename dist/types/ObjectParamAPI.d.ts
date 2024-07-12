@@ -3,10 +3,10 @@ import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -59,7 +59,7 @@ export declare class ObjectDefaultApi {
     appControllerGetHello(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<void>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
-export interface FriendsApiUserControllerGetSearchUserRequest {
+export interface FriendsApiFriendControllerGetFriendsRequest {
     search?: string;
     page?: number;
     limit?: number;
@@ -67,6 +67,6 @@ export interface FriendsApiUserControllerGetSearchUserRequest {
 export declare class ObjectFriendsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    userControllerGetSearchUserWithHttpInfo(param?: FriendsApiUserControllerGetSearchUserRequest, options?: Configuration): Promise<HttpInfo<SearchUserResponseDto>>;
-    userControllerGetSearchUser(param?: FriendsApiUserControllerGetSearchUserRequest, options?: Configuration): Promise<SearchUserResponseDto>;
+    friendControllerGetFriendsWithHttpInfo(param?: FriendsApiFriendControllerGetFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendResponseDto>>;
+    friendControllerGetFriends(param?: FriendsApiFriendControllerGetFriendsRequest, options?: Configuration): Promise<FriendResponseDto>;
 }

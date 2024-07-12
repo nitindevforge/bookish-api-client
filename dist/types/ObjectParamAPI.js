@@ -74,13 +74,13 @@ var ObjectFriendsApi = (function () {
     function ObjectFriendsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_3.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectFriendsApi.prototype.userControllerGetSearchUserWithHttpInfo = function (param, options) {
+    ObjectFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.userControllerGetSearchUserWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
+        return this.api.friendControllerGetFriendsWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
     };
-    ObjectFriendsApi.prototype.userControllerGetSearchUser = function (param, options) {
+    ObjectFriendsApi.prototype.friendControllerGetFriends = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.userControllerGetSearchUser(param.search, param.page, param.limit, options).toPromise();
+        return this.api.friendControllerGetFriends(param.search, param.page, param.limit, options).toPromise();
     };
     return ObjectFriendsApi;
 }());

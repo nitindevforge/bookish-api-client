@@ -19,13 +19,13 @@ __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
+__exportStar(require("../models/FriendResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
-__exportStar(require("../models/SearchUserResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserResponse"), exports);
@@ -35,13 +35,13 @@ var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
+var FriendResponseDto_1 = require("../models/FriendResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
-var SearchUserResponseDto_1 = require("../models/SearchUserResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
 var UserDetails_1 = require("../models/UserDetails");
 var UserResponse_1 = require("../models/UserResponse");
@@ -63,13 +63,13 @@ var typeMap = {
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
+    "FriendResponseDto": FriendResponseDto_1.FriendResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
-    "SearchUserResponseDto": SearchUserResponseDto_1.SearchUserResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
     "UserDetails": UserDetails_1.UserDetails,
     "UserResponse": UserResponse_1.UserResponse,

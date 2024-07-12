@@ -19,6 +19,7 @@ models/ChangePayloadDto.ts
 models/ForgetPasswordEntityResponse.ts
 models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts
+models/FriendResponseDto.ts
 models/LoginPayloadDto.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts
@@ -26,7 +27,6 @@ models/PasswordChangeResponse.ts
 models/PasswordChangeResponseDto.ts
 models/PermissionResponseDto.ts
 models/RoleResponseDto.ts
-models/SearchUserResponseDto.ts
 models/SignupPayloadDto.ts
 models/UserDetails.ts
 models/UserResponse.ts

@@ -5,13 +5,13 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
@@ -198,8 +198,8 @@ export class PromiseFriendsApi {
      * @param page 
      * @param limit 
      */
-    public userControllerGetSearchUserWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<SearchUserResponseDto>> {
-        const result = this.api.userControllerGetSearchUserWithHttpInfo(search, page, limit, _options);
+    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<FriendResponseDto>> {
+        const result = this.api.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
     }
 
@@ -208,8 +208,8 @@ export class PromiseFriendsApi {
      * @param page 
      * @param limit 
      */
-    public userControllerGetSearchUser(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<SearchUserResponseDto> {
-        const result = this.api.userControllerGetSearchUser(search, page, limit, _options);
+    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<FriendResponseDto> {
+        const result = this.api.friendControllerGetFriends(search, page, limit, _options);
         return result.toPromise();
     }
 

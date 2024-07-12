@@ -4,10 +4,10 @@ import { Observable } from '../rxjsStub';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -47,6 +47,6 @@ export declare class ObservableFriendsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    userControllerGetSearchUserWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<SearchUserResponseDto>>;
-    userControllerGetSearchUser(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<SearchUserResponseDto>;
+    friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendResponseDto>>;
+    friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendResponseDto>;
 }

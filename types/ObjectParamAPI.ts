@@ -5,13 +5,13 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
@@ -217,23 +217,23 @@ export class ObjectDefaultApi {
 import { ObservableFriendsApi } from "./ObservableAPI";
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor} from "../apis/FriendsApi";
 
-export interface FriendsApiUserControllerGetSearchUserRequest {
+export interface FriendsApiFriendControllerGetFriendsRequest {
     /**
      * 
      * @type string
-     * @memberof FriendsApiuserControllerGetSearchUser
+     * @memberof FriendsApifriendControllerGetFriends
      */
     search?: string
     /**
      * 
      * @type number
-     * @memberof FriendsApiuserControllerGetSearchUser
+     * @memberof FriendsApifriendControllerGetFriends
      */
     page?: number
     /**
      * 
      * @type number
-     * @memberof FriendsApiuserControllerGetSearchUser
+     * @memberof FriendsApifriendControllerGetFriends
      */
     limit?: number
 }
@@ -248,15 +248,15 @@ export class ObjectFriendsApi {
     /**
      * @param param the request object
      */
-    public userControllerGetSearchUserWithHttpInfo(param: FriendsApiUserControllerGetSearchUserRequest = {}, options?: Configuration): Promise<HttpInfo<SearchUserResponseDto>> {
-        return this.api.userControllerGetSearchUserWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
+    public friendControllerGetFriendsWithHttpInfo(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<HttpInfo<FriendResponseDto>> {
+        return this.api.friendControllerGetFriendsWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public userControllerGetSearchUser(param: FriendsApiUserControllerGetSearchUserRequest = {}, options?: Configuration): Promise<SearchUserResponseDto> {
-        return this.api.userControllerGetSearchUser(param.search, param.page, param.limit,  options).toPromise();
+    public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendResponseDto> {
+        return this.api.friendControllerGetFriends(param.search, param.page, param.limit,  options).toPromise();
     }
 
 }

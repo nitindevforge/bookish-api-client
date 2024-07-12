@@ -87,8 +87,6 @@ const apiInstance = new .AuthApi(configuration);
 let body:.AuthApiAuthControllerCreateUserRequest = {
   // SignupPayloadDto
   signupPayloadDto: {
-    firstName: "firstName_example",
-    lastName: "lastName_example",
     email: "email_example",
     password: "password_example",
   },

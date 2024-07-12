@@ -1,6 +1,7 @@
-export declare class SignupPayloadDto {
-    'email': string;
-    'password': string;
+import { UserDetails } from '../models/UserDetails';
+export declare class FriendResponseDto {
+    'data': Array<UserDetails>;
+    'count': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

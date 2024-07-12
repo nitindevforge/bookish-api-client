@@ -246,9 +246,9 @@ var ObservableFriendsApi = (function () {
         this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
     }
-    ObservableFriendsApi.prototype.userControllerGetSearchUserWithHttpInfo = function (search, page, limit, _options) {
+    ObservableFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (search, page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.userControllerGetSearchUser(search, page, limit, _options);
+        var requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_17 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -267,11 +267,11 @@ var ObservableFriendsApi = (function () {
                 var middleware = _a[_i];
                 _loop_18(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.userControllerGetSearchUserWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFriendsApi.prototype.userControllerGetSearchUser = function (search, page, limit, _options) {
-        return this.userControllerGetSearchUserWithHttpInfo(search, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFriendsApi.prototype.friendControllerGetFriends = function (search, page, limit, _options) {
+        return this.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     return ObservableFriendsApi;
 }());

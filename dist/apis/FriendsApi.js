@@ -62,7 +62,7 @@ var FriendsApiRequestFactory = (function (_super) {
     function FriendsApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FriendsApiRequestFactory.prototype.userControllerGetSearchUser = function (search, page, limit, _options) {
+    FriendsApiRequestFactory.prototype.friendControllerGetFriends = function (search, page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -106,7 +106,7 @@ exports.FriendsApiRequestFactory = FriendsApiRequestFactory;
 var FriendsApiResponseProcessor = (function () {
     function FriendsApiResponseProcessor() {
     }
-    FriendsApiResponseProcessor.prototype.userControllerGetSearchUserWithHttpInfo = function (response) {
+    FriendsApiResponseProcessor.prototype.friendControllerGetFriendsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
@@ -119,7 +119,7 @@ var FriendsApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 1:
                         body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "SearchUserResponseDto", ""]);
+                            "FriendResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
                         if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
@@ -131,7 +131,7 @@ var FriendsApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 3:
                         body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "SearchUserResponseDto", ""]);
+                            "FriendResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 4:
                         _j = exception_1.ApiException.bind;

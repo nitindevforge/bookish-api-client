@@ -4,11 +4,11 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**userControllerGetSearchUser**](FriendsApi.md#userControllerGetSearchUser) | **GET** /v1/user/search | 
+[**friendControllerGetFriends**](FriendsApi.md#friendControllerGetFriends) | **GET** /v1/user/search | 
 
 
-# **userControllerGetSearchUser**
-> SearchUserResponseDto userControllerGetSearchUser()
+# **friendControllerGetFriends**
+> FriendResponseDto friendControllerGetFriends()
 
 
 ### Example
@@ -21,7 +21,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .FriendsApi(configuration);
 
-let body:.FriendsApiUserControllerGetSearchUserRequest = {
+let body:.FriendsApiFriendControllerGetFriendsRequest = {
   // string (optional)
   search: "search_example",
   // number (optional)
@@ -30,7 +30,7 @@ let body:.FriendsApiUserControllerGetSearchUserRequest = {
   limit: 3.14,
 };
 
-apiInstance.userControllerGetSearchUser(body).then((data:any) => {
+apiInstance.friendControllerGetFriends(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**SearchUserResponseDto**
+**FriendResponseDto**
 
 ### Authorization
 

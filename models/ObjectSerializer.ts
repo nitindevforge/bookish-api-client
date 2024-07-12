@@ -2,13 +2,13 @@ export * from '../models/ChangePayloadDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
+export * from '../models/FriendResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';
 export * from '../models/PermissionResponseDto';
 export * from '../models/RoleResponseDto';
-export * from '../models/SearchUserResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/UserDetails';
 export * from '../models/UserResponse';
@@ -19,13 +19,13 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
@@ -52,13 +52,13 @@ let typeMap: {[index: string]: any} = {
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
+    "FriendResponseDto": FriendResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto,
-    "SearchUserResponseDto": SearchUserResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
     "UserDetails": UserDetails,
     "UserResponse": UserResponse,

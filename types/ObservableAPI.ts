@@ -6,13 +6,13 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
+import { FriendResponseDto } from '../models/FriendResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
-import { SearchUserResponseDto } from '../models/SearchUserResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
@@ -304,8 +304,8 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public userControllerGetSearchUserWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<SearchUserResponseDto>> {
-        const requestContextPromise = this.requestFactory.userControllerGetSearchUser(search, page, limit, _options);
+    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendResponseDto>> {
+        const requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -319,7 +319,7 @@ export class ObservableFriendsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.userControllerGetSearchUserWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp)));
             }));
     }
 
@@ -328,8 +328,8 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public userControllerGetSearchUser(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<SearchUserResponseDto> {
-        return this.userControllerGetSearchUserWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<SearchUserResponseDto>) => apiResponse.data));
+    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendResponseDto> {
+        return this.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendResponseDto>) => apiResponse.data));
     }
 
 }
