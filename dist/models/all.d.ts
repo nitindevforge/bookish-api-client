@@ -5,6 +5,7 @@ export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/FriendResponseDto';
 export * from '../models/InterestsPayloadDto';
+export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';

@@ -9,6 +9,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendResponseDto } from '../models/FriendResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
+import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -127,7 +128,7 @@ export class ObservableAuthApi {
 
     /**
      */
-    public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>> {
+    public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>> {
         const requestContextPromise = this.requestFactory.authControllerGetInterests(_options);
 
         // build promise chain
@@ -148,8 +149,8 @@ export class ObservableAuthApi {
 
     /**
      */
-    public authControllerGetInterests(_options?: Configuration): Observable<void> {
-        return this.authControllerGetInterestsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto> {
+        return this.authControllerGetInterestsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<InterestsResponseDto>) => apiResponse.data));
     }
 
     /**

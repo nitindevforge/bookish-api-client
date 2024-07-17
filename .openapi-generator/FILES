@@ -24,6 +24,7 @@ models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts
 models/FriendResponseDto.ts
 models/InterestsPayloadDto.ts
+models/InterestsResponseDto.ts
 models/LoginPayloadDto.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts

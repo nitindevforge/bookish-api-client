@@ -8,6 +8,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendResponseDto } from '../models/FriendResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
+import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -84,14 +85,14 @@ export class PromiseAuthApi {
 
     /**
      */
-    public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+    public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>> {
         const result = this.api.authControllerGetInterestsWithHttpInfo(_options);
         return result.toPromise();
     }
 
     /**
      */
-    public authControllerGetInterests(_options?: Configuration): Promise<void> {
+    public authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto> {
         const result = this.api.authControllerGetInterests(_options);
         return result.toPromise();
     }
