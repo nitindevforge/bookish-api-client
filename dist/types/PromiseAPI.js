@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseFriendsApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
+exports.PromiseUploadApi = exports.PromiseFriendsApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var PromiseAuthApi = (function () {
     function PromiseAuthApi(configuration, requestFactory, responseProcessor) {
@@ -30,6 +30,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {
+        var result = this.api.authControllerGetInterestsWithHttpInfo(_options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetInterests = function (_options) {
+        var result = this.api.authControllerGetInterests(_options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerLoginWithHttpInfo = function (loginPayloadDto, _options) {
         var result = this.api.authControllerLoginWithHttpInfo(loginPayloadDto, _options);
         return result.toPromise();
@@ -52,6 +60,14 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
         var result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (userUpdatePayloadDto, _options) {
+        var result = this.api.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUserUpdate = function (userUpdatePayloadDto, _options) {
+        var result = this.api.authControllerUserUpdate(userUpdatePayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
@@ -97,4 +113,20 @@ var PromiseFriendsApi = (function () {
     return PromiseFriendsApi;
 }());
 exports.PromiseFriendsApi = PromiseFriendsApi;
+var ObservableAPI_4 = require("./ObservableAPI");
+var PromiseUploadApi = (function () {
+    function PromiseUploadApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_4.ObservableUploadApi(configuration, requestFactory, responseProcessor);
+    }
+    PromiseUploadApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
+        var result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseUploadApi.prototype.fileUploadControllerGetPreSignedURL = function (fileUploadPayloadDto, _options) {
+        var result = this.api.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
+        return result.toPromise();
+    };
+    return PromiseUploadApi;
+}());
+exports.PromiseUploadApi = PromiseUploadApi;
 //# sourceMappingURL=PromiseAPI.js.map

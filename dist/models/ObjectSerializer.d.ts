@@ -1,8 +1,10 @@
 export * from '../models/ChangePayloadDto';
+export * from '../models/FileUploadPayloadDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/FriendResponseDto';
+export * from '../models/InterestsPayloadDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
@@ -14,6 +16,7 @@ export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
+export * from '../models/UserUpdatePayloadDto';
 export declare class ObjectSerializer {
     static findCorrectType(data: any, expectedType: string): any;
     static serialize(data: any, type: string, format: string): any;

@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FriendsApi = exports.DefaultApi = exports.AuthApi = exports.RequiredError = exports.createConfiguration = void 0;
+exports.UploadApi = exports.FriendsApi = exports.DefaultApi = exports.AuthApi = exports.RequiredError = exports.createConfiguration = void 0;
 __exportStar(require("./http/http"), exports);
 __exportStar(require("./auth/auth"), exports);
 __exportStar(require("./models/all"), exports);
@@ -28,4 +28,5 @@ var PromiseAPI_1 = require("./types/PromiseAPI");
 Object.defineProperty(exports, "AuthApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseAuthApi; } });
 Object.defineProperty(exports, "DefaultApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseDefaultApi; } });
 Object.defineProperty(exports, "FriendsApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseFriendsApi; } });
+Object.defineProperty(exports, "UploadApi", { enumerable: true, get: function () { return PromiseAPI_1.PromiseUploadApi; } });
 //# sourceMappingURL=index.js.map

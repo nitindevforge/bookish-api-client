@@ -7,4 +7,4 @@ export * from "./apis/exception";
 export * from "./servers";
 export { RequiredError } from "./apis/baseapi";
 export { PromiseMiddleware as Middleware } from './middleware';
-export { PromiseAuthApi as AuthApi, PromiseDefaultApi as DefaultApi, PromiseFriendsApi as FriendsApi } from './types/PromiseAPI';
+export { PromiseAuthApi as AuthApi, PromiseDefaultApi as DefaultApi, PromiseFriendsApi as FriendsApi, PromiseUploadApi as UploadApi } from './types/PromiseAPI';

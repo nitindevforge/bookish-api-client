@@ -3,9 +3,11 @@ AuthApi.md
 DefaultApi.md
 FriendsApi.md
 README.md
+UploadApi.md
 apis/AuthApi.ts
 apis/DefaultApi.ts
 apis/FriendsApi.ts
+apis/UploadApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts
@@ -16,10 +18,12 @@ http/isomorphic-fetch.ts
 index.ts
 middleware.ts
 models/ChangePayloadDto.ts
+models/FileUploadPayloadDto.ts
 models/ForgetPasswordEntityResponse.ts
 models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts
 models/FriendResponseDto.ts
+models/InterestsPayloadDto.ts
 models/LoginPayloadDto.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts
@@ -32,6 +36,7 @@ models/UserDetails.ts
 models/UserResponse.ts
 models/UserResponseDto.ts
 models/UserRolePayloadDto.ts
+models/UserUpdatePayloadDto.ts
 models/all.ts
 package.json
 rxjsStub.ts

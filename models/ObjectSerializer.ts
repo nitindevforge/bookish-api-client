@@ -1,8 +1,10 @@
 export * from '../models/ChangePayloadDto';
+export * from '../models/FileUploadPayloadDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/FriendResponseDto';
+export * from '../models/InterestsPayloadDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
@@ -14,12 +16,15 @@ export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
+export * from '../models/UserUpdatePayloadDto';
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendResponseDto } from '../models/FriendResponseDto';
+import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -31,6 +36,7 @@ import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -49,10 +55,12 @@ let enumsMap: Set<string> = new Set<string>([
 
 let typeMap: {[index: string]: any} = {
     "ChangePayloadDto": ChangePayloadDto,
+    "FileUploadPayloadDto": FileUploadPayloadDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
     "FriendResponseDto": FriendResponseDto,
+    "InterestsPayloadDto": InterestsPayloadDto,
     "LoginPayloadDto": LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,
@@ -64,6 +72,7 @@ let typeMap: {[index: string]: any} = {
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto,
+    "UserUpdatePayloadDto": UserUpdatePayloadDto,
 }
 
 type MimeTypeDescriptor = {

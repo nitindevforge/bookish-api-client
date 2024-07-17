@@ -2,10 +2,12 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendResponseDto } from '../models/FriendResponseDto';
+import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -17,6 +19,7 @@ import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { ObservableAuthApi } from './ObservableAPI';
 
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
@@ -80,6 +83,20 @@ export class PromiseAuthApi {
     }
 
     /**
+     */
+    public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetInterestsWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public authControllerGetInterests(_options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetInterests(_options);
+        return result.toPromise();
+    }
+
+    /**
      * @param loginPayloadDto 
      */
     public authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
@@ -122,6 +139,22 @@ export class PromiseAuthApi {
      */
     public authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userUpdatePayloadDto 
+     */
+    public authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userUpdatePayloadDto 
+     */
+    public authControllerUserUpdate(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerUserUpdate(userUpdatePayloadDto, _options);
         return result.toPromise();
     }
 
@@ -210,6 +243,41 @@ export class PromiseFriendsApi {
      */
     public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<FriendResponseDto> {
         const result = this.api.friendControllerGetFriends(search, page, limit, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableUploadApi } from './ObservableAPI';
+
+import { UploadApiRequestFactory, UploadApiResponseProcessor} from "../apis/UploadApi";
+export class PromiseUploadApi {
+    private api: ObservableUploadApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: UploadApiRequestFactory,
+        responseProcessor?: UploadApiResponseProcessor
+    ) {
+        this.api = new ObservableUploadApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param fileUploadPayloadDto 
+     */
+    public fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param fileUploadPayloadDto 
+     */
+    public fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<void> {
+        const result = this.api.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         return result.toPromise();
     }
 

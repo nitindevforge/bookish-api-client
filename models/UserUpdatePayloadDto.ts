@@ -10,30 +10,18 @@
  * Do not edit the class manually.
  */
 
-import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
-import { RoleResponseDto } from '../models/RoleResponseDto';
 import { HttpFile } from '../http/http';
 
-export class UserDetails {
-    'id': string;
+export class UserUpdatePayloadDto {
     'firstName': string;
     'lastName': string;
     'userName': string;
-    'userType': RoleResponseDto;
-    'interests': Array<InterestsPayloadDto>;
+    'interests': Array<string>;
     'email': string;
-    'createdAt': Date;
-    'updatedAt': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
-        {
-            "name": "id",
-            "baseName": "_id",
-            "type": "string",
-            "format": ""
-        },
         {
             "name": "firstName",
             "baseName": "firstName",
@@ -53,15 +41,9 @@ export class UserDetails {
             "format": ""
         },
         {
-            "name": "userType",
-            "baseName": "userType",
-            "type": "RoleResponseDto",
-            "format": ""
-        },
-        {
             "name": "interests",
             "baseName": "interests",
-            "type": "Array<InterestsPayloadDto>",
+            "type": "Array<string>",
             "format": ""
         },
         {
@@ -69,22 +51,10 @@ export class UserDetails {
             "baseName": "email",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
         }    ];
 
     static getAttributeTypeMap() {
-        return UserDetails.attributeTypeMap;
+        return UserUpdatePayloadDto.attributeTypeMap;
     }
 
     public constructor() {

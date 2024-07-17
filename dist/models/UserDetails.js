@@ -28,9 +28,21 @@ var UserDetails = (function () {
             "format": ""
         },
         {
+            "name": "userName",
+            "baseName": "userName",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "userType",
             "baseName": "userType",
             "type": "RoleResponseDto",
+            "format": ""
+        },
+        {
+            "name": "interests",
+            "baseName": "interests",
+            "type": "Array<InterestsPayloadDto>",
             "format": ""
         },
         {

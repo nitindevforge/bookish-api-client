@@ -1,15 +1,9 @@
-import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
-import { RoleResponseDto } from '../models/RoleResponseDto';
-export declare class UserDetails {
-    'id': string;
+export declare class UserUpdatePayloadDto {
     'firstName': string;
     'lastName': string;
     'userName': string;
-    'userType': RoleResponseDto;
-    'interests': Array<InterestsPayloadDto>;
+    'interests': Array<string>;
     'email': string;
-    'createdAt': Date;
-    'updatedAt': Date;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

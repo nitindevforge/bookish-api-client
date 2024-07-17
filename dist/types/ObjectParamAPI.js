@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectFriendsApi = exports.ObjectDefaultApi = exports.ObjectAuthApi = void 0;
+exports.ObjectUploadApi = exports.ObjectFriendsApi = exports.ObjectDefaultApi = exports.ObjectAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
@@ -24,6 +24,14 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerForgetPassword = function (param, options) {
         return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetInterestsWithHttpInfo(options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetInterests = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetInterests(options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerLoginWithHttpInfo = function (param, options) {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto, options).toPromise();
     };
@@ -43,6 +51,12 @@ var ObjectAuthApi = (function () {
     };
     ObjectAuthApi.prototype.authControllerUserRoleUpdate = function (param, options) {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (param, options) {
+        return this.api.authControllerUserUpdateWithHttpInfo(param.userUpdatePayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUserUpdate = function (param, options) {
+        return this.api.authControllerUserUpdate(param.userUpdatePayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (param, options) {
         return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadDto, options).toPromise();
@@ -85,4 +99,18 @@ var ObjectFriendsApi = (function () {
     return ObjectFriendsApi;
 }());
 exports.ObjectFriendsApi = ObjectFriendsApi;
+var ObservableAPI_4 = require("./ObservableAPI");
+var ObjectUploadApi = (function () {
+    function ObjectUploadApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_4.ObservableUploadApi(configuration, requestFactory, responseProcessor);
+    }
+    ObjectUploadApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (param, options) {
+        return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto, options).toPromise();
+    };
+    ObjectUploadApi.prototype.fileUploadControllerGetPreSignedURL = function (param, options) {
+        return this.api.fileUploadControllerGetPreSignedURL(param.fileUploadPayloadDto, options).toPromise();
+    };
+    return ObjectUploadApi;
+}());
+exports.ObjectUploadApi = ObjectUploadApi;
 //# sourceMappingURL=ObjectParamAPI.js.map

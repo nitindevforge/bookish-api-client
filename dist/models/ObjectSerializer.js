@@ -16,10 +16,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
 __exportStar(require("../models/FriendResponseDto"), exports);
+__exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
@@ -31,11 +33,14 @@ __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
+__exportStar(require("../models/UserUpdatePayloadDto"), exports);
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
 var FriendResponseDto_1 = require("../models/FriendResponseDto");
+var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
@@ -47,6 +52,7 @@ var UserDetails_1 = require("../models/UserDetails");
 var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
 var UserRolePayloadDto_1 = require("../models/UserRolePayloadDto");
+var UserUpdatePayloadDto_1 = require("../models/UserUpdatePayloadDto");
 var primitives = [
     "string",
     "boolean",
@@ -60,10 +66,12 @@ var primitives = [
 var enumsMap = new Set([]);
 var typeMap = {
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "FileUploadPayloadDto": FileUploadPayloadDto_1.FileUploadPayloadDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
     "FriendResponseDto": FriendResponseDto_1.FriendResponseDto,
+    "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
@@ -75,6 +83,7 @@ var typeMap = {
     "UserResponse": UserResponse_1.UserResponse,
     "UserResponseDto": UserResponseDto_1.UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto_1.UserRolePayloadDto,
+    "UserUpdatePayloadDto": UserUpdatePayloadDto_1.UserUpdatePayloadDto,
 };
 var parseMimeType = function (mimeType) {
     var _a = mimeType.split('/'), type = _a[0], subtype = _a[1];

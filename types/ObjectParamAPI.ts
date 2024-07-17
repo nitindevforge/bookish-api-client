@@ -2,10 +2,12 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendResponseDto } from '../models/FriendResponseDto';
+import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -17,6 +19,7 @@ import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 
 import { ObservableAuthApi } from "./ObservableAPI";
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
@@ -48,6 +51,9 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto
 }
 
+export interface AuthApiAuthControllerGetInterestsRequest {
+}
+
 export interface AuthApiAuthControllerLoginRequest {
     /**
      * 
@@ -67,6 +73,15 @@ export interface AuthApiAuthControllerUserRoleUpdateRequest {
      * @memberof AuthApiauthControllerUserRoleUpdate
      */
     userRolePayloadDto: UserRolePayloadDto
+}
+
+export interface AuthApiAuthControllerUserUpdateRequest {
+    /**
+     * 
+     * @type UserUpdatePayloadDto
+     * @memberof AuthApiauthControllerUserUpdate
+     */
+    userUpdatePayloadDto: UserUpdatePayloadDto
 }
 
 export interface AuthApiAuthControllerVerifyOtpRequest {
@@ -130,6 +145,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerGetInterestsWithHttpInfo(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetInterestsWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetInterests(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetInterests( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto,  options).toPromise();
     }
@@ -167,6 +196,20 @@ export class ObjectAuthApi {
      */
     public authControllerUserRoleUpdate(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserUpdateWithHttpInfo(param: AuthApiAuthControllerUserUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUserUpdateWithHttpInfo(param.userUpdatePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserUpdate(param: AuthApiAuthControllerUserUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUserUpdate(param.userUpdatePayloadDto,  options).toPromise();
     }
 
     /**
@@ -257,6 +300,41 @@ export class ObjectFriendsApi {
      */
     public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendResponseDto> {
         return this.api.friendControllerGetFriends(param.search, param.page, param.limit,  options).toPromise();
+    }
+
+}
+
+import { ObservableUploadApi } from "./ObservableAPI";
+import { UploadApiRequestFactory, UploadApiResponseProcessor} from "../apis/UploadApi";
+
+export interface UploadApiFileUploadControllerGetPreSignedURLRequest {
+    /**
+     * 
+     * @type FileUploadPayloadDto
+     * @memberof UploadApifileUploadControllerGetPreSignedURL
+     */
+    fileUploadPayloadDto: FileUploadPayloadDto
+}
+
+export class ObjectUploadApi {
+    private api: ObservableUploadApi
+
+    public constructor(configuration: Configuration, requestFactory?: UploadApiRequestFactory, responseProcessor?: UploadApiResponseProcessor) {
+        this.api = new ObservableUploadApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public fileUploadControllerGetPreSignedURLWithHttpInfo(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public fileUploadControllerGetPreSignedURL(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
+        return this.api.fileUploadControllerGetPreSignedURL(param.fileUploadPayloadDto,  options).toPromise();
     }
 
 }
