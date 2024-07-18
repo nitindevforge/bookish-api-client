@@ -6,7 +6,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
-import { FriendResponseDto } from '../models/FriendResponseDto';
+import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
@@ -292,14 +292,14 @@ export class ObjectFriendsApi {
     /**
      * @param param the request object
      */
-    public friendControllerGetFriendsWithHttpInfo(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<HttpInfo<FriendResponseDto>> {
+    public friendControllerGetFriendsWithHttpInfo(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
         return this.api.friendControllerGetFriendsWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendResponseDto> {
+    public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendsResponseDto> {
         return this.api.friendControllerGetFriends(param.search, param.page, param.limit,  options).toPromise();
     }
 

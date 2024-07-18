@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **friendControllerGetFriends**
-> FriendResponseDto friendControllerGetFriends()
+> FriendsResponseDto friendControllerGetFriends()
 
 
 ### Example
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**FriendResponseDto**
+**FriendsResponseDto**
 
 ### Authorization
 

@@ -7,7 +7,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
-import { FriendResponseDto } from '../models/FriendResponseDto';
+import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
@@ -364,7 +364,7 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendResponseDto>> {
+    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>> {
         const requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
 
         // build promise chain
@@ -388,8 +388,8 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendResponseDto> {
-        return this.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendResponseDto>) => apiResponse.data));
+    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendsResponseDto> {
+        return this.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendsResponseDto>) => apiResponse.data));
     }
 
 }

@@ -5,7 +5,7 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
-import { FriendResponseDto } from '../models/FriendResponseDto';
+import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -54,8 +54,8 @@ export declare class ObservableFriendsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendResponseDto>>;
-    friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendResponseDto>;
+    friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>>;
+    friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendsResponseDto>;
 }
 import { UploadApiRequestFactory, UploadApiResponseProcessor } from "../apis/UploadApi";
 export declare class ObservableUploadApi {

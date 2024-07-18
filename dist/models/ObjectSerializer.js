@@ -20,7 +20,7 @@ __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
-__exportStar(require("../models/FriendResponseDto"), exports);
+__exportStar(require("../models/FriendsResponseDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
@@ -40,7 +40,7 @@ var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
-var FriendResponseDto_1 = require("../models/FriendResponseDto");
+var FriendsResponseDto_1 = require("../models/FriendsResponseDto");
 var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
@@ -72,7 +72,7 @@ var typeMap = {
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
-    "FriendResponseDto": FriendResponseDto_1.FriendResponseDto,
+    "FriendsResponseDto": FriendsResponseDto_1.FriendsResponseDto,
     "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,

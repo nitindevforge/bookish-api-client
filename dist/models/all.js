@@ -19,7 +19,7 @@ __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
-__exportStar(require("../models/FriendResponseDto"), exports);
+__exportStar(require("../models/FriendsResponseDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);

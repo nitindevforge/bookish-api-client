@@ -8,7 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { FriendResponseDto } from '../models/FriendResponseDto';
+import { FriendsResponseDto } from '../models/FriendsResponseDto';
 
 /**
  * no description
@@ -75,13 +75,13 @@ export class FriendsApiResponseProcessor {
      * @params response Response returned by the server for a request to friendControllerGetFriends
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async friendControllerGetFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FriendResponseDto >> {
+     public async friendControllerGetFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FriendsResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FriendResponseDto = ObjectSerializer.deserialize(
+            const body: FriendsResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FriendResponseDto", ""
-            ) as FriendResponseDto;
+                "FriendsResponseDto", ""
+            ) as FriendsResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -90,10 +90,10 @@ export class FriendsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FriendResponseDto = ObjectSerializer.deserialize(
+            const body: FriendsResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FriendResponseDto", ""
-            ) as FriendResponseDto;
+                "FriendsResponseDto", ""
+            ) as FriendsResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

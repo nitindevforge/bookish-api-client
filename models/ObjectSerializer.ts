@@ -3,7 +3,7 @@ export * from '../models/FileUploadPayloadDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
-export * from '../models/FriendResponseDto';
+export * from '../models/FriendsResponseDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
@@ -24,7 +24,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
-import { FriendResponseDto } from '../models/FriendResponseDto';
+import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
@@ -61,7 +61,7 @@ let typeMap: {[index: string]: any} = {
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
-    "FriendResponseDto": FriendResponseDto,
+    "FriendsResponseDto": FriendsResponseDto,
     "InterestsPayloadDto": InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
