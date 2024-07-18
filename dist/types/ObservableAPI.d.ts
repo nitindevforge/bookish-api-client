@@ -30,8 +30,8 @@ export declare class ObservableAuthApi {
     authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
-    authControllerUserMeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
-    authControllerUserMe(_options?: Configuration): Observable<UserResponseDto>;
+    authControllerUserMeWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
+    authControllerUserMe(id: string, _options?: Configuration): Observable<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;

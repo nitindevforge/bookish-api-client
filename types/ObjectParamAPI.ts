@@ -66,6 +66,12 @@ export interface AuthApiAuthControllerLoginRequest {
 }
 
 export interface AuthApiAuthControllerUserMeRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AuthApiauthControllerUserMe
+     */
+    id: string
 }
 
 export interface AuthApiAuthControllerUserRoleUpdateRequest {
@@ -175,15 +181,15 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        return this.api.authControllerUserMeWithHttpInfo( options).toPromise();
+    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUserMeWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<UserResponseDto> {
-        return this.api.authControllerUserMe( options).toPromise();
+    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUserMe(param.id,  options).toPromise();
     }
 
     /**

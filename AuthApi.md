@@ -301,7 +301,10 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
-let body:any = {};
+let body:.AuthApiAuthControllerUserMeRequest = {
+  // string
+  id: "id_example",
+};
 
 apiInstance.authControllerUserMe(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -310,7 +313,10 @@ apiInstance.authControllerUserMe(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -319,7 +325,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -331,7 +337,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
-**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

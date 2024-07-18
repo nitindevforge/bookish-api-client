@@ -215,31 +215,30 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerUserMe = function (_options) {
+    AuthApiRequestFactory.prototype.authControllerUserMe = function (id, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (id === null || id === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerUserMe", "id");
+                        }
                         localVarPath = '/v1/auth/user';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        authMethod = _config.authMethods["bearer"];
-                        if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
-                        return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
+                        if (id !== undefined) {
+                            requestContext.setQueryParam("id", ObjectSerializer_1.ObjectSerializer.serialize(id, "string", ""));
+                        }
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
                     case 1:
                         _d.sent();
                         _d.label = 2;
-                    case 2:
-                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
-                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 4];
-                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
-                    case 3:
-                        _d.sent();
-                        _d.label = 4;
-                    case 4: return [2, requestContext];
+                    case 2: return [2, requestContext];
                 }
             });
         });
@@ -541,9 +540,6 @@ var AuthApiResponseProcessor = (function () {
                             "UserResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
-                        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
-                            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
-                        }
                         if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
                         _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
                         _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;

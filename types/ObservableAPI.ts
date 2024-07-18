@@ -184,9 +184,10 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param id 
      */
-    public authControllerUserMeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
-        const requestContextPromise = this.requestFactory.authControllerUserMe(_options);
+    public authControllerUserMeWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerUserMe(id, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -205,9 +206,10 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param id 
      */
-    public authControllerUserMe(_options?: Configuration): Observable<UserResponseDto> {
-        return this.authControllerUserMeWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
+    public authControllerUserMe(id: string, _options?: Configuration): Observable<UserResponseDto> {
+        return this.authControllerUserMeWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
     }
 
     /**

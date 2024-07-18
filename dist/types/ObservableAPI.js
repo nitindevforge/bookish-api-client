@@ -145,9 +145,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerLogin = function (loginPayloadDto, _options) {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
+    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserMe(_options);
+        var requestContextPromise = this.requestFactory.authControllerUserMe(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_11 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -169,8 +169,8 @@ var ObservableAuthApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserMe = function (_options) {
-        return this.authControllerUserMeWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserMe = function (id, _options) {
+        return this.authControllerUserMeWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
         var _this = this;
