@@ -22,6 +22,7 @@ models/FileUploadPayloadDto.ts
 models/ForgetPasswordEntityResponse.ts
 models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts
+models/FriendsResponse.ts
 models/FriendsResponseDto.ts
 models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts

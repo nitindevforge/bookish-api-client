@@ -12,13 +12,13 @@ var FriendsResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<UserDetails>",
+            "type": "FriendsResponse",
             "format": ""
         },
         {
-            "name": "count",
-            "baseName": "count",
-            "type": "number",
+            "name": "isSuccess",
+            "baseName": "isSuccess",
+            "type": "boolean",
             "format": ""
         }
     ];

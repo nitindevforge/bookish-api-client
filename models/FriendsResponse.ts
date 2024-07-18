@@ -10,31 +10,31 @@
  * Do not edit the class manually.
  */
 
-import { FriendsResponse } from '../models/FriendsResponse';
+import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
-export class FriendsResponseDto {
-    'data': FriendsResponse;
-    'isSuccess': boolean;
+export class FriendsResponse {
+    'users': Array<UserDetails>;
+    'count': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "FriendsResponse",
+            "name": "users",
+            "baseName": "users",
+            "type": "Array<UserDetails>",
             "format": ""
         },
         {
-            "name": "isSuccess",
-            "baseName": "isSuccess",
-            "type": "boolean",
+            "name": "count",
+            "baseName": "count",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return FriendsResponseDto.attributeTypeMap;
+        return FriendsResponse.attributeTypeMap;
     }
 
     public constructor() {

@@ -1,7 +1,7 @@
-import { FriendsResponse } from '../models/FriendsResponse';
-export declare class FriendsResponseDto {
-    'data': FriendsResponse;
-    'isSuccess': boolean;
+import { UserDetails } from '../models/UserDetails';
+export declare class FriendsResponse {
+    'users': Array<UserDetails>;
+    'count': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
