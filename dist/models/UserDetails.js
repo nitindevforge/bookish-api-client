@@ -34,6 +34,12 @@ var UserDetails = (function () {
             "format": ""
         },
         {
+            "name": "profile",
+            "baseName": "profile",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "userType",
             "baseName": "userType",
             "type": "RoleResponseDto",

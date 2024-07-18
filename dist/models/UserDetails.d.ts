@@ -5,6 +5,7 @@ export declare class UserDetails {
     'firstName': string;
     'lastName': string;
     'userName': string;
+    'profile': string;
     'userType': RoleResponseDto;
     'interests': Array<InterestsPayloadDto>;
     'email': string;

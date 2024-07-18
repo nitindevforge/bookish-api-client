@@ -19,6 +19,7 @@ export class UserDetails {
     'firstName': string;
     'lastName': string;
     'userName': string;
+    'profile': string;
     'userType': RoleResponseDto;
     'interests': Array<InterestsPayloadDto>;
     'email': string;
@@ -49,6 +50,12 @@ export class UserDetails {
         {
             "name": "userName",
             "baseName": "userName",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "profile",
+            "baseName": "profile",
             "type": "string",
             "format": ""
         },
