@@ -27,8 +27,10 @@ export declare class PromiseAuthApi {
     authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
-    authControllerUserMeWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
-    authControllerUserMe(id: string, _options?: Configuration): Promise<UserResponseDto>;
+    authControllerUserByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUserById(id: string, _options?: Configuration): Promise<UserResponseDto>;
+    authControllerUserMeWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUserMe(_options?: Configuration): Promise<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

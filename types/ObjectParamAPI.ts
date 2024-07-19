@@ -65,13 +65,16 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto
 }
 
-export interface AuthApiAuthControllerUserMeRequest {
+export interface AuthApiAuthControllerUserByIdRequest {
     /**
      * 
      * @type string
-     * @memberof AuthApiauthControllerUserMe
+     * @memberof AuthApiauthControllerUserById
      */
     id: string
+}
+
+export interface AuthApiAuthControllerUserMeRequest {
 }
 
 export interface AuthApiAuthControllerUserRoleUpdateRequest {
@@ -181,15 +184,29 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        return this.api.authControllerUserMeWithHttpInfo(param.id,  options).toPromise();
+    public authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUserByIdWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<UserResponseDto> {
-        return this.api.authControllerUserMe(param.id,  options).toPromise();
+    public authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUserById(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUserMeWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUserMe( options).toPromise();
     }
 
     /**

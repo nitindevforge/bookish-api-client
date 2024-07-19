@@ -18,7 +18,8 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    authControllerUserMe(id: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerUserById(id: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerUserMe(_options?: Configuration): Promise<RequestContext>;
     authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUserUpdate(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<RequestContext>;
@@ -29,6 +30,7 @@ export declare class AuthApiResponseProcessor {
     authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerGetInterestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUserByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserMeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;

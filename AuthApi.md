@@ -9,7 +9,8 @@ Method | HTTP request | Description
 [**authControllerForgetPassword**](AuthApi.md#authControllerForgetPassword) | **PUT** /v1/auth/forget-password | 
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
-[**authControllerUserMe**](AuthApi.md#authControllerUserMe) | **GET** /v1/auth/user | 
+[**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
+[**authControllerUserMe**](AuthApi.md#authControllerUserMe) | **GET** /v1/auth/user/me | 
 [**authControllerUserRoleUpdate**](AuthApi.md#authControllerUserRoleUpdate) | **PUT** /v1/auth/role | 
 [**authControllerUserUpdate**](AuthApi.md#authControllerUserUpdate) | **PUT** /v1/auth/user | 
 [**authControllerVerifyOtp**](AuthApi.md#authControllerVerifyOtp) | **PUT** /v1/auth/verify-otp | 
@@ -287,8 +288,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **authControllerUserMe**
-> UserResponseDto authControllerUserMe()
+# **authControllerUserById**
+> UserResponseDto authControllerUserById()
 
 
 ### Example
@@ -301,12 +302,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
-let body:.AuthApiAuthControllerUserMeRequest = {
+let body:.AuthApiAuthControllerUserByIdRequest = {
   // string
   id: "id_example",
 };
 
-apiInstance.authControllerUserMe(body).then((data:any) => {
+apiInstance.authControllerUserById(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -337,6 +338,54 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerUserMe**
+> UserResponseDto authControllerUserMe()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
+
+let body:any = {};
+
+apiInstance.authControllerUserMe(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**UserResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

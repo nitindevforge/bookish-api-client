@@ -145,9 +145,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerLogin = function (loginPayloadDto, _options) {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (id, _options) {
+    ObservableAuthApi.prototype.authControllerUserByIdWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserMe(id, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserById(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_11 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -166,15 +166,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_12(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserByIdWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserMe = function (id, _options) {
-        return this.authControllerUserMeWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserById = function (id, _options) {
+        return this.authControllerUserByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserMe(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_13 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -193,15 +193,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_14(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
-        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserMe = function (_options) {
+        return this.authControllerUserMeWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (userUpdatePayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserUpdate(userUpdatePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_15 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -220,15 +220,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_16(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserUpdate = function (userUpdatePayloadDto, _options) {
-        return this.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
+        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (userUpdatePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserUpdate(userUpdatePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_17 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -246,6 +246,33 @@ var ObservableAuthApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_18(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserUpdateWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableAuthApi.prototype.authControllerUserUpdate = function (userUpdatePayloadDto, _options) {
+        return this.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_19 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_19(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_20 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_20(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerVerifyOtpWithHttpInfo(rsp); }));
         }));
@@ -267,22 +294,22 @@ var ObservableDefaultApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.appControllerGetHello(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_19 = function (middleware) {
+        var _loop_21 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_19(middleware);
+            _loop_21(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_20 = function (middleware) {
+            var _loop_22 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_20(middleware);
+                _loop_22(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.appControllerGetHelloWithHttpInfo(rsp); }));
         }));
@@ -304,22 +331,22 @@ var ObservableFriendsApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_21 = function (middleware) {
+        var _loop_23 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_21(middleware);
+            _loop_23(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_22 = function (middleware) {
+            var _loop_24 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_22(middleware);
+                _loop_24(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp); }));
         }));
@@ -341,22 +368,22 @@ var ObservableUploadApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_23 = function (middleware) {
+        var _loop_25 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_23(middleware);
+            _loop_25(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_24 = function (middleware) {
+            var _loop_26 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_24(middleware);
+                _loop_26(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));
