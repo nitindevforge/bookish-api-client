@@ -25,6 +25,9 @@ export class UserDetails {
     'email': string;
     'followers': Array<string>;
     'following': Array<string>;
+    'follower': Array<string>;
+    'followingCount': number;
+    'followerCount': number;
     'createdAt': Date;
     'updatedAt': Date;
 
@@ -89,6 +92,24 @@ export class UserDetails {
             "name": "following",
             "baseName": "following",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "follower",
+            "baseName": "follower",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "followingCount",
+            "baseName": "followingCount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "followerCount",
+            "baseName": "followerCount",
+            "type": "number",
             "format": ""
         },
         {
