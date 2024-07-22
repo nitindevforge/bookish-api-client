@@ -34,6 +34,12 @@ var UserUpdatePayloadDto = (function () {
             "format": ""
         },
         {
+            "name": "isFollow",
+            "baseName": "isFollow",
+            "type": "boolean",
+            "format": ""
+        },
+        {
             "name": "email",
             "baseName": "email",
             "type": "string",

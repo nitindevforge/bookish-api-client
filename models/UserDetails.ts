@@ -24,6 +24,7 @@ export class UserDetails {
     'interests': Array<InterestsPayloadDto>;
     'email': string;
     'followers': Array<string>;
+    'following': Array<string>;
     'createdAt': Date;
     'updatedAt': Date;
 
@@ -81,6 +82,12 @@ export class UserDetails {
         {
             "name": "followers",
             "baseName": "followers",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "following",
+            "baseName": "following",
             "type": "Array<string>",
             "format": ""
         },

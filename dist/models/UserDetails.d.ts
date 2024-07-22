@@ -10,6 +10,7 @@ export declare class UserDetails {
     'interests': Array<InterestsPayloadDto>;
     'email': string;
     'followers': Array<string>;
+    'following': Array<string>;
     'createdAt': Date;
     'updatedAt': Date;
     static readonly discriminator: string | undefined;
