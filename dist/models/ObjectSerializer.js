@@ -17,6 +17,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/FileUploadPayloadDto"), exports);
+__exportStar(require("../models/FollowerPayloadDto"), exports);
+__exportStar(require("../models/FollowerResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
@@ -38,6 +40,8 @@ __exportStar(require("../models/UserRolePayloadDto"), exports);
 __exportStar(require("../models/UserUpdatePayloadDto"), exports);
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
+var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
+var FollowerResponseDto_1 = require("../models/FollowerResponseDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
@@ -71,6 +75,8 @@ var enumsMap = new Set([]);
 var typeMap = {
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
     "FileUploadPayloadDto": FileUploadPayloadDto_1.FileUploadPayloadDto,
+    "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
+    "FollowerResponseDto": FollowerResponseDto_1.FollowerResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,

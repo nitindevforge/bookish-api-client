@@ -3,6 +3,8 @@ import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
+import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -49,6 +51,17 @@ export declare class ObservableDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Observable<void>;
+}
+import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
+export declare class ObservableFollowerApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
+    followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export declare class ObservableFriendsApi {

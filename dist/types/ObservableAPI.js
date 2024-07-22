@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableUploadApi = exports.ObservableFriendsApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
+exports.ObservableUploadApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
 var rxjsStub_1 = require("../rxjsStub");
 var rxjsStub_2 = require("../rxjsStub");
 var AuthApi_1 = require("../apis/AuthApi");
@@ -320,16 +320,16 @@ var ObservableDefaultApi = (function () {
     return ObservableDefaultApi;
 }());
 exports.ObservableDefaultApi = ObservableDefaultApi;
-var FriendsApi_1 = require("../apis/FriendsApi");
-var ObservableFriendsApi = (function () {
-    function ObservableFriendsApi(configuration, requestFactory, responseProcessor) {
+var FollowerApi_1 = require("../apis/FollowerApi");
+var ObservableFollowerApi = (function () {
+    function ObservableFollowerApi(configuration, requestFactory, responseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
+        this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
     }
-    ObservableFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (search, page, limit, _options) {
+    ObservableFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
+        var requestContextPromise = this.requestFactory.followerControllerFollowing(followerPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_23 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -347,6 +347,70 @@ var ObservableFriendsApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_24(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowingWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableFollowerApi.prototype.followerControllerFollowing = function (followerPayloadDto, _options) {
+        return this.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableFollowerApi.prototype.followerControllerUnFollowWithHttpInfo = function (followerPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.followerControllerUnFollow(followerPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_25 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_25(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_26 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_26(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerUnFollowWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableFollowerApi.prototype.followerControllerUnFollow = function (followerPayloadDto, _options) {
+        return this.followerControllerUnFollowWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    return ObservableFollowerApi;
+}());
+exports.ObservableFollowerApi = ObservableFollowerApi;
+var FriendsApi_1 = require("../apis/FriendsApi");
+var ObservableFriendsApi = (function () {
+    function ObservableFriendsApi(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
+    }
+    ObservableFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (search, page, limit, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_27 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_27(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_28 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_28(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp); }));
         }));
@@ -368,22 +432,22 @@ var ObservableUploadApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_25 = function (middleware) {
+        var _loop_29 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_25(middleware);
+            _loop_29(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_26 = function (middleware) {
+            var _loop_30 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_26(middleware);
+                _loop_30(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));

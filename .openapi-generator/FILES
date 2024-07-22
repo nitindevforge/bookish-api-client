@@ -1,11 +1,13 @@
 .gitignore
 AuthApi.md
 DefaultApi.md
+FollowerApi.md
 FriendsApi.md
 README.md
 UploadApi.md
 apis/AuthApi.ts
 apis/DefaultApi.ts
+apis/FollowerApi.ts
 apis/FriendsApi.ts
 apis/UploadApi.ts
 apis/baseapi.ts
@@ -19,6 +21,8 @@ index.ts
 middleware.ts
 models/ChangePayloadDto.ts
 models/FileUploadPayloadDto.ts
+models/FollowerPayloadDto.ts
+models/FollowerResponseDto.ts
 models/ForgetPasswordEntityResponse.ts
 models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts

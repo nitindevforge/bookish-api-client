@@ -2,6 +2,8 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
+import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -74,6 +76,21 @@ export declare class ObjectDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<HttpInfo<void>>;
     appControllerGetHello(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<void>;
+}
+import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
+export interface FollowerApiFollowerControllerFollowingRequest {
+    followerPayloadDto: FollowerPayloadDto;
+}
+export interface FollowerApiFollowerControllerUnFollowRequest {
+    followerPayloadDto: FollowerPayloadDto;
+}
+export declare class ObjectFollowerApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnFollow(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export interface FriendsApiFriendControllerGetFriendsRequest {

@@ -2,6 +2,8 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
+import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -44,6 +46,15 @@ export declare class PromiseDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Promise<void>;
+}
+import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
+export declare class PromiseFollowerApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export declare class PromiseFriendsApi {

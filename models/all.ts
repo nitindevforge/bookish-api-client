@@ -1,5 +1,7 @@
 export * from '../models/ChangePayloadDto'
 export * from '../models/FileUploadPayloadDto'
+export * from '../models/FollowerPayloadDto'
+export * from '../models/FollowerResponseDto'
 export * from '../models/ForgetPasswordEntityResponse'
 export * from '../models/ForgetPasswordEntityResponseDto'
 export * from '../models/ForgetPasswordPayloadDto'

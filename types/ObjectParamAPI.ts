@@ -3,6 +3,8 @@ import { Configuration} from '../configuration'
 
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
+import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -278,6 +280,64 @@ export class ObjectDefaultApi {
      */
     public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<void> {
         return this.api.appControllerGetHello( options).toPromise();
+    }
+
+}
+
+import { ObservableFollowerApi } from "./ObservableAPI";
+import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
+
+export interface FollowerApiFollowerControllerFollowingRequest {
+    /**
+     * 
+     * @type FollowerPayloadDto
+     * @memberof FollowerApifollowerControllerFollowing
+     */
+    followerPayloadDto: FollowerPayloadDto
+}
+
+export interface FollowerApiFollowerControllerUnFollowRequest {
+    /**
+     * 
+     * @type FollowerPayloadDto
+     * @memberof FollowerApifollowerControllerUnFollow
+     */
+    followerPayloadDto: FollowerPayloadDto
+}
+
+export class ObjectFollowerApi {
+    private api: ObservableFollowerApi
+
+    public constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor) {
+        this.api = new ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        return this.api.followerControllerFollowingWithHttpInfo(param.followerPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto> {
+        return this.api.followerControllerFollowing(param.followerPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        return this.api.followerControllerUnFollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerUnFollow(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
+        return this.api.followerControllerUnFollow(param.followerPayloadDto,  options).toPromise();
     }
 
 }
