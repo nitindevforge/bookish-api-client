@@ -9,6 +9,7 @@ export declare class UserDetails {
     'userType': RoleResponseDto;
     'interests': Array<InterestsPayloadDto>;
     'email': string;
+    'followers': Array<string>;
     'createdAt': Date;
     'updatedAt': Date;
     static readonly discriminator: string | undefined;

@@ -23,6 +23,7 @@ export class UserDetails {
     'userType': RoleResponseDto;
     'interests': Array<InterestsPayloadDto>;
     'email': string;
+    'followers': Array<string>;
     'createdAt': Date;
     'updatedAt': Date;
 
@@ -75,6 +76,12 @@ export class UserDetails {
             "name": "email",
             "baseName": "email",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "followers",
+            "baseName": "followers",
+            "type": "Array<string>",
             "format": ""
         },
         {

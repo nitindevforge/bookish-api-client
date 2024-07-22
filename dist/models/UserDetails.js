@@ -58,6 +58,12 @@ var UserDetails = (function () {
             "format": ""
         },
         {
+            "name": "followers",
+            "baseName": "followers",
+            "type": "Array<string>",
+            "format": ""
+        },
+        {
             "name": "createdAt",
             "baseName": "createdAt",
             "type": "Date",
