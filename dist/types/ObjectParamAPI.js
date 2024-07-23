@@ -136,6 +136,12 @@ var ObjectPaymentApi = (function () {
     ObjectPaymentApi.prototype.stripeControllerCreatePaymentIntent = function (param, options) {
         return this.api.stripeControllerCreatePaymentIntent(param.stripePayloadDto, options).toPromise();
     };
+    ObjectPaymentApi.prototype.stripeControllerDeleteCardDetailsWithHttpInfo = function (param, options) {
+        return this.api.stripeControllerDeleteCardDetailsWithHttpInfo(param.stripeCardDeletePayloadDto, options).toPromise();
+    };
+    ObjectPaymentApi.prototype.stripeControllerDeleteCardDetails = function (param, options) {
+        return this.api.stripeControllerDeleteCardDetails(param.stripeCardDeletePayloadDto, options).toPromise();
+    };
     ObjectPaymentApi.prototype.stripeControllerGetCardListWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.stripeControllerGetCardListWithHttpInfo(options).toPromise();

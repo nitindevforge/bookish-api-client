@@ -48,6 +48,7 @@ models/PasswordChangeResponseDto.ts
 models/PermissionResponseDto.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
+models/StripeCardDeletePayloadDto.ts
 models/StripePayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts

@@ -27,6 +27,7 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -360,6 +361,22 @@ export class PromisePaymentApi {
      */
     public stripeControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
         const result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param stripeCardDeletePayloadDto 
+     */
+    public stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        const result = this.api.stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param stripeCardDeletePayloadDto 
+     */
+    public stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Promise<CardListResponseDto> {
+        const result = this.api.stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto, _options);
         return result.toPromise();
     }
 

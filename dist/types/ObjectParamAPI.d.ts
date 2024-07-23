@@ -13,6 +13,7 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -111,6 +112,9 @@ import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/P
 export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
     stripePayloadDto: StripePayloadDto;
 }
+export interface PaymentApiStripeControllerDeleteCardDetailsRequest {
+    stripeCardDeletePayloadDto: StripeCardDeletePayloadDto;
+}
 export interface PaymentApiStripeControllerGetCardListRequest {
 }
 export declare class ObjectPaymentApi {
@@ -118,6 +122,8 @@ export declare class ObjectPaymentApi {
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
     stripeControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
     stripeControllerCreatePaymentIntent(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto>;
+    stripeControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
+    stripeControllerDeleteCardDetails(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
     stripeControllerGetCardListWithHttpInfo(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     stripeControllerGetCardList(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
 }

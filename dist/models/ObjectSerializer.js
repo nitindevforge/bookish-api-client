@@ -41,6 +41,7 @@ __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
+__exportStar(require("../models/StripeCardDeletePayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
@@ -75,6 +76,7 @@ var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto")
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
+var StripeCardDeletePayloadDto_1 = require("../models/StripeCardDeletePayloadDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
@@ -121,6 +123,7 @@ var typeMap = {
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
+    "StripeCardDeletePayloadDto": StripeCardDeletePayloadDto_1.StripeCardDeletePayloadDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,

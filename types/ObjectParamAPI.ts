@@ -27,6 +27,7 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -412,6 +413,15 @@ export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
     stripePayloadDto: StripePayloadDto
 }
 
+export interface PaymentApiStripeControllerDeleteCardDetailsRequest {
+    /**
+     * 
+     * @type StripeCardDeletePayloadDto
+     * @memberof PaymentApistripeControllerDeleteCardDetails
+     */
+    stripeCardDeletePayloadDto: StripeCardDeletePayloadDto
+}
+
 export interface PaymentApiStripeControllerGetCardListRequest {
 }
 
@@ -434,6 +444,20 @@ export class ObjectPaymentApi {
      */
     public stripeControllerCreatePaymentIntent(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
         return this.api.stripeControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        return this.api.stripeControllerDeleteCardDetailsWithHttpInfo(param.stripeCardDeletePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerDeleteCardDetails(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
+        return this.api.stripeControllerDeleteCardDetails(param.stripeCardDeletePayloadDto,  options).toPromise();
     }
 
     /**

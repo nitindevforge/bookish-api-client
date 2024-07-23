@@ -158,6 +158,14 @@ var PromisePaymentApi = (function () {
         var result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
         return result.toPromise();
     };
+    PromisePaymentApi.prototype.stripeControllerDeleteCardDetailsWithHttpInfo = function (stripeCardDeletePayloadDto, _options) {
+        var result = this.api.stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.stripeControllerDeleteCardDetails = function (stripeCardDeletePayloadDto, _options) {
+        var result = this.api.stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto, _options);
+        return result.toPromise();
+    };
     PromisePaymentApi.prototype.stripeControllerGetCardListWithHttpInfo = function (_options) {
         var result = this.api.stripeControllerGetCardListWithHttpInfo(_options);
         return result.toPromise();

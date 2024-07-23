@@ -14,6 +14,7 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -83,6 +84,8 @@ export declare class ObservablePaymentApi {
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
     stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>>;
     stripeControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<StripeResponseDto>;
+    stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
+    stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Observable<CardListResponseDto>;
     stripeControllerGetCardListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     stripeControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto>;
 }
