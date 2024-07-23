@@ -1,3 +1,11 @@
+export * from '../models/Address';
+export * from '../models/BillingDetails';
+export * from '../models/Card';
+export * from '../models/CardChecks';
+export * from '../models/CardList';
+export * from '../models/CardListResponseDto';
+export * from '../models/CardNetwork';
+export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
 export * from '../models/FileUploadPayloadDto';
 export * from '../models/FollowerPayloadDto';
@@ -16,12 +24,23 @@ export * from '../models/PasswordChangeResponseDto';
 export * from '../models/PermissionResponseDto';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
+export * from '../models/StripePayloadDto';
+export * from '../models/StripeResponse';
+export * from '../models/StripeResponseDto';
 export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
 export * from '../models/UserUpdatePayloadDto';
 
+import { Address } from '../models/Address';
+import { BillingDetails } from '../models/BillingDetails';
+import { Card } from '../models/Card';
+import { CardChecks } from '../models/CardChecks';
+import { CardList } from '../models/CardList';
+import { CardListResponseDto } from '../models/CardListResponseDto';
+import { CardNetwork } from '../models/CardNetwork';
+import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -40,6 +59,9 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripeResponse } from '../models/StripeResponse';
+import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -62,6 +84,14 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "Address": Address,
+    "BillingDetails": BillingDetails,
+    "Card": Card,
+    "CardChecks": CardChecks,
+    "CardList": CardList,
+    "CardListResponseDto": CardListResponseDto,
+    "CardNetwork": CardNetwork,
+    "CardSecure": CardSecure,
     "ChangePayloadDto": ChangePayloadDto,
     "FileUploadPayloadDto": FileUploadPayloadDto,
     "FollowerPayloadDto": FollowerPayloadDto,
@@ -80,6 +110,9 @@ let typeMap: {[index: string]: any} = {
     "PermissionResponseDto": PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
+    "StripePayloadDto": StripePayloadDto,
+    "StripeResponse": StripeResponse,
+    "StripeResponseDto": StripeResponseDto,
     "UserDetails": UserDetails,
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,

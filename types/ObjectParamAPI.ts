@@ -1,6 +1,14 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
+import { Address } from '../models/Address';
+import { BillingDetails } from '../models/BillingDetails';
+import { Card } from '../models/Card';
+import { CardChecks } from '../models/CardChecks';
+import { CardList } from '../models/CardList';
+import { CardListResponseDto } from '../models/CardListResponseDto';
+import { CardNetwork } from '../models/CardNetwork';
+import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -19,6 +27,9 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripeResponse } from '../models/StripeResponse';
+import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -385,6 +396,58 @@ export class ObjectFriendsApi {
      */
     public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendsResponseDto> {
         return this.api.friendControllerGetFriends(param.search, param.page, param.limit,  options).toPromise();
+    }
+
+}
+
+import { ObservablePaymentApi } from "./ObservableAPI";
+import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
+
+export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
+    /**
+     * 
+     * @type StripePayloadDto
+     * @memberof PaymentApistripeControllerCreatePaymentIntent
+     */
+    stripePayloadDto: StripePayloadDto
+}
+
+export interface PaymentApiStripeControllerGetCardListRequest {
+}
+
+export class ObjectPaymentApi {
+    private api: ObservablePaymentApi
+
+    public constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor) {
+        this.api = new ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        return this.api.stripeControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerCreatePaymentIntent(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
+        return this.api.stripeControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerGetCardListWithHttpInfo(param: PaymentApiStripeControllerGetCardListRequest = {}, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        return this.api.stripeControllerGetCardListWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public stripeControllerGetCardList(param: PaymentApiStripeControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
+        return this.api.stripeControllerGetCardList( options).toPromise();
     }
 
 }

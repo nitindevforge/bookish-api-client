@@ -15,6 +15,14 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ObjectSerializer = void 0;
+__exportStar(require("../models/Address"), exports);
+__exportStar(require("../models/BillingDetails"), exports);
+__exportStar(require("../models/Card"), exports);
+__exportStar(require("../models/CardChecks"), exports);
+__exportStar(require("../models/CardList"), exports);
+__exportStar(require("../models/CardListResponseDto"), exports);
+__exportStar(require("../models/CardNetwork"), exports);
+__exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
@@ -33,11 +41,22 @@ __exportStar(require("../models/PasswordChangeResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
+__exportStar(require("../models/StripePayloadDto"), exports);
+__exportStar(require("../models/StripeResponse"), exports);
+__exportStar(require("../models/StripeResponseDto"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
 __exportStar(require("../models/UserUpdatePayloadDto"), exports);
+var Address_1 = require("../models/Address");
+var BillingDetails_1 = require("../models/BillingDetails");
+var Card_1 = require("../models/Card");
+var CardChecks_1 = require("../models/CardChecks");
+var CardList_1 = require("../models/CardList");
+var CardListResponseDto_1 = require("../models/CardListResponseDto");
+var CardNetwork_1 = require("../models/CardNetwork");
+var CardSecure_1 = require("../models/CardSecure");
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
@@ -56,6 +75,9 @@ var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto")
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
+var StripePayloadDto_1 = require("../models/StripePayloadDto");
+var StripeResponse_1 = require("../models/StripeResponse");
+var StripeResponseDto_1 = require("../models/StripeResponseDto");
 var UserDetails_1 = require("../models/UserDetails");
 var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
@@ -73,6 +95,14 @@ var primitives = [
 ];
 var enumsMap = new Set([]);
 var typeMap = {
+    "Address": Address_1.Address,
+    "BillingDetails": BillingDetails_1.BillingDetails,
+    "Card": Card_1.Card,
+    "CardChecks": CardChecks_1.CardChecks,
+    "CardList": CardList_1.CardList,
+    "CardListResponseDto": CardListResponseDto_1.CardListResponseDto,
+    "CardNetwork": CardNetwork_1.CardNetwork,
+    "CardSecure": CardSecure_1.CardSecure,
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
     "FileUploadPayloadDto": FileUploadPayloadDto_1.FileUploadPayloadDto,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
@@ -91,6 +121,9 @@ var typeMap = {
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
+    "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
+    "StripeResponse": StripeResponse_1.StripeResponse,
+    "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
     "UserDetails": UserDetails_1.UserDetails,
     "UserResponse": UserResponse_1.UserResponse,
     "UserResponseDto": UserResponseDto_1.UserResponseDto,

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseUploadApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
+exports.PromiseUploadApi = exports.PromisePaymentApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var PromiseAuthApi = (function () {
     function PromiseAuthApi(configuration, requestFactory, responseProcessor) {
@@ -146,9 +146,33 @@ var PromiseFriendsApi = (function () {
 }());
 exports.PromiseFriendsApi = PromiseFriendsApi;
 var ObservableAPI_5 = require("./ObservableAPI");
+var PromisePaymentApi = (function () {
+    function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_5.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+    PromisePaymentApi.prototype.stripeControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
+        var result = this.api.stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.stripeControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+        var result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.stripeControllerGetCardListWithHttpInfo = function (_options) {
+        var result = this.api.stripeControllerGetCardListWithHttpInfo(_options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.stripeControllerGetCardList = function (_options) {
+        var result = this.api.stripeControllerGetCardList(_options);
+        return result.toPromise();
+    };
+    return PromisePaymentApi;
+}());
+exports.PromisePaymentApi = PromisePaymentApi;
+var ObservableAPI_6 = require("./ObservableAPI");
 var PromiseUploadApi = (function () {
     function PromiseUploadApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableUploadApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableUploadApi(configuration, requestFactory, responseProcessor);
     }
     PromiseUploadApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
         var result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);

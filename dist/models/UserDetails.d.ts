@@ -11,7 +11,6 @@ export declare class UserDetails {
     'email': string;
     'followers': Array<string>;
     'following': Array<string>;
-    'follower': Array<string>;
     'followingCount': number;
     'followerCount': number;
     'createdAt': Date;

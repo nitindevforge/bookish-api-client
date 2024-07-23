@@ -1,6 +1,14 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
 import { Configuration} from '../configuration'
 
+import { Address } from '../models/Address';
+import { BillingDetails } from '../models/BillingDetails';
+import { Card } from '../models/Card';
+import { CardChecks } from '../models/CardChecks';
+import { CardList } from '../models/CardList';
+import { CardListResponseDto } from '../models/CardListResponseDto';
+import { CardNetwork } from '../models/CardNetwork';
+import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -19,6 +27,9 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripeResponse } from '../models/StripeResponse';
+import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -314,6 +325,55 @@ export class PromiseFriendsApi {
      */
     public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<FriendsResponseDto> {
         const result = this.api.friendControllerGetFriends(search, page, limit, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservablePaymentApi } from './ObservableAPI';
+
+import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
+export class PromisePaymentApi {
+    private api: ObservablePaymentApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: PaymentApiRequestFactory,
+        responseProcessor?: PaymentApiResponseProcessor
+    ) {
+        this.api = new ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param stripePayloadDto 
+     */
+    public stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        const result = this.api.stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param stripePayloadDto 
+     */
+    public stripeControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+        const result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public stripeControllerGetCardListWithHttpInfo(_options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        const result = this.api.stripeControllerGetCardListWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public stripeControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
+        const result = this.api.stripeControllerGetCardList(_options);
         return result.toPromise();
     }
 
