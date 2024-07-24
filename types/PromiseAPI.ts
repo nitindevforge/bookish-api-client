@@ -13,6 +13,7 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
+import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -248,18 +249,18 @@ export class PromiseDefaultApi {
 
 
 
-import { ObservableEventApi } from './ObservableAPI';
+import { ObservableEventsApi } from './ObservableAPI';
 
-import { EventApiRequestFactory, EventApiResponseProcessor} from "../apis/EventApi";
-export class PromiseEventApi {
-    private api: ObservableEventApi
+import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
+export class PromiseEventsApi {
+    private api: ObservableEventsApi
 
     public constructor(
         configuration: Configuration,
-        requestFactory?: EventApiRequestFactory,
-        responseProcessor?: EventApiResponseProcessor
+        requestFactory?: EventsApiRequestFactory,
+        responseProcessor?: EventsApiResponseProcessor
     ) {
-        this.api = new ObservableEventApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
@@ -279,34 +280,36 @@ export class PromiseEventApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public eventControllerGetEventsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        const result = this.api.eventControllerGetEventsWithHttpInfo(_options);
+    public eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        const result = this.api.eventControllerGetEventsWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public eventControllerGetEvents(_options?: Configuration): Promise<EventsResponseDto> {
-        const result = this.api.eventControllerGetEvents(_options);
+    public eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
+        const result = this.api.eventControllerGetEvents(page, limit, _options);
         return result.toPromise();
     }
 
     /**
-     * @param id 
      * @param eventPayloadDto 
      */
-    public eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
-        const result = this.api.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options);
+    public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        const result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param id 
      * @param eventPayloadDto 
      */
-    public eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
-        const result = this.api.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+    public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
+        const result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
         return result.toPromise();
     }
 

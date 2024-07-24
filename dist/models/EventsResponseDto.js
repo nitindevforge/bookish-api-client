@@ -12,7 +12,7 @@ var EventsResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Events>",
+            "type": "EventsList",
             "format": ""
         },
         {

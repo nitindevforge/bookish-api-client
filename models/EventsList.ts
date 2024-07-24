@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { EventsList } from '../models/EventsList';
+import { Events } from '../models/Events';
 import { HttpFile } from '../http/http';
 
-export class EventsResponseDto {
-    'data': EventsList;
-    'isSuccess': boolean;
+export class EventsList {
+    'data': Array<Events>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,18 +22,12 @@ export class EventsResponseDto {
         {
             "name": "data",
             "baseName": "data",
-            "type": "EventsList",
-            "format": ""
-        },
-        {
-            "name": "isSuccess",
-            "baseName": "isSuccess",
-            "type": "boolean",
+            "type": "Array<Events>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return EventsResponseDto.attributeTypeMap;
+        return EventsList.attributeTypeMap;
     }
 
     public constructor() {

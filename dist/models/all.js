@@ -26,6 +26,7 @@ __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
+__exportStar(require("../models/EventsList"), exports);
 __exportStar(require("../models/EventsResponseDto"), exports);
 __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);

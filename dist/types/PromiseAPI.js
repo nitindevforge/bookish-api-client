@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseUploadApi = exports.PromisePaymentApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseEventApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
+exports.PromiseUploadApi = exports.PromisePaymentApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseEventsApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var PromiseAuthApi = (function () {
     function PromiseAuthApi(configuration, requestFactory, responseProcessor) {
@@ -106,37 +106,37 @@ var PromiseDefaultApi = (function () {
 }());
 exports.PromiseDefaultApi = PromiseDefaultApi;
 var ObservableAPI_3 = require("./ObservableAPI");
-var PromiseEventApi = (function () {
-    function PromiseEventApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableEventApi(configuration, requestFactory, responseProcessor);
+var PromiseEventsApi = (function () {
+    function PromiseEventsApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseEventApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
+    PromiseEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
         var result = this.api.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+    PromiseEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventApi.prototype.eventControllerGetEventsWithHttpInfo = function (_options) {
-        var result = this.api.eventControllerGetEventsWithHttpInfo(_options);
+    PromiseEventsApi.prototype.eventControllerGetEventsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerGetEventsWithHttpInfo(page, limit, _options);
         return result.toPromise();
     };
-    PromiseEventApi.prototype.eventControllerGetEvents = function (_options) {
-        var result = this.api.eventControllerGetEvents(_options);
+    PromiseEventsApi.prototype.eventControllerGetEvents = function (page, limit, _options) {
+        var result = this.api.eventControllerGetEvents(page, limit, _options);
         return result.toPromise();
     };
-    PromiseEventApi.prototype.eventControllerUpdateEventWithHttpInfo = function (id, eventPayloadDto, _options) {
-        var result = this.api.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventApi.prototype.eventControllerUpdateEvent = function (id, eventPayloadDto, _options) {
-        var result = this.api.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerUpdateEvent = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
-    return PromiseEventApi;
+    return PromiseEventsApi;
 }());
-exports.PromiseEventApi = PromiseEventApi;
+exports.PromiseEventsApi = PromiseEventsApi;
 var ObservableAPI_4 = require("./ObservableAPI");
 var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {

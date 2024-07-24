@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableUploadApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableEventApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
+exports.ObservableUploadApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableEventsApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
 var rxjsStub_1 = require("../rxjsStub");
 var rxjsStub_2 = require("../rxjsStub");
 var AuthApi_1 = require("../apis/AuthApi");
@@ -320,14 +320,14 @@ var ObservableDefaultApi = (function () {
     return ObservableDefaultApi;
 }());
 exports.ObservableDefaultApi = ObservableDefaultApi;
-var EventApi_1 = require("../apis/EventApi");
-var ObservableEventApi = (function () {
-    function ObservableEventApi(configuration, requestFactory, responseProcessor) {
+var EventsApi_1 = require("../apis/EventsApi");
+var ObservableEventsApi = (function () {
+    function ObservableEventsApi(configuration, requestFactory, responseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new EventApi_1.EventApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new EventApi_1.EventApiResponseProcessor();
+        this.requestFactory = requestFactory || new EventsApi_1.EventsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new EventsApi_1.EventsApiResponseProcessor();
     }
-    ObservableEventApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
         var _this = this;
         var requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
@@ -351,12 +351,12 @@ var ObservableEventApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
         return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventApi.prototype.eventControllerGetEventsWithHttpInfo = function (_options) {
+    ObservableEventsApi.prototype.eventControllerGetEventsWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerGetEvents(_options);
+        var requestContextPromise = this.requestFactory.eventControllerGetEvents(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_25 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -378,12 +378,12 @@ var ObservableEventApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerGetEventsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventApi.prototype.eventControllerGetEvents = function (_options) {
-        return this.eventControllerGetEventsWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerGetEvents = function (page, limit, _options) {
+        return this.eventControllerGetEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventApi.prototype.eventControllerUpdateEventWithHttpInfo = function (id, eventPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (eventPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerUpdateEvent(eventPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_27 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -405,12 +405,12 @@ var ObservableEventApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerUpdateEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventApi.prototype.eventControllerUpdateEvent = function (id, eventPayloadDto, _options) {
-        return this.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerUpdateEvent = function (eventPayloadDto, _options) {
+        return this.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    return ObservableEventApi;
+    return ObservableEventsApi;
 }());
-exports.ObservableEventApi = ObservableEventApi;
+exports.ObservableEventsApi = ObservableEventsApi;
 var FollowerApi_1 = require("../apis/FollowerApi");
 var ObservableFollowerApi = (function () {
     function ObservableFollowerApi(configuration, requestFactory, responseProcessor) {

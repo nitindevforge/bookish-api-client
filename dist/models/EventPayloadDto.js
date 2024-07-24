@@ -44,6 +44,12 @@ var EventPayloadDto = (function () {
             "baseName": "description",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
+            "format": ""
         }
     ];
     return EventPayloadDto;

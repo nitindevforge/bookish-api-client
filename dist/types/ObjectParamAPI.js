@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectUploadApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventApi = exports.ObjectDefaultApi = exports.ObjectAuthApi = void 0;
+exports.ObjectUploadApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
@@ -90,33 +90,33 @@ var ObjectDefaultApi = (function () {
 }());
 exports.ObjectDefaultApi = ObjectDefaultApi;
 var ObservableAPI_3 = require("./ObservableAPI");
-var ObjectEventApi = (function () {
-    function ObjectEventApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableEventApi(configuration, requestFactory, responseProcessor);
+var ObjectEventsApi = (function () {
+    function ObjectEventsApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectEventApi.prototype.eventControllerCreateEventWithHttpInfo = function (param, options) {
+    ObjectEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
     };
-    ObjectEventApi.prototype.eventControllerCreateEvent = function (param, options) {
+    ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
-    ObjectEventApi.prototype.eventControllerGetEventsWithHttpInfo = function (param, options) {
+    ObjectEventsApi.prototype.eventControllerGetEventsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.eventControllerGetEventsWithHttpInfo(options).toPromise();
+        return this.api.eventControllerGetEventsWithHttpInfo(param.page, param.limit, options).toPromise();
     };
-    ObjectEventApi.prototype.eventControllerGetEvents = function (param, options) {
+    ObjectEventsApi.prototype.eventControllerGetEvents = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.eventControllerGetEvents(options).toPromise();
+        return this.api.eventControllerGetEvents(param.page, param.limit, options).toPromise();
     };
-    ObjectEventApi.prototype.eventControllerUpdateEventWithHttpInfo = function (param, options) {
-        return this.api.eventControllerUpdateEventWithHttpInfo(param.id, param.eventPayloadDto, options).toPromise();
+    ObjectEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
     };
-    ObjectEventApi.prototype.eventControllerUpdateEvent = function (param, options) {
-        return this.api.eventControllerUpdateEvent(param.id, param.eventPayloadDto, options).toPromise();
+    ObjectEventsApi.prototype.eventControllerUpdateEvent = function (param, options) {
+        return this.api.eventControllerUpdateEvent(param.eventPayloadDto, options).toPromise();
     };
-    return ObjectEventApi;
+    return ObjectEventsApi;
 }());
-exports.ObjectEventApi = ObjectEventApi;
+exports.ObjectEventsApi = ObjectEventsApi;
 var ObservableAPI_4 = require("./ObservableAPI");
 var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {

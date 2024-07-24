@@ -19,6 +19,7 @@ export class EventPayloadDto {
     'time': string;
     'price': number;
     'description': string;
+    'id'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -56,6 +57,12 @@ export class EventPayloadDto {
         {
             "name": "description",
             "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "_id",
             "type": "string",
             "format": ""
         }    ];

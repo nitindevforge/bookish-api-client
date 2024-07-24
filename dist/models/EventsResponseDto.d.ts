@@ -1,6 +1,6 @@
-import { Events } from '../models/Events';
+import { EventsList } from '../models/EventsList';
 export declare class EventsResponseDto {
-    'data': Array<Events>;
+    'data': EventsList;
     'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

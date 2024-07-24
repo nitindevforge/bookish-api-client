@@ -27,6 +27,7 @@ __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
+__exportStar(require("../models/EventsList"), exports);
 __exportStar(require("../models/EventsResponseDto"), exports);
 __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
@@ -66,6 +67,7 @@ var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var EventPayloadDto_1 = require("../models/EventPayloadDto");
 var EventResponseDto_1 = require("../models/EventResponseDto");
 var Events_1 = require("../models/Events");
+var EventsList_1 = require("../models/EventsList");
 var EventsResponseDto_1 = require("../models/EventsResponseDto");
 var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
@@ -117,6 +119,7 @@ var typeMap = {
     "EventPayloadDto": EventPayloadDto_1.EventPayloadDto,
     "EventResponseDto": EventResponseDto_1.EventResponseDto,
     "Events": Events_1.Events,
+    "EventsList": EventsList_1.EventsList,
     "EventsResponseDto": EventsResponseDto_1.EventsResponseDto,
     "FileUploadPayloadDto": FileUploadPayloadDto_1.FileUploadPayloadDto,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,

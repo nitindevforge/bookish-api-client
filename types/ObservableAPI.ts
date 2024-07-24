@@ -14,6 +14,7 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
+import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -391,20 +392,20 @@ export class ObservableDefaultApi {
 
 }
 
-import { EventApiRequestFactory, EventApiResponseProcessor} from "../apis/EventApi";
-export class ObservableEventApi {
-    private requestFactory: EventApiRequestFactory;
-    private responseProcessor: EventApiResponseProcessor;
+import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
+export class ObservableEventsApi {
+    private requestFactory: EventsApiRequestFactory;
+    private responseProcessor: EventsApiResponseProcessor;
     private configuration: Configuration;
 
     public constructor(
         configuration: Configuration,
-        requestFactory?: EventApiRequestFactory,
-        responseProcessor?: EventApiResponseProcessor
+        requestFactory?: EventsApiRequestFactory,
+        responseProcessor?: EventsApiResponseProcessor
     ) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new EventApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new EventApiResponseProcessor();
+        this.requestFactory = requestFactory || new EventsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new EventsApiResponseProcessor();
     }
 
     /**
@@ -437,9 +438,11 @@ export class ObservableEventApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public eventControllerGetEventsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerGetEvents(_options);
+    public eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerGetEvents(page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -458,17 +461,18 @@ export class ObservableEventApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public eventControllerGetEvents(_options?: Configuration): Observable<EventsResponseDto> {
-        return this.eventControllerGetEventsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
+    public eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto> {
+        return this.eventControllerGetEventsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
     }
 
     /**
-     * @param id 
      * @param eventPayloadDto 
      */
-    public eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+    public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerUpdateEvent(eventPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -487,11 +491,10 @@ export class ObservableEventApi {
     }
 
     /**
-     * @param id 
      * @param eventPayloadDto 
      */
-    public eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
-        return this.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
+    public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
+        return this.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
     }
 
 }

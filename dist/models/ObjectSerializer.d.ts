@@ -10,6 +10,7 @@ export * from '../models/ChangePayloadDto';
 export * from '../models/EventPayloadDto';
 export * from '../models/EventResponseDto';
 export * from '../models/Events';
+export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadPayloadDto';
 export * from '../models/FollowerPayloadDto';

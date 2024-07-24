@@ -10,6 +10,7 @@ export * from '../models/ChangePayloadDto';
 export * from '../models/EventPayloadDto';
 export * from '../models/EventResponseDto';
 export * from '../models/Events';
+export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadPayloadDto';
 export * from '../models/FollowerPayloadDto';
@@ -50,6 +51,7 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
+import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
@@ -106,6 +108,7 @@ let typeMap: {[index: string]: any} = {
     "EventPayloadDto": EventPayloadDto,
     "EventResponseDto": EventResponseDto,
     "Events": Events,
+    "EventsList": EventsList,
     "EventsResponseDto": EventsResponseDto,
     "FileUploadPayloadDto": FileUploadPayloadDto,
     "FollowerPayloadDto": FollowerPayloadDto,
