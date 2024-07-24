@@ -10,8 +10,8 @@ var EventPayloadDto = (function () {
     EventPayloadDto.discriminator = undefined;
     EventPayloadDto.attributeTypeMap = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "name1",
+            "baseName": "name1",
             "type": "string",
             "format": ""
         },

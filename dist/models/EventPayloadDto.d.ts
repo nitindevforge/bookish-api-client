@@ -1,5 +1,5 @@
 export declare class EventPayloadDto {
-    'name': string;
+    'name1': string;
     'image': string;
     'date': Date;
     'time': string;

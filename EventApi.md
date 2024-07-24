@@ -26,7 +26,7 @@ const apiInstance = new .EventApi(configuration);
 let body:.EventApiEventControllerCreateEventRequest = {
   // EventPayloadDto
   eventPayloadDto: {
-    name: "name_example",
+    name1: "name1_example",
     image: "image_example",
     date: new Date('1970-01-01T00:00:00.00Z'),
     time: "time_example",
@@ -137,7 +137,7 @@ let body:.EventApiEventControllerUpdateEventRequest = {
   id: null,
   // EventPayloadDto
   eventPayloadDto: {
-    name: "name_example",
+    name1: "name1_example",
     image: "image_example",
     date: new Date('1970-01-01T00:00:00.00Z'),
     time: "time_example",

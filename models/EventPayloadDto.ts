@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class EventPayloadDto {
-    'name': string;
+    'name1': string;
     'image': string;
     'date': Date;
     'time': string;
@@ -24,8 +24,8 @@ export class EventPayloadDto {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "name1",
+            "baseName": "name1",
             "type": "string",
             "format": ""
         },
