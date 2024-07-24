@@ -108,7 +108,7 @@ var EventsApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        localVarPath = '/v1/events';
+                        localVarPath = '/v1/event';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (page !== undefined) {
