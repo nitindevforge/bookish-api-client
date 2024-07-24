@@ -17,7 +17,6 @@ export class UserUpdatePayloadDto {
     'lastName': string;
     'userName': string;
     'interests': Array<string>;
-    'isFollow': boolean;
     'email': string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -45,12 +44,6 @@ export class UserUpdatePayloadDto {
             "name": "interests",
             "baseName": "interests",
             "type": "Array<string>",
-            "format": ""
-        },
-        {
-            "name": "isFollow",
-            "baseName": "isFollow",
-            "type": "boolean",
             "format": ""
         },
         {

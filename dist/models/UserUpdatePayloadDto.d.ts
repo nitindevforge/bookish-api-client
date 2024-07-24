@@ -3,7 +3,6 @@ export declare class UserUpdatePayloadDto {
     'lastName': string;
     'userName': string;
     'interests': Array<string>;
-    'isFollow': boolean;
     'email': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

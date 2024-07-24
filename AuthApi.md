@@ -468,7 +468,6 @@ let body:.AuthApiAuthControllerUserUpdateRequest = {
     interests: [
       "interests_example",
     ],
-    isFollow: true,
     email: "email_example",
   },
 };
