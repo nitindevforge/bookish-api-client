@@ -2,6 +2,9 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -50,6 +53,17 @@ export declare class PromiseDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Promise<void>;
+}
+import { EventApiRequestFactory, EventApiResponseProcessor } from "../apis/EventApi";
+export declare class PromiseEventApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: EventApiRequestFactory, responseProcessor?: EventApiResponseProcessor);
+    eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(_options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class PromiseFollowerApi {

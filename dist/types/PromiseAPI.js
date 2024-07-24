@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseUploadApi = exports.PromisePaymentApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
+exports.PromiseUploadApi = exports.PromisePaymentApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseEventApi = exports.PromiseDefaultApi = exports.PromiseAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var PromiseAuthApi = (function () {
     function PromiseAuthApi(configuration, requestFactory, responseProcessor) {
@@ -106,9 +106,41 @@ var PromiseDefaultApi = (function () {
 }());
 exports.PromiseDefaultApi = PromiseDefaultApi;
 var ObservableAPI_3 = require("./ObservableAPI");
+var PromiseEventApi = (function () {
+    function PromiseEventApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_3.ObservableEventApi(configuration, requestFactory, responseProcessor);
+    }
+    PromiseEventApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseEventApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseEventApi.prototype.eventControllerGetEventsWithHttpInfo = function (_options) {
+        var result = this.api.eventControllerGetEventsWithHttpInfo(_options);
+        return result.toPromise();
+    };
+    PromiseEventApi.prototype.eventControllerGetEvents = function (_options) {
+        var result = this.api.eventControllerGetEvents(_options);
+        return result.toPromise();
+    };
+    PromiseEventApi.prototype.eventControllerUpdateEventWithHttpInfo = function (id, eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseEventApi.prototype.eventControllerUpdateEvent = function (id, eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+        return result.toPromise();
+    };
+    return PromiseEventApi;
+}());
+exports.PromiseEventApi = PromiseEventApi;
+var ObservableAPI_4 = require("./ObservableAPI");
 var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_4.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
     PromiseFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
         var result = this.api.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options);
@@ -129,10 +161,10 @@ var PromiseFollowerApi = (function () {
     return PromiseFollowerApi;
 }());
 exports.PromiseFollowerApi = PromiseFollowerApi;
-var ObservableAPI_4 = require("./ObservableAPI");
+var ObservableAPI_5 = require("./ObservableAPI");
 var PromiseFriendsApi = (function () {
     function PromiseFriendsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
     PromiseFriendsApi.prototype.friendControllerGetFriendsWithHttpInfo = function (search, page, limit, _options) {
         var result = this.api.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options);
@@ -145,10 +177,10 @@ var PromiseFriendsApi = (function () {
     return PromiseFriendsApi;
 }());
 exports.PromiseFriendsApi = PromiseFriendsApi;
-var ObservableAPI_5 = require("./ObservableAPI");
+var ObservableAPI_6 = require("./ObservableAPI");
 var PromisePaymentApi = (function () {
     function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
     PromisePaymentApi.prototype.stripeControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
         var result = this.api.stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
@@ -177,10 +209,10 @@ var PromisePaymentApi = (function () {
     return PromisePaymentApi;
 }());
 exports.PromisePaymentApi = PromisePaymentApi;
-var ObservableAPI_6 = require("./ObservableAPI");
+var ObservableAPI_7 = require("./ObservableAPI");
 var PromiseUploadApi = (function () {
     function PromiseUploadApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableUploadApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableUploadApi(configuration, requestFactory, responseProcessor);
     }
     PromiseUploadApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
         var result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableUploadApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
+exports.ObservableUploadApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableEventApi = exports.ObservableDefaultApi = exports.ObservableAuthApi = void 0;
 var rxjsStub_1 = require("../rxjsStub");
 var rxjsStub_2 = require("../rxjsStub");
 var AuthApi_1 = require("../apis/AuthApi");
@@ -320,16 +320,16 @@ var ObservableDefaultApi = (function () {
     return ObservableDefaultApi;
 }());
 exports.ObservableDefaultApi = ObservableDefaultApi;
-var FollowerApi_1 = require("../apis/FollowerApi");
-var ObservableFollowerApi = (function () {
-    function ObservableFollowerApi(configuration, requestFactory, responseProcessor) {
+var EventApi_1 = require("../apis/EventApi");
+var ObservableEventApi = (function () {
+    function ObservableEventApi(configuration, requestFactory, responseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
+        this.requestFactory = requestFactory || new EventApi_1.EventApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new EventApi_1.EventApiResponseProcessor();
     }
-    ObservableFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
+    ObservableEventApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerFollowing(followerPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_23 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -348,15 +348,15 @@ var ObservableFollowerApi = (function () {
                 var middleware = _a[_i];
                 _loop_24(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowingWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFollowerApi.prototype.followerControllerFollowing = function (followerPayloadDto, _options) {
-        return this.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableFollowerApi.prototype.followerControllerUnFollowWithHttpInfo = function (followerPayloadDto, _options) {
+    ObservableEventApi.prototype.eventControllerGetEventsWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerUnFollow(followerPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerGetEvents(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_25 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -374,6 +374,97 @@ var ObservableFollowerApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_26(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerGetEventsWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableEventApi.prototype.eventControllerGetEvents = function (_options) {
+        return this.eventControllerGetEventsWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableEventApi.prototype.eventControllerUpdateEventWithHttpInfo = function (id, eventPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_27 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_27(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_28 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_28(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerUpdateEventWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableEventApi.prototype.eventControllerUpdateEvent = function (id, eventPayloadDto, _options) {
+        return this.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    return ObservableEventApi;
+}());
+exports.ObservableEventApi = ObservableEventApi;
+var FollowerApi_1 = require("../apis/FollowerApi");
+var ObservableFollowerApi = (function () {
+    function ObservableFollowerApi(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
+    }
+    ObservableFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.followerControllerFollowing(followerPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_29 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_29(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_30 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_30(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowingWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableFollowerApi.prototype.followerControllerFollowing = function (followerPayloadDto, _options) {
+        return this.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableFollowerApi.prototype.followerControllerUnFollowWithHttpInfo = function (followerPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.followerControllerUnFollow(followerPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_31 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_31(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_32 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_32(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerUnFollowWithHttpInfo(rsp); }));
         }));
@@ -395,22 +486,22 @@ var ObservableFriendsApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_27 = function (middleware) {
+        var _loop_33 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_27(middleware);
+            _loop_33(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_28 = function (middleware) {
+            var _loop_34 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_28(middleware);
+                _loop_34(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp); }));
         }));
@@ -432,22 +523,22 @@ var ObservablePaymentApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_29 = function (middleware) {
+        var _loop_35 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_29(middleware);
+            _loop_35(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_30 = function (middleware) {
+            var _loop_36 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_30(middleware);
+                _loop_36(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.stripeControllerCreatePaymentIntentWithHttpInfo(rsp); }));
         }));
@@ -459,22 +550,22 @@ var ObservablePaymentApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_31 = function (middleware) {
+        var _loop_37 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_31(middleware);
+            _loop_37(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_32 = function (middleware) {
+            var _loop_38 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_32(middleware);
+                _loop_38(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.stripeControllerDeleteCardDetailsWithHttpInfo(rsp); }));
         }));
@@ -486,22 +577,22 @@ var ObservablePaymentApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.stripeControllerGetCardList(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_33 = function (middleware) {
+        var _loop_39 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_33(middleware);
+            _loop_39(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_34 = function (middleware) {
+            var _loop_40 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_34(middleware);
+                _loop_40(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.stripeControllerGetCardListWithHttpInfo(rsp); }));
         }));
@@ -523,22 +614,22 @@ var ObservableUploadApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_35 = function (middleware) {
+        var _loop_41 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_35(middleware);
+            _loop_41(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_36 = function (middleware) {
+            var _loop_42 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_36(middleware);
+                _loop_42(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));

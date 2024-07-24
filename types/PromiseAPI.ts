@@ -10,6 +10,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { Events } from '../models/Events';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -236,6 +240,73 @@ export class PromiseDefaultApi {
      */
     public appControllerGetHello(_options?: Configuration): Promise<void> {
         const result = this.api.appControllerGetHello(_options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableEventApi } from './ObservableAPI';
+
+import { EventApiRequestFactory, EventApiResponseProcessor} from "../apis/EventApi";
+export class PromiseEventApi {
+    private api: ObservableEventApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: EventApiRequestFactory,
+        responseProcessor?: EventApiResponseProcessor
+    ) {
+        this.api = new ObservableEventApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        const result = this.api.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
+        const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public eventControllerGetEventsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        const result = this.api.eventControllerGetEventsWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public eventControllerGetEvents(_options?: Configuration): Promise<EventsResponseDto> {
+        const result = this.api.eventControllerGetEvents(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        const result = this.api.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
+        const result = this.api.eventControllerUpdateEvent(id, eventPayloadDto, _options);
         return result.toPromise();
     }
 

@@ -11,6 +11,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { Events } from '../models/Events';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -383,6 +387,111 @@ export class ObservableDefaultApi {
      */
     public appControllerGetHello(_options?: Configuration): Observable<void> {
         return this.appControllerGetHelloWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+}
+
+import { EventApiRequestFactory, EventApiResponseProcessor} from "../apis/EventApi";
+export class ObservableEventApi {
+    private requestFactory: EventApiRequestFactory;
+    private responseProcessor: EventApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: EventApiRequestFactory,
+        responseProcessor?: EventApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new EventApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new EventApiResponseProcessor();
+    }
+
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
+        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     */
+    public eventControllerGetEventsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerGetEvents(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerGetEventsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public eventControllerGetEvents(_options?: Configuration): Observable<EventsResponseDto> {
+        return this.eventControllerGetEventsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param id 
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerUpdateEvent(id, eventPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerUpdateEventWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param id 
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
+        return this.eventControllerUpdateEventWithHttpInfo(id, eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
     }
 
 }

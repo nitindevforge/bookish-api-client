@@ -3,6 +3,9 @@ import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -55,6 +58,19 @@ export declare class ObservableDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Observable<void>;
+}
+import { EventApiRequestFactory, EventApiResponseProcessor } from "../apis/EventApi";
+export declare class ObservableEventApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: EventApiRequestFactory, responseProcessor?: EventApiResponseProcessor);
+    eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
+    eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(_options?: Configuration): Observable<EventsResponseDto>;
+    eventControllerUpdateEventWithHttpInfo(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
+    eventControllerUpdateEvent(id: any, eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class ObservableFollowerApi {

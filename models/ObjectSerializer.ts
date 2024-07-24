@@ -7,6 +7,10 @@ export * from '../models/CardListResponseDto';
 export * from '../models/CardNetwork';
 export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
+export * from '../models/EventPayloadDto';
+export * from '../models/EventResponseDto';
+export * from '../models/Events';
+export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadPayloadDto';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
@@ -43,6 +47,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { Events } from '../models/Events';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -95,6 +103,10 @@ let typeMap: {[index: string]: any} = {
     "CardNetwork": CardNetwork,
     "CardSecure": CardSecure,
     "ChangePayloadDto": ChangePayloadDto,
+    "EventPayloadDto": EventPayloadDto,
+    "EventResponseDto": EventResponseDto,
+    "Events": Events,
+    "EventsResponseDto": EventsResponseDto,
     "FileUploadPayloadDto": FileUploadPayloadDto,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,

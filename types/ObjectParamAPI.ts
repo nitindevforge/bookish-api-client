@@ -10,6 +10,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { Events } from '../models/Events';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -292,6 +296,87 @@ export class ObjectDefaultApi {
      */
     public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<void> {
         return this.api.appControllerGetHello( options).toPromise();
+    }
+
+}
+
+import { ObservableEventApi } from "./ObservableAPI";
+import { EventApiRequestFactory, EventApiResponseProcessor} from "../apis/EventApi";
+
+export interface EventApiEventControllerCreateEventRequest {
+    /**
+     * 
+     * @type EventPayloadDto
+     * @memberof EventApieventControllerCreateEvent
+     */
+    eventPayloadDto: EventPayloadDto
+}
+
+export interface EventApiEventControllerGetEventsRequest {
+}
+
+export interface EventApiEventControllerUpdateEventRequest {
+    /**
+     * 
+     * @type any
+     * @memberof EventApieventControllerUpdateEvent
+     */
+    id: any
+    /**
+     * 
+     * @type EventPayloadDto
+     * @memberof EventApieventControllerUpdateEvent
+     */
+    eventPayloadDto: EventPayloadDto
+}
+
+export class ObjectEventApi {
+    private api: ObservableEventApi
+
+    public constructor(configuration: Configuration, requestFactory?: EventApiRequestFactory, responseProcessor?: EventApiResponseProcessor) {
+        this.api = new ObservableEventApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerCreateEventWithHttpInfo(param: EventApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerCreateEvent(param: EventApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto> {
+        return this.api.eventControllerCreateEvent(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerGetEventsWithHttpInfo(param: EventApiEventControllerGetEventsRequest = {}, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        return this.api.eventControllerGetEventsWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerGetEvents(param: EventApiEventControllerGetEventsRequest = {}, options?: Configuration): Promise<EventsResponseDto> {
+        return this.api.eventControllerGetEvents( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerUpdateEventWithHttpInfo(param: EventApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        return this.api.eventControllerUpdateEventWithHttpInfo(param.id, param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerUpdateEvent(param: EventApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto> {
+        return this.api.eventControllerUpdateEvent(param.id, param.eventPayloadDto,  options).toPromise();
     }
 
 }

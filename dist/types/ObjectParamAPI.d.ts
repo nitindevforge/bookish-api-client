@@ -2,6 +2,9 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventPayloadDto } from '../models/EventPayloadDto';
+import { EventResponseDto } from '../models/EventResponseDto';
+import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -80,6 +83,26 @@ export declare class ObjectDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<HttpInfo<void>>;
     appControllerGetHello(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<void>;
+}
+import { EventApiRequestFactory, EventApiResponseProcessor } from "../apis/EventApi";
+export interface EventApiEventControllerCreateEventRequest {
+    eventPayloadDto: EventPayloadDto;
+}
+export interface EventApiEventControllerGetEventsRequest {
+}
+export interface EventApiEventControllerUpdateEventRequest {
+    id: any;
+    eventPayloadDto: EventPayloadDto;
+}
+export declare class ObjectEventApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: EventApiRequestFactory, responseProcessor?: EventApiResponseProcessor);
+    eventControllerCreateEventWithHttpInfo(param: EventApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerCreateEvent(param: EventApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(param?: EventApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(param?: EventApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerUpdateEventWithHttpInfo(param: EventApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerUpdateEvent(param: EventApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export interface FollowerApiFollowerControllerFollowingRequest {

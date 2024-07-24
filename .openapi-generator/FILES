@@ -1,6 +1,7 @@
 .gitignore
 AuthApi.md
 DefaultApi.md
+EventApi.md
 FollowerApi.md
 FriendsApi.md
 PaymentApi.md
@@ -8,6 +9,7 @@ README.md
 UploadApi.md
 apis/AuthApi.ts
 apis/DefaultApi.ts
+apis/EventApi.ts
 apis/FollowerApi.ts
 apis/FriendsApi.ts
 apis/PaymentApi.ts
@@ -30,6 +32,10 @@ models/CardListResponseDto.ts
 models/CardNetwork.ts
 models/CardSecure.ts
 models/ChangePayloadDto.ts
+models/EventPayloadDto.ts
+models/EventResponseDto.ts
+models/Events.ts
+models/EventsResponseDto.ts
 models/FileUploadPayloadDto.ts
 models/FollowerPayloadDto.ts
 models/FollowerResponseDto.ts
