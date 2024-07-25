@@ -14,7 +14,7 @@ import { Follower } from '../models/Follower';
 import { HttpFile } from '../http/http';
 
 export class Suggestion {
-    'data': Follower;
+    'data': Array<Follower>;
     'count': number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class Suggestion {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Follower",
+            "type": "Array<Follower>",
             "format": ""
         },
         {
