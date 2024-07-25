@@ -16,6 +16,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
@@ -330,6 +331,20 @@ export class PromiseFollowerApi {
         responseProcessor?: FollowerApiResponseProcessor
     ) {
         this.api = new ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     */
+    public followerControllerFollowerSuggestionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        const result = this.api.followerControllerFollowerSuggestionWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public followerControllerFollowerSuggestion(_options?: Configuration): Promise<FollowerResponseDto> {
+        const result = this.api.followerControllerFollowerSuggestion(_options);
+        return result.toPromise();
     }
 
     /**

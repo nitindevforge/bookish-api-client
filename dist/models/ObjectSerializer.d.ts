@@ -13,6 +13,7 @@ export * from '../models/Events';
 export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadPayloadDto';
+export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
 export * from '../models/ForgetPasswordEntityResponse';

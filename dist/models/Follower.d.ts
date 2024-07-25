@@ -1,7 +1,8 @@
-import { Follower } from '../models/Follower';
-export declare class FollowerResponseDto {
-    'data': Follower;
-    'isSuccess': boolean;
+export declare class Follower {
+    'follower': string;
+    'following': string;
+    'createdAt': string;
+    'updatedAt': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

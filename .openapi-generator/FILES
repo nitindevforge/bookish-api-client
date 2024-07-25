@@ -38,6 +38,7 @@ models/Events.ts
 models/EventsList.ts
 models/EventsResponseDto.ts
 models/FileUploadPayloadDto.ts
+models/Follower.ts
 models/FollowerPayloadDto.ts
 models/FollowerResponseDto.ts
 models/ForgetPasswordEntityResponse.ts

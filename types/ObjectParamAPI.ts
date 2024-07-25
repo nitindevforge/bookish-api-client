@@ -16,6 +16,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
@@ -391,6 +392,9 @@ export class ObjectEventsApi {
 import { ObservableFollowerApi } from "./ObservableAPI";
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
 
+export interface FollowerApiFollowerControllerFollowerSuggestionRequest {
+}
+
 export interface FollowerApiFollowerControllerFollowingRequest {
     /**
      * 
@@ -414,6 +418,20 @@ export class ObjectFollowerApi {
 
     public constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor) {
         this.api = new ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFollowerSuggestionWithHttpInfo(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        return this.api.followerControllerFollowerSuggestionWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFollowerSuggestion(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<FollowerResponseDto> {
+        return this.api.followerControllerFollowerSuggestion( options).toPromise();
     }
 
     /**

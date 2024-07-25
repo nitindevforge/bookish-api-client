@@ -106,6 +106,8 @@ export declare class ObjectEventsApi {
     eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
+export interface FollowerApiFollowerControllerFollowerSuggestionRequest {
+}
 export interface FollowerApiFollowerControllerFollowingRequest {
     followerPayloadDto: FollowerPayloadDto;
 }
@@ -115,6 +117,8 @@ export interface FollowerApiFollowerControllerUnFollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFollowerSuggestionWithHttpInfo(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollowerSuggestion(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

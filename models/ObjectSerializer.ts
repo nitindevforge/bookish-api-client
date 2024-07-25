@@ -13,6 +13,7 @@ export * from '../models/Events';
 export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadPayloadDto';
+export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
 export * from '../models/ForgetPasswordEntityResponse';
@@ -54,6 +55,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
@@ -111,6 +113,7 @@ let typeMap: {[index: string]: any} = {
     "EventsList": EventsList,
     "EventsResponseDto": EventsResponseDto,
     "FileUploadPayloadDto": FileUploadPayloadDto,
+    "Follower": Follower,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
