@@ -12,7 +12,7 @@ var FollowerSuggestionResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Suggestion",
+            "type": "Array<Suggestion>",
             "format": ""
         },
         {

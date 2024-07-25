@@ -14,7 +14,7 @@ import { Suggestion } from '../models/Suggestion';
 import { HttpFile } from '../http/http';
 
 export class FollowerSuggestionResponseDto {
-    'data': Suggestion;
+    'data': Array<Suggestion>;
     'isSuccess': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class FollowerSuggestionResponseDto {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Suggestion",
+            "type": "Array<Suggestion>",
             "format": ""
         },
         {
