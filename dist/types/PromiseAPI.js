@@ -30,6 +30,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.authControllerGetActivityWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetActivity = function (page, limit, _options) {
+        var result = this.api.authControllerGetActivity(page, limit, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {
         var result = this.api.authControllerGetInterestsWithHttpInfo(_options);
         return result.toPromise();
@@ -142,14 +150,6 @@ var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_4.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseFollowerApi.prototype.followerControllerFollowerSuggestion = function (page, limit, _options) {
-        var result = this.api.followerControllerFollowerSuggestion(page, limit, _options);
-        return result.toPromise();
-    };
     PromiseFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
         var result = this.api.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options);
         return result.toPromise();

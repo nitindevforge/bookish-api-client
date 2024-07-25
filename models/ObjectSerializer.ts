@@ -1,3 +1,6 @@
+export * from '../models/Activity';
+export * from '../models/ActivityResponse';
+export * from '../models/ActivityResponseDto';
 export * from '../models/Address';
 export * from '../models/BillingDetails';
 export * from '../models/Card';
@@ -16,8 +19,6 @@ export * from '../models/FileUploadPayloadDto';
 export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
-export * from '../models/FollowerSuggestion';
-export * from '../models/FollowerSuggestionResponseDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
@@ -36,13 +37,15 @@ export * from '../models/StripeCardDeletePayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
-export * from '../models/Suggestion';
 export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
 export * from '../models/UserUpdatePayloadDto';
 
+import { Activity } from '../models/Activity';
+import { ActivityResponse } from '../models/ActivityResponse';
+import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
 import { BillingDetails } from '../models/BillingDetails';
 import { Card } from '../models/Card';
@@ -61,8 +64,6 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { FollowerSuggestion } from '../models/FollowerSuggestion';
-import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -81,7 +82,6 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -104,6 +104,9 @@ let enumsMap: Set<string> = new Set<string>([
 ]);
 
 let typeMap: {[index: string]: any} = {
+    "Activity": Activity,
+    "ActivityResponse": ActivityResponse,
+    "ActivityResponseDto": ActivityResponseDto,
     "Address": Address,
     "BillingDetails": BillingDetails,
     "Card": Card,
@@ -122,8 +125,6 @@ let typeMap: {[index: string]: any} = {
     "Follower": Follower,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,
-    "FollowerSuggestion": FollowerSuggestion,
-    "FollowerSuggestionResponseDto": FollowerSuggestionResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
@@ -142,7 +143,6 @@ let typeMap: {[index: string]: any} = {
     "StripePayloadDto": StripePayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
-    "Suggestion": Suggestion,
     "UserDetails": UserDetails,
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,

@@ -1,5 +1,6 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
+import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -8,7 +9,6 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -33,6 +33,8 @@ export declare class PromiseAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -70,8 +72,6 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis
 export declare class PromiseFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<FollowerSuggestionResponseDto>>;
-    followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Promise<FollowerSuggestionResponseDto>;
     followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

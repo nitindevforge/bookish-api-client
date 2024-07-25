@@ -2,6 +2,9 @@ import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/htt
 import { Configuration} from '../configuration'
 import { Observable, of, from } from '../rxjsStub';
 import {mergeMap, map} from  '../rxjsStub';
+import { Activity } from '../models/Activity';
+import { ActivityResponse } from '../models/ActivityResponse';
+import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
 import { BillingDetails } from '../models/BillingDetails';
 import { Card } from '../models/Card';
@@ -20,8 +23,6 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { FollowerSuggestion } from '../models/FollowerSuggestion';
-import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -40,7 +41,6 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -148,6 +148,37 @@ export class ObservableAuthApi {
      */
     public authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto> {
         return this.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options).pipe(map((apiResponse: HttpInfo<ForgetPasswordEntityResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerGetActivityWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Observable<ActivityResponseDto> {
+        return this.authControllerGetActivityWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -517,37 +548,6 @@ export class ObservableFollowerApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApiResponseProcessor();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FollowerSuggestionResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerFollowerSuggestion(page, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerFollowerSuggestionWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Observable<FollowerSuggestionResponseDto> {
-        return this.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<FollowerSuggestionResponseDto>) => apiResponse.data));
     }
 
     /**

@@ -1,5 +1,6 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
+import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -8,7 +9,6 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -32,6 +32,10 @@ export interface AuthApiAuthControllerCreateUserRequest {
 }
 export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto;
+}
+export interface AuthApiAuthControllerGetActivityRequest {
+    page?: number;
+    limit?: number;
 }
 export interface AuthApiAuthControllerGetInterestsRequest {
 }
@@ -61,6 +65,8 @@ export declare class ObjectAuthApi {
     authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
+    authControllerGetActivityWithHttpInfo(param?: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(param?: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -107,10 +113,6 @@ export declare class ObjectEventsApi {
     eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
-export interface FollowerApiFollowerControllerFollowerSuggestionRequest {
-    page?: number;
-    limit?: number;
-}
 export interface FollowerApiFollowerControllerFollowingRequest {
     followerPayloadDto: FollowerPayloadDto;
 }
@@ -120,8 +122,6 @@ export interface FollowerApiFollowerControllerUnFollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowerSuggestionWithHttpInfo(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<HttpInfo<FollowerSuggestionResponseDto>>;
-    followerControllerFollowerSuggestion(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<FollowerSuggestionResponseDto>;
     followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

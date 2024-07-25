@@ -1,6 +1,7 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
+import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -9,7 +10,6 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -36,6 +36,8 @@ export declare class ObservableAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
@@ -79,8 +81,6 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FollowerSuggestionResponseDto>>;
-    followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Observable<FollowerSuggestionResponseDto>;
     followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;

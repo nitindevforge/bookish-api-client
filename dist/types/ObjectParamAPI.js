@@ -24,6 +24,14 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerForgetPassword = function (param, options) {
         return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetActivity = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetActivity(param.page, param.limit, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.authControllerGetInterestsWithHttpInfo(options).toPromise();
@@ -122,14 +130,6 @@ var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_4.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.followerControllerFollowerSuggestionWithHttpInfo(param.page, param.limit, options).toPromise();
-    };
-    ObjectFollowerApi.prototype.followerControllerFollowerSuggestion = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.followerControllerFollowerSuggestion(param.page, param.limit, options).toPromise();
-    };
     ObjectFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowingWithHttpInfo(param.followerPayloadDto, options).toPromise();
     };
