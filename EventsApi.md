@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
-[**eventControllerGetEvents**](EventsApi.md#eventControllerGetEvents) | **GET** /v1/event | 
+[**eventControllerGetEvents**](EventsApi.md#eventControllerGetEvents) | **GET** /v1/events | 
 [**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
 
 

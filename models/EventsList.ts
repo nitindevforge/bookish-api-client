@@ -15,6 +15,7 @@ import { HttpFile } from '../http/http';
 
 export class EventsList {
     'data': Array<Events>;
+    'count': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,6 +24,12 @@ export class EventsList {
             "name": "data",
             "baseName": "data",
             "type": "Array<Events>",
+            "format": ""
+        },
+        {
+            "name": "count",
+            "baseName": "count",
+            "type": "number",
             "format": ""
         }    ];
 

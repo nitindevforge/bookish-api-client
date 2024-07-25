@@ -14,6 +14,12 @@ var EventsList = (function () {
             "baseName": "data",
             "type": "Array<Events>",
             "format": ""
+        },
+        {
+            "name": "count",
+            "baseName": "count",
+            "type": "number",
+            "format": ""
         }
     ];
     return EventsList;

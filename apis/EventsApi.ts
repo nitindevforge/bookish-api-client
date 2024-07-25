@@ -73,7 +73,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
 
 
         // Path Params
-        const localVarPath = '/v1/event';
+        const localVarPath = '/v1/events';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
