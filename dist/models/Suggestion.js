@@ -12,7 +12,7 @@ var Suggestion = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Follower>",
+            "type": "Array<FollowerSuggestion>",
             "format": ""
         },
         {

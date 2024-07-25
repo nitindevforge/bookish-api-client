@@ -16,6 +16,7 @@ export * from '../models/FileUploadPayloadDto';
 export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
+export * from '../models/FollowerSuggestion';
 export * from '../models/FollowerSuggestionResponseDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';

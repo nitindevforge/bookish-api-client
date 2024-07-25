@@ -33,6 +33,7 @@ __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/Follower"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
 __exportStar(require("../models/FollowerResponseDto"), exports);
+__exportStar(require("../models/FollowerSuggestion"), exports);
 __exportStar(require("../models/FollowerSuggestionResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
@@ -76,6 +77,7 @@ var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var Follower_1 = require("../models/Follower");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
 var FollowerResponseDto_1 = require("../models/FollowerResponseDto");
+var FollowerSuggestion_1 = require("../models/FollowerSuggestion");
 var FollowerSuggestionResponseDto_1 = require("../models/FollowerSuggestionResponseDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
@@ -131,6 +133,7 @@ var typeMap = {
     "Follower": Follower_1.Follower,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto_1.FollowerResponseDto,
+    "FollowerSuggestion": FollowerSuggestion_1.FollowerSuggestion,
     "FollowerSuggestionResponseDto": FollowerSuggestionResponseDto_1.FollowerSuggestionResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,

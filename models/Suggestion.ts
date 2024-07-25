@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Follower } from '../models/Follower';
+import { FollowerSuggestion } from '../models/FollowerSuggestion';
 import { HttpFile } from '../http/http';
 
 export class Suggestion {
-    'data': Array<Follower>;
+    'data': Array<FollowerSuggestion>;
     'count': number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class Suggestion {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Follower>",
+            "type": "Array<FollowerSuggestion>",
             "format": ""
         },
         {

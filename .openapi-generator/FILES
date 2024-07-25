@@ -41,6 +41,7 @@ models/FileUploadPayloadDto.ts
 models/Follower.ts
 models/FollowerPayloadDto.ts
 models/FollowerResponseDto.ts
+models/FollowerSuggestion.ts
 models/FollowerSuggestionResponseDto.ts
 models/ForgetPasswordEntityResponse.ts
 models/ForgetPasswordEntityResponseDto.ts

@@ -1,7 +1,9 @@
-import { FollowerSuggestion } from '../models/FollowerSuggestion';
-export declare class Suggestion {
-    'data': Array<FollowerSuggestion>;
-    'count': number;
+import { UserDetails } from '../models/UserDetails';
+export declare class FollowerSuggestion {
+    'follower': UserDetails;
+    'following': UserDetails;
+    'createdAt': Date;
+    'updatedAt': Date;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

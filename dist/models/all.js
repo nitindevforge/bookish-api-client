@@ -32,6 +32,7 @@ __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/Follower"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
 __exportStar(require("../models/FollowerResponseDto"), exports);
+__exportStar(require("../models/FollowerSuggestion"), exports);
 __exportStar(require("../models/FollowerSuggestionResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
