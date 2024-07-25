@@ -9,6 +9,7 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -78,8 +79,8 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowerSuggestionWithHttpInfo(_options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
-    followerControllerFollowerSuggestion(_options?: Configuration): Observable<FollowerResponseDto>;
+    followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FollowerSuggestionResponseDto>>;
+    followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Observable<FollowerSuggestionResponseDto>;
     followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;

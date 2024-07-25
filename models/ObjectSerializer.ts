@@ -16,6 +16,7 @@ export * from '../models/FileUploadPayloadDto';
 export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
+export * from '../models/FollowerSuggestionResponseDto';
 export * from '../models/ForgetPasswordEntityResponse';
 export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
@@ -34,6 +35,7 @@ export * from '../models/StripeCardDeletePayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
+export * from '../models/Suggestion';
 export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
@@ -58,6 +60,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -76,6 +79,7 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -116,6 +120,7 @@ let typeMap: {[index: string]: any} = {
     "Follower": Follower,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,
+    "FollowerSuggestionResponseDto": FollowerSuggestionResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
@@ -134,6 +139,7 @@ let typeMap: {[index: string]: any} = {
     "StripePayloadDto": StripePayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
+    "Suggestion": Suggestion,
     "UserDetails": UserDetails,
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,

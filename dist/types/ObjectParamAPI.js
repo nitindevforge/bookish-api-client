@@ -124,11 +124,11 @@ var ObjectFollowerApi = (function () {
     }
     ObjectFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.followerControllerFollowerSuggestionWithHttpInfo(options).toPromise();
+        return this.api.followerControllerFollowerSuggestionWithHttpInfo(param.page, param.limit, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerFollowerSuggestion = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.followerControllerFollowerSuggestion(options).toPromise();
+        return this.api.followerControllerFollowerSuggestion(param.page, param.limit, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowingWithHttpInfo(param.followerPayloadDto, options).toPromise();

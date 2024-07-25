@@ -142,12 +142,12 @@ var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_4.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (_options) {
-        var result = this.api.followerControllerFollowerSuggestionWithHttpInfo(_options);
+    PromiseFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options);
         return result.toPromise();
     };
-    PromiseFollowerApi.prototype.followerControllerFollowerSuggestion = function (_options) {
-        var result = this.api.followerControllerFollowerSuggestion(_options);
+    PromiseFollowerApi.prototype.followerControllerFollowerSuggestion = function (page, limit, _options) {
+        var result = this.api.followerControllerFollowerSuggestion(page, limit, _options);
         return result.toPromise();
     };
     PromiseFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {

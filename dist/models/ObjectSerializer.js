@@ -33,6 +33,7 @@ __exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/Follower"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
 __exportStar(require("../models/FollowerResponseDto"), exports);
+__exportStar(require("../models/FollowerSuggestionResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponse"), exports);
 __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
@@ -51,6 +52,7 @@ __exportStar(require("../models/StripeCardDeletePayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
+__exportStar(require("../models/Suggestion"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
@@ -74,6 +76,7 @@ var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var Follower_1 = require("../models/Follower");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
 var FollowerResponseDto_1 = require("../models/FollowerResponseDto");
+var FollowerSuggestionResponseDto_1 = require("../models/FollowerSuggestionResponseDto");
 var ForgetPasswordEntityResponse_1 = require("../models/ForgetPasswordEntityResponse");
 var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityResponseDto");
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
@@ -92,6 +95,7 @@ var StripeCardDeletePayloadDto_1 = require("../models/StripeCardDeletePayloadDto
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
+var Suggestion_1 = require("../models/Suggestion");
 var UserDetails_1 = require("../models/UserDetails");
 var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
@@ -127,6 +131,7 @@ var typeMap = {
     "Follower": Follower_1.Follower,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto_1.FollowerResponseDto,
+    "FollowerSuggestionResponseDto": FollowerSuggestionResponseDto_1.FollowerSuggestionResponseDto,
     "ForgetPasswordEntityResponse": ForgetPasswordEntityResponse_1.ForgetPasswordEntityResponse,
     "ForgetPasswordEntityResponseDto": ForgetPasswordEntityResponseDto_1.ForgetPasswordEntityResponseDto,
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
@@ -145,6 +150,7 @@ var typeMap = {
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
+    "Suggestion": Suggestion_1.Suggestion,
     "UserDetails": UserDetails_1.UserDetails,
     "UserResponse": UserResponse_1.UserResponse,
     "UserResponseDto": UserResponseDto_1.UserResponseDto,

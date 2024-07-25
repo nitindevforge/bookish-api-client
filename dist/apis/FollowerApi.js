@@ -62,7 +62,7 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerFollowerSuggestion = function (_options) {
+    FollowerApiRequestFactory.prototype.followerControllerFollowerSuggestion = function (page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -73,6 +73,12 @@ var FollowerApiRequestFactory = (function (_super) {
                         localVarPath = '/v1/follower/suggestions';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        if (page !== undefined) {
+                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
+                        }
+                        if (limit !== undefined) {
+                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
@@ -186,7 +192,7 @@ var FollowerApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 1:
                         body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "FollowerResponseDto", ""]);
+                            "FollowerSuggestionResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
                         if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
@@ -198,7 +204,7 @@ var FollowerApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 3:
                         body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "FollowerResponseDto", ""]);
+                            "FollowerSuggestionResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 4:
                         _j = exception_1.ApiException.bind;

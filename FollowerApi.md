@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **followerControllerFollowerSuggestion**
-> FollowerResponseDto followerControllerFollowerSuggestion()
+> FollowerSuggestionResponseDto followerControllerFollowerSuggestion()
 
 
 ### Example
@@ -23,7 +23,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .FollowerApi(configuration);
 
-let body:any = {};
+let body:.FollowerApiFollowerControllerFollowerSuggestionRequest = {
+  // number (optional)
+  page: 3.14,
+  // number (optional)
+  limit: 3.14,
+};
 
 apiInstance.followerControllerFollowerSuggestion(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -32,12 +37,16 @@ apiInstance.followerControllerFollowerSuggestion(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | (optional) defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
-**FollowerResponseDto**
+**FollowerSuggestionResponseDto**
 
 ### Authorization
 

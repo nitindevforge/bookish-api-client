@@ -10,6 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 
 /**
  * no description
@@ -17,9 +18,13 @@ import { FollowerResponseDto } from '../models/FollowerResponseDto';
 export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public async followerControllerFollowerSuggestion(_options?: Configuration): Promise<RequestContext> {
+    public async followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+
 
         // Path Params
         const localVarPath = '/v1/follower/suggestions';
@@ -27,6 +32,16 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
+        }
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -147,13 +162,13 @@ export class FollowerApiResponseProcessor {
      * @params response Response returned by the server for a request to followerControllerFollowerSuggestion
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async followerControllerFollowerSuggestionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerResponseDto >> {
+     public async followerControllerFollowerSuggestionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerSuggestionResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FollowerResponseDto = ObjectSerializer.deserialize(
+            const body: FollowerSuggestionResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FollowerResponseDto", ""
-            ) as FollowerResponseDto;
+                "FollowerSuggestionResponseDto", ""
+            ) as FollowerSuggestionResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -162,10 +177,10 @@ export class FollowerApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FollowerResponseDto = ObjectSerializer.deserialize(
+            const body: FollowerSuggestionResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FollowerResponseDto", ""
-            ) as FollowerResponseDto;
+                "FollowerSuggestionResponseDto", ""
+            ) as FollowerSuggestionResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

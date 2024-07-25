@@ -8,6 +8,7 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
@@ -107,6 +108,8 @@ export declare class ObjectEventsApi {
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export interface FollowerApiFollowerControllerFollowerSuggestionRequest {
+    page?: number;
+    limit?: number;
 }
 export interface FollowerApiFollowerControllerFollowingRequest {
     followerPayloadDto: FollowerPayloadDto;
@@ -117,8 +120,8 @@ export interface FollowerApiFollowerControllerUnFollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowerSuggestionWithHttpInfo(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
-    followerControllerFollowerSuggestion(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerFollowerSuggestionWithHttpInfo(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<HttpInfo<FollowerSuggestionResponseDto>>;
+    followerControllerFollowerSuggestion(param?: FollowerApiFollowerControllerFollowerSuggestionRequest, options?: Configuration): Promise<FollowerSuggestionResponseDto>;
     followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

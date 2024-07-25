@@ -418,9 +418,9 @@ var ObservableFollowerApi = (function () {
         this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
     }
-    ObservableFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (_options) {
+    ObservableFollowerApi.prototype.followerControllerFollowerSuggestionWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerFollowerSuggestion(_options);
+        var requestContextPromise = this.requestFactory.followerControllerFollowerSuggestion(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_29 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -442,8 +442,8 @@ var ObservableFollowerApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowerSuggestionWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFollowerApi.prototype.followerControllerFollowerSuggestion = function (_options) {
-        return this.followerControllerFollowerSuggestionWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFollowerApi.prototype.followerControllerFollowerSuggestion = function (page, limit, _options) {
+        return this.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableFollowerApi.prototype.followerControllerFollowingWithHttpInfo = function (followerPayloadDto, _options) {
         var _this = this;

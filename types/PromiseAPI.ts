@@ -19,6 +19,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -37,6 +38,7 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -334,16 +336,20 @@ export class PromiseFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public followerControllerFollowerSuggestionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        const result = this.api.followerControllerFollowerSuggestionWithHttpInfo(_options);
+    public followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<FollowerSuggestionResponseDto>> {
+        const result = this.api.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public followerControllerFollowerSuggestion(_options?: Configuration): Promise<FollowerResponseDto> {
-        const result = this.api.followerControllerFollowerSuggestion(_options);
+    public followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Promise<FollowerSuggestionResponseDto> {
+        const result = this.api.followerControllerFollowerSuggestion(page, limit, _options);
         return result.toPromise();
     }
 

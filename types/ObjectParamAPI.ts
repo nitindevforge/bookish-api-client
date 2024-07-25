@@ -19,6 +19,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -37,6 +38,7 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -393,6 +395,18 @@ import { ObservableFollowerApi } from "./ObservableAPI";
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
 
 export interface FollowerApiFollowerControllerFollowerSuggestionRequest {
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerFollowerSuggestion
+     */
+    page?: number
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerFollowerSuggestion
+     */
+    limit?: number
 }
 
 export interface FollowerApiFollowerControllerFollowingRequest {
@@ -423,15 +437,15 @@ export class ObjectFollowerApi {
     /**
      * @param param the request object
      */
-    public followerControllerFollowerSuggestionWithHttpInfo(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        return this.api.followerControllerFollowerSuggestionWithHttpInfo( options).toPromise();
+    public followerControllerFollowerSuggestionWithHttpInfo(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<HttpInfo<FollowerSuggestionResponseDto>> {
+        return this.api.followerControllerFollowerSuggestionWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerFollowerSuggestion(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<FollowerResponseDto> {
-        return this.api.followerControllerFollowerSuggestion( options).toPromise();
+    public followerControllerFollowerSuggestion(param: FollowerApiFollowerControllerFollowerSuggestionRequest = {}, options?: Configuration): Promise<FollowerSuggestionResponseDto> {
+        return this.api.followerControllerFollowerSuggestion(param.page, param.limit,  options).toPromise();
     }
 
     /**

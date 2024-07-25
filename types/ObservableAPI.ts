@@ -20,6 +20,7 @@ import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
+import { FollowerSuggestionResponseDto } from '../models/FollowerSuggestionResponseDto';
 import { ForgetPasswordEntityResponse } from '../models/ForgetPasswordEntityResponse';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
@@ -38,6 +39,7 @@ import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { Suggestion } from '../models/Suggestion';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -517,9 +519,11 @@ export class ObservableFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public followerControllerFollowerSuggestionWithHttpInfo(_options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerFollowerSuggestion(_options);
+    public followerControllerFollowerSuggestionWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FollowerSuggestionResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFollowerSuggestion(page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -538,9 +542,11 @@ export class ObservableFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
      */
-    public followerControllerFollowerSuggestion(_options?: Configuration): Observable<FollowerResponseDto> {
-        return this.followerControllerFollowerSuggestionWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
+    public followerControllerFollowerSuggestion(page?: number, limit?: number, _options?: Configuration): Observable<FollowerSuggestionResponseDto> {
+        return this.followerControllerFollowerSuggestionWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<FollowerSuggestionResponseDto>) => apiResponse.data));
     }
 
     /**
