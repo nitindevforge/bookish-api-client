@@ -19,7 +19,12 @@ __exportStar(require("../models/Activity"), exports);
 __exportStar(require("../models/ActivityResponse"), exports);
 __exportStar(require("../models/ActivityResponseDto"), exports);
 __exportStar(require("../models/Address"), exports);
+__exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
+__exportStar(require("../models/Book"), exports);
+__exportStar(require("../models/BookPayloadDto"), exports);
+__exportStar(require("../models/BookResponseDto"), exports);
+__exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);
 __exportStar(require("../models/CardList"), exports);
@@ -63,7 +68,12 @@ var Activity_1 = require("../models/Activity");
 var ActivityResponse_1 = require("../models/ActivityResponse");
 var ActivityResponseDto_1 = require("../models/ActivityResponseDto");
 var Address_1 = require("../models/Address");
+var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
+var Book_1 = require("../models/Book");
+var BookPayloadDto_1 = require("../models/BookPayloadDto");
+var BookResponseDto_1 = require("../models/BookResponseDto");
+var BooksResponseDto_1 = require("../models/BooksResponseDto");
 var Card_1 = require("../models/Card");
 var CardChecks_1 = require("../models/CardChecks");
 var CardList_1 = require("../models/CardList");
@@ -119,7 +129,12 @@ var typeMap = {
     "ActivityResponse": ActivityResponse_1.ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto_1.ActivityResponseDto,
     "Address": Address_1.Address,
+    "AuthorResponseDto": AuthorResponseDto_1.AuthorResponseDto,
     "BillingDetails": BillingDetails_1.BillingDetails,
+    "Book": Book_1.Book,
+    "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
+    "BookResponseDto": BookResponseDto_1.BookResponseDto,
+    "BooksResponseDto": BooksResponseDto_1.BooksResponseDto,
     "Card": Card_1.Card,
     "CardChecks": CardChecks_1.CardChecks,
     "CardList": CardList_1.CardList,

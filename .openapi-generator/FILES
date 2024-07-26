@@ -1,5 +1,6 @@
 .gitignore
 AuthApi.md
+BooksApi.md
 DefaultApi.md
 EventsApi.md
 FollowerApi.md
@@ -8,6 +9,7 @@ PaymentApi.md
 README.md
 UploadApi.md
 apis/AuthApi.ts
+apis/BooksApi.ts
 apis/DefaultApi.ts
 apis/EventsApi.ts
 apis/FollowerApi.ts
@@ -27,7 +29,12 @@ models/Activity.ts
 models/ActivityResponse.ts
 models/ActivityResponseDto.ts
 models/Address.ts
+models/AuthorResponseDto.ts
 models/BillingDetails.ts
+models/Book.ts
+models/BookPayloadDto.ts
+models/BookResponseDto.ts
+models/BooksResponseDto.ts
 models/Card.ts
 models/CardChecks.ts
 models/CardList.ts

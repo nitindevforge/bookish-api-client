@@ -6,7 +6,12 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
+import { Book } from '../models/Book';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -378,6 +383,86 @@ export class ObservableAuthApi {
      */
     public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto> {
         return this.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options).pipe(map((apiResponse: HttpInfo<ForgetPasswordEntityResponseDto>) => apiResponse.data));
+    }
+
+}
+
+import { BooksApiRequestFactory, BooksApiResponseProcessor} from "../apis/BooksApi";
+export class ObservableBooksApi {
+    private requestFactory: BooksApiRequestFactory;
+    private responseProcessor: BooksApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: BooksApiRequestFactory,
+        responseProcessor?: BooksApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new BooksApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new BooksApiResponseProcessor();
+    }
+
+    /**
+     * @param bookPayloadDto 
+     */
+    public bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<HttpInfo<BookResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerAddBook(bookPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddBookWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param bookPayloadDto 
+     */
+    public bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<BookResponseDto> {
+        return this.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<BookResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param search 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerGetBooks(search, page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerGetBooksWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param search 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<BooksResponseDto> {
+        return this.bookControllerGetBooksWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
     }
 
 }

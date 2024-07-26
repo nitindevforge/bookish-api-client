@@ -2,7 +2,12 @@ export * from '../models/Activity';
 export * from '../models/ActivityResponse';
 export * from '../models/ActivityResponseDto';
 export * from '../models/Address';
+export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
+export * from '../models/Book';
+export * from '../models/BookPayloadDto';
+export * from '../models/BookResponseDto';
+export * from '../models/BooksResponseDto';
 export * from '../models/Card';
 export * from '../models/CardChecks';
 export * from '../models/CardList';
@@ -47,7 +52,12 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
+import { Book } from '../models/Book';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -108,7 +118,12 @@ let typeMap: {[index: string]: any} = {
     "ActivityResponse": ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto,
     "Address": Address,
+    "AuthorResponseDto": AuthorResponseDto,
     "BillingDetails": BillingDetails,
+    "Book": Book,
+    "BookPayloadDto": BookPayloadDto,
+    "BookResponseDto": BookResponseDto,
+    "BooksResponseDto": BooksResponseDto,
     "Card": Card,
     "CardChecks": CardChecks,
     "CardList": CardList,

@@ -1,6 +1,9 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -49,6 +52,15 @@ export declare class PromiseAuthApi {
     authControllerUserUpdate(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
+}
+import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/BooksApi";
+export declare class PromiseBooksApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
+    bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
+    bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
+    bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<BooksResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class PromiseDefaultApi {

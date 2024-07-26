@@ -1,6 +1,9 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -81,6 +84,23 @@ export declare class ObjectAuthApi {
     authControllerUserUpdate(param: AuthApiAuthControllerUserUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerVerifyOtpWithHttpInfo(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
+}
+import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/BooksApi";
+export interface BooksApiBookControllerAddBookRequest {
+    bookPayloadDto: BookPayloadDto;
+}
+export interface BooksApiBookControllerGetBooksRequest {
+    search?: string;
+    page?: number;
+    limit?: number;
+}
+export declare class ObjectBooksApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
+    bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
+    bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
+    bookControllerGetBooksWithHttpInfo(param?: BooksApiBookControllerGetBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerGetBooks(param?: BooksApiBookControllerGetBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export interface DefaultApiAppControllerGetHelloRequest {

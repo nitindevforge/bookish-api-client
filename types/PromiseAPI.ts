@@ -5,7 +5,12 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
+import { Book } from '../models/Book';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -230,6 +235,61 @@ export class PromiseAuthApi {
      */
     public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         const result = this.api.authControllerVerifyOtp(otpEntityPayloadDto, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableBooksApi } from './ObservableAPI';
+
+import { BooksApiRequestFactory, BooksApiResponseProcessor} from "../apis/BooksApi";
+export class PromiseBooksApi {
+    private api: ObservableBooksApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: BooksApiRequestFactory,
+        responseProcessor?: BooksApiResponseProcessor
+    ) {
+        this.api = new ObservableBooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param bookPayloadDto 
+     */
+    public bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        const result = this.api.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookPayloadDto 
+     */
+    public bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto> {
+        const result = this.api.bookControllerAddBook(bookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param search 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
+        const result = this.api.bookControllerGetBooksWithHttpInfo(search, page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param search 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<BooksResponseDto> {
+        const result = this.api.bookControllerGetBooks(search, page, limit, _options);
         return result.toPromise();
     }
 

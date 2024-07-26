@@ -5,7 +5,12 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
+import { Book } from '../models/Book';
+import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookResponseDto } from '../models/BookResponseDto';
+import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -301,6 +306,76 @@ export class ObjectAuthApi {
      */
     public authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         return this.api.authControllerVerifyOtp(param.otpEntityPayloadDto,  options).toPromise();
+    }
+
+}
+
+import { ObservableBooksApi } from "./ObservableAPI";
+import { BooksApiRequestFactory, BooksApiResponseProcessor} from "../apis/BooksApi";
+
+export interface BooksApiBookControllerAddBookRequest {
+    /**
+     * 
+     * @type BookPayloadDto
+     * @memberof BooksApibookControllerAddBook
+     */
+    bookPayloadDto: BookPayloadDto
+}
+
+export interface BooksApiBookControllerGetBooksRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerGetBooks
+     */
+    search?: string
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerGetBooks
+     */
+    page?: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerGetBooks
+     */
+    limit?: number
+}
+
+export class ObjectBooksApi {
+    private api: ObservableBooksApi
+
+    public constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor) {
+        this.api = new ObservableBooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        return this.api.bookControllerAddBookWithHttpInfo(param.bookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto> {
+        return this.api.bookControllerAddBook(param.bookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerGetBooksWithHttpInfo(param: BooksApiBookControllerGetBooksRequest = {}, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
+        return this.api.bookControllerGetBooksWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerGetBooks(param: BooksApiBookControllerGetBooksRequest = {}, options?: Configuration): Promise<BooksResponseDto> {
+        return this.api.bookControllerGetBooks(param.search, param.page, param.limit,  options).toPromise();
     }
 
 }
