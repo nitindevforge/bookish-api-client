@@ -12,7 +12,7 @@ var BooksResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Book>",
+            "type": "Books",
             "format": ""
         },
         {

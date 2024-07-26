@@ -10,12 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { Books } from '../models/Books';
+import { Book } from '../models/Book';
 import { HttpFile } from '../http/http';
 
-export class BooksResponseDto {
-    'data': Books;
-    'isSuccess': boolean;
+export class Books {
+    'data': Array<Book>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,18 +22,12 @@ export class BooksResponseDto {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Books",
-            "format": ""
-        },
-        {
-            "name": "isSuccess",
-            "baseName": "isSuccess",
-            "type": "boolean",
+            "type": "Array<Book>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return BooksResponseDto.attributeTypeMap;
+        return Books.attributeTypeMap;
     }
 
     public constructor() {

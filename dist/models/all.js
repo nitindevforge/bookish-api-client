@@ -23,6 +23,7 @@ __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
+__exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);

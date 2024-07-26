@@ -11,6 +11,7 @@ import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';

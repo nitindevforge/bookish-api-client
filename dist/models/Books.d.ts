@@ -1,7 +1,6 @@
-import { Books } from '../models/Books';
-export declare class BooksResponseDto {
-    'data': Books;
-    'isSuccess': boolean;
+import { Book } from '../models/Book';
+export declare class Books {
+    'data': Array<Book>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
