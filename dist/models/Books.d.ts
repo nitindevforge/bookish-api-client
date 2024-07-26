@@ -1,6 +1,7 @@
 import { Book } from '../models/Book';
 export declare class Books {
     'data': Array<Book>;
+    'count': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

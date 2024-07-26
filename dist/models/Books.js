@@ -14,6 +14,12 @@ var Books = (function () {
             "baseName": "data",
             "type": "Array<Book>",
             "format": ""
+        },
+        {
+            "name": "count",
+            "baseName": "count",
+            "type": "number",
+            "format": ""
         }
     ];
     return Books;
