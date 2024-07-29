@@ -1,7 +1,5 @@
 export declare class StripePaymentPayloadDto {
     'paymentId': string;
-    'paymentIntent': string;
-    'ephemeralKey': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

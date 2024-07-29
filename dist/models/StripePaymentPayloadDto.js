@@ -14,18 +14,6 @@ var StripePaymentPayloadDto = (function () {
             "baseName": "paymentId",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "paymentIntent",
-            "baseName": "paymentIntent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ephemeralKey",
-            "baseName": "ephemeralKey",
-            "type": "string",
-            "format": ""
         }
     ];
     return StripePaymentPayloadDto;

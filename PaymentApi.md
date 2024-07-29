@@ -29,8 +29,6 @@ let body:.PaymentApiPaymentControllerCreatePaymentRequest = {
   // StripePaymentPayloadDto
   stripePaymentPayloadDto: {
     paymentId: "paymentId_example",
-    paymentIntent: "paymentIntent_example",
-    ephemeralKey: "ephemeralKey_example",
   },
 };
 

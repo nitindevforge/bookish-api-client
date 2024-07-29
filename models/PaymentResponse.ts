@@ -16,8 +16,6 @@ import { HttpFile } from '../http/http';
 export class PaymentResponse {
     'id': string;
     'paymentId': string;
-    'paymentIntent': string;
-    'ephemeralKey': string;
     'userId': UserDetails;
 
     static readonly discriminator: string | undefined = undefined;
@@ -32,18 +30,6 @@ export class PaymentResponse {
         {
             "name": "paymentId",
             "baseName": "paymentId",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "paymentIntent",
-            "baseName": "paymentIntent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ephemeralKey",
-            "baseName": "ephemeralKey",
             "type": "string",
             "format": ""
         },

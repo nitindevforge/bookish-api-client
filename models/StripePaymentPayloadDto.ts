@@ -14,8 +14,6 @@ import { HttpFile } from '../http/http';
 
 export class StripePaymentPayloadDto {
     'paymentId': string;
-    'paymentIntent': string;
-    'ephemeralKey': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -23,18 +21,6 @@ export class StripePaymentPayloadDto {
         {
             "name": "paymentId",
             "baseName": "paymentId",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "paymentIntent",
-            "baseName": "paymentIntent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ephemeralKey",
-            "baseName": "ephemeralKey",
             "type": "string",
             "format": ""
         }    ];

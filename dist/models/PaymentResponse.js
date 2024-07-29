@@ -22,18 +22,6 @@ var PaymentResponse = (function () {
             "format": ""
         },
         {
-            "name": "paymentIntent",
-            "baseName": "paymentIntent",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "ephemeralKey",
-            "baseName": "ephemeralKey",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "userId",
             "baseName": "userId",
             "type": "UserDetails",
