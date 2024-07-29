@@ -382,7 +382,7 @@ export class PromiseEventsApi {
     /**
      * @param id 
      */
-    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         const result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
         return result.toPromise();
     }
@@ -390,7 +390,7 @@ export class PromiseEventsApi {
     /**
      * @param id 
      */
-    public eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventsResponseDto> {
+    public eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerFindEventById(id, _options);
         return result.toPromise();
     }

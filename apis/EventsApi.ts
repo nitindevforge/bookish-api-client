@@ -193,13 +193,13 @@ export class EventsApiResponseProcessor {
      * @params response Response returned by the server for a request to eventControllerFindEventById
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto >> {
+     public async eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: EventsResponseDto = ObjectSerializer.deserialize(
+            const body: EventResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "EventsResponseDto", ""
-            ) as EventsResponseDto;
+                "EventResponseDto", ""
+            ) as EventResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -208,10 +208,10 @@ export class EventsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: EventsResponseDto = ObjectSerializer.deserialize(
+            const body: EventResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "EventsResponseDto", ""
-            ) as EventsResponseDto;
+                "EventResponseDto", ""
+            ) as EventResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

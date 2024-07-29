@@ -591,7 +591,7 @@ export class ObservableEventsApi {
     /**
      * @param id 
      */
-    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
         const requestContextPromise = this.requestFactory.eventControllerFindEventById(id, _options);
 
         // build promise chain
@@ -613,8 +613,8 @@ export class ObservableEventsApi {
     /**
      * @param id 
      */
-    public eventControllerFindEventById(id: string, _options?: Configuration): Observable<EventsResponseDto> {
-        return this.eventControllerFindEventByIdWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
+    public eventControllerFindEventById(id: string, _options?: Configuration): Observable<EventResponseDto> {
+        return this.eventControllerFindEventByIdWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
     }
 
     /**

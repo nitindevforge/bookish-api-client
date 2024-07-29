@@ -11,6 +11,6 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
 }
 export declare class EventsApiResponseProcessor {
     eventControllerCreateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
-    eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
     eventControllerFindEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
 }
