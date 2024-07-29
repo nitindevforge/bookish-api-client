@@ -66,6 +66,8 @@ models/PasswordChangeResponse.ts
 models/PasswordChangeResponseDto.ts
 models/PaymentDeleteResponseDto.ts
 models/PaymentPayloadDto.ts
+models/PaymentResponse.ts
+models/PaymentResponseDto.ts
 models/PermissionResponseDto.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts

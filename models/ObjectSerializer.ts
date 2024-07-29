@@ -38,6 +38,8 @@ export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';
 export * from '../models/PaymentDeleteResponseDto';
 export * from '../models/PaymentPayloadDto';
+export * from '../models/PaymentResponse';
+export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
@@ -91,6 +93,8 @@ import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponse } from '../models/PaymentResponse';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -160,6 +164,8 @@ let typeMap: {[index: string]: any} = {
     "PasswordChangeResponseDto": PasswordChangeResponseDto,
     "PaymentDeleteResponseDto": PaymentDeleteResponseDto,
     "PaymentPayloadDto": PaymentPayloadDto,
+    "PaymentResponse": PaymentResponse,
+    "PaymentResponseDto": PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,

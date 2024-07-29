@@ -41,6 +41,8 @@ import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponse } from '../models/PaymentResponse';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -526,7 +528,7 @@ export class PromisePaymentApi {
     /**
      * @param stripePaymentPayloadDto 
      */
-    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<PaymentResponseDto>> {
         const result = this.api.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options);
         return result.toPromise();
     }
@@ -534,7 +536,7 @@ export class PromisePaymentApi {
     /**
      * @param stripePaymentPayloadDto 
      */
-    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<PaymentResponseDto> {
         const result = this.api.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
         return result.toPromise();
     }

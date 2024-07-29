@@ -41,6 +41,8 @@ import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponse } from '../models/PaymentResponse';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -679,14 +681,14 @@ export class ObjectPaymentApi {
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<PaymentResponseDto>> {
         return this.api.paymentControllerCreatePaymentWithHttpInfo(param.stripePaymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto> {
+    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<PaymentResponseDto> {
         return this.api.paymentControllerCreatePayment(param.stripePaymentPayloadDto,  options).toPromise();
     }
 

@@ -4,6 +4,7 @@ import { RequestContext, ResponseContext, HttpInfo } from '../http/http';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -15,7 +16,7 @@ export declare class PaymentApiRequestFactory extends BaseAPIRequestFactory {
     paymentControllerGetCardList(_options?: Configuration): Promise<RequestContext>;
 }
 export declare class PaymentApiResponseProcessor {
-    paymentControllerCreatePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StripeResponseDto>>;
+    paymentControllerCreatePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PaymentResponseDto>>;
     paymentControllerCreatePaymentIntentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StripeResponseDto>>;
     paymentControllerDeleteCardDetailsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerDeletePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PaymentDeleteResponseDto>>;

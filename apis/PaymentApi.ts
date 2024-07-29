@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -243,13 +244,13 @@ export class PaymentApiResponseProcessor {
      * @params response Response returned by the server for a request to paymentControllerCreatePayment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async paymentControllerCreatePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StripeResponseDto >> {
+     public async paymentControllerCreatePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PaymentResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: StripeResponseDto = ObjectSerializer.deserialize(
+            const body: PaymentResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "StripeResponseDto", ""
-            ) as StripeResponseDto;
+                "PaymentResponseDto", ""
+            ) as PaymentResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -258,10 +259,10 @@ export class PaymentApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: StripeResponseDto = ObjectSerializer.deserialize(
+            const body: PaymentResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "StripeResponseDto", ""
-            ) as StripeResponseDto;
+                "PaymentResponseDto", ""
+            ) as PaymentResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

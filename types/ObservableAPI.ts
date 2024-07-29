@@ -42,6 +42,8 @@ import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
+import { PaymentResponse } from '../models/PaymentResponse';
+import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -797,7 +799,7 @@ export class ObservablePaymentApi {
     /**
      * @param stripePaymentPayloadDto 
      */
-    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>> {
+    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<PaymentResponseDto>> {
         const requestContextPromise = this.requestFactory.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
 
         // build promise chain
@@ -819,8 +821,8 @@ export class ObservablePaymentApi {
     /**
      * @param stripePaymentPayloadDto 
      */
-    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<StripeResponseDto> {
-        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe(map((apiResponse: HttpInfo<StripeResponseDto>) => apiResponse.data));
+    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<PaymentResponseDto> {
+        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe(map((apiResponse: HttpInfo<PaymentResponseDto>) => apiResponse.data));
     }
 
     /**

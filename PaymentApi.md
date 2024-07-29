@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **paymentControllerCreatePayment**
-> StripeResponseDto paymentControllerCreatePayment(stripePaymentPayloadDto)
+> PaymentResponseDto paymentControllerCreatePayment(stripePaymentPayloadDto)
 
 
 ### Example
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**StripeResponseDto**
+**PaymentResponseDto**
 
 ### Authorization
 
