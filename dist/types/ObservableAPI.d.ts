@@ -20,8 +20,10 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -116,10 +118,12 @@ export declare class ObservablePaymentApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
-    paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>>;
-    paymentControllerCreatePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<StripeResponseDto>;
+    paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>>;
+    paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<StripeResponseDto>;
     paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<CardListResponseDto>;
+    paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<PaymentDeleteResponseDto>>;
+    paymentControllerDeletePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<PaymentDeleteResponseDto>;
     paymentControllerGetCardListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto>;
 }

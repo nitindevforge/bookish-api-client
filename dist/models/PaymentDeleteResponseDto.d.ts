@@ -1,8 +1,5 @@
-export declare class StripeResponse {
-    'paymentId': string;
-    'paymentIntent': string;
-    'ephemeralKey': string;
-    'customer': string;
+export declare class PaymentDeleteResponseDto {
+    'id': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

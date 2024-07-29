@@ -39,6 +39,7 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -628,13 +629,13 @@ export class ObjectFriendsApi {
 import { ObservablePaymentApi } from "./ObservableAPI";
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
 
-export interface PaymentApiPaymentControllerCreatePaymentRequest {
+export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
     /**
      * 
-     * @type PaymentPayloadDto
-     * @memberof PaymentApipaymentControllerCreatePayment
+     * @type StripePayloadDto
+     * @memberof PaymentApipaymentControllerCreatePaymentIntent
      */
-    paymentPayloadDto: PaymentPayloadDto
+    stripePayloadDto: StripePayloadDto
 }
 
 export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
@@ -642,6 +643,15 @@ export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
      * 
      * @type PaymentPayloadDto
      * @memberof PaymentApipaymentControllerDeleteCardDetails
+     */
+    paymentPayloadDto: PaymentPayloadDto
+}
+
+export interface PaymentApiPaymentControllerDeletePaymentRequest {
+    /**
+     * 
+     * @type PaymentPayloadDto
+     * @memberof PaymentApipaymentControllerDeletePayment
      */
     paymentPayloadDto: PaymentPayloadDto
 }
@@ -659,15 +669,15 @@ export class ObjectPaymentApi {
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
+    public paymentControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto> {
-        return this.api.paymentControllerCreatePayment(param.paymentPayloadDto,  options).toPromise();
+    public paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
+        return this.api.paymentControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
@@ -682,6 +692,20 @@ export class ObjectPaymentApi {
      */
     public paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerDeletePaymentWithHttpInfo(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<HttpInfo<PaymentDeleteResponseDto>> {
+        return this.api.paymentControllerDeletePaymentWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerDeletePayment(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<PaymentDeleteResponseDto> {
+        return this.api.paymentControllerDeletePayment(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**

@@ -186,17 +186,23 @@ var ObjectPaymentApi = (function () {
     function ObjectPaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectPaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (param, options) {
-        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.paymentPayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (param, options) {
+        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.paymentControllerCreatePayment = function (param, options) {
-        return this.api.paymentControllerCreatePayment(param.paymentPayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerCreatePaymentIntent = function (param, options) {
+        return this.api.paymentControllerCreatePaymentIntent(param.stripePayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (param, options) {
         return this.api.paymentControllerDeleteCardDetailsWithHttpInfo(param.paymentPayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerDeleteCardDetails = function (param, options) {
         return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto, options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (param, options) {
+        return this.api.paymentControllerDeletePaymentWithHttpInfo(param.paymentPayloadDto, options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerDeletePayment = function (param, options) {
+        return this.api.paymentControllerDeletePayment(param.paymentPayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }

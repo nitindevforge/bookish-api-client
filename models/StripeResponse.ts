@@ -13,6 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class StripeResponse {
+    'paymentId': string;
     'paymentIntent': string;
     'ephemeralKey': string;
     'customer': string;
@@ -20,6 +21,12 @@ export class StripeResponse {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "paymentId",
+            "baseName": "paymentId",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "paymentIntent",
             "baseName": "paymentIntent",

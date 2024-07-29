@@ -10,6 +10,12 @@ var StripeResponse = (function () {
     StripeResponse.discriminator = undefined;
     StripeResponse.attributeTypeMap = [
         {
+            "name": "paymentId",
+            "baseName": "paymentId",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "paymentIntent",
             "baseName": "paymentIntent",
             "type": "string",

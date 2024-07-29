@@ -53,6 +53,7 @@ __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
+__exportStar(require("../models/PaymentDeleteResponseDto"), exports);
 __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
@@ -103,6 +104,7 @@ var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
+var PaymentDeleteResponseDto_1 = require("../models/PaymentDeleteResponseDto");
 var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
@@ -165,6 +167,7 @@ var typeMap = {
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,
+    "PaymentDeleteResponseDto": PaymentDeleteResponseDto_1.PaymentDeleteResponseDto,
     "PaymentPayloadDto": PaymentPayloadDto_1.PaymentPayloadDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,

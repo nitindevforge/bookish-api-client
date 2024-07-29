@@ -39,6 +39,7 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -522,18 +523,18 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param paymentPayloadDto 
+     * @param stripePayloadDto 
      */
-    public paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        const result = this.api.paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto, _options);
+    public paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        const result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param paymentPayloadDto 
+     * @param stripePayloadDto 
      */
-    public paymentControllerCreatePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
-        const result = this.api.paymentControllerCreatePayment(paymentPayloadDto, _options);
+    public paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+        const result = this.api.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
         return result.toPromise();
     }
 
@@ -550,6 +551,22 @@ export class PromisePaymentApi {
      */
     public paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<CardListResponseDto> {
         const result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param paymentPayloadDto 
+     */
+    public paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<PaymentDeleteResponseDto>> {
+        const result = this.api.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param paymentPayloadDto 
+     */
+    public paymentControllerDeletePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<PaymentDeleteResponseDto> {
+        const result = this.api.paymentControllerDeletePayment(paymentPayloadDto, _options);
         return result.toPromise();
     }
 

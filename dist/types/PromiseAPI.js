@@ -222,12 +222,12 @@ var PromisePaymentApi = (function () {
     function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
-    PromisePaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
-        var result = this.api.paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.paymentControllerCreatePayment = function (paymentPayloadDto, _options) {
-        var result = this.api.paymentControllerCreatePayment(paymentPayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
         return result.toPromise();
     };
     PromisePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
@@ -236,6 +236,14 @@ var PromisePaymentApi = (function () {
     };
     PromisePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
         var result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.paymentControllerDeletePayment = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerDeletePayment(paymentPayloadDto, _options);
         return result.toPromise();
     };
     PromisePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
