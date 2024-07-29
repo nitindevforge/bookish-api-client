@@ -186,6 +186,12 @@ var ObjectPaymentApi = (function () {
     function ObjectPaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectPaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (param, options) {
+        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.stripePaymentPayloadDto, options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerCreatePayment = function (param, options) {
+        return this.api.paymentControllerCreatePayment(param.stripePaymentPayloadDto, options).toPromise();
+    };
     ObjectPaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (param, options) {
         return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto, options).toPromise();
     };

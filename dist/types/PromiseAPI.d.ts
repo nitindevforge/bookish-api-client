@@ -23,6 +23,7 @@ import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -103,6 +104,8 @@ import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/P
 export declare class PromisePaymentApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
+    paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
+    paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<StripeResponseDto>;
     paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
     paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto>;
     paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;

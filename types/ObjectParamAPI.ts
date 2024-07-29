@@ -45,6 +45,7 @@ import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
@@ -629,6 +630,15 @@ export class ObjectFriendsApi {
 import { ObservablePaymentApi } from "./ObservableAPI";
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
 
+export interface PaymentApiPaymentControllerCreatePaymentRequest {
+    /**
+     * 
+     * @type StripePaymentPayloadDto
+     * @memberof PaymentApipaymentControllerCreatePayment
+     */
+    stripePaymentPayloadDto: StripePaymentPayloadDto
+}
+
 export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
     /**
      * 
@@ -664,6 +674,20 @@ export class ObjectPaymentApi {
 
     public constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor) {
         this.api = new ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.stripePaymentPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto> {
+        return this.api.paymentControllerCreatePayment(param.stripePaymentPayloadDto,  options).toPromise();
     }
 
     /**

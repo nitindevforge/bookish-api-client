@@ -42,6 +42,7 @@ export * from '../models/PermissionResponseDto';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/StripePayloadDto';
+export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
 export * from '../models/UserDetails';

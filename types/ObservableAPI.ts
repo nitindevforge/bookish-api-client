@@ -46,6 +46,7 @@ import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
@@ -791,6 +792,35 @@ export class ObservablePaymentApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new PaymentApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new PaymentApiResponseProcessor();
+    }
+
+    /**
+     * @param stripePaymentPayloadDto 
+     */
+    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>> {
+        const requestContextPromise = this.requestFactory.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.paymentControllerCreatePaymentWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param stripePaymentPayloadDto 
+     */
+    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Observable<StripeResponseDto> {
+        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe(map((apiResponse: HttpInfo<StripeResponseDto>) => apiResponse.data));
     }
 
     /**

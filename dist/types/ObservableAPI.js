@@ -637,9 +637,9 @@ var ObservablePaymentApi = (function () {
         this.requestFactory = requestFactory || new PaymentApi_1.PaymentApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new PaymentApi_1.PaymentApiResponseProcessor();
     }
-    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
+    ObservablePaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (stripePaymentPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_43 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -658,15 +658,15 @@ var ObservablePaymentApi = (function () {
                 var middleware = _a[_i];
                 _loop_44(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentIntentWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentWithHttpInfo(rsp); }));
         }));
     };
-    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
-        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservablePaymentApi.prototype.paymentControllerCreatePayment = function (stripePaymentPayloadDto, _options) {
+        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
+    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_45 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -685,15 +685,15 @@ var ObservablePaymentApi = (function () {
                 var middleware = _a[_i];
                 _loop_46(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeleteCardDetailsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentIntentWithHttpInfo(rsp); }));
         }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
-        return this.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
+    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerDeletePayment(paymentPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_47 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -712,15 +712,15 @@ var ObservablePaymentApi = (function () {
                 var middleware = _a[_i];
                 _loop_48(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeletePaymentWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeleteCardDetailsWithHttpInfo(rsp); }));
         }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeletePayment = function (paymentPayloadDto, _options) {
-        return this.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
+        return this.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservablePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
+    ObservablePaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerGetCardList(_options);
+        var requestContextPromise = this.requestFactory.paymentControllerDeletePayment(paymentPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_49 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -738,6 +738,33 @@ var ObservablePaymentApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_50(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeletePaymentWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservablePaymentApi.prototype.paymentControllerDeletePayment = function (paymentPayloadDto, _options) {
+        return this.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservablePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.paymentControllerGetCardList(_options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_51 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_51(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_52 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_52(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerGetCardListWithHttpInfo(rsp); }));
         }));
@@ -759,22 +786,22 @@ var ObservableStorageApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_51 = function (middleware) {
+        var _loop_53 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_51(middleware);
+            _loop_53(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_52 = function (middleware) {
+            var _loop_54 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_52(middleware);
+                _loop_54(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));

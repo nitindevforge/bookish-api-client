@@ -45,6 +45,7 @@ import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserDetails } from '../models/UserDetails';
@@ -520,6 +521,22 @@ export class PromisePaymentApi {
         responseProcessor?: PaymentApiResponseProcessor
     ) {
         this.api = new ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param stripePaymentPayloadDto 
+     */
+    public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        const result = this.api.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param stripePaymentPayloadDto 
+     */
+    public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+        const result = this.api.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
+        return result.toPromise();
     }
 
     /**

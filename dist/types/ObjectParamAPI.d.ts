@@ -23,6 +23,7 @@ import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -166,6 +167,9 @@ export declare class ObjectFriendsApi {
     friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
+export interface PaymentApiPaymentControllerCreatePaymentRequest {
+    stripePaymentPayloadDto: StripePaymentPayloadDto;
+}
 export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
     stripePayloadDto: StripePayloadDto;
 }
@@ -180,6 +184,8 @@ export interface PaymentApiPaymentControllerGetCardListRequest {
 export declare class ObjectPaymentApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
+    paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
+    paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto>;
     paymentControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
     paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto>;
     paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;

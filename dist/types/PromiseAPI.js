@@ -222,6 +222,14 @@ var PromisePaymentApi = (function () {
     function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (stripePaymentPayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromisePaymentApi.prototype.paymentControllerCreatePayment = function (stripePaymentPayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
+        return result.toPromise();
+    };
     PromisePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
         var result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
         return result.toPromise();

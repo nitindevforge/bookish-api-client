@@ -70,6 +70,7 @@ models/PermissionResponseDto.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
 models/StripePayloadDto.ts
+models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts
 models/UserDetails.ts
