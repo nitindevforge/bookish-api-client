@@ -10,6 +10,12 @@ var Events = (function () {
     Events.discriminator = undefined;
     Events.attributeTypeMap = [
         {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "title",
             "baseName": "title",
             "type": "string",

@@ -14,6 +14,7 @@ import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
 export class Events {
+    'id': string;
     'title': string;
     'image': string;
     'date': Date;
@@ -26,6 +27,12 @@ export class Events {
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "title",
             "baseName": "title",
