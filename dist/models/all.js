@@ -52,7 +52,6 @@ __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
-__exportStar(require("../models/PaymentDeleteResponseDto"), exports);
 __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);

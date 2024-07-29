@@ -40,7 +40,6 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
-import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
@@ -881,35 +880,6 @@ export class ObservablePaymentApi {
      */
     public paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<CardListResponseDto> {
         return this.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options).pipe(map((apiResponse: HttpInfo<CardListResponseDto>) => apiResponse.data));
-    }
-
-    /**
-     * @param paymentPayloadDto 
-     */
-    public paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<HttpInfo<PaymentDeleteResponseDto>> {
-        const requestContextPromise = this.requestFactory.paymentControllerDeletePayment(paymentPayloadDto, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.paymentControllerDeletePaymentWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param paymentPayloadDto 
-     */
-    public paymentControllerDeletePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<PaymentDeleteResponseDto> {
-        return this.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options).pipe(map((apiResponse: HttpInfo<PaymentDeleteResponseDto>) => apiResponse.data));
     }
 
     /**

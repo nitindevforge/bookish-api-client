@@ -39,7 +39,6 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
-import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
@@ -659,15 +658,6 @@ export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
     paymentPayloadDto: PaymentPayloadDto
 }
 
-export interface PaymentApiPaymentControllerDeletePaymentRequest {
-    /**
-     * 
-     * @type PaymentPayloadDto
-     * @memberof PaymentApipaymentControllerDeletePayment
-     */
-    paymentPayloadDto: PaymentPayloadDto
-}
-
 export interface PaymentApiPaymentControllerGetCardListRequest {
 }
 
@@ -718,20 +708,6 @@ export class ObjectPaymentApi {
      */
     public paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public paymentControllerDeletePaymentWithHttpInfo(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<HttpInfo<PaymentDeleteResponseDto>> {
-        return this.api.paymentControllerDeletePaymentWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public paymentControllerDeletePayment(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<PaymentDeleteResponseDto> {
-        return this.api.paymentControllerDeletePayment(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**

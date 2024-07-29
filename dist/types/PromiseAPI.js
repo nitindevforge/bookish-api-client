@@ -246,14 +246,6 @@ var PromisePaymentApi = (function () {
         var result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
-        var result = this.api.paymentControllerDeletePaymentWithHttpInfo(paymentPayloadDto, _options);
-        return result.toPromise();
-    };
-    PromisePaymentApi.prototype.paymentControllerDeletePayment = function (paymentPayloadDto, _options) {
-        var result = this.api.paymentControllerDeletePayment(paymentPayloadDto, _options);
-        return result.toPromise();
-    };
     PromisePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
         var result = this.api.paymentControllerGetCardListWithHttpInfo(_options);
         return result.toPromise();

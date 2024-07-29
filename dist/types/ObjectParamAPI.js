@@ -204,12 +204,6 @@ var ObjectPaymentApi = (function () {
     ObjectPaymentApi.prototype.paymentControllerDeleteCardDetails = function (param, options) {
         return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.paymentControllerDeletePaymentWithHttpInfo = function (param, options) {
-        return this.api.paymentControllerDeletePaymentWithHttpInfo(param.paymentPayloadDto, options).toPromise();
-    };
-    ObjectPaymentApi.prototype.paymentControllerDeletePayment = function (param, options) {
-        return this.api.paymentControllerDeletePayment(param.paymentPayloadDto, options).toPromise();
-    };
     ObjectPaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.paymentControllerGetCardListWithHttpInfo(options).toPromise();

@@ -19,7 +19,6 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
-import { PaymentDeleteResponseDto } from '../models/PaymentDeleteResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -177,9 +176,6 @@ export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
 export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
     paymentPayloadDto: PaymentPayloadDto;
 }
-export interface PaymentApiPaymentControllerDeletePaymentRequest {
-    paymentPayloadDto: PaymentPayloadDto;
-}
 export interface PaymentApiPaymentControllerGetCardListRequest {
 }
 export declare class ObjectPaymentApi {
@@ -191,8 +187,6 @@ export declare class ObjectPaymentApi {
     paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto>;
     paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
-    paymentControllerDeletePaymentWithHttpInfo(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<HttpInfo<PaymentDeleteResponseDto>>;
-    paymentControllerDeletePayment(param: PaymentApiPaymentControllerDeletePaymentRequest, options?: Configuration): Promise<PaymentDeleteResponseDto>;
     paymentControllerGetCardListWithHttpInfo(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
 }
