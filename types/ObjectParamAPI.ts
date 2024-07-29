@@ -538,12 +538,6 @@ import { FriendsApiRequestFactory, FriendsApiResponseProcessor} from "../apis/Fr
 export interface FriendsApiFriendControllerFindFriendsRequest {
     /**
      * 
-     * @type string
-     * @memberof FriendsApifriendControllerFindFriends
-     */
-    search: string
-    /**
-     * 
      * @type number
      * @memberof FriendsApifriendControllerFindFriends
      */
@@ -554,6 +548,12 @@ export interface FriendsApiFriendControllerFindFriendsRequest {
      * @memberof FriendsApifriendControllerFindFriends
      */
     limit: number
+    /**
+     * 
+     * @type string
+     * @memberof FriendsApifriendControllerFindFriends
+     */
+    search?: string
 }
 
 export class ObjectFriendsApi {
@@ -567,14 +567,14 @@ export class ObjectFriendsApi {
      * @param param the request object
      */
     public friendControllerFindFriendsWithHttpInfo(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
-        return this.api.friendControllerFindFriendsWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
+        return this.api.friendControllerFindFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto> {
-        return this.api.friendControllerFindFriends(param.search, param.page, param.limit,  options).toPromise();
+        return this.api.friendControllerFindFriends(param.page, param.limit, param.search,  options).toPromise();
     }
 
 }

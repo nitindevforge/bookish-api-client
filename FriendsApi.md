@@ -22,12 +22,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .FriendsApi(configuration);
 
 let body:.FriendsApiFriendControllerFindFriendsRequest = {
-  // string
-  search: "search_example",
   // number
   page: 3.14,
   // number
   limit: 3.14,
+  // string (optional)
+  search: "search_example",
 };
 
 apiInstance.friendControllerFindFriends(body).then((data:any) => {
@@ -40,9 +40,9 @@ apiInstance.friendControllerFindFriends(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | [**string**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

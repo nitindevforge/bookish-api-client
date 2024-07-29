@@ -16,18 +16,12 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 export class FriendsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * @param search 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public async friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
-
-        // verify required parameter 'search' is not null or undefined
-        if (search === null || search === undefined) {
-            throw new RequiredError("FriendsApi", "friendControllerFindFriends", "search");
-        }
-
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
@@ -39,6 +33,7 @@ export class FriendsApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("FriendsApi", "friendControllerFindFriends", "limit");
         }
+
 
 
         // Path Params

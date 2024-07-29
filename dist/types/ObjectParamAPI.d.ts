@@ -144,9 +144,9 @@ export declare class ObjectFollowerApi {
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export interface FriendsApiFriendControllerFindFriendsRequest {
-    search: string;
     page: number;
     limit: number;
+    search?: string;
 }
 export declare class ObjectFriendsApi {
     private api;

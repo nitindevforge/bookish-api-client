@@ -161,10 +161,10 @@ var ObjectFriendsApi = (function () {
         this.api = new ObservableAPI_6.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (param, options) {
-        return this.api.friendControllerFindFriendsWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
+        return this.api.friendControllerFindFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
     };
     ObjectFriendsApi.prototype.friendControllerFindFriends = function (param, options) {
-        return this.api.friendControllerFindFriends(param.search, param.page, param.limit, options).toPromise();
+        return this.api.friendControllerFindFriends(param.page, param.limit, param.search, options).toPromise();
     };
     return ObjectFriendsApi;
 }());

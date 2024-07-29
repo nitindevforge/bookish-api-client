@@ -62,7 +62,7 @@ var FriendsApiRequestFactory = (function (_super) {
     function FriendsApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FriendsApiRequestFactory.prototype.friendControllerFindFriends = function (search, page, limit, _options) {
+    FriendsApiRequestFactory.prototype.friendControllerFindFriends = function (page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -70,9 +70,6 @@ var FriendsApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (search === null || search === undefined) {
-                            throw new baseapi_1.RequiredError("FriendsApi", "friendControllerFindFriends", "search");
-                        }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("FriendsApi", "friendControllerFindFriends", "page");
                         }

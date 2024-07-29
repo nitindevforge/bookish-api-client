@@ -451,22 +451,22 @@ export class PromiseFriendsApi {
     }
 
     /**
-     * @param search 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
-        const result = this.api.friendControllerFindFriendsWithHttpInfo(search, page, limit, _options);
+    public friendControllerFindFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
+        const result = this.api.friendControllerFindFriendsWithHttpInfo(page, limit, search, _options);
         return result.toPromise();
     }
 
     /**
-     * @param search 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<FriendsResponseDto> {
-        const result = this.api.friendControllerFindFriends(search, page, limit, _options);
+    public friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<FriendsResponseDto> {
+        const result = this.api.friendControllerFindFriends(page, limit, search, _options);
         return result.toPromise();
     }
 

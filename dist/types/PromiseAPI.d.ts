@@ -91,8 +91,8 @@ import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/F
 export declare class PromiseFriendsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
-    friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<FriendsResponseDto>;
+    friendControllerFindFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
+    friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
 export declare class PromisePaymentApi {

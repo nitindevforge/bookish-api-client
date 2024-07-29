@@ -546,9 +546,9 @@ var ObservableFriendsApi = (function () {
         this.requestFactory = requestFactory || new FriendsApi_1.FriendsApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FriendsApi_1.FriendsApiResponseProcessor();
     }
-    ObservableFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (search, page, limit, _options) {
+    ObservableFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (page, limit, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.friendControllerFindFriends(search, page, limit, _options);
+        var requestContextPromise = this.requestFactory.friendControllerFindFriends(page, limit, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_37 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -570,8 +570,8 @@ var ObservableFriendsApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerFindFriendsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFriendsApi.prototype.friendControllerFindFriends = function (search, page, limit, _options) {
-        return this.friendControllerFindFriendsWithHttpInfo(search, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFriendsApi.prototype.friendControllerFindFriends = function (page, limit, search, _options) {
+        return this.friendControllerFindFriendsWithHttpInfo(page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     return ObservableFriendsApi;
 }());

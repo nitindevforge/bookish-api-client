@@ -104,8 +104,8 @@ export declare class ObservableFriendsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>>;
-    friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Observable<FriendsResponseDto>;
+    friendControllerFindFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>>;
+    friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
 export declare class ObservablePaymentApi {

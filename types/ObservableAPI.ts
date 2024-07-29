@@ -684,12 +684,12 @@ export class ObservableFriendsApi {
     }
 
     /**
-     * @param search 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.friendControllerFindFriends(search, page, limit, _options);
+    public friendControllerFindFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.friendControllerFindFriends(page, limit, search, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -708,12 +708,12 @@ export class ObservableFriendsApi {
     }
 
     /**
-     * @param search 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Observable<FriendsResponseDto> {
-        return this.friendControllerFindFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendsResponseDto>) => apiResponse.data));
+    public friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<FriendsResponseDto> {
+        return this.friendControllerFindFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<FriendsResponseDto>) => apiResponse.data));
     }
 
 }
