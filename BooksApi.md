@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
-[**bookControllerGetBooks**](BooksApi.md#bookControllerGetBooks) | **GET** /v1/books | 
+[**bookControllerFindBooks**](BooksApi.md#bookControllerFindBooks) | **GET** /v1/books | 
 
 
 # **bookControllerAddBook**
@@ -68,8 +68,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **bookControllerGetBooks**
-> BooksResponseDto bookControllerGetBooks()
+# **bookControllerFindBooks**
+> BooksResponseDto bookControllerFindBooks()
 
 
 ### Example
@@ -82,16 +82,16 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .BooksApi(configuration);
 
-let body:.BooksApiBookControllerGetBooksRequest = {
-  // string (optional)
+let body:.BooksApiBookControllerFindBooksRequest = {
+  // string
   search: "search_example",
-  // number (optional)
+  // number
   page: 3.14,
-  // number (optional)
+  // number
   limit: 3.14,
 };
 
-apiInstance.bookControllerGetBooks(body).then((data:any) => {
+apiInstance.bookControllerFindBooks(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -101,9 +101,9 @@ apiInstance.bookControllerGetBooks(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | [**string**] |  | (optional) defaults to undefined
- **page** | [**number**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | defaults to undefined
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
 
 
 ### Return type

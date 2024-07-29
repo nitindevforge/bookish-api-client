@@ -20,18 +20,6 @@ var PermissionResponseDto = (function () {
             "baseName": "name",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
         }
     ];
     return PermissionResponseDto;

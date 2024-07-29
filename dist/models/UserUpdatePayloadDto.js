@@ -38,6 +38,24 @@ var UserUpdatePayloadDto = (function () {
             "baseName": "email",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "profile",
+            "baseName": "profile",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "followerCount",
+            "baseName": "followerCount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "followingCount",
+            "baseName": "followingCount",
+            "type": "number",
+            "format": ""
         }
     ];
     return UserUpdatePayloadDto;

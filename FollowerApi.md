@@ -4,12 +4,12 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**followerControllerFollowing**](FollowerApi.md#followerControllerFollowing) | **POST** /v1/follower/following | 
-[**followerControllerUnFollow**](FollowerApi.md#followerControllerUnFollow) | **POST** /v1/follower/unfollow | 
+[**followerControllerFollow**](FollowerApi.md#followerControllerFollow) | **POST** /v1/relationship/follow | 
+[**followerControllerUnfollow**](FollowerApi.md#followerControllerUnfollow) | **POST** /v1/relationship/unfollow | 
 
 
-# **followerControllerFollowing**
-> FollowerResponseDto followerControllerFollowing(followerPayloadDto)
+# **followerControllerFollow**
+> FollowerResponseDto followerControllerFollow(followerPayloadDto)
 
 
 ### Example
@@ -22,14 +22,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerFollowingRequest = {
+let body:.FollowerApiFollowerControllerFollowRequest = {
   // FollowerPayloadDto
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-apiInstance.followerControllerFollowing(body).then((data:any) => {
+apiInstance.followerControllerFollow(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -64,8 +64,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **followerControllerUnFollow**
-> FollowerResponseDto followerControllerUnFollow(followerPayloadDto)
+# **followerControllerUnfollow**
+> FollowerResponseDto followerControllerUnfollow(followerPayloadDto)
 
 
 ### Example
@@ -78,14 +78,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerUnFollowRequest = {
+let body:.FollowerApiFollowerControllerUnfollowRequest = {
   // FollowerPayloadDto
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-apiInstance.followerControllerUnFollow(body).then((data:any) => {
+apiInstance.followerControllerUnfollow(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

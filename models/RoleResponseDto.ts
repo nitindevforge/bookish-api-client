@@ -17,8 +17,6 @@ export class RoleResponseDto {
     'id': string;
     'name': string;
     'permissions': Array<PermissionResponseDto>;
-    'createdAt': Date;
-    'updatedAt': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -40,18 +38,6 @@ export class RoleResponseDto {
             "baseName": "permissions",
             "type": "Array<PermissionResponseDto>",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
         }    ];
 
     static getAttributeTypeMap() {

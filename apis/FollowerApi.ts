@@ -19,17 +19,17 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param followerPayloadDto 
      */
-    public async followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'followerPayloadDto' is not null or undefined
         if (followerPayloadDto === null || followerPayloadDto === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerFollowing", "followerPayloadDto");
+            throw new RequiredError("FollowerApi", "followerControllerFollow", "followerPayloadDto");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/follower/following';
+        const localVarPath = '/v1/relationship/follow';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
@@ -65,17 +65,17 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param followerPayloadDto 
      */
-    public async followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'followerPayloadDto' is not null or undefined
         if (followerPayloadDto === null || followerPayloadDto === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerUnFollow", "followerPayloadDto");
+            throw new RequiredError("FollowerApi", "followerControllerUnfollow", "followerPayloadDto");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/follower/unfollow';
+        const localVarPath = '/v1/relationship/unfollow';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
@@ -116,10 +116,10 @@ export class FollowerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to followerControllerFollowing
+     * @params response Response returned by the server for a request to followerControllerFollow
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async followerControllerFollowingWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerResponseDto >> {
+     public async followerControllerFollowWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: FollowerResponseDto = ObjectSerializer.deserialize(
@@ -148,10 +148,10 @@ export class FollowerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to followerControllerUnFollow
+     * @params response Response returned by the server for a request to followerControllerUnfollow
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async followerControllerUnFollowWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerResponseDto >> {
+     public async followerControllerUnfollowWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FollowerResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: FollowerResponseDto = ObjectSerializer.deserialize(

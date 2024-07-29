@@ -20,14 +20,29 @@ export class FriendsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      */
-    public async friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
+        // verify required parameter 'search' is not null or undefined
+        if (search === null || search === undefined) {
+            throw new RequiredError("FriendsApi", "friendControllerFindFriends", "search");
+        }
 
+
+        // verify required parameter 'page' is not null or undefined
+        if (page === null || page === undefined) {
+            throw new RequiredError("FriendsApi", "friendControllerFindFriends", "page");
+        }
+
+
+        // verify required parameter 'limit' is not null or undefined
+        if (limit === null || limit === undefined) {
+            throw new RequiredError("FriendsApi", "friendControllerFindFriends", "limit");
+        }
 
 
         // Path Params
-        const localVarPath = '/v1/user/search';
+        const localVarPath = '/v1/friends';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -72,10 +87,10 @@ export class FriendsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to friendControllerGetFriends
+     * @params response Response returned by the server for a request to friendControllerFindFriends
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async friendControllerGetFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FriendsResponseDto >> {
+     public async friendControllerFindFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FriendsResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: FriendsResponseDto = ObjectSerializer.deserialize(

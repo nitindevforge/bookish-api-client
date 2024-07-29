@@ -39,8 +39,8 @@ export declare class ObservableAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Observable<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
@@ -64,8 +64,8 @@ export declare class ObservableBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<BookResponseDto>;
-    bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
-    bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Observable<BooksResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class ObservableDefaultApi {
@@ -84,10 +84,8 @@ export declare class ObservableEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto>;
-    eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>>;
-    eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto>;
-    eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
-    eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class ObservableFollowerApi {
@@ -95,10 +93,10 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
-    followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
-    followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
-    followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
+    followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
+    followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export declare class ObservableFriendsApi {
@@ -106,8 +104,8 @@ export declare class ObservableFriendsApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>>;
-    friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendsResponseDto>;
+    friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>>;
+    friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Observable<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
 export declare class ObservablePaymentApi {
@@ -122,12 +120,12 @@ export declare class ObservablePaymentApi {
     stripeControllerGetCardListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     stripeControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto>;
 }
-import { UploadApiRequestFactory, UploadApiResponseProcessor } from "../apis/UploadApi";
-export declare class ObservableUploadApi {
+import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
+export declare class ObservableStorageApi {
     private requestFactory;
     private responseProcessor;
     private configuration;
-    constructor(configuration: Configuration, requestFactory?: UploadApiRequestFactory, responseProcessor?: UploadApiResponseProcessor);
+    constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
     fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<HttpInfo<void>>;
     fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<void>;
 }

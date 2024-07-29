@@ -160,7 +160,7 @@ export class ObservableAuthApi {
      * @param page 
      * @param limit 
      */
-    public authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
         const requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, _options);
 
         // build promise chain
@@ -183,7 +183,7 @@ export class ObservableAuthApi {
      * @param page 
      * @param limit 
      */
-    public authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Observable<ActivityResponseDto> {
+    public authControllerGetActivity(page: number, limit: number, _options?: Configuration): Observable<ActivityResponseDto> {
         return this.authControllerGetActivityWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
     }
 
@@ -438,8 +438,8 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      */
-    public bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerGetBooks(search, page, limit, _options);
+    public bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindBooks(search, page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -453,7 +453,7 @@ export class ObservableBooksApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerGetBooksWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindBooksWithHttpInfo(rsp)));
             }));
     }
 
@@ -462,8 +462,8 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      */
-    public bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<BooksResponseDto> {
-        return this.bookControllerGetBooksWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
+    public bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Observable<BooksResponseDto> {
+        return this.bookControllerFindBooksWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
     }
 
 }
@@ -562,7 +562,7 @@ export class ObservableEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+    public eventControllerGetEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
         const requestContextPromise = this.requestFactory.eventControllerGetEvents(page, limit, _options);
 
         // build promise chain
@@ -585,37 +585,8 @@ export class ObservableEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto> {
+    public eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto> {
         return this.eventControllerGetEventsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
-    }
-
-    /**
-     * @param eventPayloadDto 
-     */
-    public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerUpdateEvent(eventPayloadDto, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerUpdateEventWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param eventPayloadDto 
-     */
-    public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
-        return this.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
     }
 
 }
@@ -639,8 +610,8 @@ export class ObservableFollowerApi {
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerFollowing(followerPayloadDto, _options);
+    public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFollow(followerPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -654,22 +625,22 @@ export class ObservableFollowerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerFollowingWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerFollowWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto> {
-        return this.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
+    public followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto> {
+        return this.followerControllerFollowWithHttpInfo(followerPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerUnFollow(followerPayloadDto, _options);
+    public followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerUnfollow(followerPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -683,15 +654,15 @@ export class ObservableFollowerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerUnFollowWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerUnfollowWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto> {
-        return this.followerControllerUnFollowWithHttpInfo(followerPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
+    public followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto> {
+        return this.followerControllerUnfollowWithHttpInfo(followerPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
     }
 
 }
@@ -717,8 +688,8 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.friendControllerGetFriends(search, page, limit, _options);
+    public friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<FriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.friendControllerFindFriends(search, page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -732,7 +703,7 @@ export class ObservableFriendsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.friendControllerGetFriendsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.friendControllerFindFriendsWithHttpInfo(rsp)));
             }));
     }
 
@@ -741,8 +712,8 @@ export class ObservableFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Observable<FriendsResponseDto> {
-        return this.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendsResponseDto>) => apiResponse.data));
+    public friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Observable<FriendsResponseDto> {
+        return this.friendControllerFindFriendsWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<FriendsResponseDto>) => apiResponse.data));
     }
 
 }
@@ -850,20 +821,20 @@ export class ObservablePaymentApi {
 
 }
 
-import { UploadApiRequestFactory, UploadApiResponseProcessor} from "../apis/UploadApi";
-export class ObservableUploadApi {
-    private requestFactory: UploadApiRequestFactory;
-    private responseProcessor: UploadApiResponseProcessor;
+import { StorageApiRequestFactory, StorageApiResponseProcessor} from "../apis/StorageApi";
+export class ObservableStorageApi {
+    private requestFactory: StorageApiRequestFactory;
+    private responseProcessor: StorageApiResponseProcessor;
     private configuration: Configuration;
 
     public constructor(
         configuration: Configuration,
-        requestFactory?: UploadApiRequestFactory,
-        responseProcessor?: UploadApiResponseProcessor
+        requestFactory?: StorageApiRequestFactory,
+        responseProcessor?: StorageApiResponseProcessor
     ) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new UploadApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new UploadApiResponseProcessor();
+        this.requestFactory = requestFactory || new StorageApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new StorageApiResponseProcessor();
     }
 
     /**

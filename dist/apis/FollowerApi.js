@@ -62,7 +62,7 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerFollowing = function (followerPayloadDto, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerFollow = function (followerPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -71,9 +71,9 @@ var FollowerApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (followerPayloadDto === null || followerPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerFollowing", "followerPayloadDto");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerFollow", "followerPayloadDto");
                         }
-                        localVarPath = '/v1/follower/following';
+                        localVarPath = '/v1/relationship/follow';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
@@ -100,7 +100,7 @@ var FollowerApiRequestFactory = (function (_super) {
             });
         });
     };
-    FollowerApiRequestFactory.prototype.followerControllerUnFollow = function (followerPayloadDto, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerUnfollow = function (followerPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -109,9 +109,9 @@ var FollowerApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (followerPayloadDto === null || followerPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerUnFollow", "followerPayloadDto");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerUnfollow", "followerPayloadDto");
                         }
-                        localVarPath = '/v1/follower/unfollow';
+                        localVarPath = '/v1/relationship/unfollow';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
@@ -144,7 +144,7 @@ exports.FollowerApiRequestFactory = FollowerApiRequestFactory;
 var FollowerApiResponseProcessor = (function () {
     function FollowerApiResponseProcessor() {
     }
-    FollowerApiResponseProcessor.prototype.followerControllerFollowingWithHttpInfo = function (response) {
+    FollowerApiResponseProcessor.prototype.followerControllerFollowWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
@@ -180,7 +180,7 @@ var FollowerApiResponseProcessor = (function () {
             });
         });
     };
-    FollowerApiResponseProcessor.prototype.followerControllerUnFollowWithHttpInfo = function (response) {
+    FollowerApiResponseProcessor.prototype.followerControllerUnfollowWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

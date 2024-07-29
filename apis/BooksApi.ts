@@ -68,10 +68,25 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      */
-    public async bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
+        // verify required parameter 'search' is not null or undefined
+        if (search === null || search === undefined) {
+            throw new RequiredError("BooksApi", "bookControllerFindBooks", "search");
+        }
 
+
+        // verify required parameter 'page' is not null or undefined
+        if (page === null || page === undefined) {
+            throw new RequiredError("BooksApi", "bookControllerFindBooks", "page");
+        }
+
+
+        // verify required parameter 'limit' is not null or undefined
+        if (limit === null || limit === undefined) {
+            throw new RequiredError("BooksApi", "bookControllerFindBooks", "limit");
+        }
 
 
         // Path Params
@@ -152,10 +167,10 @@ export class BooksApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to bookControllerGetBooks
+     * @params response Response returned by the server for a request to bookControllerFindBooks
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async bookControllerGetBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksResponseDto >> {
+     public async bookControllerFindBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: BooksResponseDto = ObjectSerializer.deserialize(

@@ -15,8 +15,6 @@ import { HttpFile } from '../http/http';
 export class PermissionResponseDto {
     'id': string;
     'name': string;
-    'createdAt': Date;
-    'updatedAt': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -32,18 +30,6 @@ export class PermissionResponseDto {
             "baseName": "name",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
         }    ];
 
     static getAttributeTypeMap() {

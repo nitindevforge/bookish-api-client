@@ -16,7 +16,6 @@ export class EventPayloadDto {
     'title': string;
     'image': string;
     'date': Date;
-    'time': string;
     'price': number;
     'description': string;
     'id'?: string;
@@ -41,12 +40,6 @@ export class EventPayloadDto {
             "baseName": "date",
             "type": "Date",
             "format": "date-time"
-        },
-        {
-            "name": "time",
-            "baseName": "time",
-            "type": "string",
-            "format": ""
         },
         {
             "name": "price",

@@ -51,107 +51,82 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.FriendsApiResponseProcessor = exports.FriendsApiRequestFactory = void 0;
+exports.StorageApiResponseProcessor = exports.StorageApiRequestFactory = void 0;
 var baseapi_1 = require("./baseapi");
 var http_1 = require("../http/http");
 var ObjectSerializer_1 = require("../models/ObjectSerializer");
 var exception_1 = require("./exception");
 var util_1 = require("../util");
-var FriendsApiRequestFactory = (function (_super) {
-    __extends(FriendsApiRequestFactory, _super);
-    function FriendsApiRequestFactory() {
+var StorageApiRequestFactory = (function (_super) {
+    __extends(StorageApiRequestFactory, _super);
+    function StorageApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FriendsApiRequestFactory.prototype.friendControllerFindFriends = function (search, page, limit, _options) {
+    StorageApiRequestFactory.prototype.fileUploadControllerGetPreSignedURL = function (fileUploadPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, contentType, serializedBody, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (search === null || search === undefined) {
-                            throw new baseapi_1.RequiredError("FriendsApi", "friendControllerFindFriends", "search");
+                        if (fileUploadPayloadDto === null || fileUploadPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("StorageApi", "fileUploadControllerGetPreSignedURL", "fileUploadPayloadDto");
                         }
-                        if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("FriendsApi", "friendControllerFindFriends", "page");
-                        }
-                        if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("FriendsApi", "friendControllerFindFriends", "limit");
-                        }
-                        localVarPath = '/v1/friends';
-                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        localVarPath = '/v1/storage/file';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        if (search !== undefined) {
-                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
-                        }
-                        if (page !== undefined) {
-                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
-                        }
-                        if (limit !== undefined) {
-                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
-                        }
-                        authMethod = _config.authMethods["bearer"];
-                        if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
-                        return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(fileUploadPayloadDto, "FileUploadPayloadDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
                     case 1:
                         _d.sent();
                         _d.label = 2;
-                    case 2:
-                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
-                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 4];
-                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
-                    case 3:
-                        _d.sent();
-                        _d.label = 4;
-                    case 4: return [2, requestContext];
+                    case 2: return [2, requestContext];
                 }
             });
         });
     };
-    return FriendsApiRequestFactory;
+    return StorageApiRequestFactory;
 }(baseapi_1.BaseAPIRequestFactory));
-exports.FriendsApiRequestFactory = FriendsApiRequestFactory;
-var FriendsApiResponseProcessor = (function () {
-    function FriendsApiResponseProcessor() {
+exports.StorageApiRequestFactory = StorageApiRequestFactory;
+var StorageApiResponseProcessor = (function () {
+    function StorageApiResponseProcessor() {
     }
-    FriendsApiResponseProcessor.prototype.friendControllerFindFriendsWithHttpInfo = function (response) {
+    StorageApiResponseProcessor.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
-            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
-            return __generator(this, function (_l) {
-                switch (_l.label) {
+            var contentType, body, _a, _b, _c, _d, _e, _f;
+            return __generator(this, function (_g) {
+                switch (_g.label) {
                     case 0:
                         contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
+                        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
+                            return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, undefined)];
+                        }
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 2];
                         _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
                         _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
                         return [4, response.body.text()];
                     case 1:
-                        body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "FriendsResponseDto", ""]);
+                        body = _b.apply(_a, [_d.apply(_c, [_g.sent(), contentType]),
+                            "void", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
-                        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
-                            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
-                        }
-                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
-                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
-                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
-                        return [4, response.body.text()];
-                    case 3:
-                        body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "FriendsResponseDto", ""]);
-                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
-                    case 4:
-                        _j = exception_1.ApiException.bind;
-                        _k = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        _e = exception_1.ApiException.bind;
+                        _f = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
                         return [4, response.getBodyAsAny()];
-                    case 5: throw new (_j.apply(exception_1.ApiException, _k.concat([_l.sent(), response.headers])))();
+                    case 3: throw new (_e.apply(exception_1.ApiException, _f.concat([_g.sent(), response.headers])))();
                 }
             });
         });
     };
-    return FriendsApiResponseProcessor;
+    return StorageApiResponseProcessor;
 }());
-exports.FriendsApiResponseProcessor = FriendsApiResponseProcessor;
-//# sourceMappingURL=FriendsApi.js.map
+exports.StorageApiResponseProcessor = StorageApiResponseProcessor;
+//# sourceMappingURL=StorageApi.js.map

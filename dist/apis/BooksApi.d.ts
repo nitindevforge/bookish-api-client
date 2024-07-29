@@ -6,9 +6,9 @@ import { BookResponseDto } from '../models/BookResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class BooksApiResponseProcessor {
     bookControllerAddBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
-    bookControllerGetBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksResponseDto>>;
 }

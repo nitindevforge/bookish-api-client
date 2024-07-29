@@ -17,7 +17,6 @@ export class Events {
     'name': string;
     'image': string;
     'date': Date;
-    'time': string;
     'price': number;
     'description': string;
     'owner': UserDetails;
@@ -44,12 +43,6 @@ export class Events {
             "baseName": "date",
             "type": "Date",
             "format": "date-time"
-        },
-        {
-            "name": "time",
-            "baseName": "time",
-            "type": "string",
-            "format": ""
         },
         {
             "name": "price",

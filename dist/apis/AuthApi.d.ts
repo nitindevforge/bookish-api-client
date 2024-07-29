@@ -17,7 +17,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerChangePassword(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
+    authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<RequestContext>;
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUserById(id: string, _options?: Configuration): Promise<RequestContext>;

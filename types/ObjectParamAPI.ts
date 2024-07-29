@@ -88,13 +88,13 @@ export interface AuthApiAuthControllerGetActivityRequest {
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
-    page?: number
+    page: number
     /**
      * 
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
-    limit?: number
+    limit: number
 }
 
 export interface AuthApiAuthControllerGetInterestsRequest {
@@ -200,14 +200,14 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest = {}, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest = {}, options?: Configuration): Promise<ActivityResponseDto> {
+    public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
         return this.api.authControllerGetActivity(param.page, param.limit,  options).toPromise();
     }
 
@@ -323,25 +323,25 @@ export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto
 }
 
-export interface BooksApiBookControllerGetBooksRequest {
+export interface BooksApiBookControllerFindBooksRequest {
     /**
      * 
      * @type string
-     * @memberof BooksApibookControllerGetBooks
+     * @memberof BooksApibookControllerFindBooks
      */
-    search?: string
+    search: string
     /**
      * 
      * @type number
-     * @memberof BooksApibookControllerGetBooks
+     * @memberof BooksApibookControllerFindBooks
      */
-    page?: number
+    page: number
     /**
      * 
      * @type number
-     * @memberof BooksApibookControllerGetBooks
+     * @memberof BooksApibookControllerFindBooks
      */
-    limit?: number
+    limit: number
 }
 
 export class ObjectBooksApi {
@@ -368,15 +368,15 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerGetBooksWithHttpInfo(param: BooksApiBookControllerGetBooksRequest = {}, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
-        return this.api.bookControllerGetBooksWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
+    public bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
+        return this.api.bookControllerFindBooksWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerGetBooks(param: BooksApiBookControllerGetBooksRequest = {}, options?: Configuration): Promise<BooksResponseDto> {
-        return this.api.bookControllerGetBooks(param.search, param.page, param.limit,  options).toPromise();
+    public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
+        return this.api.bookControllerFindBooks(param.search, param.page, param.limit,  options).toPromise();
     }
 
 }
@@ -428,22 +428,13 @@ export interface EventsApiEventControllerGetEventsRequest {
      * @type number
      * @memberof EventsApieventControllerGetEvents
      */
-    page?: number
+    page: number
     /**
      * 
      * @type number
      * @memberof EventsApieventControllerGetEvents
      */
     limit?: number
-}
-
-export interface EventsApiEventControllerUpdateEventRequest {
-    /**
-     * 
-     * @type EventPayloadDto
-     * @memberof EventsApieventControllerUpdateEvent
-     */
-    eventPayloadDto: EventPayloadDto
 }
 
 export class ObjectEventsApi {
@@ -470,29 +461,15 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerGetEventsWithHttpInfo(param: EventsApiEventControllerGetEventsRequest = {}, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+    public eventControllerGetEventsWithHttpInfo(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
         return this.api.eventControllerGetEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerGetEvents(param: EventsApiEventControllerGetEventsRequest = {}, options?: Configuration): Promise<EventsResponseDto> {
+    public eventControllerGetEvents(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
         return this.api.eventControllerGetEvents(param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
-        return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto> {
-        return this.api.eventControllerUpdateEvent(param.eventPayloadDto,  options).toPromise();
     }
 
 }
@@ -500,20 +477,20 @@ export class ObjectEventsApi {
 import { ObservableFollowerApi } from "./ObservableAPI";
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
 
-export interface FollowerApiFollowerControllerFollowingRequest {
+export interface FollowerApiFollowerControllerFollowRequest {
     /**
      * 
      * @type FollowerPayloadDto
-     * @memberof FollowerApifollowerControllerFollowing
+     * @memberof FollowerApifollowerControllerFollow
      */
     followerPayloadDto: FollowerPayloadDto
 }
 
-export interface FollowerApiFollowerControllerUnFollowRequest {
+export interface FollowerApiFollowerControllerUnfollowRequest {
     /**
      * 
      * @type FollowerPayloadDto
-     * @memberof FollowerApifollowerControllerUnFollow
+     * @memberof FollowerApifollowerControllerUnfollow
      */
     followerPayloadDto: FollowerPayloadDto
 }
@@ -528,29 +505,29 @@ export class ObjectFollowerApi {
     /**
      * @param param the request object
      */
-    public followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        return this.api.followerControllerFollowingWithHttpInfo(param.followerPayloadDto,  options).toPromise();
+    public followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto> {
-        return this.api.followerControllerFollowing(param.followerPayloadDto,  options).toPromise();
+    public followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
+        return this.api.followerControllerFollow(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        return this.api.followerControllerUnFollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
+    public followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        return this.api.followerControllerUnfollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerUnFollow(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
-        return this.api.followerControllerUnFollow(param.followerPayloadDto,  options).toPromise();
+    public followerControllerUnfollow(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
+        return this.api.followerControllerUnfollow(param.followerPayloadDto,  options).toPromise();
     }
 
 }
@@ -558,25 +535,25 @@ export class ObjectFollowerApi {
 import { ObservableFriendsApi } from "./ObservableAPI";
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor} from "../apis/FriendsApi";
 
-export interface FriendsApiFriendControllerGetFriendsRequest {
+export interface FriendsApiFriendControllerFindFriendsRequest {
     /**
      * 
      * @type string
-     * @memberof FriendsApifriendControllerGetFriends
+     * @memberof FriendsApifriendControllerFindFriends
      */
-    search?: string
+    search: string
     /**
      * 
      * @type number
-     * @memberof FriendsApifriendControllerGetFriends
+     * @memberof FriendsApifriendControllerFindFriends
      */
-    page?: number
+    page: number
     /**
      * 
      * @type number
-     * @memberof FriendsApifriendControllerGetFriends
+     * @memberof FriendsApifriendControllerFindFriends
      */
-    limit?: number
+    limit: number
 }
 
 export class ObjectFriendsApi {
@@ -589,15 +566,15 @@ export class ObjectFriendsApi {
     /**
      * @param param the request object
      */
-    public friendControllerGetFriendsWithHttpInfo(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
-        return this.api.friendControllerGetFriendsWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
+    public friendControllerFindFriendsWithHttpInfo(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
+        return this.api.friendControllerFindFriendsWithHttpInfo(param.search, param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public friendControllerGetFriends(param: FriendsApiFriendControllerGetFriendsRequest = {}, options?: Configuration): Promise<FriendsResponseDto> {
-        return this.api.friendControllerGetFriends(param.search, param.page, param.limit,  options).toPromise();
+    public friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto> {
+        return this.api.friendControllerFindFriends(param.search, param.page, param.limit,  options).toPromise();
     }
 
 }
@@ -677,36 +654,36 @@ export class ObjectPaymentApi {
 
 }
 
-import { ObservableUploadApi } from "./ObservableAPI";
-import { UploadApiRequestFactory, UploadApiResponseProcessor} from "../apis/UploadApi";
+import { ObservableStorageApi } from "./ObservableAPI";
+import { StorageApiRequestFactory, StorageApiResponseProcessor} from "../apis/StorageApi";
 
-export interface UploadApiFileUploadControllerGetPreSignedURLRequest {
+export interface StorageApiFileUploadControllerGetPreSignedURLRequest {
     /**
      * 
      * @type FileUploadPayloadDto
-     * @memberof UploadApifileUploadControllerGetPreSignedURL
+     * @memberof StorageApifileUploadControllerGetPreSignedURL
      */
     fileUploadPayloadDto: FileUploadPayloadDto
 }
 
-export class ObjectUploadApi {
-    private api: ObservableUploadApi
+export class ObjectStorageApi {
+    private api: ObservableStorageApi
 
-    public constructor(configuration: Configuration, requestFactory?: UploadApiRequestFactory, responseProcessor?: UploadApiResponseProcessor) {
-        this.api = new ObservableUploadApi(configuration, requestFactory, responseProcessor);
+    public constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor) {
+        this.api = new ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
 
     /**
      * @param param the request object
      */
-    public fileUploadControllerGetPreSignedURLWithHttpInfo(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
+    public fileUploadControllerGetPreSignedURLWithHttpInfo(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public fileUploadControllerGetPreSignedURL(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
+    public fileUploadControllerGetPreSignedURL(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
         return this.api.fileUploadControllerGetPreSignedURL(param.fileUploadPayloadDto,  options).toPromise();
     }
 

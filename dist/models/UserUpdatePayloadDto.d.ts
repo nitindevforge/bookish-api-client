@@ -4,6 +4,9 @@ export declare class UserUpdatePayloadDto {
     'userName': string;
     'interests': Array<string>;
     'email': string;
+    'profile': string;
+    'followerCount': number;
+    'followingCount': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

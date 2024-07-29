@@ -1,8 +1,6 @@
 export declare class PermissionResponseDto {
     'id': string;
     'name': string;
-    'createdAt': Date;
-    'updatedAt': Date;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -3,7 +3,6 @@ export declare class Events {
     'name': string;
     'image': string;
     'date': Date;
-    'time': string;
     'price': number;
     'description': string;
     'owner': UserDetails;

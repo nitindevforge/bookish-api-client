@@ -117,7 +117,7 @@ export class PromiseAuthApi {
      * @param page 
      * @param limit 
      */
-    public authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         const result = this.api.authControllerGetActivityWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
@@ -126,7 +126,7 @@ export class PromiseAuthApi {
      * @param page 
      * @param limit 
      */
-    public authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Promise<ActivityResponseDto> {
+    public authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<ActivityResponseDto> {
         const result = this.api.authControllerGetActivity(page, limit, _options);
         return result.toPromise();
     }
@@ -279,8 +279,8 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      */
-    public bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
-        const result = this.api.bookControllerGetBooksWithHttpInfo(search, page, limit, _options);
+    public bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
+        const result = this.api.bookControllerFindBooksWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
     }
 
@@ -289,8 +289,8 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      */
-    public bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<BooksResponseDto> {
-        const result = this.api.bookControllerGetBooks(search, page, limit, _options);
+    public bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<BooksResponseDto> {
+        const result = this.api.bookControllerFindBooks(search, page, limit, _options);
         return result.toPromise();
     }
 
@@ -366,7 +366,7 @@ export class PromiseEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+    public eventControllerGetEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
         const result = this.api.eventControllerGetEventsWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
@@ -375,24 +375,8 @@ export class PromiseEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
+    public eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
         const result = this.api.eventControllerGetEvents(page, limit, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param eventPayloadDto 
-     */
-    public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
-        const result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param eventPayloadDto 
-     */
-    public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
-        const result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -418,32 +402,32 @@ export class PromiseFollowerApi {
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        const result = this.api.followerControllerFollowingWithHttpInfo(followerPayloadDto, _options);
+    public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        const result = this.api.followerControllerFollowWithHttpInfo(followerPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
-        const result = this.api.followerControllerFollowing(followerPayloadDto, _options);
+    public followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
+        const result = this.api.followerControllerFollow(followerPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
-        const result = this.api.followerControllerUnFollowWithHttpInfo(followerPayloadDto, _options);
+    public followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
+        const result = this.api.followerControllerUnfollowWithHttpInfo(followerPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
      * @param followerPayloadDto 
      */
-    public followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
-        const result = this.api.followerControllerUnFollow(followerPayloadDto, _options);
+    public followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
+        const result = this.api.followerControllerUnfollow(followerPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -471,8 +455,8 @@ export class PromiseFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
-        const result = this.api.friendControllerGetFriendsWithHttpInfo(search, page, limit, _options);
+    public friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
+        const result = this.api.friendControllerFindFriendsWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
     }
 
@@ -481,8 +465,8 @@ export class PromiseFriendsApi {
      * @param page 
      * @param limit 
      */
-    public friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<FriendsResponseDto> {
-        const result = this.api.friendControllerGetFriends(search, page, limit, _options);
+    public friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<FriendsResponseDto> {
+        const result = this.api.friendControllerFindFriends(search, page, limit, _options);
         return result.toPromise();
     }
 
@@ -556,18 +540,18 @@ export class PromisePaymentApi {
 
 
 
-import { ObservableUploadApi } from './ObservableAPI';
+import { ObservableStorageApi } from './ObservableAPI';
 
-import { UploadApiRequestFactory, UploadApiResponseProcessor} from "../apis/UploadApi";
-export class PromiseUploadApi {
-    private api: ObservableUploadApi
+import { StorageApiRequestFactory, StorageApiResponseProcessor} from "../apis/StorageApi";
+export class PromiseStorageApi {
+    private api: ObservableStorageApi
 
     public constructor(
         configuration: Configuration,
-        requestFactory?: UploadApiRequestFactory,
-        responseProcessor?: UploadApiResponseProcessor
+        requestFactory?: StorageApiRequestFactory,
+        responseProcessor?: StorageApiResponseProcessor
     ) {
-        this.api = new ObservableUploadApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
 
     /**

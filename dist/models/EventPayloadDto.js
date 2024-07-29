@@ -28,12 +28,6 @@ var EventPayloadDto = (function () {
             "format": "date-time"
         },
         {
-            "name": "time",
-            "baseName": "time",
-            "type": "string",
-            "format": ""
-        },
-        {
             "name": "price",
             "baseName": "price",
             "type": "number",

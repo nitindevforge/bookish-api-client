@@ -200,9 +200,9 @@ const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
 let body:.AuthApiAuthControllerGetActivityRequest = {
-  // number (optional)
+  // number
   page: 3.14,
-  // number (optional)
+  // number
   limit: 3.14,
 };
 
@@ -216,8 +216,8 @@ apiInstance.authControllerGetActivity(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | [**number**] |  | (optional) defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
 
 
 ### Return type
@@ -527,6 +527,9 @@ let body:.AuthApiAuthControllerUserUpdateRequest = {
       "interests_example",
     ],
     email: "email_example",
+    profile: "profile_example",
+    followerCount: 3.14,
+    followingCount: 3.14,
   },
 };
 

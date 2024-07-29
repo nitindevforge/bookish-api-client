@@ -7,7 +7,7 @@ FollowerApi.md
 FriendsApi.md
 PaymentApi.md
 README.md
-UploadApi.md
+StorageApi.md
 apis/AuthApi.ts
 apis/BooksApi.ts
 apis/DefaultApi.ts
@@ -15,7 +15,7 @@ apis/EventsApi.ts
 apis/FollowerApi.ts
 apis/FriendsApi.ts
 apis/PaymentApi.ts
-apis/UploadApi.ts
+apis/StorageApi.ts
 apis/baseapi.ts
 apis/exception.ts
 auth/auth.ts

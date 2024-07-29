@@ -18,6 +18,9 @@ export class UserUpdatePayloadDto {
     'userName': string;
     'interests': Array<string>;
     'email': string;
+    'profile': string;
+    'followerCount': number;
+    'followingCount': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -50,6 +53,24 @@ export class UserUpdatePayloadDto {
             "name": "email",
             "baseName": "email",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "profile",
+            "baseName": "profile",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "followerCount",
+            "baseName": "followerCount",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "followingCount",
+            "baseName": "followingCount",
+            "type": "number",
             "format": ""
         }    ];
 

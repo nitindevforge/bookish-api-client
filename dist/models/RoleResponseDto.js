@@ -26,18 +26,6 @@ var RoleResponseDto = (function () {
             "baseName": "permissions",
             "type": "Array<PermissionResponseDto>",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
         }
     ];
     return RoleResponseDto;

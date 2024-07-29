@@ -1,14 +1,14 @@
-# .FriendsApi
+# .StorageApi
 
 All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**friendControllerFindFriends**](FriendsApi.md#friendControllerFindFriends) | **GET** /v1/friends | 
+[**fileUploadControllerGetPreSignedURL**](StorageApi.md#fileUploadControllerGetPreSignedURL) | **POST** /v1/storage/file | 
 
 
-# **friendControllerFindFriends**
-> FriendsResponseDto friendControllerFindFriends()
+# **fileUploadControllerGetPreSignedURL**
+> void fileUploadControllerGetPreSignedURL(fileUploadPayloadDto)
 
 
 ### Example
@@ -19,18 +19,17 @@ import {  } from '';
 import * as fs from 'fs';
 
 const configuration = .createConfiguration();
-const apiInstance = new .FriendsApi(configuration);
+const apiInstance = new .StorageApi(configuration);
 
-let body:.FriendsApiFriendControllerFindFriendsRequest = {
-  // string
-  search: "search_example",
-  // number
-  page: 3.14,
-  // number
-  limit: 3.14,
+let body:.StorageApiFileUploadControllerGetPreSignedURLRequest = {
+  // FileUploadPayloadDto
+  fileUploadPayloadDto: {
+    key: "key_example",
+    directory: "directory_example",
+  },
 };
 
-apiInstance.friendControllerFindFriends(body).then((data:any) => {
+apiInstance.fileUploadControllerGetPreSignedURL(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -40,30 +39,27 @@ apiInstance.friendControllerFindFriends(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | [**string**] |  | defaults to undefined
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
+ **fileUploadPayloadDto** | **FileUploadPayloadDto**|  |
 
 
 ### Return type
 
-**FriendsResponseDto**
+**void**
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
+**201** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

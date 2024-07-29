@@ -100,7 +100,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerGetBooks = function (search, page, limit, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBooks = function (search, page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -108,6 +108,15 @@ var BooksApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (search === null || search === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "search");
+                        }
+                        if (page === null || page === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "page");
+                        }
+                        if (limit === null || limit === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "limit");
+                        }
                         localVarPath = '/v1/books';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
@@ -180,7 +189,7 @@ var BooksApiResponseProcessor = (function () {
             });
         });
     };
-    BooksApiResponseProcessor.prototype.bookControllerGetBooksWithHttpInfo = function (response) {
+    BooksApiResponseProcessor.prototype.bookControllerFindBooksWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

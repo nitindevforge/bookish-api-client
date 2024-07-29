@@ -37,8 +37,8 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto;
 }
 export interface AuthApiAuthControllerGetActivityRequest {
-    page?: number;
-    limit?: number;
+    page: number;
+    limit: number;
 }
 export interface AuthApiAuthControllerGetInterestsRequest {
 }
@@ -68,8 +68,8 @@ export declare class ObjectAuthApi {
     authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(param?: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(param?: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -89,18 +89,18 @@ import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/Books
 export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto;
 }
-export interface BooksApiBookControllerGetBooksRequest {
-    search?: string;
-    page?: number;
-    limit?: number;
+export interface BooksApiBookControllerFindBooksRequest {
+    search: string;
+    page: number;
+    limit: number;
 }
 export declare class ObjectBooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
-    bookControllerGetBooksWithHttpInfo(param?: BooksApiBookControllerGetBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
-    bookControllerGetBooks(param?: BooksApiBookControllerGetBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export interface DefaultApiAppControllerGetHelloRequest {
@@ -116,48 +116,43 @@ export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
 export interface EventsApiEventControllerGetEventsRequest {
-    page?: number;
+    page: number;
     limit?: number;
-}
-export interface EventsApiEventControllerUpdateEventRequest {
-    eventPayloadDto: EventPayloadDto;
 }
 export declare class ObjectEventsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
-    eventControllerGetEventsWithHttpInfo(param?: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
-    eventControllerGetEvents(param?: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
-    eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
-    eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
-export interface FollowerApiFollowerControllerFollowingRequest {
+export interface FollowerApiFollowerControllerFollowRequest {
     followerPayloadDto: FollowerPayloadDto;
 }
-export interface FollowerApiFollowerControllerUnFollowRequest {
+export interface FollowerApiFollowerControllerUnfollowRequest {
     followerPayloadDto: FollowerPayloadDto;
 }
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowingWithHttpInfo(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
-    followerControllerFollowing(param: FollowerApiFollowerControllerFollowingRequest, options?: Configuration): Promise<FollowerResponseDto>;
-    followerControllerUnFollowWithHttpInfo(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
-    followerControllerUnFollow(param: FollowerApiFollowerControllerUnFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnfollow(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
-export interface FriendsApiFriendControllerGetFriendsRequest {
-    search?: string;
-    page?: number;
-    limit?: number;
+export interface FriendsApiFriendControllerFindFriendsRequest {
+    search: string;
+    page: number;
+    limit: number;
 }
 export declare class ObjectFriendsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerGetFriendsWithHttpInfo(param?: FriendsApiFriendControllerGetFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
-    friendControllerGetFriends(param?: FriendsApiFriendControllerGetFriendsRequest, options?: Configuration): Promise<FriendsResponseDto>;
+    friendControllerFindFriendsWithHttpInfo(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
+    friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
 export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
@@ -178,13 +173,13 @@ export declare class ObjectPaymentApi {
     stripeControllerGetCardListWithHttpInfo(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     stripeControllerGetCardList(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
 }
-import { UploadApiRequestFactory, UploadApiResponseProcessor } from "../apis/UploadApi";
-export interface UploadApiFileUploadControllerGetPreSignedURLRequest {
+import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
+export interface StorageApiFileUploadControllerGetPreSignedURLRequest {
     fileUploadPayloadDto: FileUploadPayloadDto;
 }
-export declare class ObjectUploadApi {
+export declare class ObjectStorageApi {
     private api;
-    constructor(configuration: Configuration, requestFactory?: UploadApiRequestFactory, responseProcessor?: UploadApiResponseProcessor);
-    fileUploadControllerGetPreSignedURLWithHttpInfo(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>>;
-    fileUploadControllerGetPreSignedURL(param: UploadApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void>;
+    constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
+    fileUploadControllerGetPreSignedURLWithHttpInfo(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    fileUploadControllerGetPreSignedURL(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void>;
 }

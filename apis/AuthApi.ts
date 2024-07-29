@@ -150,9 +150,19 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      */
-    public async authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
+        // verify required parameter 'page' is not null or undefined
+        if (page === null || page === undefined) {
+            throw new RequiredError("AuthApi", "authControllerGetActivity", "page");
+        }
+
+
+        // verify required parameter 'limit' is not null or undefined
+        if (limit === null || limit === undefined) {
+            throw new RequiredError("AuthApi", "authControllerGetActivity", "limit");
+        }
 
 
         // Path Params

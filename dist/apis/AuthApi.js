@@ -163,6 +163,12 @@ var AuthApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (page === null || page === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "page");
+                        }
+                        if (limit === null || limit === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "limit");
+                        }
                         localVarPath = '/v1/auth/activities';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");

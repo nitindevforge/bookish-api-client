@@ -36,8 +36,8 @@ export declare class PromiseAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page?: number, limit?: number, _options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -59,8 +59,8 @@ export declare class PromiseBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
-    bookControllerGetBooksWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
-    bookControllerGetBooks(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<BooksResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class PromiseDefaultApi {
@@ -75,26 +75,24 @@ export declare class PromiseEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
-    eventControllerGetEventsWithHttpInfo(page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
-    eventControllerGetEvents(page?: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto>;
-    eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
-    eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
+    eventControllerGetEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class PromiseFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFollowingWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
-    followerControllerFollowing(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
-    followerControllerUnFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
-    followerControllerUnFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
+    followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
+    followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
 }
 import { FriendsApiRequestFactory, FriendsApiResponseProcessor } from "../apis/FriendsApi";
 export declare class PromiseFriendsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FriendsApiRequestFactory, responseProcessor?: FriendsApiResponseProcessor);
-    friendControllerGetFriendsWithHttpInfo(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
-    friendControllerGetFriends(search?: string, page?: number, limit?: number, _options?: Configuration): Promise<FriendsResponseDto>;
+    friendControllerFindFriendsWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>>;
+    friendControllerFindFriends(search: string, page: number, limit: number, _options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
 export declare class PromisePaymentApi {
@@ -107,10 +105,10 @@ export declare class PromisePaymentApi {
     stripeControllerGetCardListWithHttpInfo(_options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     stripeControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto>;
 }
-import { UploadApiRequestFactory, UploadApiResponseProcessor } from "../apis/UploadApi";
-export declare class PromiseUploadApi {
+import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
+export declare class PromiseStorageApi {
     private api;
-    constructor(configuration: Configuration, requestFactory?: UploadApiRequestFactory, responseProcessor?: UploadApiResponseProcessor);
+    constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
     fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<HttpInfo<void>>;
     fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<void>;
 }
