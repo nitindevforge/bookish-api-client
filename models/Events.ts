@@ -14,7 +14,7 @@ import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
 export class Events {
-    'name': string;
+    'title': string;
     'image': string;
     'date': Date;
     'price': number;
@@ -27,8 +27,8 @@ export class Events {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "name",
-            "baseName": "name",
+            "name": "title",
+            "baseName": "title",
             "type": "string",
             "format": ""
         },

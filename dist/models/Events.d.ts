@@ -1,6 +1,6 @@
 import { UserDetails } from '../models/UserDetails';
 export declare class Events {
-    'name': string;
+    'title': string;
     'image': string;
     'date': Date;
     'price': number;
