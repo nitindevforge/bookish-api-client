@@ -53,10 +53,10 @@ __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
+__exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
-__exportStar(require("../models/StripeCardDeletePayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
@@ -103,10 +103,10 @@ var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
+var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
-var StripeCardDeletePayloadDto_1 = require("../models/StripeCardDeletePayloadDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
@@ -165,10 +165,10 @@ var typeMap = {
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,
+    "PaymentPayloadDto": PaymentPayloadDto_1.PaymentPayloadDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
-    "StripeCardDeletePayloadDto": StripeCardDeletePayloadDto_1.StripeCardDeletePayloadDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,

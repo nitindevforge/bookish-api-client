@@ -62,7 +62,7 @@ var PaymentApiRequestFactory = (function (_super) {
     function PaymentApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PaymentApiRequestFactory.prototype.stripeControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+    PaymentApiRequestFactory.prototype.paymentControllerCreatePayment = function (paymentPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -70,17 +70,17 @@ var PaymentApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (stripePayloadDto === null || stripePayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("PaymentApi", "stripeControllerCreatePaymentIntent", "stripePayloadDto");
+                        if (paymentPayloadDto === null || paymentPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("PaymentApi", "paymentControllerCreatePayment", "paymentPayloadDto");
                         }
-                        localVarPath = '/v1/payment/create';
+                        localVarPath = '/v1/payment/intent';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(stripePayloadDto, "StripePayloadDto", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(paymentPayloadDto, "PaymentPayloadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
@@ -100,7 +100,7 @@ var PaymentApiRequestFactory = (function (_super) {
             });
         });
     };
-    PaymentApiRequestFactory.prototype.stripeControllerDeleteCardDetails = function (stripeCardDeletePayloadDto, _options) {
+    PaymentApiRequestFactory.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -108,8 +108,8 @@ var PaymentApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (stripeCardDeletePayloadDto === null || stripeCardDeletePayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("PaymentApi", "stripeControllerDeleteCardDetails", "stripeCardDeletePayloadDto");
+                        if (paymentPayloadDto === null || paymentPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("PaymentApi", "paymentControllerDeleteCardDetails", "paymentPayloadDto");
                         }
                         localVarPath = '/v1/payment/cards';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
@@ -118,7 +118,7 @@ var PaymentApiRequestFactory = (function (_super) {
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(stripeCardDeletePayloadDto, "StripeCardDeletePayloadDto", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(paymentPayloadDto, "PaymentPayloadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
@@ -138,7 +138,7 @@ var PaymentApiRequestFactory = (function (_super) {
             });
         });
     };
-    PaymentApiRequestFactory.prototype.stripeControllerGetCardList = function (_options) {
+    PaymentApiRequestFactory.prototype.paymentControllerGetCardList = function (_options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -173,7 +173,7 @@ exports.PaymentApiRequestFactory = PaymentApiRequestFactory;
 var PaymentApiResponseProcessor = (function () {
     function PaymentApiResponseProcessor() {
     }
-    PaymentApiResponseProcessor.prototype.stripeControllerCreatePaymentIntentWithHttpInfo = function (response) {
+    PaymentApiResponseProcessor.prototype.paymentControllerCreatePaymentWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
@@ -209,7 +209,7 @@ var PaymentApiResponseProcessor = (function () {
             });
         });
     };
-    PaymentApiResponseProcessor.prototype.stripeControllerDeleteCardDetailsWithHttpInfo = function (response) {
+    PaymentApiResponseProcessor.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
@@ -245,7 +245,7 @@ var PaymentApiResponseProcessor = (function () {
             });
         });
     };
-    PaymentApiResponseProcessor.prototype.stripeControllerGetCardListWithHttpInfo = function (response) {
+    PaymentApiResponseProcessor.prototype.paymentControllerGetCardListWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**stripeControllerCreatePaymentIntent**](PaymentApi.md#stripeControllerCreatePaymentIntent) | **POST** /v1/payment/create | 
-[**stripeControllerDeleteCardDetails**](PaymentApi.md#stripeControllerDeleteCardDetails) | **DELETE** /v1/payment/cards | 
-[**stripeControllerGetCardList**](PaymentApi.md#stripeControllerGetCardList) | **GET** /v1/payment/cards | 
+[**paymentControllerCreatePayment**](PaymentApi.md#paymentControllerCreatePayment) | **POST** /v1/payment/intent | 
+[**paymentControllerDeleteCardDetails**](PaymentApi.md#paymentControllerDeleteCardDetails) | **DELETE** /v1/payment/cards | 
+[**paymentControllerGetCardList**](PaymentApi.md#paymentControllerGetCardList) | **GET** /v1/payment/cards | 
 
 
-# **stripeControllerCreatePaymentIntent**
-> StripeResponseDto stripeControllerCreatePaymentIntent(stripePayloadDto)
+# **paymentControllerCreatePayment**
+> StripeResponseDto paymentControllerCreatePayment(paymentPayloadDto)
 
 
 ### Example
@@ -23,14 +23,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PaymentApi(configuration);
 
-let body:.PaymentApiStripeControllerCreatePaymentIntentRequest = {
-  // StripePayloadDto
-  stripePayloadDto: {
-    amount: 3.14,
+let body:.PaymentApiPaymentControllerCreatePaymentRequest = {
+  // PaymentPayloadDto
+  paymentPayloadDto: {
+    id: "id_example",
   },
 };
 
-apiInstance.stripeControllerCreatePaymentIntent(body).then((data:any) => {
+apiInstance.paymentControllerCreatePayment(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -40,7 +40,7 @@ apiInstance.stripeControllerCreatePaymentIntent(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stripePayloadDto** | **StripePayloadDto**|  |
+ **paymentPayloadDto** | **PaymentPayloadDto**|  |
 
 
 ### Return type
@@ -65,8 +65,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **stripeControllerDeleteCardDetails**
-> CardListResponseDto stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto)
+# **paymentControllerDeleteCardDetails**
+> CardListResponseDto paymentControllerDeleteCardDetails(paymentPayloadDto)
 
 
 ### Example
@@ -79,14 +79,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .PaymentApi(configuration);
 
-let body:.PaymentApiStripeControllerDeleteCardDetailsRequest = {
-  // StripeCardDeletePayloadDto
-  stripeCardDeletePayloadDto: {
+let body:.PaymentApiPaymentControllerDeleteCardDetailsRequest = {
+  // PaymentPayloadDto
+  paymentPayloadDto: {
     id: "id_example",
   },
 };
 
-apiInstance.stripeControllerDeleteCardDetails(body).then((data:any) => {
+apiInstance.paymentControllerDeleteCardDetails(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -96,7 +96,7 @@ apiInstance.stripeControllerDeleteCardDetails(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stripeCardDeletePayloadDto** | **StripeCardDeletePayloadDto**|  |
+ **paymentPayloadDto** | **PaymentPayloadDto**|  |
 
 
 ### Return type
@@ -121,8 +121,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **stripeControllerGetCardList**
-> CardListResponseDto stripeControllerGetCardList()
+# **paymentControllerGetCardList**
+> CardListResponseDto paymentControllerGetCardList()
 
 
 ### Example
@@ -137,7 +137,7 @@ const apiInstance = new .PaymentApi(configuration);
 
 let body:any = {};
 
-apiInstance.stripeControllerGetCardList(body).then((data:any) => {
+apiInstance.paymentControllerGetCardList(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

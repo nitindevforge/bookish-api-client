@@ -39,10 +39,10 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -323,6 +323,15 @@ export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto
 }
 
+export interface BooksApiBookControllerFindBookByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindBookById
+     */
+    id: string
+}
+
 export interface BooksApiBookControllerFindBooksRequest {
     /**
      * 
@@ -363,6 +372,20 @@ export class ObjectBooksApi {
      */
     public bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto> {
         return this.api.bookControllerAddBook(param.bookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        return this.api.bookControllerFindBookByIdWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto> {
+        return this.api.bookControllerFindBookById(param.id,  options).toPromise();
     }
 
     /**
@@ -422,17 +445,26 @@ export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto
 }
 
-export interface EventsApiEventControllerGetEventsRequest {
+export interface EventsApiEventControllerFindEventByIdRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EventsApieventControllerFindEventById
+     */
+    id: string
+}
+
+export interface EventsApiEventControllerFindEventsRequest {
     /**
      * 
      * @type number
-     * @memberof EventsApieventControllerGetEvents
+     * @memberof EventsApieventControllerFindEvents
      */
     page: number
     /**
      * 
      * @type number
-     * @memberof EventsApieventControllerGetEvents
+     * @memberof EventsApieventControllerFindEvents
      */
     limit?: number
 }
@@ -461,15 +493,29 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerGetEventsWithHttpInfo(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        return this.api.eventControllerGetEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    public eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerGetEvents(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
-        return this.api.eventControllerGetEvents(param.page, param.limit,  options).toPromise();
+    public eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventsResponseDto> {
+        return this.api.eventControllerFindEventById(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
+        return this.api.eventControllerFindEvents(param.page, param.limit,  options).toPromise();
     }
 
 }
@@ -582,25 +628,25 @@ export class ObjectFriendsApi {
 import { ObservablePaymentApi } from "./ObservableAPI";
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
 
-export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
+export interface PaymentApiPaymentControllerCreatePaymentRequest {
     /**
      * 
-     * @type StripePayloadDto
-     * @memberof PaymentApistripeControllerCreatePaymentIntent
+     * @type PaymentPayloadDto
+     * @memberof PaymentApipaymentControllerCreatePayment
      */
-    stripePayloadDto: StripePayloadDto
+    paymentPayloadDto: PaymentPayloadDto
 }
 
-export interface PaymentApiStripeControllerDeleteCardDetailsRequest {
+export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
     /**
      * 
-     * @type StripeCardDeletePayloadDto
-     * @memberof PaymentApistripeControllerDeleteCardDetails
+     * @type PaymentPayloadDto
+     * @memberof PaymentApipaymentControllerDeleteCardDetails
      */
-    stripeCardDeletePayloadDto: StripeCardDeletePayloadDto
+    paymentPayloadDto: PaymentPayloadDto
 }
 
-export interface PaymentApiStripeControllerGetCardListRequest {
+export interface PaymentApiPaymentControllerGetCardListRequest {
 }
 
 export class ObjectPaymentApi {
@@ -613,43 +659,43 @@ export class ObjectPaymentApi {
     /**
      * @param param the request object
      */
-    public stripeControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        return this.api.stripeControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto,  options).toPromise();
+    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public stripeControllerCreatePaymentIntent(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
-        return this.api.stripeControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
+    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto> {
+        return this.api.paymentControllerCreatePayment(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public stripeControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
-        return this.api.stripeControllerDeleteCardDetailsWithHttpInfo(param.stripeCardDeletePayloadDto,  options).toPromise();
+    public paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        return this.api.paymentControllerDeleteCardDetailsWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public stripeControllerDeleteCardDetails(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
-        return this.api.stripeControllerDeleteCardDetails(param.stripeCardDeletePayloadDto,  options).toPromise();
+    public paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
+        return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public stripeControllerGetCardListWithHttpInfo(param: PaymentApiStripeControllerGetCardListRequest = {}, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
-        return this.api.stripeControllerGetCardListWithHttpInfo( options).toPromise();
+    public paymentControllerGetCardListWithHttpInfo(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        return this.api.paymentControllerGetCardListWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public stripeControllerGetCardList(param: PaymentApiStripeControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
-        return this.api.stripeControllerGetCardList( options).toPromise();
+    public paymentControllerGetCardList(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
+        return this.api.paymentControllerGetCardList( options).toPromise();
     }
 
 }

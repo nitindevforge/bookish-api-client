@@ -6,9 +6,11 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
+    eventControllerFindEventById(id: string, _options?: Configuration): Promise<RequestContext>;
+    eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class EventsApiResponseProcessor {
     eventControllerCreateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
-    eventControllerGetEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerFindEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
 }

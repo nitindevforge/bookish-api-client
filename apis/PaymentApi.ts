@@ -9,8 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { CardListResponseDto } from '../models/CardListResponseDto';
-import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
-import { StripePayloadDto } from '../models/StripePayloadDto';
+import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 
 /**
@@ -19,19 +18,19 @@ import { StripeResponseDto } from '../models/StripeResponseDto';
 export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * @param stripePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public async stripeControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async paymentControllerCreatePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'stripePayloadDto' is not null or undefined
-        if (stripePayloadDto === null || stripePayloadDto === undefined) {
-            throw new RequiredError("PaymentApi", "stripeControllerCreatePaymentIntent", "stripePayloadDto");
+        // verify required parameter 'paymentPayloadDto' is not null or undefined
+        if (paymentPayloadDto === null || paymentPayloadDto === undefined) {
+            throw new RequiredError("PaymentApi", "paymentControllerCreatePayment", "paymentPayloadDto");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/payment/create';
+        const localVarPath = '/v1/payment/intent';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
@@ -44,7 +43,7 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(stripePayloadDto, "StripePayloadDto", ""),
+            ObjectSerializer.serialize(paymentPayloadDto, "PaymentPayloadDto", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -65,14 +64,14 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param stripeCardDeletePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public async stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'stripeCardDeletePayloadDto' is not null or undefined
-        if (stripeCardDeletePayloadDto === null || stripeCardDeletePayloadDto === undefined) {
-            throw new RequiredError("PaymentApi", "stripeControllerDeleteCardDetails", "stripeCardDeletePayloadDto");
+        // verify required parameter 'paymentPayloadDto' is not null or undefined
+        if (paymentPayloadDto === null || paymentPayloadDto === undefined) {
+            throw new RequiredError("PaymentApi", "paymentControllerDeleteCardDetails", "paymentPayloadDto");
         }
 
 
@@ -90,7 +89,7 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(stripeCardDeletePayloadDto, "StripeCardDeletePayloadDto", ""),
+            ObjectSerializer.serialize(paymentPayloadDto, "PaymentPayloadDto", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -112,7 +111,7 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      */
-    public async stripeControllerGetCardList(_options?: Configuration): Promise<RequestContext> {
+    public async paymentControllerGetCardList(_options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // Path Params
@@ -146,10 +145,10 @@ export class PaymentApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to stripeControllerCreatePaymentIntent
+     * @params response Response returned by the server for a request to paymentControllerCreatePayment
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async stripeControllerCreatePaymentIntentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StripeResponseDto >> {
+     public async paymentControllerCreatePaymentWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StripeResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: StripeResponseDto = ObjectSerializer.deserialize(
@@ -178,10 +177,10 @@ export class PaymentApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to stripeControllerDeleteCardDetails
+     * @params response Response returned by the server for a request to paymentControllerDeleteCardDetails
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async stripeControllerDeleteCardDetailsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CardListResponseDto >> {
+     public async paymentControllerDeleteCardDetailsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CardListResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: CardListResponseDto = ObjectSerializer.deserialize(
@@ -210,10 +209,10 @@ export class PaymentApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to stripeControllerGetCardList
+     * @params response Response returned by the server for a request to paymentControllerGetCardList
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async stripeControllerGetCardListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CardListResponseDto >> {
+     public async paymentControllerGetCardListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CardListResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: CardListResponseDto = ObjectSerializer.deserialize(

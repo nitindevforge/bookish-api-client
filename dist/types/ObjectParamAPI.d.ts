@@ -19,9 +19,8 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
-import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -89,6 +88,9 @@ import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/Books
 export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto;
 }
+export interface BooksApiBookControllerFindBookByIdRequest {
+    id: string;
+}
 export interface BooksApiBookControllerFindBooksRequest {
     search: string;
     page: number;
@@ -99,6 +101,8 @@ export declare class ObjectBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
+    bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
+    bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
 }
@@ -115,7 +119,10 @@ import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/Eve
 export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
-export interface EventsApiEventControllerGetEventsRequest {
+export interface EventsApiEventControllerFindEventByIdRequest {
+    id: string;
+}
+export interface EventsApiEventControllerFindEventsRequest {
     page: number;
     limit?: number;
 }
@@ -124,8 +131,10 @@ export declare class ObjectEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
-    eventControllerGetEventsWithHttpInfo(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
-    eventControllerGetEvents(param: EventsApiEventControllerGetEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
+    eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export interface FollowerApiFollowerControllerFollowRequest {
@@ -155,23 +164,23 @@ export declare class ObjectFriendsApi {
     friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor } from "../apis/PaymentApi";
-export interface PaymentApiStripeControllerCreatePaymentIntentRequest {
-    stripePayloadDto: StripePayloadDto;
+export interface PaymentApiPaymentControllerCreatePaymentRequest {
+    paymentPayloadDto: PaymentPayloadDto;
 }
-export interface PaymentApiStripeControllerDeleteCardDetailsRequest {
-    stripeCardDeletePayloadDto: StripeCardDeletePayloadDto;
+export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
+    paymentPayloadDto: PaymentPayloadDto;
 }
-export interface PaymentApiStripeControllerGetCardListRequest {
+export interface PaymentApiPaymentControllerGetCardListRequest {
 }
 export declare class ObjectPaymentApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor);
-    stripeControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
-    stripeControllerCreatePaymentIntent(param: PaymentApiStripeControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto>;
-    stripeControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
-    stripeControllerDeleteCardDetails(param: PaymentApiStripeControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
-    stripeControllerGetCardListWithHttpInfo(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
-    stripeControllerGetCardList(param?: PaymentApiStripeControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
+    paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>>;
+    paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<StripeResponseDto>;
+    paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
+    paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
+    paymentControllerGetCardListWithHttpInfo(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
+    paymentControllerGetCardList(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export interface StorageApiFileUploadControllerGetPreSignedURLRequest {

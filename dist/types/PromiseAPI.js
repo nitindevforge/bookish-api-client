@@ -110,6 +110,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerAddBook(bookPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
+        var result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindBookById = function (id, _options) {
+        var result = this.api.bookControllerFindBookById(id, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, _options) {
         var result = this.api.bookControllerFindBooksWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
@@ -150,12 +158,20 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetEventsWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.eventControllerGetEventsWithHttpInfo(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
+        var result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetEvents = function (page, limit, _options) {
-        var result = this.api.eventControllerGetEvents(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerFindEventById = function (id, _options) {
+        var result = this.api.eventControllerFindEventById(id, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, _options) {
+        var result = this.api.eventControllerFindEvents(page, limit, _options);
         return result.toPromise();
     };
     return PromiseEventsApi;
@@ -206,28 +222,28 @@ var PromisePaymentApi = (function () {
     function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
-    PromisePaymentApi.prototype.stripeControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
-        var result = this.api.stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.stripeControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
-        var result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePayment = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePayment(paymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.stripeControllerDeleteCardDetailsWithHttpInfo = function (stripeCardDeletePayloadDto, _options) {
-        var result = this.api.stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.stripeControllerDeleteCardDetails = function (stripeCardDeletePayloadDto, _options) {
-        var result = this.api.stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
+        var result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.stripeControllerGetCardListWithHttpInfo = function (_options) {
-        var result = this.api.stripeControllerGetCardListWithHttpInfo(_options);
+    PromisePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
+        var result = this.api.paymentControllerGetCardListWithHttpInfo(_options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.stripeControllerGetCardList = function (_options) {
-        var result = this.api.stripeControllerGetCardList(_options);
+    PromisePaymentApi.prototype.paymentControllerGetCardList = function (_options) {
+        var result = this.api.paymentControllerGetCardList(_options);
         return result.toPromise();
     };
     return PromisePaymentApi;

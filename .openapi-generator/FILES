@@ -64,10 +64,10 @@ models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts
 models/PasswordChangeResponse.ts
 models/PasswordChangeResponseDto.ts
+models/PaymentPayloadDto.ts
 models/PermissionResponseDto.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
-models/StripeCardDeletePayloadDto.ts
 models/StripePayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts

@@ -5,7 +5,8 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
-[**eventControllerGetEvents**](EventsApi.md#eventControllerGetEvents) | **GET** /v1/events | 
+[**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
+[**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
 
 
 # **eventControllerCreateEvent**
@@ -69,8 +70,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **eventControllerGetEvents**
-> EventsResponseDto eventControllerGetEvents()
+# **eventControllerFindEventById**
+> EventsResponseDto eventControllerFindEventById()
 
 
 ### Example
@@ -83,14 +84,68 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EventsApi(configuration);
 
-let body:.EventsApiEventControllerGetEventsRequest = {
+let body:.EventsApiEventControllerFindEventByIdRequest = {
+  // string
+  id: "id_example",
+};
+
+apiInstance.eventControllerFindEventById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**EventsResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerFindEvents**
+> EventsResponseDto eventControllerFindEvents()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerFindEventsRequest = {
   // number
   page: 3.14,
   // number (optional)
   limit: 3.14,
 };
 
-apiInstance.eventControllerGetEvents(body).then((data:any) => {
+apiInstance.eventControllerFindEvents(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

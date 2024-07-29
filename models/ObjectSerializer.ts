@@ -36,10 +36,10 @@ export * from '../models/LoginPayloadDto';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';
+export * from '../models/PaymentPayloadDto';
 export * from '../models/PermissionResponseDto';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
-export * from '../models/StripeCardDeletePayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
@@ -87,10 +87,10 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -154,10 +154,10 @@ let typeMap: {[index: string]: any} = {
     "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto,
+    "PaymentPayloadDto": PaymentPayloadDto,
     "PermissionResponseDto": PermissionResponseDto,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
-    "StripeCardDeletePayloadDto": StripeCardDeletePayloadDto,
     "StripePayloadDto": StripePayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,

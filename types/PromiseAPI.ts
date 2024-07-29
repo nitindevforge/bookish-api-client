@@ -39,10 +39,10 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
+import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCardDeletePayloadDto } from '../models/StripeCardDeletePayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -275,6 +275,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param id 
+     */
+    public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        const result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto> {
+        const result = this.api.bookControllerFindBookById(id, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param search 
      * @param page 
      * @param limit 
@@ -363,11 +379,18 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
+     * @param id 
      */
-    public eventControllerGetEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        const result = this.api.eventControllerGetEventsWithHttpInfo(page, limit, _options);
+    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        const result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventsResponseDto> {
+        const result = this.api.eventControllerFindEventById(id, _options);
         return result.toPromise();
     }
 
@@ -375,8 +398,17 @@ export class PromiseEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerGetEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
-        const result = this.api.eventControllerGetEvents(page, limit, _options);
+    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        const result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
+        const result = this.api.eventControllerFindEvents(page, limit, _options);
         return result.toPromise();
     }
 
@@ -490,48 +522,48 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        const result = this.api.stripeControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
+    public paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        const result = this.api.paymentControllerCreatePaymentWithHttpInfo(paymentPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public stripeControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
-        const result = this.api.stripeControllerCreatePaymentIntent(stripePayloadDto, _options);
+    public paymentControllerCreatePayment(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+        const result = this.api.paymentControllerCreatePayment(paymentPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param stripeCardDeletePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
-        const result = this.api.stripeControllerDeleteCardDetailsWithHttpInfo(stripeCardDeletePayloadDto, _options);
+    public paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        const result = this.api.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param stripeCardDeletePayloadDto 
+     * @param paymentPayloadDto 
      */
-    public stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto: StripeCardDeletePayloadDto, _options?: Configuration): Promise<CardListResponseDto> {
-        const result = this.api.stripeControllerDeleteCardDetails(stripeCardDeletePayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     */
-    public stripeControllerGetCardListWithHttpInfo(_options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
-        const result = this.api.stripeControllerGetCardListWithHttpInfo(_options);
+    public paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<CardListResponseDto> {
+        const result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
      */
-    public stripeControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
-        const result = this.api.stripeControllerGetCardList(_options);
+    public paymentControllerGetCardListWithHttpInfo(_options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
+        const result = this.api.paymentControllerGetCardListWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
+        const result = this.api.paymentControllerGetCardList(_options);
         return result.toPromise();
     }
 

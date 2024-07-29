@@ -90,6 +90,12 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerAddBook = function (param, options) {
         return this.api.bookControllerAddBook(param.bookPayloadDto, options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindBookByIdWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindBookById = function (param, options) {
+        return this.api.bookControllerFindBookById(param.id, options).toPromise();
+    };
     ObjectBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindBooksWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
     };
@@ -126,11 +132,17 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
-    ObjectEventsApi.prototype.eventControllerGetEventsWithHttpInfo = function (param, options) {
-        return this.api.eventControllerGetEventsWithHttpInfo(param.page, param.limit, options).toPromise();
+    ObjectEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (param, options) {
+        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, options).toPromise();
     };
-    ObjectEventsApi.prototype.eventControllerGetEvents = function (param, options) {
-        return this.api.eventControllerGetEvents(param.page, param.limit, options).toPromise();
+    ObjectEventsApi.prototype.eventControllerFindEventById = function (param, options) {
+        return this.api.eventControllerFindEventById(param.id, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (param, options) {
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindEvents = function (param, options) {
+        return this.api.eventControllerFindEvents(param.page, param.limit, options).toPromise();
     };
     return ObjectEventsApi;
 }());
@@ -174,25 +186,25 @@ var ObjectPaymentApi = (function () {
     function ObjectPaymentApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectPaymentApi.prototype.stripeControllerCreatePaymentIntentWithHttpInfo = function (param, options) {
-        return this.api.stripeControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (param, options) {
+        return this.api.paymentControllerCreatePaymentWithHttpInfo(param.paymentPayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.stripeControllerCreatePaymentIntent = function (param, options) {
-        return this.api.stripeControllerCreatePaymentIntent(param.stripePayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerCreatePayment = function (param, options) {
+        return this.api.paymentControllerCreatePayment(param.paymentPayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.stripeControllerDeleteCardDetailsWithHttpInfo = function (param, options) {
-        return this.api.stripeControllerDeleteCardDetailsWithHttpInfo(param.stripeCardDeletePayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (param, options) {
+        return this.api.paymentControllerDeleteCardDetailsWithHttpInfo(param.paymentPayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.stripeControllerDeleteCardDetails = function (param, options) {
-        return this.api.stripeControllerDeleteCardDetails(param.stripeCardDeletePayloadDto, options).toPromise();
+    ObjectPaymentApi.prototype.paymentControllerDeleteCardDetails = function (param, options) {
+        return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto, options).toPromise();
     };
-    ObjectPaymentApi.prototype.stripeControllerGetCardListWithHttpInfo = function (param, options) {
+    ObjectPaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.stripeControllerGetCardListWithHttpInfo(options).toPromise();
+        return this.api.paymentControllerGetCardListWithHttpInfo(options).toPromise();
     };
-    ObjectPaymentApi.prototype.stripeControllerGetCardList = function (param, options) {
+    ObjectPaymentApi.prototype.paymentControllerGetCardList = function (param, options) {
         if (param === void 0) { param = {}; }
-        return this.api.stripeControllerGetCardList(options).toPromise();
+        return this.api.paymentControllerGetCardList(options).toPromise();
     };
     return ObjectPaymentApi;
 }());
