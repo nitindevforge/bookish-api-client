@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 export class Review {
     'id': string;
     'totalRatingCount': number;
-    'rating': Rating;
+    'rating': Array<Rating>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -36,7 +36,7 @@ export class Review {
         {
             "name": "rating",
             "baseName": "rating",
-            "type": "Rating",
+            "type": "Array<Rating>",
             "format": ""
         }    ];
 

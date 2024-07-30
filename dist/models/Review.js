@@ -24,7 +24,7 @@ var Review = (function () {
         {
             "name": "rating",
             "baseName": "rating",
-            "type": "Rating",
+            "type": "Array<Rating>",
             "format": ""
         }
     ];
