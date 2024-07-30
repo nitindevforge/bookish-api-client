@@ -68,6 +68,10 @@ export declare class PromiseBooksApi {
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
+    bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto>;
+    bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
+    bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class PromiseDefaultApi {

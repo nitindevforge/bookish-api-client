@@ -361,6 +361,30 @@ export interface BooksApiBookControllerFindBooksRequest {
     limit: number
 }
 
+export interface BooksApiBookControllerFindRecentReadsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindRecentReads
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindRecentReads
+     */
+    limit: number
+}
+
+export interface BooksApiBookControllerRecentReadRequest {
+    /**
+     * 
+     * @type RecentReadPayloadDto
+     * @memberof BooksApibookControllerRecentRead
+     */
+    recentReadPayloadDto: RecentReadPayloadDto
+}
+
 export class ObjectBooksApi {
     private api: ObservableBooksApi
 
@@ -408,6 +432,34 @@ export class ObjectBooksApi {
      */
     public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
         return this.api.bookControllerFindBooks(param.search, param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindRecentReadsWithHttpInfo(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
+        return this.api.bookControllerFindRecentReadsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindRecentReads(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto> {
+        return this.api.bookControllerFindRecentReads(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerRecentReadWithHttpInfo(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
+        return this.api.bookControllerRecentReadWithHttpInfo(param.recentReadPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerRecentRead(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto> {
+        return this.api.bookControllerRecentRead(param.recentReadPayloadDto,  options).toPromise();
     }
 
 }

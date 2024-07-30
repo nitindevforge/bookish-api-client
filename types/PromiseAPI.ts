@@ -318,6 +318,40 @@ export class PromiseBooksApi {
         return result.toPromise();
     }
 
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
+        const result = this.api.bookControllerFindRecentReadsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto> {
+        const result = this.api.bookControllerFindRecentReads(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
+        const result = this.api.bookControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto> {
+        const result = this.api.bookControllerRecentRead(recentReadPayloadDto, _options);
+        return result.toPromise();
+    }
+
 
 }
 

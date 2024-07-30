@@ -503,6 +503,66 @@ export class ObservableBooksApi {
         return this.bookControllerFindBooksWithHttpInfo(search, page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
     }
 
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindRecentReads(page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindRecentReadsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto> {
+        return this.bookControllerFindRecentReadsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<RecentReadsResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerRecentRead(recentReadPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerRecentReadWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto> {
+        return this.bookControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options).pipe(map((apiResponse: HttpInfo<RecentReadResponseDto>) => apiResponse.data));
+    }
+
 }
 
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor} from "../apis/DefaultApi";

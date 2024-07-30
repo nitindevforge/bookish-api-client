@@ -102,6 +102,13 @@ export interface BooksApiBookControllerFindBooksRequest {
     page: number;
     limit: number;
 }
+export interface BooksApiBookControllerFindRecentReadsRequest {
+    page: number;
+    limit: number;
+}
+export interface BooksApiBookControllerRecentReadRequest {
+    recentReadPayloadDto: RecentReadPayloadDto;
+}
 export declare class ObjectBooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
@@ -111,6 +118,10 @@ export declare class ObjectBooksApi {
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindRecentReadsWithHttpInfo(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
+    bookControllerFindRecentReads(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto>;
+    bookControllerRecentReadWithHttpInfo(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
+    bookControllerRecentRead(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export interface DefaultApiAppControllerGetHelloRequest {

@@ -126,6 +126,22 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBooks(search, page, limit, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerFindRecentReadsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.bookControllerFindRecentReadsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindRecentReads = function (page, limit, _options) {
+        var result = this.api.bookControllerFindRecentReads(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerRecentReadWithHttpInfo = function (recentReadPayloadDto, _options) {
+        var result = this.api.bookControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerRecentRead = function (recentReadPayloadDto, _options) {
+        var result = this.api.bookControllerRecentRead(recentReadPayloadDto, _options);
+        return result.toPromise();
+    };
     return PromiseBooksApi;
 }());
 exports.PromiseBooksApi = PromiseBooksApi;
