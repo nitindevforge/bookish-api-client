@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectStorageApi = exports.ObjectRecentReadsApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = void 0;
+exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
@@ -102,17 +102,35 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerFindBooks = function (param, options) {
         return this.api.bookControllerFindBooks(param.search, param.page, param.limit, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerFindRecentReadsWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindRecentReadsWithHttpInfo(param.page, param.limit, options).toPromise();
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerFindRecentReads = function (param, options) {
-        return this.api.bookControllerFindRecentReads(param.page, param.limit, options).toPromise();
+    ObjectBooksApi.prototype.bookControllerFindUserBookReview = function (param, options) {
+        return this.api.bookControllerFindUserBookReview(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerRecentReadWithHttpInfo = function (param, options) {
-        return this.api.bookControllerRecentReadWithHttpInfo(param.recentReadPayloadDto, options).toPromise();
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewCountWithHttpInfo(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerRecentRead = function (param, options) {
-        return this.api.bookControllerRecentRead(param.recentReadPayloadDto, options).toPromise();
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewCount = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviews = function (param, options) {
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBooksWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBooks = function (param, options) {
+        return this.api.bookControllerFindUserBooks(param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (param, options) {
+        return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerUserBookMark = function (param, options) {
+        return this.api.bookControllerUserBookMark(param.userBookPayloadDto, options).toPromise();
     };
     return ObjectBooksApi;
 }());
@@ -228,29 +246,9 @@ var ObjectPaymentApi = (function () {
 }());
 exports.ObjectPaymentApi = ObjectPaymentApi;
 var ObservableAPI_8 = require("./ObservableAPI");
-var ObjectRecentReadsApi = (function () {
-    function ObjectRecentReadsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableRecentReadsApi(configuration, requestFactory, responseProcessor);
-    }
-    ObjectRecentReadsApi.prototype.recentReadsControllerFindRecentReadsWithHttpInfo = function (param, options) {
-        return this.api.recentReadsControllerFindRecentReadsWithHttpInfo(param.page, param.limit, options).toPromise();
-    };
-    ObjectRecentReadsApi.prototype.recentReadsControllerFindRecentReads = function (param, options) {
-        return this.api.recentReadsControllerFindRecentReads(param.page, param.limit, options).toPromise();
-    };
-    ObjectRecentReadsApi.prototype.recentReadsControllerRecentReadWithHttpInfo = function (param, options) {
-        return this.api.recentReadsControllerRecentReadWithHttpInfo(param.recentReadPayloadDto, options).toPromise();
-    };
-    ObjectRecentReadsApi.prototype.recentReadsControllerRecentRead = function (param, options) {
-        return this.api.recentReadsControllerRecentRead(param.recentReadPayloadDto, options).toPromise();
-    };
-    return ObjectRecentReadsApi;
-}());
-exports.ObjectRecentReadsApi = ObjectRecentReadsApi;
-var ObservableAPI_9 = require("./ObservableAPI");
 var ObjectStorageApi = (function () {
     function ObjectStorageApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservableStorageApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
     ObjectStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (param, options) {
         return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto, options).toPromise();

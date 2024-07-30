@@ -43,17 +43,20 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
-import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
-import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
-import { RecentReads } from '../models/RecentReads';
-import { RecentReadsResponse } from '../models/RecentReadsResponse';
-import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
+import { Rating } from '../models/Rating';
+import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooks } from '../models/UserBooks';
+import { UserBooksResponse } from '../models/UserBooksResponse';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -319,11 +322,66 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReview(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookResponseDto> {
+        const result = this.api.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewCount(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewCountResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
      * @param page 
      * @param limit 
      */
-    public bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
-        const result = this.api.bookControllerFindRecentReadsWithHttpInfo(page, limit, _options);
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, _options);
         return result.toPromise();
     }
 
@@ -331,24 +389,33 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      */
-    public bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto> {
-        const result = this.api.bookControllerFindRecentReads(page, limit, _options);
+    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
 
     /**
-     * @param recentReadPayloadDto 
+     * @param page 
+     * @param limit 
      */
-    public bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
-        const result = this.api.bookControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options);
+    public bookControllerFindUserBooks(page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBooks(page, limit, _options);
         return result.toPromise();
     }
 
     /**
-     * @param recentReadPayloadDto 
+     * @param userBookPayloadDto 
      */
-    public bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto> {
-        const result = this.api.bookControllerRecentRead(recentReadPayloadDto, _options);
+    public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        const result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookResponseDto> {
+        const result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -622,59 +689,6 @@ export class PromisePaymentApi {
      */
     public paymentControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
         const result = this.api.paymentControllerGetCardList(_options);
-        return result.toPromise();
-    }
-
-
-}
-
-
-
-import { ObservableRecentReadsApi } from './ObservableAPI';
-
-import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor} from "../apis/RecentReadsApi";
-export class PromiseRecentReadsApi {
-    private api: ObservableRecentReadsApi
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: RecentReadsApiRequestFactory,
-        responseProcessor?: RecentReadsApiResponseProcessor
-    ) {
-        this.api = new ObservableRecentReadsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
-        const result = this.api.recentReadsControllerFindRecentReadsWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto> {
-        const result = this.api.recentReadsControllerFindRecentReads(page, limit, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param recentReadPayloadDto 
-     */
-    public recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
-        const result = this.api.recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param recentReadPayloadDto 
-     */
-    public recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto> {
-        const result = this.api.recentReadsControllerRecentRead(recentReadPayloadDto, _options);
         return result.toPromise();
     }
 

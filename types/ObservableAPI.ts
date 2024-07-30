@@ -44,17 +44,20 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
-import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
-import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
-import { RecentReads } from '../models/RecentReads';
-import { RecentReadsResponse } from '../models/RecentReadsResponse';
-import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
+import { Rating } from '../models/Rating';
+import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooks } from '../models/UserBooks';
+import { UserBooksResponse } from '../models/UserBooksResponse';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -504,11 +507,13 @@ export class ObservableBooksApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
      */
-    public bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindRecentReads(page, limit, _options);
+    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -522,23 +527,28 @@ export class ObservableBooksApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindRecentReadsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindUserBookReviewWithHttpInfo(rsp)));
             }));
     }
 
     /**
-     * @param page 
-     * @param limit 
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
      */
-    public bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto> {
-        return this.bookControllerFindRecentReadsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<RecentReadsResponseDto>) => apiResponse.data));
+    public bookControllerFindUserBookReview(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<UserBookResponseDto> {
+        return this.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options).pipe(map((apiResponse: HttpInfo<UserBookResponseDto>) => apiResponse.data));
     }
 
     /**
-     * @param recentReadPayloadDto 
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
      */
-    public bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerRecentRead(recentReadPayloadDto, _options);
+    public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookReviewCountResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -552,15 +562,111 @@ export class ObservableBooksApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerRecentReadWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindUserBookReviewCountWithHttpInfo(rsp)));
             }));
     }
 
     /**
-     * @param recentReadPayloadDto 
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
      */
-    public bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto> {
-        return this.bookControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options).pipe(map((apiResponse: HttpInfo<RecentReadResponseDto>) => apiResponse.data));
+    public bookControllerFindUserBookReviewCount(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<UserBookReviewCountResponseDto> {
+        return this.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options).pipe(map((apiResponse: HttpInfo<UserBookReviewCountResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param bookId 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindUserBookReviews(bookId, page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindUserBookReviewsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param bookId 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Observable<UserBooksResponseDto> {
+        return this.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindUserBooks(page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindUserBooksWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBooks(page: number, limit: number, _options?: Configuration): Observable<UserBooksResponseDto> {
+        return this.bookControllerFindUserBooksWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerUserBookMark(userBookPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerUserBookMarkWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookResponseDto> {
+        return this.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserBookResponseDto>) => apiResponse.data));
     }
 
 }
@@ -972,84 +1078,6 @@ export class ObservablePaymentApi {
      */
     public paymentControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto> {
         return this.paymentControllerGetCardListWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<CardListResponseDto>) => apiResponse.data));
-    }
-
-}
-
-import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor} from "../apis/RecentReadsApi";
-export class ObservableRecentReadsApi {
-    private requestFactory: RecentReadsApiRequestFactory;
-    private responseProcessor: RecentReadsApiResponseProcessor;
-    private configuration: Configuration;
-
-    public constructor(
-        configuration: Configuration,
-        requestFactory?: RecentReadsApiRequestFactory,
-        responseProcessor?: RecentReadsApiResponseProcessor
-    ) {
-        this.configuration = configuration;
-        this.requestFactory = requestFactory || new RecentReadsApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new RecentReadsApiResponseProcessor();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>> {
-        const requestContextPromise = this.requestFactory.recentReadsControllerFindRecentReads(page, limit, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.recentReadsControllerFindRecentReadsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto> {
-        return this.recentReadsControllerFindRecentReadsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<RecentReadsResponseDto>) => apiResponse.data));
-    }
-
-    /**
-     * @param recentReadPayloadDto 
-     */
-    public recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>> {
-        const requestContextPromise = this.requestFactory.recentReadsControllerRecentRead(recentReadPayloadDto, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.recentReadsControllerRecentReadWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param recentReadPayloadDto 
-     */
-    public recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto> {
-        return this.recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options).pipe(map((apiResponse: HttpInfo<RecentReadResponseDto>) => apiResponse.data));
     }
 
 }

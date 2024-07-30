@@ -21,13 +21,14 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
-import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
-import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
-import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -102,12 +103,29 @@ export interface BooksApiBookControllerFindBooksRequest {
     page: number;
     limit: number;
 }
-export interface BooksApiBookControllerFindRecentReadsRequest {
+export interface BooksApiBookControllerFindUserBookReviewRequest {
+    bookId: string;
+    isRead?: boolean;
+    rate?: number;
+    review?: string;
+}
+export interface BooksApiBookControllerFindUserBookReviewCountRequest {
+    bookId: string;
+    isRead?: boolean;
+    rate?: number;
+    review?: string;
+}
+export interface BooksApiBookControllerFindUserBookReviewsRequest {
+    bookId: string;
     page: number;
     limit: number;
 }
-export interface BooksApiBookControllerRecentReadRequest {
-    recentReadPayloadDto: RecentReadPayloadDto;
+export interface BooksApiBookControllerFindUserBooksRequest {
+    page: number;
+    limit: number;
+}
+export interface BooksApiBookControllerUserBookMarkRequest {
+    userBookPayloadDto: UserBookPayloadDto;
 }
 export declare class ObjectBooksApi {
     private api;
@@ -118,10 +136,16 @@ export declare class ObjectBooksApi {
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
-    bookControllerFindRecentReadsWithHttpInfo(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
-    bookControllerFindRecentReads(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto>;
-    bookControllerRecentReadWithHttpInfo(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
-    bookControllerRecentRead(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto>;
+    bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;
+    bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookResponseDto>;
+    bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>>;
+    bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<UserBookReviewCountResponseDto>;
+    bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
+    bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto>;
+    bookControllerFindUserBooksWithHttpInfo(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
+    bookControllerFindUserBooks(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<UserBooksResponseDto>;
+    bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;
+    bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export interface DefaultApiAppControllerGetHelloRequest {
@@ -203,22 +227,6 @@ export declare class ObjectPaymentApi {
     paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
     paymentControllerGetCardListWithHttpInfo(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
-}
-import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor } from "../apis/RecentReadsApi";
-export interface RecentReadsApiRecentReadsControllerFindRecentReadsRequest {
-    page: number;
-    limit: number;
-}
-export interface RecentReadsApiRecentReadsControllerRecentReadRequest {
-    recentReadPayloadDto: RecentReadPayloadDto;
-}
-export declare class ObjectRecentReadsApi {
-    private api;
-    constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor);
-    recentReadsControllerFindRecentReadsWithHttpInfo(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
-    recentReadsControllerFindRecentReads(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto>;
-    recentReadsControllerRecentReadWithHttpInfo(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
-    recentReadsControllerRecentRead(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export interface StorageApiFileUploadControllerGetPreSignedURLRequest {

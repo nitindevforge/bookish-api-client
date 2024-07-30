@@ -22,13 +22,14 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
-import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
-import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
-import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -73,10 +74,16 @@ export declare class ObservableBooksApi {
     bookControllerFindBookById(id: string, _options?: Configuration): Observable<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Observable<BooksResponseDto>;
-    bookControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>>;
-    bookControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto>;
-    bookControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>>;
-    bookControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto>;
+    bookControllerFindUserBookReviewWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>>;
+    bookControllerFindUserBookReview(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<UserBookResponseDto>;
+    bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookReviewCountResponseDto>>;
+    bookControllerFindUserBookReviewCount(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Observable<UserBookReviewCountResponseDto>;
+    bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
+    bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Observable<UserBooksResponseDto>;
+    bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
+    bookControllerFindUserBooks(page: number, limit: number, _options?: Configuration): Observable<UserBooksResponseDto>;
+    bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>>;
+    bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class ObservableDefaultApi {
@@ -134,17 +141,6 @@ export declare class ObservablePaymentApi {
     paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<CardListResponseDto>;
     paymentControllerGetCardListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto>;
-}
-import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor } from "../apis/RecentReadsApi";
-export declare class ObservableRecentReadsApi {
-    private requestFactory;
-    private responseProcessor;
-    private configuration;
-    constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor);
-    recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>>;
-    recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto>;
-    recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>>;
-    recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export declare class ObservableStorageApi {

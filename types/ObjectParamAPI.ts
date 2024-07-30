@@ -43,17 +43,20 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
-import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
-import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
-import { RecentReads } from '../models/RecentReads';
-import { RecentReadsResponse } from '../models/RecentReadsResponse';
-import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
+import { Rating } from '../models/Rating';
+import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooks } from '../models/UserBooks';
+import { UserBooksResponse } from '../models/UserBooksResponse';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -361,28 +364,103 @@ export interface BooksApiBookControllerFindBooksRequest {
     limit: number
 }
 
-export interface BooksApiBookControllerFindRecentReadsRequest {
+export interface BooksApiBookControllerFindUserBookReviewRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReview
+     */
+    bookId: string
+    /**
+     * 
+     * @type boolean
+     * @memberof BooksApibookControllerFindUserBookReview
+     */
+    isRead?: boolean
     /**
      * 
      * @type number
-     * @memberof BooksApibookControllerFindRecentReads
+     * @memberof BooksApibookControllerFindUserBookReview
+     */
+    rate?: number
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReview
+     */
+    review?: string
+}
+
+export interface BooksApiBookControllerFindUserBookReviewCountRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReviewCount
+     */
+    bookId: string
+    /**
+     * 
+     * @type boolean
+     * @memberof BooksApibookControllerFindUserBookReviewCount
+     */
+    isRead?: boolean
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindUserBookReviewCount
+     */
+    rate?: number
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReviewCount
+     */
+    review?: string
+}
+
+export interface BooksApiBookControllerFindUserBookReviewsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReviews
+     */
+    bookId: string
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindUserBookReviews
      */
     page: number
     /**
      * 
      * @type number
-     * @memberof BooksApibookControllerFindRecentReads
+     * @memberof BooksApibookControllerFindUserBookReviews
      */
     limit: number
 }
 
-export interface BooksApiBookControllerRecentReadRequest {
+export interface BooksApiBookControllerFindUserBooksRequest {
     /**
      * 
-     * @type RecentReadPayloadDto
-     * @memberof BooksApibookControllerRecentRead
+     * @type number
+     * @memberof BooksApibookControllerFindUserBooks
      */
-    recentReadPayloadDto: RecentReadPayloadDto
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindUserBooks
+     */
+    limit: number
+}
+
+export interface BooksApiBookControllerUserBookMarkRequest {
+    /**
+     * 
+     * @type UserBookPayloadDto
+     * @memberof BooksApibookControllerUserBookMark
+     */
+    userBookPayloadDto: UserBookPayloadDto
 }
 
 export class ObjectBooksApi {
@@ -437,29 +515,71 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerFindRecentReadsWithHttpInfo(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
-        return this.api.bookControllerFindRecentReadsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    public bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindRecentReads(param: BooksApiBookControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto> {
-        return this.api.bookControllerFindRecentReads(param.page, param.limit,  options).toPromise();
+    public bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookResponseDto> {
+        return this.api.bookControllerFindUserBookReview(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerRecentReadWithHttpInfo(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
-        return this.api.bookControllerRecentReadWithHttpInfo(param.recentReadPayloadDto,  options).toPromise();
+    public bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
+        return this.api.bookControllerFindUserBookReviewCountWithHttpInfo(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerRecentRead(param: BooksApiBookControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto> {
-        return this.api.bookControllerRecentRead(param.recentReadPayloadDto,  options).toPromise();
+    public bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<UserBookReviewCountResponseDto> {
+        return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserBooksWithHttpInfo(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        return this.api.bookControllerFindUserBooksWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserBooks(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<UserBooksResponseDto> {
+        return this.api.bookControllerFindUserBooks(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookResponseDto> {
+        return this.api.bookControllerUserBookMark(param.userBookPayloadDto,  options).toPromise();
     }
 
 }
@@ -779,70 +899,6 @@ export class ObjectPaymentApi {
      */
     public paymentControllerGetCardList(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerGetCardList( options).toPromise();
-    }
-
-}
-
-import { ObservableRecentReadsApi } from "./ObservableAPI";
-import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor} from "../apis/RecentReadsApi";
-
-export interface RecentReadsApiRecentReadsControllerFindRecentReadsRequest {
-    /**
-     * 
-     * @type number
-     * @memberof RecentReadsApirecentReadsControllerFindRecentReads
-     */
-    page: number
-    /**
-     * 
-     * @type number
-     * @memberof RecentReadsApirecentReadsControllerFindRecentReads
-     */
-    limit: number
-}
-
-export interface RecentReadsApiRecentReadsControllerRecentReadRequest {
-    /**
-     * 
-     * @type RecentReadPayloadDto
-     * @memberof RecentReadsApirecentReadsControllerRecentRead
-     */
-    recentReadPayloadDto: RecentReadPayloadDto
-}
-
-export class ObjectRecentReadsApi {
-    private api: ObservableRecentReadsApi
-
-    public constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor) {
-        this.api = new ObservableRecentReadsApi(configuration, requestFactory, responseProcessor);
-    }
-
-    /**
-     * @param param the request object
-     */
-    public recentReadsControllerFindRecentReadsWithHttpInfo(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
-        return this.api.recentReadsControllerFindRecentReadsWithHttpInfo(param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public recentReadsControllerFindRecentReads(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto> {
-        return this.api.recentReadsControllerFindRecentReads(param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public recentReadsControllerRecentReadWithHttpInfo(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
-        return this.api.recentReadsControllerRecentReadWithHttpInfo(param.recentReadPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public recentReadsControllerRecentRead(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto> {
-        return this.api.recentReadsControllerRecentRead(param.recentReadPayloadDto,  options).toPromise();
     }
 
 }
