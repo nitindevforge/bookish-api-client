@@ -40,6 +40,11 @@ export * from '../models/PaymentPayloadDto';
 export * from '../models/PaymentResponse';
 export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
+export * from '../models/RecentReadPayloadDto';
+export * from '../models/RecentReadResponseDto';
+export * from '../models/RecentReads';
+export * from '../models/RecentReadsResponse';
+export * from '../models/RecentReadsResponseDto';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/StripePayloadDto';
@@ -94,6 +99,11 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReads } from '../models/RecentReads';
+import { RecentReadsResponse } from '../models/RecentReadsResponse';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
@@ -164,6 +174,11 @@ let typeMap: {[index: string]: any} = {
     "PaymentResponse": PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
+    "RecentReadPayloadDto": RecentReadPayloadDto,
+    "RecentReadResponseDto": RecentReadResponseDto,
+    "RecentReads": RecentReads,
+    "RecentReadsResponse": RecentReadsResponse,
+    "RecentReadsResponseDto": RecentReadsResponseDto,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
     "StripePayloadDto": StripePayloadDto,

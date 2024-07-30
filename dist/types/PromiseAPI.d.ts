@@ -21,6 +21,9 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
@@ -112,6 +115,15 @@ export declare class PromisePaymentApi {
     paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<CardListResponseDto>;
     paymentControllerGetCardListWithHttpInfo(_options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto>;
+}
+import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor } from "../apis/RecentReadsApi";
+export declare class PromiseRecentReadsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor);
+    recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
+    recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto>;
+    recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
+    recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export declare class PromiseStorageApi {

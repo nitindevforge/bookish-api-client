@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObservableStorageApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableEventsApi = exports.ObservableDefaultApi = exports.ObservableBooksApi = exports.ObservableAuthApi = void 0;
+exports.ObservableStorageApi = exports.ObservableRecentReadsApi = exports.ObservablePaymentApi = exports.ObservableFriendsApi = exports.ObservableFollowerApi = exports.ObservableEventsApi = exports.ObservableDefaultApi = exports.ObservableBooksApi = exports.ObservableAuthApi = void 0;
 var rxjsStub_1 = require("../rxjsStub");
 var rxjsStub_2 = require("../rxjsStub");
 var AuthApi_1 = require("../apis/AuthApi");
@@ -748,16 +748,16 @@ var ObservablePaymentApi = (function () {
     return ObservablePaymentApi;
 }());
 exports.ObservablePaymentApi = ObservablePaymentApi;
-var StorageApi_1 = require("../apis/StorageApi");
-var ObservableStorageApi = (function () {
-    function ObservableStorageApi(configuration, requestFactory, responseProcessor) {
+var RecentReadsApi_1 = require("../apis/RecentReadsApi");
+var ObservableRecentReadsApi = (function () {
+    function ObservableRecentReadsApi(configuration, requestFactory, responseProcessor) {
         this.configuration = configuration;
-        this.requestFactory = requestFactory || new StorageApi_1.StorageApiRequestFactory(configuration);
-        this.responseProcessor = responseProcessor || new StorageApi_1.StorageApiResponseProcessor();
+        this.requestFactory = requestFactory || new RecentReadsApi_1.RecentReadsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new RecentReadsApi_1.RecentReadsApiResponseProcessor();
     }
-    ObservableStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
+    ObservableRecentReadsApi.prototype.recentReadsControllerFindRecentReadsWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.recentReadsControllerFindRecentReads(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_51 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -775,6 +775,70 @@ var ObservableStorageApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_52(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.recentReadsControllerFindRecentReadsWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableRecentReadsApi.prototype.recentReadsControllerFindRecentReads = function (page, limit, _options) {
+        return this.recentReadsControllerFindRecentReadsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableRecentReadsApi.prototype.recentReadsControllerRecentReadWithHttpInfo = function (recentReadPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.recentReadsControllerRecentRead(recentReadPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_53 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_53(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_54 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_54(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.recentReadsControllerRecentReadWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableRecentReadsApi.prototype.recentReadsControllerRecentRead = function (recentReadPayloadDto, _options) {
+        return this.recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    return ObservableRecentReadsApi;
+}());
+exports.ObservableRecentReadsApi = ObservableRecentReadsApi;
+var StorageApi_1 = require("../apis/StorageApi");
+var ObservableStorageApi = (function () {
+    function ObservableStorageApi(configuration, requestFactory, responseProcessor) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new StorageApi_1.StorageApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new StorageApi_1.StorageApiResponseProcessor();
+    }
+    ObservableStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_55 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_55(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_56 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_56(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));

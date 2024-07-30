@@ -22,6 +22,9 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
@@ -127,6 +130,17 @@ export declare class ObservablePaymentApi {
     paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Observable<CardListResponseDto>;
     paymentControllerGetCardListWithHttpInfo(_options?: Configuration): Observable<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto>;
+}
+import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor } from "../apis/RecentReadsApi";
+export declare class ObservableRecentReadsApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor);
+    recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>>;
+    recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto>;
+    recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>>;
+    recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export declare class ObservableStorageApi {

@@ -21,6 +21,9 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
@@ -189,6 +192,22 @@ export declare class ObjectPaymentApi {
     paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto>;
     paymentControllerGetCardListWithHttpInfo(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>>;
     paymentControllerGetCardList(param?: PaymentApiPaymentControllerGetCardListRequest, options?: Configuration): Promise<CardListResponseDto>;
+}
+import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor } from "../apis/RecentReadsApi";
+export interface RecentReadsApiRecentReadsControllerFindRecentReadsRequest {
+    page: number;
+    limit: number;
+}
+export interface RecentReadsApiRecentReadsControllerRecentReadRequest {
+    recentReadPayloadDto: RecentReadPayloadDto;
+}
+export declare class ObjectRecentReadsApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: RecentReadsApiRequestFactory, responseProcessor?: RecentReadsApiResponseProcessor);
+    recentReadsControllerFindRecentReadsWithHttpInfo(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>>;
+    recentReadsControllerFindRecentReads(param: RecentReadsApiRecentReadsControllerFindRecentReadsRequest, options?: Configuration): Promise<RecentReadsResponseDto>;
+    recentReadsControllerRecentReadWithHttpInfo(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>>;
+    recentReadsControllerRecentRead(param: RecentReadsApiRecentReadsControllerRecentReadRequest, options?: Configuration): Promise<RecentReadResponseDto>;
 }
 import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/StorageApi";
 export interface StorageApiFileUploadControllerGetPreSignedURLRequest {

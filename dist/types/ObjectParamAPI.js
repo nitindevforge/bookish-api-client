@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = void 0;
+exports.ObjectStorageApi = exports.ObjectRecentReadsApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
@@ -216,9 +216,29 @@ var ObjectPaymentApi = (function () {
 }());
 exports.ObjectPaymentApi = ObjectPaymentApi;
 var ObservableAPI_8 = require("./ObservableAPI");
+var ObjectRecentReadsApi = (function () {
+    function ObjectRecentReadsApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_8.ObservableRecentReadsApi(configuration, requestFactory, responseProcessor);
+    }
+    ObjectRecentReadsApi.prototype.recentReadsControllerFindRecentReadsWithHttpInfo = function (param, options) {
+        return this.api.recentReadsControllerFindRecentReadsWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectRecentReadsApi.prototype.recentReadsControllerFindRecentReads = function (param, options) {
+        return this.api.recentReadsControllerFindRecentReads(param.page, param.limit, options).toPromise();
+    };
+    ObjectRecentReadsApi.prototype.recentReadsControllerRecentReadWithHttpInfo = function (param, options) {
+        return this.api.recentReadsControllerRecentReadWithHttpInfo(param.recentReadPayloadDto, options).toPromise();
+    };
+    ObjectRecentReadsApi.prototype.recentReadsControllerRecentRead = function (param, options) {
+        return this.api.recentReadsControllerRecentRead(param.recentReadPayloadDto, options).toPromise();
+    };
+    return ObjectRecentReadsApi;
+}());
+exports.ObjectRecentReadsApi = ObjectRecentReadsApi;
+var ObservableAPI_9 = require("./ObservableAPI");
 var ObjectStorageApi = (function () {
     function ObjectStorageApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableStorageApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
     ObjectStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (param, options) {
         return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto, options).toPromise();

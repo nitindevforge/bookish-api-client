@@ -44,6 +44,11 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReads } from '../models/RecentReads';
+import { RecentReadsResponse } from '../models/RecentReadsResponse';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
@@ -907,6 +912,84 @@ export class ObservablePaymentApi {
      */
     public paymentControllerGetCardList(_options?: Configuration): Observable<CardListResponseDto> {
         return this.paymentControllerGetCardListWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<CardListResponseDto>) => apiResponse.data));
+    }
+
+}
+
+import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor} from "../apis/RecentReadsApi";
+export class ObservableRecentReadsApi {
+    private requestFactory: RecentReadsApiRequestFactory;
+    private responseProcessor: RecentReadsApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: RecentReadsApiRequestFactory,
+        responseProcessor?: RecentReadsApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new RecentReadsApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new RecentReadsApiResponseProcessor();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<RecentReadsResponseDto>> {
+        const requestContextPromise = this.requestFactory.recentReadsControllerFindRecentReads(page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.recentReadsControllerFindRecentReadsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Observable<RecentReadsResponseDto> {
+        return this.recentReadsControllerFindRecentReadsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<RecentReadsResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<HttpInfo<RecentReadResponseDto>> {
+        const requestContextPromise = this.requestFactory.recentReadsControllerRecentRead(recentReadPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.recentReadsControllerRecentReadWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Observable<RecentReadResponseDto> {
+        return this.recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options).pipe(map((apiResponse: HttpInfo<RecentReadResponseDto>) => apiResponse.data));
     }
 
 }

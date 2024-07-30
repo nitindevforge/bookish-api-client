@@ -43,6 +43,11 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { RecentReadPayloadDto } from '../models/RecentReadPayloadDto';
+import { RecentReadResponseDto } from '../models/RecentReadResponseDto';
+import { RecentReads } from '../models/RecentReads';
+import { RecentReadsResponse } from '../models/RecentReadsResponse';
+import { RecentReadsResponseDto } from '../models/RecentReadsResponseDto';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
@@ -583,6 +588,59 @@ export class PromisePaymentApi {
      */
     public paymentControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
         const result = this.api.paymentControllerGetCardList(_options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableRecentReadsApi } from './ObservableAPI';
+
+import { RecentReadsApiRequestFactory, RecentReadsApiResponseProcessor} from "../apis/RecentReadsApi";
+export class PromiseRecentReadsApi {
+    private api: ObservableRecentReadsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: RecentReadsApiRequestFactory,
+        responseProcessor?: RecentReadsApiResponseProcessor
+    ) {
+        this.api = new ObservableRecentReadsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public recentReadsControllerFindRecentReadsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<RecentReadsResponseDto>> {
+        const result = this.api.recentReadsControllerFindRecentReadsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public recentReadsControllerFindRecentReads(page: number, limit: number, _options?: Configuration): Promise<RecentReadsResponseDto> {
+        const result = this.api.recentReadsControllerFindRecentReads(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<HttpInfo<RecentReadResponseDto>> {
+        const result = this.api.recentReadsControllerRecentReadWithHttpInfo(recentReadPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param recentReadPayloadDto 
+     */
+    public recentReadsControllerRecentRead(recentReadPayloadDto: RecentReadPayloadDto, _options?: Configuration): Promise<RecentReadResponseDto> {
+        const result = this.api.recentReadsControllerRecentRead(recentReadPayloadDto, _options);
         return result.toPromise();
     }
 

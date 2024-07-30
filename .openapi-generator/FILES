@@ -7,6 +7,7 @@ FollowerApi.md
 FriendsApi.md
 PaymentApi.md
 README.md
+RecentReadsApi.md
 StorageApi.md
 apis/AuthApi.ts
 apis/BooksApi.ts
@@ -15,6 +16,7 @@ apis/EventsApi.ts
 apis/FollowerApi.ts
 apis/FriendsApi.ts
 apis/PaymentApi.ts
+apis/RecentReadsApi.ts
 apis/StorageApi.ts
 apis/baseapi.ts
 apis/exception.ts
@@ -68,6 +70,11 @@ models/PaymentPayloadDto.ts
 models/PaymentResponse.ts
 models/PaymentResponseDto.ts
 models/PermissionResponseDto.ts
+models/RecentReadPayloadDto.ts
+models/RecentReadResponseDto.ts
+models/RecentReads.ts
+models/RecentReadsResponse.ts
+models/RecentReadsResponseDto.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
 models/StripePayloadDto.ts

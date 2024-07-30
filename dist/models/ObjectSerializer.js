@@ -57,6 +57,11 @@ __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
+__exportStar(require("../models/RecentReadPayloadDto"), exports);
+__exportStar(require("../models/RecentReadResponseDto"), exports);
+__exportStar(require("../models/RecentReads"), exports);
+__exportStar(require("../models/RecentReadsResponse"), exports);
+__exportStar(require("../models/RecentReadsResponseDto"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
@@ -110,6 +115,11 @@ var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PaymentResponse_1 = require("../models/PaymentResponse");
 var PaymentResponseDto_1 = require("../models/PaymentResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
+var RecentReadPayloadDto_1 = require("../models/RecentReadPayloadDto");
+var RecentReadResponseDto_1 = require("../models/RecentReadResponseDto");
+var RecentReads_1 = require("../models/RecentReads");
+var RecentReadsResponse_1 = require("../models/RecentReadsResponse");
+var RecentReadsResponseDto_1 = require("../models/RecentReadsResponseDto");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
@@ -175,6 +185,11 @@ var typeMap = {
     "PaymentResponse": PaymentResponse_1.PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto_1.PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
+    "RecentReadPayloadDto": RecentReadPayloadDto_1.RecentReadPayloadDto,
+    "RecentReadResponseDto": RecentReadResponseDto_1.RecentReadResponseDto,
+    "RecentReads": RecentReads_1.RecentReads,
+    "RecentReadsResponse": RecentReadsResponse_1.RecentReadsResponse,
+    "RecentReadsResponseDto": RecentReadsResponseDto_1.RecentReadsResponseDto,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
