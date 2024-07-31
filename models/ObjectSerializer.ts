@@ -55,8 +55,8 @@ export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
 export * from '../models/UserDetails';
-export * from '../models/UserFollower';
 export * from '../models/UserFollowerResponseDto';
+export * from '../models/UserFollowers';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
@@ -119,8 +119,8 @@ import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
-import { UserFollower } from '../models/UserFollower';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
+import { UserFollowers } from '../models/UserFollowers';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -199,8 +199,8 @@ let typeMap: {[index: string]: any} = {
     "UserBooksResponse": UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto,
     "UserDetails": UserDetails,
-    "UserFollower": UserFollower,
     "UserFollowerResponseDto": UserFollowerResponseDto,
+    "UserFollowers": UserFollowers,
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto,

@@ -10,31 +10,30 @@
  * Do not edit the class manually.
  */
 
-import { UserFollowers } from '../models/UserFollowers';
 import { HttpFile } from '../http/http';
 
-export class UserFollowerResponseDto {
-    'data': UserFollowers;
-    'isSuccess': boolean;
+export class UserFollowers {
+    'follower': Array<string>;
+    'following': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "UserFollowers",
+            "name": "follower",
+            "baseName": "follower",
+            "type": "Array<string>",
             "format": ""
         },
         {
-            "name": "isSuccess",
-            "baseName": "isSuccess",
-            "type": "boolean",
+            "name": "following",
+            "baseName": "following",
+            "type": "Array<string>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return UserFollowerResponseDto.attributeTypeMap;
+        return UserFollowers.attributeTypeMap;
     }
 
     public constructor() {

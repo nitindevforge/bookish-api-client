@@ -12,7 +12,7 @@ var UserFollowerResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "UserFollower",
+            "type": "UserFollowers",
             "format": ""
         },
         {

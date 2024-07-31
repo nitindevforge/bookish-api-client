@@ -83,8 +83,8 @@ models/UserBooks.ts
 models/UserBooksResponse.ts
 models/UserBooksResponseDto.ts
 models/UserDetails.ts
-models/UserFollower.ts
 models/UserFollowerResponseDto.ts
+models/UserFollowers.ts
 models/UserResponse.ts
 models/UserResponseDto.ts
 models/UserRolePayloadDto.ts

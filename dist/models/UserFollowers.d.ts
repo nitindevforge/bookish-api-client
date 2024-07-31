@@ -1,7 +1,6 @@
-import { UserFollowers } from '../models/UserFollowers';
-export declare class UserFollowerResponseDto {
-    'data': UserFollowers;
-    'isSuccess': boolean;
+export declare class UserFollowers {
+    'follower': Array<string>;
+    'following': Array<string>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
