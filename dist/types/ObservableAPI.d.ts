@@ -30,6 +30,7 @@ import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookResponseDto } from '../models/UserBookResponseDto';
 import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -53,6 +54,8 @@ export declare class ObservableAuthApi {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerUserByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserById(id: string, _options?: Configuration): Observable<UserResponseDto>;
+    authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>>;
+    authControllerUserFollowerDetails(id: string, _options?: Configuration): Observable<UserFollowerResponseDto>;
     authControllerUserMeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserMe(_options?: Configuration): Observable<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;

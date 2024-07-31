@@ -59,6 +59,8 @@ import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
+import { UserFollower } from '../models/UserFollower';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -281,6 +283,35 @@ export class ObservableAuthApi {
      */
     public authControllerUserById(id: string, _options?: Configuration): Observable<UserResponseDto> {
         return this.authControllerUserByIdWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param id 
+     */
+    public authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerUserFollowerDetails(id, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerUserFollowerDetailsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param id 
+     */
+    public authControllerUserFollowerDetails(id: string, _options?: Configuration): Observable<UserFollowerResponseDto> {
+        return this.authControllerUserFollowerDetailsWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<UserFollowerResponseDto>) => apiResponse.data));
     }
 
     /**

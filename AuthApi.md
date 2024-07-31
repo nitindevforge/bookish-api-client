@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
 [**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
+[**authControllerUserFollowerDetails**](AuthApi.md#authControllerUserFollowerDetails) | **GET** /v1/auth/followers | 
 [**authControllerUserMe**](AuthApi.md#authControllerUserMe) | **GET** /v1/auth/user/me | 
 [**authControllerUserRoleUpdate**](AuthApi.md#authControllerUserRoleUpdate) | **PUT** /v1/auth/role | 
 [**authControllerUserUpdate**](AuthApi.md#authControllerUserUpdate) | **PUT** /v1/auth/user | 
@@ -396,6 +397,60 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerUserFollowerDetails**
+> UserFollowerResponseDto authControllerUserFollowerDetails()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
+
+let body:.AuthApiAuthControllerUserFollowerDetailsRequest = {
+  // string
+  id: "id_example",
+};
+
+apiInstance.authControllerUserFollowerDetails(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**UserFollowerResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

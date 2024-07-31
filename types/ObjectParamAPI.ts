@@ -58,6 +58,8 @@ import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
+import { UserFollower } from '../models/UserFollower';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -125,6 +127,15 @@ export interface AuthApiAuthControllerUserByIdRequest {
      * 
      * @type string
      * @memberof AuthApiauthControllerUserById
+     */
+    id: string
+}
+
+export interface AuthApiAuthControllerUserFollowerDetailsRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AuthApiauthControllerUserFollowerDetails
      */
     id: string
 }
@@ -262,6 +273,20 @@ export class ObjectAuthApi {
      */
     public authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserById(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserFollowerDetailsWithHttpInfo(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
+        return this.api.authControllerUserFollowerDetailsWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserFollowerDetails(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<UserFollowerResponseDto> {
+        return this.api.authControllerUserFollowerDetails(param.id,  options).toPromise();
     }
 
     /**

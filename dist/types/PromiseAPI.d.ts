@@ -29,6 +29,7 @@ import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookResponseDto } from '../models/UserBookResponseDto';
 import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -50,6 +51,8 @@ export declare class PromiseAuthApi {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerUserByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserById(id: string, _options?: Configuration): Promise<UserResponseDto>;
+    authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>>;
+    authControllerUserFollowerDetails(id: string, _options?: Configuration): Promise<UserFollowerResponseDto>;
     authControllerUserMeWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserMe(_options?: Configuration): Promise<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

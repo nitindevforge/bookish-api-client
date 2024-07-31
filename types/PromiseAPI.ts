@@ -58,6 +58,8 @@ import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
+import { UserFollower } from '../models/UserFollower';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
@@ -185,6 +187,22 @@ export class PromiseAuthApi {
      */
     public authControllerUserById(id: string, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserById(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
+        const result = this.api.authControllerUserFollowerDetailsWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public authControllerUserFollowerDetails(id: string, _options?: Configuration): Promise<UserFollowerResponseDto> {
+        const result = this.api.authControllerUserFollowerDetails(id, _options);
         return result.toPromise();
     }
 

@@ -29,6 +29,7 @@ import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookResponseDto } from '../models/UserBookResponseDto';
 import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -52,6 +53,9 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
 }
 export interface AuthApiAuthControllerUserByIdRequest {
+    id: string;
+}
+export interface AuthApiAuthControllerUserFollowerDetailsRequest {
     id: string;
 }
 export interface AuthApiAuthControllerUserMeRequest {
@@ -82,6 +86,8 @@ export declare class ObjectAuthApi {
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<UserResponseDto>;
+    authControllerUserFollowerDetailsWithHttpInfo(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>>;
+    authControllerUserFollowerDetails(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<UserFollowerResponseDto>;
     authControllerUserMeWithHttpInfo(param?: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserMe(param?: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

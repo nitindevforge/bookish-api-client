@@ -50,6 +50,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerUserById = function (param, options) {
         return this.api.authControllerUserById(param.id, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerUserFollowerDetailsWithHttpInfo = function (param, options) {
+        return this.api.authControllerUserFollowerDetailsWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUserFollowerDetails = function (param, options) {
+        return this.api.authControllerUserFollowerDetails(param.id, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerUserMeWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.authControllerUserMeWithHttpInfo(options).toPromise();

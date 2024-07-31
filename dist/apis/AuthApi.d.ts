@@ -10,6 +10,7 @@ import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -21,6 +22,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUserById(id: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerUserFollowerDetails(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerUserMe(_options?: Configuration): Promise<RequestContext>;
     authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUserUpdate(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<RequestContext>;
@@ -34,6 +36,7 @@ export declare class AuthApiResponseProcessor {
     authControllerGetInterestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUserFollowerDetailsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserFollowerResponseDto>>;
     authControllerUserMeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserRoleUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;

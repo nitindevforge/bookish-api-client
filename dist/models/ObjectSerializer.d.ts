@@ -55,6 +55,8 @@ export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
 export * from '../models/UserDetails';
+export * from '../models/UserFollower';
+export * from '../models/UserFollowerResponseDto';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';

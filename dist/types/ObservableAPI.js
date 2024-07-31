@@ -199,9 +199,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerUserById = function (id, _options) {
         return this.authControllerUserByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
+    ObservableAuthApi.prototype.authControllerUserFollowerDetailsWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserMe(_options);
+        var requestContextPromise = this.requestFactory.authControllerUserFollowerDetails(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_15 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -220,15 +220,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_16(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserFollowerDetailsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserMe = function (_options) {
-        return this.authControllerUserMeWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserFollowerDetails = function (id, _options) {
+        return this.authControllerUserFollowerDetailsWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserMe(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_17 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -247,15 +247,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_18(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserMeWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
-        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserMe = function (_options) {
+        return this.authControllerUserMeWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (userUpdatePayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserRoleUpdateWithHttpInfo = function (userRolePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserUpdate(userUpdatePayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserRoleUpdate(userRolePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_19 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -274,15 +274,15 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_20(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserRoleUpdateWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserUpdate = function (userUpdatePayloadDto, _options) {
-        return this.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserRoleUpdate = function (userRolePayloadDto, _options) {
+        return this.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUserUpdateWithHttpInfo = function (userUpdatePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserUpdate(userUpdatePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_21 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -300,6 +300,33 @@ var ObservableAuthApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_22(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserUpdateWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableAuthApi.prototype.authControllerUserUpdate = function (userUpdatePayloadDto, _options) {
+        return this.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableAuthApi.prototype.authControllerVerifyOtpWithHttpInfo = function (otpEntityPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.authControllerVerifyOtp(otpEntityPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_23 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_23(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_24 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_24(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerVerifyOtpWithHttpInfo(rsp); }));
         }));
@@ -321,33 +348,6 @@ var ObservableBooksApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.bookControllerAddBook(bookPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_23 = function (middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
-        };
-        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
-            var middleware = _a[_i];
-            _loop_23(middleware);
-        }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
-            pipe((0, rxjsStub_2.mergeMap)(function (response) {
-            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_24 = function (middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
-            };
-            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
-                var middleware = _a[_i];
-                _loop_24(middleware);
-            }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerAddBookWithHttpInfo(rsp); }));
-        }));
-    };
-    ObservableBooksApi.prototype.bookControllerAddBook = function (bookPayloadDto, _options) {
-        return this.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
-    };
-    ObservableBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
-        var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindBookById(id, _options);
-        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_25 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
@@ -365,15 +365,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_26(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBookByIdWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerAddBookWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBookById = function (id, _options) {
-        return this.bookControllerFindBookByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerAddBook = function (bookPayloadDto, _options) {
+        return this.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, _options) {
+    ObservableBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindBooks(search, page, limit, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindBookById(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_27 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -392,15 +392,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_28(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBooksWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBookByIdWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBooks = function (search, page, limit, _options) {
-        return this.bookControllerFindBooksWithHttpInfo(search, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindBookById = function (id, _options) {
+        return this.bookControllerFindBookByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, isRead, rate, review, _options) {
+    ObservableBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindBooks(search, page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_29 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -419,15 +419,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_30(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBooksWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReview = function (bookId, isRead, rate, review, _options) {
-        return this.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindBooks = function (search, page, limit, _options) {
+        return this.bookControllerFindBooksWithHttpInfo(search, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (bookId, isRead, rate, review, _options) {
+    ObservableBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, isRead, rate, review, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_31 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -446,15 +446,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_32(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewCountWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReviewCount = function (bookId, isRead, rate, review, _options) {
-        return this.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindUserBookReview = function (bookId, isRead, rate, review, _options) {
+        return this.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (bookId, page, limit, _options) {
+    ObservableBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (bookId, isRead, rate, review, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReviews(bookId, page, limit, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_33 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -473,15 +473,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_34(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewCountWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, _options) {
-        return this.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindUserBookReviewCount = function (bookId, isRead, rate, review, _options) {
+        return this.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (page, limit, _options) {
+    ObservableBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (bookId, page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindUserBooks(page, limit, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindUserBookReviews(bookId, page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_35 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -500,15 +500,15 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_36(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBooksWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBookReviewsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindUserBooks = function (page, limit, _options) {
-        return this.bookControllerFindUserBooksWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, _options) {
+        return this.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (userBookPayloadDto, _options) {
+    ObservableBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerUserBookMark(userBookPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindUserBooks(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_37 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -526,6 +526,33 @@ var ObservableBooksApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_38(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindUserBooksWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableBooksApi.prototype.bookControllerFindUserBooks = function (page, limit, _options) {
+        return this.bookControllerFindUserBooksWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (userBookPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.bookControllerUserBookMark(userBookPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_39 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_39(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_40 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_40(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerUserBookMarkWithHttpInfo(rsp); }));
         }));
@@ -547,22 +574,22 @@ var ObservableDefaultApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.appControllerGetHello(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_39 = function (middleware) {
+        var _loop_41 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_39(middleware);
+            _loop_41(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_40 = function (middleware) {
+            var _loop_42 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_40(middleware);
+                _loop_42(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.appControllerGetHelloWithHttpInfo(rsp); }));
         }));
@@ -584,33 +611,6 @@ var ObservableEventsApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_41 = function (middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
-        };
-        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
-            var middleware = _a[_i];
-            _loop_41(middleware);
-        }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
-            pipe((0, rxjsStub_2.mergeMap)(function (response) {
-            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_42 = function (middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
-            };
-            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
-                var middleware = _a[_i];
-                _loop_42(middleware);
-            }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
-        }));
-    };
-    ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
-        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
-    };
-    ObservableEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
-        var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindEventById(id, _options);
-        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_43 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
@@ -628,15 +628,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_44(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventByIdWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEventById = function (id, _options) {
-        return this.eventControllerFindEventByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, _options) {
+    ObservableEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindEventById(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_45 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -654,6 +654,33 @@ var ObservableEventsApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_46(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventByIdWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableEventsApi.prototype.eventControllerFindEventById = function (id, _options) {
+        return this.eventControllerFindEventByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_47 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_47(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_48 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_48(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventsWithHttpInfo(rsp); }));
         }));
@@ -675,33 +702,6 @@ var ObservableFollowerApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.followerControllerFollow(followerPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_47 = function (middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
-        };
-        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
-            var middleware = _a[_i];
-            _loop_47(middleware);
-        }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
-            pipe((0, rxjsStub_2.mergeMap)(function (response) {
-            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_48 = function (middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
-            };
-            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
-                var middleware = _a[_i];
-                _loop_48(middleware);
-            }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowWithHttpInfo(rsp); }));
-        }));
-    };
-    ObservableFollowerApi.prototype.followerControllerFollow = function (followerPayloadDto, _options) {
-        return this.followerControllerFollowWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
-    };
-    ObservableFollowerApi.prototype.followerControllerUnfollowWithHttpInfo = function (followerPayloadDto, _options) {
-        var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerUnfollow(followerPayloadDto, _options);
-        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_49 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
@@ -718,6 +718,33 @@ var ObservableFollowerApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_50(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFollowWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservableFollowerApi.prototype.followerControllerFollow = function (followerPayloadDto, _options) {
+        return this.followerControllerFollowWithHttpInfo(followerPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservableFollowerApi.prototype.followerControllerUnfollowWithHttpInfo = function (followerPayloadDto, _options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.followerControllerUnfollow(followerPayloadDto, _options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_51 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_51(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_52 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_52(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerUnfollowWithHttpInfo(rsp); }));
         }));
@@ -739,22 +766,22 @@ var ObservableFriendsApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.friendControllerFindFriends(page, limit, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_51 = function (middleware) {
+        var _loop_53 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_51(middleware);
+            _loop_53(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_52 = function (middleware) {
+            var _loop_54 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_52(middleware);
+                _loop_54(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.friendControllerFindFriendsWithHttpInfo(rsp); }));
         }));
@@ -776,33 +803,6 @@ var ObservablePaymentApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_53 = function (middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
-        };
-        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
-            var middleware = _a[_i];
-            _loop_53(middleware);
-        }
-        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
-            pipe((0, rxjsStub_2.mergeMap)(function (response) {
-            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_54 = function (middleware) {
-                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
-            };
-            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
-                var middleware = _a[_i];
-                _loop_54(middleware);
-            }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentWithHttpInfo(rsp); }));
-        }));
-    };
-    ObservablePaymentApi.prototype.paymentControllerCreatePayment = function (stripePaymentPayloadDto, _options) {
-        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
-    };
-    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
-        var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
-        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_55 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
@@ -820,15 +820,15 @@ var ObservablePaymentApi = (function () {
                 var middleware = _a[_i];
                 _loop_56(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentIntentWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentWithHttpInfo(rsp); }));
         }));
     };
-    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
-        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservablePaymentApi.prototype.paymentControllerCreatePayment = function (stripePaymentPayloadDto, _options) {
+        return this.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
+    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_57 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -847,15 +847,15 @@ var ObservablePaymentApi = (function () {
                 var middleware = _a[_i];
                 _loop_58(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeleteCardDetailsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerCreatePaymentIntentWithHttpInfo(rsp); }));
         }));
     };
-    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
-        return this.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservablePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservablePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
+    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.paymentControllerGetCardList(_options);
+        var requestContextPromise = this.requestFactory.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_59 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -873,6 +873,33 @@ var ObservablePaymentApi = (function () {
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
                 _loop_60(middleware);
+            }
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerDeleteCardDetailsWithHttpInfo(rsp); }));
+        }));
+    };
+    ObservablePaymentApi.prototype.paymentControllerDeleteCardDetails = function (paymentPayloadDto, _options) {
+        return this.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    };
+    ObservablePaymentApi.prototype.paymentControllerGetCardListWithHttpInfo = function (_options) {
+        var _this = this;
+        var requestContextPromise = this.requestFactory.paymentControllerGetCardList(_options);
+        var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
+        var _loop_61 = function (middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
+        };
+        for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
+            var middleware = _a[_i];
+            _loop_61(middleware);
+        }
+        return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
+            pipe((0, rxjsStub_2.mergeMap)(function (response) {
+            var middlewarePostObservable = (0, rxjsStub_1.of)(response);
+            var _loop_62 = function (middleware) {
+                middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
+            };
+            for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
+                var middleware = _a[_i];
+                _loop_62(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.paymentControllerGetCardListWithHttpInfo(rsp); }));
         }));
@@ -894,22 +921,22 @@ var ObservableStorageApi = (function () {
         var _this = this;
         var requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
-        var _loop_61 = function (middleware) {
+        var _loop_63 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
         };
         for (var _i = 0, _a = this.configuration.middleware; _i < _a.length; _i++) {
             var middleware = _a[_i];
-            _loop_61(middleware);
+            _loop_63(middleware);
         }
         return middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return _this.configuration.httpApi.send(ctx); })).
             pipe((0, rxjsStub_2.mergeMap)(function (response) {
             var middlewarePostObservable = (0, rxjsStub_1.of)(response);
-            var _loop_62 = function (middleware) {
+            var _loop_64 = function (middleware) {
                 middlewarePostObservable = middlewarePostObservable.pipe((0, rxjsStub_2.mergeMap)(function (rsp) { return middleware.post(rsp); }));
             };
             for (var _i = 0, _a = _this.configuration.middleware; _i < _a.length; _i++) {
                 var middleware = _a[_i];
-                _loop_62(middleware);
+                _loop_64(middleware);
             }
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp); }));
         }));
