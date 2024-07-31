@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
 [**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
-[**authControllerUserFollowerDetails**](AuthApi.md#authControllerUserFollowerDetails) | **GET** /v1/auth/followers | 
+[**authControllerUserFollowers**](AuthApi.md#authControllerUserFollowers) | **GET** /v1/auth/follower | 
 [**authControllerUserMe**](AuthApi.md#authControllerUserMe) | **GET** /v1/auth/user/me | 
 [**authControllerUserRoleUpdate**](AuthApi.md#authControllerUserRoleUpdate) | **PUT** /v1/auth/role | 
 [**authControllerUserUpdate**](AuthApi.md#authControllerUserUpdate) | **PUT** /v1/auth/user | 
@@ -400,8 +400,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **authControllerUserFollowerDetails**
-> UserFollowerResponseDto authControllerUserFollowerDetails()
+# **authControllerUserFollowers**
+> UserFollowerResponseDto authControllerUserFollowers()
 
 
 ### Example
@@ -414,12 +414,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
-let body:.AuthApiAuthControllerUserFollowerDetailsRequest = {
+let body:.AuthApiAuthControllerUserFollowersRequest = {
   // string
   id: "id_example",
 };
 
-apiInstance.authControllerUserFollowerDetails(body).then((data:any) => {
+apiInstance.authControllerUserFollowers(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

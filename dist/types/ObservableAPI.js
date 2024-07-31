@@ -199,9 +199,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerUserById = function (id, _options) {
         return this.authControllerUserByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerUserFollowerDetailsWithHttpInfo = function (id, _options) {
+    ObservableAuthApi.prototype.authControllerUserFollowersWithHttpInfo = function (id, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerUserFollowerDetails(id, _options);
+        var requestContextPromise = this.requestFactory.authControllerUserFollowers(id, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_15 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -220,11 +220,11 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_16(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserFollowerDetailsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUserFollowersWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerUserFollowerDetails = function (id, _options) {
-        return this.authControllerUserFollowerDetailsWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUserFollowers = function (id, _options) {
+        return this.authControllerUserFollowersWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerUserMeWithHttpInfo = function (_options) {
         var _this = this;

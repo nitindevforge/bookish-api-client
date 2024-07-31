@@ -193,16 +193,16 @@ export class PromiseAuthApi {
     /**
      * @param id 
      */
-    public authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
-        const result = this.api.authControllerUserFollowerDetailsWithHttpInfo(id, _options);
+    public authControllerUserFollowersWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
+        const result = this.api.authControllerUserFollowersWithHttpInfo(id, _options);
         return result.toPromise();
     }
 
     /**
      * @param id 
      */
-    public authControllerUserFollowerDetails(id: string, _options?: Configuration): Promise<UserFollowerResponseDto> {
-        const result = this.api.authControllerUserFollowerDetails(id, _options);
+    public authControllerUserFollowers(id: string, _options?: Configuration): Promise<UserFollowerResponseDto> {
+        const result = this.api.authControllerUserFollowers(id, _options);
         return result.toPromise();
     }
 

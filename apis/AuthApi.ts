@@ -304,17 +304,17 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param id 
      */
-    public async authControllerUserFollowerDetails(id: string, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerUserFollowers(id: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'id' is not null or undefined
         if (id === null || id === undefined) {
-            throw new RequiredError("AuthApi", "authControllerUserFollowerDetails", "id");
+            throw new RequiredError("AuthApi", "authControllerUserFollowers", "id");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/auth/followers';
+        const localVarPath = '/v1/auth/follower';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -718,10 +718,10 @@ export class AuthApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to authControllerUserFollowerDetails
+     * @params response Response returned by the server for a request to authControllerUserFollowers
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async authControllerUserFollowerDetailsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserFollowerResponseDto >> {
+     public async authControllerUserFollowersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserFollowerResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: UserFollowerResponseDto = ObjectSerializer.deserialize(

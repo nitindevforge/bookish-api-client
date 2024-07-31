@@ -55,7 +55,7 @@ export interface AuthApiAuthControllerLoginRequest {
 export interface AuthApiAuthControllerUserByIdRequest {
     id: string;
 }
-export interface AuthApiAuthControllerUserFollowerDetailsRequest {
+export interface AuthApiAuthControllerUserFollowersRequest {
     id: string;
 }
 export interface AuthApiAuthControllerUserMeRequest {
@@ -86,8 +86,8 @@ export declare class ObjectAuthApi {
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<UserResponseDto>;
-    authControllerUserFollowerDetailsWithHttpInfo(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>>;
-    authControllerUserFollowerDetails(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<UserFollowerResponseDto>;
+    authControllerUserFollowersWithHttpInfo(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>>;
+    authControllerUserFollowers(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<UserFollowerResponseDto>;
     authControllerUserMeWithHttpInfo(param?: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUserMe(param?: AuthApiAuthControllerUserMeRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

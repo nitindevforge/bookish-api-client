@@ -288,8 +288,8 @@ export class ObservableAuthApi {
     /**
      * @param id 
      */
-    public authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>> {
-        const requestContextPromise = this.requestFactory.authControllerUserFollowerDetails(id, _options);
+    public authControllerUserFollowersWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerUserFollowers(id, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -303,15 +303,15 @@ export class ObservableAuthApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerUserFollowerDetailsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerUserFollowersWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param id 
      */
-    public authControllerUserFollowerDetails(id: string, _options?: Configuration): Observable<UserFollowerResponseDto> {
-        return this.authControllerUserFollowerDetailsWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<UserFollowerResponseDto>) => apiResponse.data));
+    public authControllerUserFollowers(id: string, _options?: Configuration): Observable<UserFollowerResponseDto> {
+        return this.authControllerUserFollowersWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<UserFollowerResponseDto>) => apiResponse.data));
     }
 
     /**

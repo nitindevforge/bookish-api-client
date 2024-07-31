@@ -131,11 +131,11 @@ export interface AuthApiAuthControllerUserByIdRequest {
     id: string
 }
 
-export interface AuthApiAuthControllerUserFollowerDetailsRequest {
+export interface AuthApiAuthControllerUserFollowersRequest {
     /**
      * 
      * @type string
-     * @memberof AuthApiauthControllerUserFollowerDetails
+     * @memberof AuthApiauthControllerUserFollowers
      */
     id: string
 }
@@ -278,15 +278,15 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerUserFollowerDetailsWithHttpInfo(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
-        return this.api.authControllerUserFollowerDetailsWithHttpInfo(param.id,  options).toPromise();
+    public authControllerUserFollowersWithHttpInfo(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
+        return this.api.authControllerUserFollowersWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserFollowerDetails(param: AuthApiAuthControllerUserFollowerDetailsRequest, options?: Configuration): Promise<UserFollowerResponseDto> {
-        return this.api.authControllerUserFollowerDetails(param.id,  options).toPromise();
+    public authControllerUserFollowers(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<UserFollowerResponseDto> {
+        return this.api.authControllerUserFollowers(param.id,  options).toPromise();
     }
 
     /**

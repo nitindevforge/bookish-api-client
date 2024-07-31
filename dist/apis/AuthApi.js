@@ -284,7 +284,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerUserFollowerDetails = function (id, _options) {
+    AuthApiRequestFactory.prototype.authControllerUserFollowers = function (id, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -293,9 +293,9 @@ var AuthApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (id === null || id === undefined) {
-                            throw new baseapi_1.RequiredError("AuthApi", "authControllerUserFollowerDetails", "id");
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerUserFollowers", "id");
                         }
-                        localVarPath = '/v1/auth/followers';
+                        localVarPath = '/v1/auth/follower';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (id !== undefined) {
@@ -698,7 +698,7 @@ var AuthApiResponseProcessor = (function () {
             });
         });
     };
-    AuthApiResponseProcessor.prototype.authControllerUserFollowerDetailsWithHttpInfo = function (response) {
+    AuthApiResponseProcessor.prototype.authControllerUserFollowersWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

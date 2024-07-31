@@ -54,8 +54,8 @@ export declare class ObservableAuthApi {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerUserByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserById(id: string, _options?: Configuration): Observable<UserResponseDto>;
-    authControllerUserFollowerDetailsWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>>;
-    authControllerUserFollowerDetails(id: string, _options?: Configuration): Observable<UserFollowerResponseDto>;
+    authControllerUserFollowersWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<UserFollowerResponseDto>>;
+    authControllerUserFollowers(id: string, _options?: Configuration): Observable<UserFollowerResponseDto>;
     authControllerUserMeWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUserMe(_options?: Configuration): Observable<UserResponseDto>;
     authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
