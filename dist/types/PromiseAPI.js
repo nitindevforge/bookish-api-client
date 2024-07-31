@@ -126,46 +126,6 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBooks(search, page, limit, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReview = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCount = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (bookId, page, limit, _options) {
-        var result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, _options) {
-        var result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerFindUserBooks = function (page, limit, _options) {
-        var result = this.api.bookControllerFindUserBooks(page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (userBookPayloadDto, _options) {
-        var result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
-        return result.toPromise();
-    };
-    PromiseBooksApi.prototype.bookControllerUserBookMark = function (userBookPayloadDto, _options) {
-        var result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
-        return result.toPromise();
-    };
     return PromiseBooksApi;
 }());
 exports.PromiseBooksApi = PromiseBooksApi;

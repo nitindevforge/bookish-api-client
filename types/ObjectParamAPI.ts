@@ -43,20 +43,12 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
-import { Rating } from '../models/Rating';
-import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
-import { UserBookResponseDto } from '../models/UserBookResponseDto';
-import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
-import { UserBooks } from '../models/UserBooks';
-import { UserBooksResponse } from '../models/UserBooksResponse';
-import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -364,105 +356,6 @@ export interface BooksApiBookControllerFindBooksRequest {
     limit: number
 }
 
-export interface BooksApiBookControllerFindUserBookReviewRequest {
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBookReview
-     */
-    bookId: string
-    /**
-     * 
-     * @type boolean
-     * @memberof BooksApibookControllerFindUserBookReview
-     */
-    isRead?: boolean
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBookReview
-     */
-    rate?: number
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBookReview
-     */
-    review?: string
-}
-
-export interface BooksApiBookControllerFindUserBookReviewCountRequest {
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBookReviewCount
-     */
-    bookId: string
-    /**
-     * 
-     * @type boolean
-     * @memberof BooksApibookControllerFindUserBookReviewCount
-     */
-    isRead?: boolean
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBookReviewCount
-     */
-    rate?: number
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBookReviewCount
-     */
-    review?: string
-}
-
-export interface BooksApiBookControllerFindUserBookReviewsRequest {
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBookReviews
-     */
-    bookId: string
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBookReviews
-     */
-    page: number
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBookReviews
-     */
-    limit: number
-}
-
-export interface BooksApiBookControllerFindUserBooksRequest {
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBooks
-     */
-    page: number
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBooks
-     */
-    limit: number
-}
-
-export interface BooksApiBookControllerUserBookMarkRequest {
-    /**
-     * 
-     * @type UserBookPayloadDto
-     * @memberof BooksApibookControllerUserBookMark
-     */
-    userBookPayloadDto: UserBookPayloadDto
-}
-
 export class ObjectBooksApi {
     private api: ObservableBooksApi
 
@@ -510,76 +403,6 @@ export class ObjectBooksApi {
      */
     public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
         return this.api.bookControllerFindBooks(param.search, param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
-        return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookResponseDto> {
-        return this.api.bookControllerFindUserBookReview(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
-        return this.api.bookControllerFindUserBookReviewCountWithHttpInfo(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<UserBookReviewCountResponseDto> {
-        return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.isRead, param.rate, param.review,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
-        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBooksWithHttpInfo(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        return this.api.bookControllerFindUserBooksWithHttpInfo(param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBooks(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<UserBooksResponseDto> {
-        return this.api.bookControllerFindUserBooks(param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
-        return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookResponseDto> {
-        return this.api.bookControllerUserBookMark(param.userBookPayloadDto,  options).toPromise();
     }
 
 }

@@ -25,10 +25,6 @@ import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
-import { UserBookResponseDto } from '../models/UserBookResponseDto';
-import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
-import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
@@ -103,30 +99,6 @@ export interface BooksApiBookControllerFindBooksRequest {
     page: number;
     limit: number;
 }
-export interface BooksApiBookControllerFindUserBookReviewRequest {
-    bookId: string;
-    isRead?: boolean;
-    rate?: number;
-    review?: string;
-}
-export interface BooksApiBookControllerFindUserBookReviewCountRequest {
-    bookId: string;
-    isRead?: boolean;
-    rate?: number;
-    review?: string;
-}
-export interface BooksApiBookControllerFindUserBookReviewsRequest {
-    bookId: string;
-    page: number;
-    limit: number;
-}
-export interface BooksApiBookControllerFindUserBooksRequest {
-    page: number;
-    limit: number;
-}
-export interface BooksApiBookControllerUserBookMarkRequest {
-    userBookPayloadDto: UserBookPayloadDto;
-}
 export declare class ObjectBooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
@@ -136,16 +108,6 @@ export declare class ObjectBooksApi {
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
-    bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;
-    bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookResponseDto>;
-    bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>>;
-    bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<UserBookReviewCountResponseDto>;
-    bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto>;
-    bookControllerFindUserBooksWithHttpInfo(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindUserBooks(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<UserBooksResponseDto>;
-    bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;
-    bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookResponseDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export interface DefaultApiAppControllerGetHelloRequest {
