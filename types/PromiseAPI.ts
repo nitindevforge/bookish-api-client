@@ -43,12 +43,20 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Rating } from '../models/Rating';
+import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooks } from '../models/UserBooks';
+import { UserBooksResponse } from '../models/UserBooksResponse';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -310,6 +318,104 @@ export class PromiseBooksApi {
      */
     public bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<BooksResponseDto> {
         const result = this.api.bookControllerFindBooks(search, page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReview(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookResponseDto> {
+        const result = this.api.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param isRead 
+     * @param rate 
+     * @param review 
+     */
+    public bookControllerFindUserBookReviewCount(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewCountResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookId 
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindUserBooks(page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBooks(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        const result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookResponseDto> {
+        const result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
         return result.toPromise();
     }
 

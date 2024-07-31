@@ -15,8 +15,6 @@ import { HttpFile } from '../http/http';
 export class Follower {
     'follower': string;
     'following': string;
-    'createdAt': string;
-    'updatedAt': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -30,18 +28,6 @@ export class Follower {
         {
             "name": "following",
             "baseName": "following",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
             "type": "string",
             "format": ""
         }    ];

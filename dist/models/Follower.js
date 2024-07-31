@@ -20,18 +20,6 @@ var Follower = (function () {
             "baseName": "following",
             "type": "string",
             "format": ""
-        },
-        {
-            "name": "createdAt",
-            "baseName": "createdAt",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "updatedAt",
-            "baseName": "updatedAt",
-            "type": "string",
-            "format": ""
         }
     ];
     return Follower;

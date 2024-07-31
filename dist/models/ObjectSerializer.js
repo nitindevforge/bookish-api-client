@@ -57,12 +57,20 @@ __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
+__exportStar(require("../models/Rating"), exports);
+__exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
+__exportStar(require("../models/UserBookPayloadDto"), exports);
+__exportStar(require("../models/UserBookResponseDto"), exports);
+__exportStar(require("../models/UserBookReviewCountResponseDto"), exports);
+__exportStar(require("../models/UserBooks"), exports);
+__exportStar(require("../models/UserBooksResponse"), exports);
+__exportStar(require("../models/UserBooksResponseDto"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
@@ -110,12 +118,20 @@ var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PaymentResponse_1 = require("../models/PaymentResponse");
 var PaymentResponseDto_1 = require("../models/PaymentResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
+var Rating_1 = require("../models/Rating");
+var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
+var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
+var UserBookResponseDto_1 = require("../models/UserBookResponseDto");
+var UserBookReviewCountResponseDto_1 = require("../models/UserBookReviewCountResponseDto");
+var UserBooks_1 = require("../models/UserBooks");
+var UserBooksResponse_1 = require("../models/UserBooksResponse");
+var UserBooksResponseDto_1 = require("../models/UserBooksResponseDto");
 var UserDetails_1 = require("../models/UserDetails");
 var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
@@ -175,12 +191,20 @@ var typeMap = {
     "PaymentResponse": PaymentResponse_1.PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto_1.PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
+    "Rating": Rating_1.Rating,
+    "Review": Review_1.Review,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
+    "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
+    "UserBookResponseDto": UserBookResponseDto_1.UserBookResponseDto,
+    "UserBookReviewCountResponseDto": UserBookReviewCountResponseDto_1.UserBookReviewCountResponseDto,
+    "UserBooks": UserBooks_1.UserBooks,
+    "UserBooksResponse": UserBooksResponse_1.UserBooksResponse,
+    "UserBooksResponseDto": UserBooksResponseDto_1.UserBooksResponseDto,
     "UserDetails": UserDetails_1.UserDetails,
     "UserResponse": UserResponse_1.UserResponse,
     "UserResponseDto": UserResponseDto_1.UserResponseDto,

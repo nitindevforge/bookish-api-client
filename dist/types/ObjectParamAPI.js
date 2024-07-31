@@ -102,6 +102,36 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerFindBooks = function (param, options) {
         return this.api.bookControllerFindBooks(param.search, param.page, param.limit, options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReview = function (param, options) {
+        return this.api.bookControllerFindUserBookReview(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewCountWithHttpInfo(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewCount = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.isRead, param.rate, param.review, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBookReviews = function (param, options) {
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (param, options) {
+        return this.api.bookControllerFindUserBooksWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserBooks = function (param, options) {
+        return this.api.bookControllerFindUserBooks(param.page, param.limit, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (param, options) {
+        return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerUserBookMark = function (param, options) {
+        return this.api.bookControllerUserBookMark(param.userBookPayloadDto, options).toPromise();
+    };
     return ObjectBooksApi;
 }());
 exports.ObjectBooksApi = ObjectBooksApi;

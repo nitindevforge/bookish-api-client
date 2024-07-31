@@ -2,7 +2,7 @@ import { Rating } from '../models/Rating';
 export declare class Review {
     'id': string;
     'totalRatingCount': number;
-    'rating': Array<Rating>;
+    'rating': Rating;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -40,12 +40,20 @@ export * from '../models/PaymentPayloadDto';
 export * from '../models/PaymentResponse';
 export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
+export * from '../models/Rating';
+export * from '../models/Review';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
+export * from '../models/UserBookPayloadDto';
+export * from '../models/UserBookResponseDto';
+export * from '../models/UserBookReviewCountResponseDto';
+export * from '../models/UserBooks';
+export * from '../models/UserBooksResponse';
+export * from '../models/UserBooksResponseDto';
 export * from '../models/UserDetails';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
@@ -94,12 +102,20 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Rating } from '../models/Rating';
+import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
+import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
+import { UserBooks } from '../models/UserBooks';
+import { UserBooksResponse } from '../models/UserBooksResponse';
+import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -164,12 +180,20 @@ let typeMap: {[index: string]: any} = {
     "PaymentResponse": PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
+    "Rating": Rating,
+    "Review": Review,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
     "StripePayloadDto": StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
+    "UserBookPayloadDto": UserBookPayloadDto,
+    "UserBookResponseDto": UserBookResponseDto,
+    "UserBookReviewCountResponseDto": UserBookReviewCountResponseDto,
+    "UserBooks": UserBooks,
+    "UserBooksResponse": UserBooksResponse,
+    "UserBooksResponseDto": UserBooksResponseDto,
     "UserDetails": UserDetails,
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,
