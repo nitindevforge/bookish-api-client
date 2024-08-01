@@ -22,6 +22,12 @@ var Review = (function () {
             "format": ""
         },
         {
+            "name": "totalRatePercentage",
+            "baseName": "totalRatePercentage",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "rating",
             "baseName": "rating",
             "type": "Array<Rating>",

@@ -1,6 +1,6 @@
 export declare class UserBookPayloadDto {
     'bookId': string;
-    'isRead'?: boolean;
+    'status'?: string;
     'rate'?: number;
     'review'?: string;
     static readonly discriminator: string | undefined;

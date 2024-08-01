@@ -126,6 +126,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBookById(id, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, page, limit, search, _options) {
+        var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBase = function (type, page, limit, search, _options) {
+        var result = this.api.bookControllerFindBookReviewBase(type, page, limit, search, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, _options) {
         var result = this.api.bookControllerFindBooksWithHttpInfo(search, page, limit, _options);
         return result.toPromise();
@@ -134,20 +142,20 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBooks(search, page, limit, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {
+        var result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReview = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBookReview = function (bookId, status, rate, review, _options) {
+        var result = this.api.bookControllerFindUserBookReview(bookId, status, rate, review, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCountWithHttpInfo = function (bookId, status, rate, review, _options) {
+        var result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCount = function (bookId, isRead, rate, review, _options) {
-        var result = this.api.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBookReviewCount = function (bookId, status, rate, review, _options) {
+        var result = this.api.bookControllerFindUserBookReviewCount(bookId, status, rate, review, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (bookId, page, limit, _options) {
@@ -158,12 +166,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBooksWithHttpInfo = function (page, limit, status, _options) {
+        var result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, status, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindUserBooks = function (page, limit, _options) {
-        var result = this.api.bookControllerFindUserBooks(page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindUserBooks = function (page, limit, status, _options) {
+        var result = this.api.bookControllerFindUserBooks(page, limit, status, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (userBookPayloadDto, _options) {

@@ -4,6 +4,8 @@ export declare class BookPayloadDto {
     'description': string;
     'genre': string;
     'author': string;
+    'language': string;
+    'pages': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

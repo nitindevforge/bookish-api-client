@@ -104,6 +104,12 @@ export interface BooksApiBookControllerAddBookRequest {
 export interface BooksApiBookControllerFindBookByIdRequest {
     id: string;
 }
+export interface BooksApiBookControllerFindBookReviewBaseRequest {
+    type: string;
+    page: number;
+    limit: number;
+    search?: string;
+}
 export interface BooksApiBookControllerFindBooksRequest {
     search: string;
     page: number;
@@ -111,13 +117,13 @@ export interface BooksApiBookControllerFindBooksRequest {
 }
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
-    isRead?: boolean;
+    status?: string;
     rate?: number;
     review?: string;
 }
 export interface BooksApiBookControllerFindUserBookReviewCountRequest {
     bookId: string;
-    isRead?: boolean;
+    status?: string;
     rate?: number;
     review?: string;
 }
@@ -129,6 +135,7 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
 export interface BooksApiBookControllerFindUserBooksRequest {
     page: number;
     limit: number;
+    status?: string;
 }
 export interface BooksApiBookControllerUserBookMarkRequest {
     userBookPayloadDto: UserBookPayloadDto;
@@ -140,6 +147,8 @@ export declare class ObjectBooksApi {
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
+    bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
+    bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<UserBooksResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;

@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class UserBookPayloadDto {
     'bookId': string;
-    'isRead'?: boolean;
+    'status'?: string;
     'rate'?: number;
     'review'?: string;
 
@@ -28,9 +28,9 @@ export class UserBookPayloadDto {
             "format": ""
         },
         {
-            "name": "isRead",
-            "baseName": "isRead",
-            "type": "boolean",
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {

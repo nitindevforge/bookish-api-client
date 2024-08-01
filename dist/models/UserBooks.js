@@ -28,9 +28,9 @@ var UserBooks = (function () {
             "format": ""
         },
         {
-            "name": "isRead",
-            "baseName": "isRead",
-            "type": "boolean",
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {

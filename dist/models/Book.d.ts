@@ -4,7 +4,10 @@ export declare class Book {
     'title': string;
     'cover': string;
     'genre': string;
+    'description': string;
     'author': AuthorResponseDto;
+    'language': string;
+    'pages': number;
     'createAt': Date;
     'updateAt': Date;
     static readonly discriminator: string | undefined;

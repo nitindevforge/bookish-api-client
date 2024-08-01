@@ -4,7 +4,7 @@ export declare class UserBooks {
     'id': string;
     'userId': UserDetails;
     'bookId': Book;
-    'isRead': boolean;
+    'status': string;
     'rate': number;
     'review': number;
     static readonly discriminator: string | undefined;

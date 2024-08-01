@@ -6,11 +6,12 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
+[**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **GET** /v1/books/type | 
 [**bookControllerFindBooks**](BooksApi.md#bookControllerFindBooks) | **GET** /v1/books | 
 [**bookControllerFindUserBookReview**](BooksApi.md#bookControllerFindUserBookReview) | **GET** /v1/user/book/review | 
-[**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/user/book | 
-[**bookControllerFindUserBookReviews**](BooksApi.md#bookControllerFindUserBookReviews) | **GET** /v1/user/books/review | 
-[**bookControllerFindUserBooks**](BooksApi.md#bookControllerFindUserBooks) | **GET** /v1/user/books | 
+[**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/book/review/count | 
+[**bookControllerFindUserBookReviews**](BooksApi.md#bookControllerFindUserBookReviews) | **GET** /v1/book/review | 
+[**bookControllerFindUserBooks**](BooksApi.md#bookControllerFindUserBooks) | **GET** /v1/user/books/review | 
 [**bookControllerUserBookMark**](BooksApi.md#bookControllerUserBookMark) | **POST** /v1/user/book | 
 
 
@@ -36,6 +37,8 @@ let body:.BooksApiBookControllerAddBookRequest = {
     description: "description_example",
     genre: "genre_example",
     author: "author_example",
+    language: "language_example",
+    pages: 3.14,
   },
 };
 
@@ -109,6 +112,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 **BookResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerFindBookReviewBase**
+> UserBooksResponseDto bookControllerFindBookReviewBase()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerFindBookReviewBaseRequest = {
+  // string
+  type: "type_example",
+  // number
+  page: 3.14,
+  // number
+  limit: 3.14,
+  // string (optional)
+  search: "search_example",
+};
+
+apiInstance.bookControllerFindBookReviewBase(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | [**string**] |  | defaults to undefined
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**UserBooksResponseDto**
 
 ### Authorization
 
@@ -205,8 +271,8 @@ const apiInstance = new .BooksApi(configuration);
 let body:.BooksApiBookControllerFindUserBookReviewRequest = {
   // string
   bookId: "bookId_example",
-  // boolean (optional)
-  isRead: true,
+  // string (optional)
+  status: "status_example",
   // number (optional)
   rate: 3.14,
   // string (optional)
@@ -224,7 +290,7 @@ apiInstance.bookControllerFindUserBookReview(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bookId** | [**string**] |  | defaults to undefined
- **isRead** | [**boolean**] |  | (optional) defaults to undefined
+ **status** | [**string**] |  | (optional) defaults to undefined
  **rate** | [**number**] |  | (optional) defaults to undefined
  **review** | [**string**] |  | (optional) defaults to undefined
 
@@ -268,8 +334,8 @@ const apiInstance = new .BooksApi(configuration);
 let body:.BooksApiBookControllerFindUserBookReviewCountRequest = {
   // string
   bookId: "bookId_example",
-  // boolean (optional)
-  isRead: true,
+  // string (optional)
+  status: "status_example",
   // number (optional)
   rate: 3.14,
   // string (optional)
@@ -287,7 +353,7 @@ apiInstance.bookControllerFindUserBookReviewCount(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **bookId** | [**string**] |  | defaults to undefined
- **isRead** | [**boolean**] |  | (optional) defaults to undefined
+ **status** | [**string**] |  | (optional) defaults to undefined
  **rate** | [**number**] |  | (optional) defaults to undefined
  **review** | [**string**] |  | (optional) defaults to undefined
 
@@ -393,6 +459,8 @@ let body:.BooksApiBookControllerFindUserBooksRequest = {
   page: 3.14,
   // number
   limit: 3.14,
+  // string (optional)
+  status: "status_example",
 };
 
 apiInstance.bookControllerFindUserBooks(body).then((data:any) => {
@@ -407,6 +475,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
+ **status** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -449,7 +518,7 @@ let body:.BooksApiBookControllerUserBookMarkRequest = {
   // UserBookPayloadDto
   userBookPayloadDto: {
     bookId: "bookId_example",
-    isRead: true,
+    status: "status_example",
     rate: 3.14,
     review: "review_example",
   },

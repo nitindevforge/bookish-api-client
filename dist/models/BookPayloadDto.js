@@ -38,6 +38,18 @@ var BookPayloadDto = (function () {
             "baseName": "author",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "language",
+            "baseName": "language",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pages",
+            "baseName": "pages",
+            "type": "number",
+            "format": ""
         }
     ];
     return BookPayloadDto;

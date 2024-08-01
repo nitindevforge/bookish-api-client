@@ -18,7 +18,7 @@ export class UserBooks {
     'id': string;
     'userId': UserDetails;
     'bookId': Book;
-    'isRead': boolean;
+    'status': string;
     'rate': number;
     'review': number;
 
@@ -44,9 +44,9 @@ export class UserBooks {
             "format": ""
         },
         {
-            "name": "isRead",
-            "baseName": "isRead",
-            "type": "boolean",
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {

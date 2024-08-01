@@ -34,9 +34,27 @@ var Book = (function () {
             "format": ""
         },
         {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "author",
             "baseName": "author",
             "type": "AuthorResponseDto",
+            "format": ""
+        },
+        {
+            "name": "language",
+            "baseName": "language",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pages",
+            "baseName": "pages",
+            "type": "number",
             "format": ""
         },
         {

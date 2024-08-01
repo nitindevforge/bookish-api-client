@@ -18,6 +18,8 @@ export class BookPayloadDto {
     'description': string;
     'genre': string;
     'author': string;
+    'language': string;
+    'pages': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -50,6 +52,18 @@ export class BookPayloadDto {
             "name": "author",
             "baseName": "author",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "language",
+            "baseName": "language",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "pages",
+            "baseName": "pages",
+            "type": "number",
             "format": ""
         }    ];
 

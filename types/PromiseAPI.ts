@@ -320,6 +320,28 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param type 
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param type 
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindBookReviewBase(type, page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param search 
      * @param page 
      * @param limit 
@@ -341,45 +363,45 @@ export class PromiseBooksApi {
 
     /**
      * @param bookId 
-     * @param isRead 
+     * @param status 
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
-        const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, isRead, rate, review, _options);
+    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();
     }
 
     /**
      * @param bookId 
-     * @param isRead 
+     * @param status 
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReview(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookResponseDto> {
-        const result = this.api.bookControllerFindUserBookReview(bookId, isRead, rate, review, _options);
+    public bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookResponseDto> {
+        const result = this.api.bookControllerFindUserBookReview(bookId, status, rate, review, _options);
         return result.toPromise();
     }
 
     /**
      * @param bookId 
-     * @param isRead 
+     * @param status 
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
-        const result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, isRead, rate, review, _options);
+    public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewCountResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();
     }
 
     /**
      * @param bookId 
-     * @param isRead 
+     * @param status 
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReviewCount(bookId: string, isRead?: boolean, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewCountResponseDto> {
-        const result = this.api.bookControllerFindUserBookReviewCount(bookId, isRead, rate, review, _options);
+    public bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewCountResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviewCount(bookId, status, rate, review, _options);
         return result.toPromise();
     }
 
@@ -406,18 +428,20 @@ export class PromiseBooksApi {
     /**
      * @param page 
      * @param limit 
+     * @param status 
      */
-    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        const result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, _options);
+    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, status?: string, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, status, _options);
         return result.toPromise();
     }
 
     /**
      * @param page 
      * @param limit 
+     * @param status 
      */
-    public bookControllerFindUserBooks(page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
-        const result = this.api.bookControllerFindUserBooks(page, limit, _options);
+    public bookControllerFindUserBooks(page: number, limit: number, status?: string, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBooks(page, limit, status, _options);
         return result.toPromise();
     }
 
