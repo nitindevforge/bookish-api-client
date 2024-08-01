@@ -11,9 +11,9 @@ import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
-import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
+import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -511,7 +511,7 @@ export class ObservableBooksApi {
      * @param limit 
      * @param search 
      */
-    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BookReviewResponseDto>> {
+    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
         const requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, page, limit, search, _options);
 
         // build promise chain
@@ -536,8 +536,8 @@ export class ObservableBooksApi {
      * @param limit 
      * @param search 
      */
-    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<BookReviewResponseDto> {
-        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BookReviewResponseDto>) => apiResponse.data));
+    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
     }
 
     /**

@@ -34,9 +34,9 @@ models/BillingDetails.ts
 models/Book.ts
 models/BookPayloadDto.ts
 models/BookResponseDto.ts
-models/BookReviewResponseDto.ts
 models/Books.ts
 models/BooksResponseDto.ts
+models/BooksReviewResponseDto.ts
 models/Card.ts
 models/CardChecks.ts
 models/CardList.ts

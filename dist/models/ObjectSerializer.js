@@ -24,9 +24,9 @@ __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
-__exportStar(require("../models/BookReviewResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
+__exportStar(require("../models/BooksReviewResponseDto"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);
 __exportStar(require("../models/CardList"), exports);
@@ -88,9 +88,9 @@ var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
 var BookPayloadDto_1 = require("../models/BookPayloadDto");
 var BookResponseDto_1 = require("../models/BookResponseDto");
-var BookReviewResponseDto_1 = require("../models/BookReviewResponseDto");
 var Books_1 = require("../models/Books");
 var BooksResponseDto_1 = require("../models/BooksResponseDto");
+var BooksReviewResponseDto_1 = require("../models/BooksReviewResponseDto");
 var Card_1 = require("../models/Card");
 var CardChecks_1 = require("../models/CardChecks");
 var CardList_1 = require("../models/CardList");
@@ -164,9 +164,9 @@ var typeMap = {
     "Book": Book_1.Book,
     "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
     "BookResponseDto": BookResponseDto_1.BookResponseDto,
-    "BookReviewResponseDto": BookReviewResponseDto_1.BookReviewResponseDto,
     "Books": Books_1.Books,
     "BooksResponseDto": BooksResponseDto_1.BooksResponseDto,
+    "BooksReviewResponseDto": BooksReviewResponseDto_1.BooksReviewResponseDto,
     "Card": Card_1.Card,
     "CardChecks": CardChecks_1.CardChecks,
     "CardList": CardList_1.CardList,
