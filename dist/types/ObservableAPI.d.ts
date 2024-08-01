@@ -4,6 +4,7 @@ import { Observable } from '../rxjsStub';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
@@ -75,8 +76,8 @@ export declare class ObservableBooksApi {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<BookResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Observable<BookResponseDto>;
-    bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<UserBooksResponseDto>;
+    bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BookReviewResponseDto>>;
+    bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<BookReviewResponseDto>;
     bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Observable<BooksResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>>;

@@ -10,6 +10,7 @@ import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
@@ -559,14 +560,14 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+    public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BookReviewResponseDto>> {
         return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<UserBooksResponseDto> {
+    public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<BookReviewResponseDto> {
         return this.api.bookControllerFindBookReviewBase(param.type, param.page, param.limit, param.search,  options).toPromise();
     }
 

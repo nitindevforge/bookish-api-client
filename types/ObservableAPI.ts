@@ -11,6 +11,7 @@ import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { Card } from '../models/Card';
@@ -510,7 +511,7 @@ export class ObservableBooksApi {
      * @param limit 
      * @param search 
      */
-    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
+    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BookReviewResponseDto>> {
         const requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, page, limit, search, _options);
 
         // build promise chain
@@ -535,8 +536,8 @@ export class ObservableBooksApi {
      * @param limit 
      * @param search 
      */
-    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<UserBooksResponseDto> {
-        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
+    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Observable<BookReviewResponseDto> {
+        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BookReviewResponseDto>) => apiResponse.data));
     }
 
     /**

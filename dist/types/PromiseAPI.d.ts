@@ -3,6 +3,7 @@ import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
@@ -70,8 +71,8 @@ export declare class PromiseBooksApi {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto>;
-    bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<UserBooksResponseDto>;
+    bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BookReviewResponseDto>>;
+    bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<BookReviewResponseDto>;
     bookControllerFindBooksWithHttpInfo(search: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(search: string, page: number, limit: number, _options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>>;

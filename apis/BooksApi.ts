@@ -10,6 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewResponseDto } from '../models/BookReviewResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookResponseDto } from '../models/UserBookResponseDto';
@@ -608,13 +609,13 @@ export class BooksApiResponseProcessor {
      * @params response Response returned by the server for a request to bookControllerFindBookReviewBase
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async bookControllerFindBookReviewBaseWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto >> {
+     public async bookControllerFindBookReviewBaseWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookReviewResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: UserBooksResponseDto = ObjectSerializer.deserialize(
+            const body: BookReviewResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UserBooksResponseDto", ""
-            ) as UserBooksResponseDto;
+                "BookReviewResponseDto", ""
+            ) as BookReviewResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -623,10 +624,10 @@ export class BooksApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: UserBooksResponseDto = ObjectSerializer.deserialize(
+            const body: BookReviewResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "UserBooksResponseDto", ""
-            ) as UserBooksResponseDto;
+                "BookReviewResponseDto", ""
+            ) as BookReviewResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
