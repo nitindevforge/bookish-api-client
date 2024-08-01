@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
+[**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **GET** /v1/books/type | 
 [**bookControllerFindBooks**](BooksApi.md#bookControllerFindBooks) | **GET** /v1/books | 
 [**bookControllerFindUserBookReview**](BooksApi.md#bookControllerFindUserBookReview) | **GET** /v1/user/book/review | 
 [**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/book/review/count | 
@@ -111,6 +112,69 @@ Name | Type | Description  | Notes
 ### Return type
 
 **BookResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerFindBookReviewBase**
+> BooksReviewResponseDto bookControllerFindBookReviewBase()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerFindBookReviewBaseRequest = {
+  // string
+  type: "type_example",
+  // number
+  page: 3.14,
+  // number
+  limit: 3.14,
+  // string (optional)
+  search: "search_example",
+};
+
+apiInstance.bookControllerFindBookReviewBase(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **type** | [**string**] |  | defaults to undefined
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**BooksReviewResponseDto**
 
 ### Authorization
 

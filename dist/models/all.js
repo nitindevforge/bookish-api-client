@@ -25,6 +25,7 @@ __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
+__exportStar(require("../models/BooksReviewResponseDto"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);
 __exportStar(require("../models/CardList"), exports);

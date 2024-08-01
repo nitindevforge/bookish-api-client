@@ -9,6 +9,7 @@ export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
 export * from '../models/Books';
 export * from '../models/BooksResponseDto';
+export * from '../models/BooksReviewResponseDto';
 export * from '../models/Card';
 export * from '../models/CardChecks';
 export * from '../models/CardList';
