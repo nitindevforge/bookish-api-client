@@ -12,7 +12,6 @@ import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
-import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -369,33 +368,6 @@ export interface BooksApiBookControllerFindBookByIdRequest {
     id: string
 }
 
-export interface BooksApiBookControllerFindBookReviewBaseRequest {
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    type: string
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    page: number
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    limit: number
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    search?: string
-}
-
 export interface BooksApiBookControllerFindBooksRequest {
     /**
      * 
@@ -555,20 +527,6 @@ export class ObjectBooksApi {
      */
     public bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto> {
         return this.api.bookControllerFindBookById(param.id,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.page, param.limit, param.search,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
-        return this.api.bookControllerFindBookReviewBase(param.type, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**

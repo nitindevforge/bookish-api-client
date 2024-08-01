@@ -102,12 +102,6 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerFindBookById = function (param, options) {
         return this.api.bookControllerFindBookById(param.id, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.page, param.limit, param.search, options).toPromise();
-    };
-    ObjectBooksApi.prototype.bookControllerFindBookReviewBase = function (param, options) {
-        return this.api.bookControllerFindBookReviewBase(param.type, param.page, param.limit, param.search, options).toPromise();
-    };
     ObjectBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindBooksWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
     };

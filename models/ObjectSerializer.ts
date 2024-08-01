@@ -9,7 +9,6 @@ export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
 export * from '../models/Books';
 export * from '../models/BooksResponseDto';
-export * from '../models/BooksReviewResponseDto';
 export * from '../models/Card';
 export * from '../models/CardChecks';
 export * from '../models/CardList';
@@ -74,7 +73,6 @@ import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
-import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -155,7 +153,6 @@ let typeMap: {[index: string]: any} = {
     "BookResponseDto": BookResponseDto,
     "Books": Books,
     "BooksResponseDto": BooksResponseDto,
-    "BooksReviewResponseDto": BooksReviewResponseDto,
     "Card": Card,
     "CardChecks": CardChecks,
     "CardList": CardList,

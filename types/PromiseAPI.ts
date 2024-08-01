@@ -12,7 +12,6 @@ import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
-import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -317,28 +316,6 @@ export class PromiseBooksApi {
      */
     public bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto> {
         const result = this.api.bookControllerFindBookById(id, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param type 
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        const result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param type 
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public bookControllerFindBookReviewBase(type: string, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
-        const result = this.api.bookControllerFindBookReviewBase(type, page, limit, search, _options);
         return result.toPromise();
     }
 

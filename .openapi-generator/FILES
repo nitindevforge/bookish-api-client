@@ -36,7 +36,6 @@ models/BookPayloadDto.ts
 models/BookResponseDto.ts
 models/Books.ts
 models/BooksResponseDto.ts
-models/BooksReviewResponseDto.ts
 models/Card.ts
 models/CardChecks.ts
 models/CardList.ts
