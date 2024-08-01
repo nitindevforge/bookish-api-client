@@ -86,8 +86,6 @@ export declare class ObservableBooksApi {
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<UserBookReviewCountResponseDto>;
     bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Observable<UserBooksResponseDto>;
-    bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, status?: string, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindUserBooks(page: number, limit: number, status?: string, _options?: Configuration): Observable<UserBooksResponseDto>;
     bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookResponseDto>;
 }

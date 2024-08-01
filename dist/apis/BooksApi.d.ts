@@ -17,7 +17,6 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindUserBooks(page: number, limit: number, status?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class BooksApiResponseProcessor {
@@ -28,6 +27,5 @@ export declare class BooksApiResponseProcessor {
     bookControllerFindUserBookReviewWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookResponseDto>>;
     bookControllerFindUserBookReviewCountWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewCountResponseDto>>;
     bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerFindUserBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerUserBookMarkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookResponseDto>>;
 }

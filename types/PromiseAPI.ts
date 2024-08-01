@@ -427,26 +427,6 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param status 
-     */
-    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, status?: string, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        const result = this.api.bookControllerFindUserBooksWithHttpInfo(page, limit, status, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param status 
-     */
-    public bookControllerFindUserBooks(page: number, limit: number, status?: string, _options?: Configuration): Promise<UserBooksResponseDto> {
-        const result = this.api.bookControllerFindUserBooks(page, limit, status, _options);
-        return result.toPromise();
-    }
-
-    /**
      * @param userBookPayloadDto 
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {

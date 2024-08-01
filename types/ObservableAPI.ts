@@ -677,39 +677,6 @@ export class ObservableBooksApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param status 
-     */
-    public bookControllerFindUserBooksWithHttpInfo(page: number, limit: number, status?: string, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindUserBooks(page, limit, status, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindUserBooksWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param status 
-     */
-    public bookControllerFindUserBooks(page: number, limit: number, status?: string, _options?: Configuration): Observable<UserBooksResponseDto> {
-        return this.bookControllerFindUserBooksWithHttpInfo(page, limit, status, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
-    }
-
-    /**
      * @param userBookPayloadDto 
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookResponseDto>> {

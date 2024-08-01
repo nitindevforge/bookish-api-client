@@ -492,27 +492,6 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
     limit: number
 }
 
-export interface BooksApiBookControllerFindUserBooksRequest {
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBooks
-     */
-    page: number
-    /**
-     * 
-     * @type number
-     * @memberof BooksApibookControllerFindUserBooks
-     */
-    limit: number
-    /**
-     * 
-     * @type string
-     * @memberof BooksApibookControllerFindUserBooks
-     */
-    status?: string
-}
-
 export interface BooksApiBookControllerUserBookMarkRequest {
     /**
      * 
@@ -625,20 +604,6 @@ export class ObjectBooksApi {
      */
     public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
         return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBooksWithHttpInfo(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        return this.api.bookControllerFindUserBooksWithHttpInfo(param.page, param.limit, param.status,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public bookControllerFindUserBooks(param: BooksApiBookControllerFindUserBooksRequest, options?: Configuration): Promise<UserBooksResponseDto> {
-        return this.api.bookControllerFindUserBooks(param.page, param.limit, param.status,  options).toPromise();
     }
 
     /**
