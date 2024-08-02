@@ -17,6 +17,8 @@ export class Review {
     'id': string;
     'totalRatingCount': number;
     'totalRatePercentage': number;
+    'totalRate': number;
+    'averageRate': number;
     'rating': Array<Rating>;
 
     static readonly discriminator: string | undefined = undefined;
@@ -37,6 +39,18 @@ export class Review {
         {
             "name": "totalRatePercentage",
             "baseName": "totalRatePercentage",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "totalRate",
+            "baseName": "totalRate",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "averageRate",
+            "baseName": "averageRate",
             "type": "number",
             "format": ""
         },

@@ -28,6 +28,18 @@ var Review = (function () {
             "format": ""
         },
         {
+            "name": "totalRate",
+            "baseName": "totalRate",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "averageRate",
+            "baseName": "averageRate",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "rating",
             "baseName": "rating",
             "type": "Array<Rating>",
