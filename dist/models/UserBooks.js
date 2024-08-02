@@ -42,7 +42,7 @@ var UserBooks = (function () {
         {
             "name": "review",
             "baseName": "review",
-            "type": "number",
+            "type": "string",
             "format": ""
         }
     ];

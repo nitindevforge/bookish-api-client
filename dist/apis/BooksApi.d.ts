@@ -7,7 +7,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
-import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<RequestContext>;
@@ -24,8 +24,8 @@ export declare class BooksApiResponseProcessor {
     bookControllerFindBookByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookReviewBaseWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksResponseDto>>;
-    bookControllerFindUserBookReviewWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookResponseDto>>;
+    bookControllerFindUserBookReviewWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReviewCountWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookReviewCountResponseDto>>;
     bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerUserBookMarkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookResponseDto>>;
+    bookControllerUserBookMarkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewResponseDto>>;
 }

@@ -20,7 +20,7 @@ export class UserBooks {
     'bookId': Book;
     'status': string;
     'rate': number;
-    'review': number;
+    'review': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -58,7 +58,7 @@ export class UserBooks {
         {
             "name": "review",
             "baseName": "review",
-            "type": "number",
+            "type": "string",
             "format": ""
         }    ];
 

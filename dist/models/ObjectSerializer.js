@@ -68,7 +68,7 @@ __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
-__exportStar(require("../models/UserBookResponseDto"), exports);
+__exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);
@@ -132,7 +132,7 @@ var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
-var UserBookResponseDto_1 = require("../models/UserBookResponseDto");
+var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
 var UserBooks_1 = require("../models/UserBooks");
 var UserBooksResponse_1 = require("../models/UserBooksResponse");
 var UserBooksResponseDto_1 = require("../models/UserBooksResponseDto");
@@ -208,7 +208,7 @@ var typeMap = {
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
-    "UserBookResponseDto": UserBookResponseDto_1.UserBookResponseDto,
+    "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
     "UserBooks": UserBooks_1.UserBooks,
     "UserBooksResponse": UserBooksResponse_1.UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto_1.UserBooksResponseDto,

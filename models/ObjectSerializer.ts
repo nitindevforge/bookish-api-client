@@ -51,7 +51,7 @@ export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
 export * from '../models/UserBookPayloadDto';
-export * from '../models/UserBookResponseDto';
+export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
@@ -116,7 +116,7 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
-import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -197,7 +197,7 @@ let typeMap: {[index: string]: any} = {
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto,
-    "UserBookResponseDto": UserBookResponseDto,
+    "UserBookReviewResponseDto": UserBookReviewResponseDto,
     "UserBooks": UserBooks,
     "UserBooksResponse": UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto,

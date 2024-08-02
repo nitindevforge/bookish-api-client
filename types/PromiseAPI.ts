@@ -54,7 +54,7 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
-import { UserBookResponseDto } from '../models/UserBookResponseDto';
+import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -368,7 +368,7 @@ export class PromiseBooksApi {
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+    public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();
     }
@@ -379,7 +379,7 @@ export class PromiseBooksApi {
      * @param rate 
      * @param review 
      */
-    public bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookResponseDto> {
+    public bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto> {
         const result = this.api.bookControllerFindUserBookReview(bookId, status, rate, review, _options);
         return result.toPromise();
     }
@@ -429,7 +429,7 @@ export class PromiseBooksApi {
     /**
      * @param userBookPayloadDto 
      */
-    public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookResponseDto>> {
+    public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         const result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
         return result.toPromise();
     }
@@ -437,7 +437,7 @@ export class PromiseBooksApi {
     /**
      * @param userBookPayloadDto 
      */
-    public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookResponseDto> {
+    public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookReviewResponseDto> {
         const result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
         return result.toPromise();
     }

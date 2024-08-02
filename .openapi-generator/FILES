@@ -79,7 +79,7 @@ models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts
 models/UserBookPayloadDto.ts
-models/UserBookResponseDto.ts
+models/UserBookReviewResponseDto.ts
 models/UserBooks.ts
 models/UserBooksResponse.ts
 models/UserBooksResponseDto.ts

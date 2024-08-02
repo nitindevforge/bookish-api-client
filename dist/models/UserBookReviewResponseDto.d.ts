@@ -1,12 +1,7 @@
-import { Book } from '../models/Book';
-import { UserDetails } from '../models/UserDetails';
-export declare class UserBooks {
-    'id': string;
-    'userId': UserDetails;
-    'bookId': Book;
-    'status': string;
-    'rate': number;
-    'review': string;
+import { UserBooks } from '../models/UserBooks';
+export declare class UserBookReviewResponseDto {
+    'data': UserBooks;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

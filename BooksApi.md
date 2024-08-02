@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **bookControllerFindUserBookReview**
-> UserBookResponseDto bookControllerFindUserBookReview()
+> UserBookReviewResponseDto bookControllerFindUserBookReview()
 
 
 ### Example
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**UserBookResponseDto**
+**UserBookReviewResponseDto**
 
 ### Authorization
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **bookControllerUserBookMark**
-> UserBookResponseDto bookControllerUserBookMark(userBookPayloadDto)
+> UserBookReviewResponseDto bookControllerUserBookMark(userBookPayloadDto)
 
 
 ### Example
@@ -478,7 +478,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**UserBookResponseDto**
+**UserBookReviewResponseDto**
 
 ### Authorization
 
