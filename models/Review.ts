@@ -16,9 +16,9 @@ import { HttpFile } from '../http/http';
 export class Review {
     'id': string;
     'totalRatingCount': number;
+    'totalRate': number;
+    'averageRate': number;
     'rating': Array<Rating>;
-    'totalRating': number;
-    'averageRating': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -36,21 +36,21 @@ export class Review {
             "format": ""
         },
         {
+            "name": "totalRate",
+            "baseName": "totalRate",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "averageRate",
+            "baseName": "averageRate",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "rating",
             "baseName": "rating",
             "type": "Array<Rating>",
-            "format": ""
-        },
-        {
-            "name": "totalRating",
-            "baseName": "totalRating",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "averageRating",
-            "baseName": "averageRating",
-            "type": "number",
             "format": ""
         }    ];
 

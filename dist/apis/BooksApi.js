@@ -604,7 +604,7 @@ var BooksApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 1:
                         body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "UserBookReviewCountResponseDto", ""]);
+                            "BookReviewCountResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
                         if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
@@ -616,7 +616,7 @@ var BooksApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 3:
                         body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "UserBookReviewCountResponseDto", ""]);
+                            "BookReviewCountResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 4:
                         _j = exception_1.ApiException.bind;

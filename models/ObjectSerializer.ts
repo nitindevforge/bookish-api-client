@@ -7,6 +7,7 @@ export * from '../models/BillingDetails';
 export * from '../models/Book';
 export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
+export * from '../models/BookReviewCountResponseDto';
 export * from '../models/Books';
 export * from '../models/BooksResponseDto';
 export * from '../models/BooksReviewResponseDto';
@@ -51,7 +52,6 @@ export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookResponseDto';
-export * from '../models/UserBookReviewCountResponseDto';
 export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
@@ -72,6 +72,7 @@ import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
+import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
@@ -116,7 +117,6 @@ import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookResponseDto } from '../models/UserBookResponseDto';
-import { UserBookReviewCountResponseDto } from '../models/UserBookReviewCountResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -153,6 +153,7 @@ let typeMap: {[index: string]: any} = {
     "Book": Book,
     "BookPayloadDto": BookPayloadDto,
     "BookResponseDto": BookResponseDto,
+    "BookReviewCountResponseDto": BookReviewCountResponseDto,
     "Books": Books,
     "BooksResponseDto": BooksResponseDto,
     "BooksReviewResponseDto": BooksReviewResponseDto,
@@ -197,7 +198,6 @@ let typeMap: {[index: string]: any} = {
     "StripeResponseDto": StripeResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookResponseDto": UserBookResponseDto,
-    "UserBookReviewCountResponseDto": UserBookReviewCountResponseDto,
     "UserBooks": UserBooks,
     "UserBooksResponse": UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto,

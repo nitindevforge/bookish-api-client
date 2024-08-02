@@ -22,21 +22,21 @@ var Review = (function () {
             "format": ""
         },
         {
+            "name": "totalRate",
+            "baseName": "totalRate",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "averageRate",
+            "baseName": "averageRate",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "rating",
             "baseName": "rating",
             "type": "Array<Rating>",
-            "format": ""
-        },
-        {
-            "name": "totalRating",
-            "baseName": "totalRating",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "averageRating",
-            "baseName": "averageRating",
-            "type": "number",
             "format": ""
         }
     ];

@@ -24,6 +24,7 @@ __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
+__exportStar(require("../models/BookReviewCountResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/BooksReviewResponseDto"), exports);
@@ -68,7 +69,6 @@ __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookResponseDto"), exports);
-__exportStar(require("../models/UserBookReviewCountResponseDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);
@@ -88,6 +88,7 @@ var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
 var BookPayloadDto_1 = require("../models/BookPayloadDto");
 var BookResponseDto_1 = require("../models/BookResponseDto");
+var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto");
 var Books_1 = require("../models/Books");
 var BooksResponseDto_1 = require("../models/BooksResponseDto");
 var BooksReviewResponseDto_1 = require("../models/BooksReviewResponseDto");
@@ -132,7 +133,6 @@ var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookResponseDto_1 = require("../models/UserBookResponseDto");
-var UserBookReviewCountResponseDto_1 = require("../models/UserBookReviewCountResponseDto");
 var UserBooks_1 = require("../models/UserBooks");
 var UserBooksResponse_1 = require("../models/UserBooksResponse");
 var UserBooksResponseDto_1 = require("../models/UserBooksResponseDto");
@@ -164,6 +164,7 @@ var typeMap = {
     "Book": Book_1.Book,
     "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
     "BookResponseDto": BookResponseDto_1.BookResponseDto,
+    "BookReviewCountResponseDto": BookReviewCountResponseDto_1.BookReviewCountResponseDto,
     "Books": Books_1.Books,
     "BooksResponseDto": BooksResponseDto_1.BooksResponseDto,
     "BooksReviewResponseDto": BooksReviewResponseDto_1.BooksReviewResponseDto,
@@ -208,7 +209,6 @@ var typeMap = {
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookResponseDto": UserBookResponseDto_1.UserBookResponseDto,
-    "UserBookReviewCountResponseDto": UserBookReviewCountResponseDto_1.UserBookReviewCountResponseDto,
     "UserBooks": UserBooks_1.UserBooks,
     "UserBooksResponse": UserBooksResponse_1.UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto_1.UserBooksResponseDto,

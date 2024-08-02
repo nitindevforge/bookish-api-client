@@ -1,10 +1,7 @@
-import { Rating } from '../models/Rating';
-export declare class Review {
-    'id': string;
-    'totalRatingCount': number;
-    'totalRate': number;
-    'averageRate': number;
-    'rating': Array<Rating>;
+import { Review } from '../models/Review';
+export declare class BookReviewCountResponseDto {
+    'data': Review;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

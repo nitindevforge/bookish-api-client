@@ -34,6 +34,7 @@ models/BillingDetails.ts
 models/Book.ts
 models/BookPayloadDto.ts
 models/BookResponseDto.ts
+models/BookReviewCountResponseDto.ts
 models/Books.ts
 models/BooksResponseDto.ts
 models/BooksReviewResponseDto.ts
@@ -79,7 +80,6 @@ models/StripeResponse.ts
 models/StripeResponseDto.ts
 models/UserBookPayloadDto.ts
 models/UserBookResponseDto.ts
-models/UserBookReviewCountResponseDto.ts
 models/UserBooks.ts
 models/UserBooksResponse.ts
 models/UserBooksResponseDto.ts
