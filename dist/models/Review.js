@@ -22,12 +22,6 @@ var Review = (function () {
             "format": ""
         },
         {
-            "name": "totalRatePercentage",
-            "baseName": "totalRatePercentage",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "totalRate",
             "baseName": "totalRate",
             "type": "number",

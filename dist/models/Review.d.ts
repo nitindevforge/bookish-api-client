@@ -2,7 +2,6 @@ import { Rating } from '../models/Rating';
 export declare class Review {
     'id': string;
     'totalRatingCount': number;
-    'totalRatePercentage': number;
     'totalRate': number;
     'averageRate': number;
     'rating': Array<Rating>;
