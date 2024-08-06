@@ -19,6 +19,7 @@ export class Activity {
     'userId': UserDetails;
     'type': string;
     'message': string;
+    'date': Date;
     'meta': MetaResponse;
     'createdAt': Date;
     'updatedAt': Date;
@@ -49,6 +50,12 @@ export class Activity {
             "baseName": "message",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "date",
+            "baseName": "date",
+            "type": "Date",
+            "format": "date-time"
         },
         {
             "name": "meta",

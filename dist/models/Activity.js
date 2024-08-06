@@ -34,6 +34,12 @@ var Activity = (function () {
             "format": ""
         },
         {
+            "name": "date",
+            "baseName": "date",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
             "name": "meta",
             "baseName": "meta",
             "type": "MetaResponse",

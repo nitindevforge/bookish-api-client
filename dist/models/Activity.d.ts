@@ -5,6 +5,7 @@ export declare class Activity {
     'userId': UserDetails;
     'type': string;
     'message': string;
+    'date': Date;
     'meta': MetaResponse;
     'createdAt': Date;
     'updatedAt': Date;
