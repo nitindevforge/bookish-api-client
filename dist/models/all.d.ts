@@ -35,6 +35,7 @@ export * from '../models/FriendsResponseDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
+export * from '../models/MetaResponse';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';

@@ -36,7 +36,7 @@ var Activity = (function () {
         {
             "name": "meta",
             "baseName": "meta",
-            "type": "any",
+            "type": "MetaResponse",
             "format": ""
         },
         {

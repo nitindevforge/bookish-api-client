@@ -52,6 +52,7 @@ __exportStar(require("../models/FriendsResponseDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
+__exportStar(require("../models/MetaResponse"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
@@ -116,6 +117,7 @@ var FriendsResponseDto_1 = require("../models/FriendsResponseDto");
 var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
+var MetaResponse_1 = require("../models/MetaResponse");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
@@ -192,6 +194,7 @@ var typeMap = {
     "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
+    "MetaResponse": MetaResponse_1.MetaResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,

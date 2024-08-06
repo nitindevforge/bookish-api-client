@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { MetaResponse } from '../models/MetaResponse';
 import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
@@ -18,7 +19,7 @@ export class Activity {
     'userId': UserDetails;
     'type': string;
     'message': string;
-    'meta': any;
+    'meta': MetaResponse;
     'createdAt': Date;
     'updatedAt': Date;
 
@@ -52,7 +53,7 @@ export class Activity {
         {
             "name": "meta",
             "baseName": "meta",
-            "type": "any",
+            "type": "MetaResponse",
             "format": ""
         },
         {

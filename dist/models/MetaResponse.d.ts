@@ -1,13 +1,8 @@
-import { MetaResponse } from '../models/MetaResponse';
+import { Events } from '../models/Events';
 import { UserDetails } from '../models/UserDetails';
-export declare class Activity {
-    'id': string;
+export declare class MetaResponse {
     'userId': UserDetails;
-    'type': string;
-    'message': string;
-    'meta': MetaResponse;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'eventId': Events;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
