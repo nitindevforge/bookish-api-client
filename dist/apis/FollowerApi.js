@@ -62,7 +62,7 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerAllFriends = function (page, limit, search, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerAllMyFriends = function (page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -71,10 +71,10 @@ var FollowerApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllFriends", "page");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllMyFriends", "page");
                         }
                         if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllFriends", "limit");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllMyFriends", "limit");
                         }
                         localVarPath = '/v1/all/friends';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
@@ -188,7 +188,7 @@ exports.FollowerApiRequestFactory = FollowerApiRequestFactory;
 var FollowerApiResponseProcessor = (function () {
     function FollowerApiResponseProcessor() {
     }
-    FollowerApiResponseProcessor.prototype.followerControllerAllFriendsWithHttpInfo = function (response) {
+    FollowerApiResponseProcessor.prototype.followerControllerAllMyFriendsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

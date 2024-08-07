@@ -571,8 +571,8 @@ export class PromiseFollowerApi {
      * @param limit 
      * @param search 
      */
-    public followerControllerAllFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        const result = this.api.followerControllerAllFriendsWithHttpInfo(page, limit, search, _options);
+    public followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerAllMyFriendsWithHttpInfo(page, limit, search, _options);
         return result.toPromise();
     }
 
@@ -581,8 +581,8 @@ export class PromiseFollowerApi {
      * @param limit 
      * @param search 
      */
-    public followerControllerAllFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        const result = this.api.followerControllerAllFriends(page, limit, search, _options);
+    public followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerAllMyFriends(page, limit, search, _options);
         return result.toPromise();
     }
 

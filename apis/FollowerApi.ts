@@ -22,18 +22,18 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
      * @param limit 
      * @param search 
      */
-    public async followerControllerAllFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerAllFriends", "page");
+            throw new RequiredError("FollowerApi", "followerControllerAllMyFriends", "page");
         }
 
 
         // verify required parameter 'limit' is not null or undefined
         if (limit === null || limit === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerAllFriends", "limit");
+            throw new RequiredError("FollowerApi", "followerControllerAllMyFriends", "limit");
         }
 
 
@@ -176,10 +176,10 @@ export class FollowerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to followerControllerAllFriends
+     * @params response Response returned by the server for a request to followerControllerAllMyFriends
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async followerControllerAllFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyAllFriendsResponseDto >> {
+     public async followerControllerAllMyFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyAllFriendsResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: MyAllFriendsResponseDto = ObjectSerializer.deserialize(

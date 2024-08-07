@@ -188,7 +188,7 @@ export declare class ObjectEventsApi {
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
-export interface FollowerApiFollowerControllerAllFriendsRequest {
+export interface FollowerApiFollowerControllerAllMyFriendsRequest {
     page: number;
     limit: number;
     search?: string;
@@ -202,8 +202,8 @@ export interface FollowerApiFollowerControllerUnfollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerAllFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
-    followerControllerAllFriends(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto>;
+    followerControllerAllMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerAllMyFriends(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

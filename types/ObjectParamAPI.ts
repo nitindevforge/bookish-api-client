@@ -744,23 +744,23 @@ export class ObjectEventsApi {
 import { ObservableFollowerApi } from "./ObservableAPI";
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
 
-export interface FollowerApiFollowerControllerAllFriendsRequest {
+export interface FollowerApiFollowerControllerAllMyFriendsRequest {
     /**
      * 
      * @type number
-     * @memberof FollowerApifollowerControllerAllFriends
+     * @memberof FollowerApifollowerControllerAllMyFriends
      */
     page: number
     /**
      * 
      * @type number
-     * @memberof FollowerApifollowerControllerAllFriends
+     * @memberof FollowerApifollowerControllerAllMyFriends
      */
     limit: number
     /**
      * 
      * @type string
-     * @memberof FollowerApifollowerControllerAllFriends
+     * @memberof FollowerApifollowerControllerAllMyFriends
      */
     search?: string
 }
@@ -793,15 +793,15 @@ export class ObjectFollowerApi {
     /**
      * @param param the request object
      */
-    public followerControllerAllFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        return this.api.followerControllerAllFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
+    public followerControllerAllMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        return this.api.followerControllerAllMyFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerAllFriends(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        return this.api.followerControllerAllFriends(param.page, param.limit, param.search,  options).toPromise();
+    public followerControllerAllMyFriends(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        return this.api.followerControllerAllMyFriends(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**

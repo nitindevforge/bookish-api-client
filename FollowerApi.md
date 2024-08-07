@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**followerControllerAllFriends**](FollowerApi.md#followerControllerAllFriends) | **GET** /v1/all/friends | 
+[**followerControllerAllMyFriends**](FollowerApi.md#followerControllerAllMyFriends) | **GET** /v1/all/friends | 
 [**followerControllerFollow**](FollowerApi.md#followerControllerFollow) | **POST** /v1/relationship/follow | 
 [**followerControllerUnfollow**](FollowerApi.md#followerControllerUnfollow) | **POST** /v1/relationship/unfollow | 
 
 
-# **followerControllerAllFriends**
-> MyAllFriendsResponseDto followerControllerAllFriends()
+# **followerControllerAllMyFriends**
+> MyAllFriendsResponseDto followerControllerAllMyFriends()
 
 
 ### Example
@@ -23,7 +23,7 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerAllFriendsRequest = {
+let body:.FollowerApiFollowerControllerAllMyFriendsRequest = {
   // number
   page: 3.14,
   // number
@@ -32,7 +32,7 @@ let body:.FollowerApiFollowerControllerAllFriendsRequest = {
   search: "search_example",
 };
 
-apiInstance.followerControllerAllFriends(body).then((data:any) => {
+apiInstance.followerControllerAllMyFriends(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

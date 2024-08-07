@@ -883,8 +883,8 @@ export class ObservableFollowerApi {
      * @param limit 
      * @param search 
      */
-    public followerControllerAllFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerAllFriends(page, limit, search, _options);
+    public followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerAllMyFriends(page, limit, search, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -898,7 +898,7 @@ export class ObservableFollowerApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerAllFriendsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerAllMyFriendsWithHttpInfo(rsp)));
             }));
     }
 
@@ -907,8 +907,8 @@ export class ObservableFollowerApi {
      * @param limit 
      * @param search 
      */
-    public followerControllerAllFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
-        return this.followerControllerAllFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
+    public followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
+        return this.followerControllerAllMyFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
     }
 
     /**

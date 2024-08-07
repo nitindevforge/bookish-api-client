@@ -698,9 +698,9 @@ var ObservableFollowerApi = (function () {
         this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
     }
-    ObservableFollowerApi.prototype.followerControllerAllFriendsWithHttpInfo = function (page, limit, search, _options) {
+    ObservableFollowerApi.prototype.followerControllerAllMyFriendsWithHttpInfo = function (page, limit, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerAllFriends(page, limit, search, _options);
+        var requestContextPromise = this.requestFactory.followerControllerAllMyFriends(page, limit, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_49 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -719,11 +719,11 @@ var ObservableFollowerApi = (function () {
                 var middleware = _a[_i];
                 _loop_50(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerAllFriendsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerAllMyFriendsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFollowerApi.prototype.followerControllerAllFriends = function (page, limit, search, _options) {
-        return this.followerControllerAllFriendsWithHttpInfo(page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFollowerApi.prototype.followerControllerAllMyFriends = function (page, limit, search, _options) {
+        return this.followerControllerAllMyFriendsWithHttpInfo(page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (followerPayloadDto, _options) {
         var _this = this;
