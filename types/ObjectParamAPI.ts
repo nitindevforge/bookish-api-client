@@ -39,6 +39,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
+import { MyFriendsResponseDto } from '../models/MyFriendsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -751,6 +753,27 @@ export interface FollowerApiFollowerControllerFollowRequest {
     followerPayloadDto: FollowerPayloadDto
 }
 
+export interface FollowerApiFollowerControllerMyFriendsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerMyFriends
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerMyFriends
+     */
+    limit: number
+    /**
+     * 
+     * @type string
+     * @memberof FollowerApifollowerControllerMyFriends
+     */
+    search?: string
+}
+
 export interface FollowerApiFollowerControllerUnfollowRequest {
     /**
      * 
@@ -779,6 +802,20 @@ export class ObjectFollowerApi {
      */
     public followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
         return this.api.followerControllerFollow(param.followerPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>> {
+        return this.api.followerControllerMyFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerMyFriends(param: FollowerApiFollowerControllerMyFriendsRequest, options?: Configuration): Promise<MyFriendsResponseDto> {
+        return this.api.followerControllerMyFriends(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**

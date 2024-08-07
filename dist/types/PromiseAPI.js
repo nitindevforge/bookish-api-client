@@ -238,6 +238,14 @@ var PromiseFollowerApi = (function () {
         var result = this.api.followerControllerFollow(followerPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseFollowerApi.prototype.followerControllerMyFriendsWithHttpInfo = function (page, limit, search, _options) {
+        var result = this.api.followerControllerMyFriendsWithHttpInfo(page, limit, search, _options);
+        return result.toPromise();
+    };
+    PromiseFollowerApi.prototype.followerControllerMyFriends = function (page, limit, search, _options) {
+        var result = this.api.followerControllerMyFriends(page, limit, search, _options);
+        return result.toPromise();
+    };
     PromiseFollowerApi.prototype.followerControllerUnfollowWithHttpInfo = function (followerPayloadDto, _options) {
         var result = this.api.followerControllerUnfollowWithHttpInfo(followerPayloadDto, _options);
         return result.toPromise();
