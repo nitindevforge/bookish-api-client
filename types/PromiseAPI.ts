@@ -567,6 +567,26 @@ export class PromiseFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>> {
+        const result = this.api.followerControllerAllMyFriendsWithHttpInfo(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyFriendsResponseDto> {
+        const result = this.api.followerControllerAllMyFriends(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param followerPayloadDto 
      */
     public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
@@ -579,26 +599,6 @@ export class PromiseFollowerApi {
      */
     public followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
         const result = this.api.followerControllerFollow(followerPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public followerControllerMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>> {
-        const result = this.api.followerControllerMyFriendsWithHttpInfo(page, limit, search, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public followerControllerMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyFriendsResponseDto> {
-        const result = this.api.followerControllerMyFriends(page, limit, search, _options);
         return result.toPromise();
     }
 

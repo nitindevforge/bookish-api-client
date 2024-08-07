@@ -188,17 +188,17 @@ var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectFollowerApi.prototype.followerControllerAllMyFriendsWithHttpInfo = function (param, options) {
+        return this.api.followerControllerAllMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
+    };
+    ObjectFollowerApi.prototype.followerControllerAllMyFriends = function (param, options) {
+        return this.api.followerControllerAllMyFriends(param.page, param.limit, param.search, options).toPromise();
+    };
     ObjectFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerFollow = function (param, options) {
         return this.api.followerControllerFollow(param.followerPayloadDto, options).toPromise();
-    };
-    ObjectFollowerApi.prototype.followerControllerMyFriendsWithHttpInfo = function (param, options) {
-        return this.api.followerControllerMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
-    };
-    ObjectFollowerApi.prototype.followerControllerMyFriends = function (param, options) {
-        return this.api.followerControllerMyFriends(param.page, param.limit, param.search, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerUnfollowWithHttpInfo = function (param, options) {
         return this.api.followerControllerUnfollowWithHttpInfo(param.followerPayloadDto, options).toPromise();

@@ -188,13 +188,13 @@ export declare class ObjectEventsApi {
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
-export interface FollowerApiFollowerControllerFollowRequest {
-    followerPayloadDto: FollowerPayloadDto;
-}
-export interface FollowerApiFollowerControllerMyFriendsRequest {
+export interface FollowerApiFollowerControllerAllMyFriendsRequest {
     page: number;
     limit: number;
     search?: string;
+}
+export interface FollowerApiFollowerControllerFollowRequest {
+    followerPayloadDto: FollowerPayloadDto;
 }
 export interface FollowerApiFollowerControllerUnfollowRequest {
     followerPayloadDto: FollowerPayloadDto;
@@ -202,10 +202,10 @@ export interface FollowerApiFollowerControllerUnfollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerAllMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>>;
+    followerControllerAllMyFriends(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<MyFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
-    followerControllerMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>>;
-    followerControllerMyFriends(param: FollowerApiFollowerControllerMyFriendsRequest, options?: Configuration): Promise<MyFriendsResponseDto>;
     followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerUnfollow(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
 }

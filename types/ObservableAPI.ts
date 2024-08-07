@@ -879,6 +879,39 @@ export class ObservableFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerAllMyFriends(page, limit, search, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerAllMyFriendsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyFriendsResponseDto> {
+        return this.followerControllerAllMyFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyFriendsResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param followerPayloadDto 
      */
     public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
@@ -905,39 +938,6 @@ export class ObservableFollowerApi {
      */
     public followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto> {
         return this.followerControllerFollowWithHttpInfo(followerPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FollowerResponseDto>) => apiResponse.data));
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public followerControllerMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyFriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerMyFriends(page, limit, search, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerMyFriendsWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     * @param search 
-     */
-    public followerControllerMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyFriendsResponseDto> {
-        return this.followerControllerMyFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyFriendsResponseDto>) => apiResponse.data));
     }
 
     /**

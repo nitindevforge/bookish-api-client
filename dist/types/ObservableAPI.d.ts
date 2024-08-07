@@ -118,10 +118,10 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyFriendsResponseDto>>;
+    followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
-    followerControllerMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyFriendsResponseDto>>;
-    followerControllerMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyFriendsResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
 }

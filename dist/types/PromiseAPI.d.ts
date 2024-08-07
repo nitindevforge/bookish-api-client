@@ -107,10 +107,10 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis
 export declare class PromiseFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerAllMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>>;
+    followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
-    followerControllerMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>>;
-    followerControllerMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyFriendsResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
 }
