@@ -40,6 +40,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -874,6 +876,39 @@ export class ObservableFollowerApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApiResponseProcessor();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, search, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerFindMyFriendsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
+        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
     }
 
     /**

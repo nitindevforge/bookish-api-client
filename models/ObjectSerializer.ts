@@ -36,6 +36,8 @@ export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
+export * from '../models/MyAllFriendsResponseDto';
+export * from '../models/MyFriendsResponse';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
 export * from '../models/PasswordChangeResponseDto';
@@ -102,6 +104,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -184,6 +188,8 @@ let typeMap: {[index: string]: any} = {
     "InterestsResponseDto": InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,
+    "MyAllFriendsResponseDto": MyAllFriendsResponseDto,
+    "MyFriendsResponse": MyFriendsResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto,

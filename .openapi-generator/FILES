@@ -63,6 +63,8 @@ models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts
+models/MyAllFriendsResponseDto.ts
+models/MyFriendsResponse.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts
 models/PasswordChangeResponse.ts

@@ -39,6 +39,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -562,6 +564,26 @@ export class PromiseFollowerApi {
         responseProcessor?: FollowerApiResponseProcessor
     ) {
         this.api = new ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerFindMyFriends(page, limit, search, _options);
+        return result.toPromise();
     }
 
     /**
