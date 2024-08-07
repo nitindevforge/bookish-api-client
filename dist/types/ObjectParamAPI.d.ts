@@ -19,7 +19,7 @@ import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
-import { MyFriendsResponseDto } from '../models/MyFriendsResponseDto';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
@@ -188,7 +188,7 @@ export declare class ObjectEventsApi {
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
-export interface FollowerApiFollowerControllerAllMyFriendsRequest {
+export interface FollowerApiFollowerControllerAllFriendsRequest {
     page: number;
     limit: number;
     search?: string;
@@ -202,8 +202,8 @@ export interface FollowerApiFollowerControllerUnfollowRequest {
 export declare class ObjectFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerAllMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyFriendsResponseDto>>;
-    followerControllerAllMyFriends(param: FollowerApiFollowerControllerAllMyFriendsRequest, options?: Configuration): Promise<MyFriendsResponseDto>;
+    followerControllerAllFriendsWithHttpInfo(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerAllFriends(param: FollowerApiFollowerControllerAllFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

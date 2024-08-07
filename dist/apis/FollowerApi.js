@@ -62,7 +62,7 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerAllMyFriends = function (page, limit, search, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerAllFriends = function (page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -71,12 +71,12 @@ var FollowerApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllMyFriends", "page");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllFriends", "page");
                         }
                         if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllMyFriends", "limit");
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerAllFriends", "limit");
                         }
-                        localVarPath = '/v1/myFriends';
+                        localVarPath = '/v1/all/friends';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (search !== undefined) {
@@ -188,7 +188,7 @@ exports.FollowerApiRequestFactory = FollowerApiRequestFactory;
 var FollowerApiResponseProcessor = (function () {
     function FollowerApiResponseProcessor() {
     }
-    FollowerApiResponseProcessor.prototype.followerControllerAllMyFriendsWithHttpInfo = function (response) {
+    FollowerApiResponseProcessor.prototype.followerControllerAllFriendsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
@@ -201,7 +201,7 @@ var FollowerApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 1:
                         body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "MyFriendsResponseDto", ""]);
+                            "MyAllFriendsResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
                         if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
@@ -213,7 +213,7 @@ var FollowerApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 3:
                         body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "MyFriendsResponseDto", ""]);
+                            "MyAllFriendsResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 4:
                         _j = exception_1.ApiException.bind;

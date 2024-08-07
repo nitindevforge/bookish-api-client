@@ -10,7 +10,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
-import { MyFriendsResponseDto } from '../models/MyFriendsResponseDto';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 
 /**
  * no description
@@ -22,24 +22,24 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
      * @param limit 
      * @param search 
      */
-    public async followerControllerAllMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerAllFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerAllMyFriends", "page");
+            throw new RequiredError("FollowerApi", "followerControllerAllFriends", "page");
         }
 
 
         // verify required parameter 'limit' is not null or undefined
         if (limit === null || limit === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerAllMyFriends", "limit");
+            throw new RequiredError("FollowerApi", "followerControllerAllFriends", "limit");
         }
 
 
 
         // Path Params
-        const localVarPath = '/v1/myFriends';
+        const localVarPath = '/v1/all/friends';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
@@ -176,16 +176,16 @@ export class FollowerApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to followerControllerAllMyFriends
+     * @params response Response returned by the server for a request to followerControllerAllFriends
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async followerControllerAllMyFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyFriendsResponseDto >> {
+     public async followerControllerAllFriendsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyAllFriendsResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: MyFriendsResponseDto = ObjectSerializer.deserialize(
+            const body: MyAllFriendsResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "MyFriendsResponseDto", ""
-            ) as MyFriendsResponseDto;
+                "MyAllFriendsResponseDto", ""
+            ) as MyAllFriendsResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -194,10 +194,10 @@ export class FollowerApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: MyFriendsResponseDto = ObjectSerializer.deserialize(
+            const body: MyAllFriendsResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "MyFriendsResponseDto", ""
-            ) as MyFriendsResponseDto;
+                "MyAllFriendsResponseDto", ""
+            ) as MyAllFriendsResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
