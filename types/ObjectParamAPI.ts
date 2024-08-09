@@ -27,6 +27,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -39,6 +40,7 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -1001,14 +1003,14 @@ export class ObjectStorageApi {
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<any>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<FileUploadResponseDto>> {
         return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<any> {
+    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<FileUploadResponseDto> {
         return this.api.storageControllerGetPreSignedURL(param.fileUploadDto,  options).toPromise();
     }
 

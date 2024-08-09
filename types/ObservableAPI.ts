@@ -28,6 +28,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -40,6 +41,7 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -1173,7 +1175,7 @@ export class ObservableStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<any>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<FileUploadResponseDto>> {
         const requestContextPromise = this.requestFactory.storageControllerGetPreSignedURL(fileUploadDto, _options);
 
         // build promise chain
@@ -1195,8 +1197,8 @@ export class ObservableStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<any> {
-        return this.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<FileUploadResponseDto> {
+        return this.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options).pipe(map((apiResponse: HttpInfo<FileUploadResponseDto>) => apiResponse.data));
     }
 
 }

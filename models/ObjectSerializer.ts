@@ -24,6 +24,7 @@ export * from '../models/Events';
 export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadDto';
+export * from '../models/FileUploadResponseDto';
 export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
@@ -36,6 +37,7 @@ export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
+export * from '../models/ModelFile';
 export * from '../models/MyAllFriendsResponseDto';
 export * from '../models/MyFriendsResponse';
 export * from '../models/OtpEntityPayloadDto';
@@ -92,6 +94,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -104,6 +107,7 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -176,6 +180,7 @@ let typeMap: {[index: string]: any} = {
     "EventsList": EventsList,
     "EventsResponseDto": EventsResponseDto,
     "FileUploadDto": FileUploadDto,
+    "FileUploadResponseDto": FileUploadResponseDto,
     "Follower": Follower,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,
@@ -188,6 +193,7 @@ let typeMap: {[index: string]: any} = {
     "InterestsResponseDto": InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,
+    "ModelFile": ModelFile,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto,
     "MyFriendsResponse": MyFriendsResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,

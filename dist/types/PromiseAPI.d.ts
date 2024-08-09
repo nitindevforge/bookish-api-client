@@ -12,6 +12,7 @@ import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
@@ -138,6 +139,6 @@ import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/S
 export declare class PromiseStorageApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
-    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<any>>;
-    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<any>;
+    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<FileUploadResponseDto>>;
+    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<FileUploadResponseDto>;
 }

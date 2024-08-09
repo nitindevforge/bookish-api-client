@@ -27,6 +27,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -39,6 +40,7 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -760,7 +762,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<any>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<FileUploadResponseDto>> {
         const result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
         return result.toPromise();
     }
@@ -768,7 +770,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<any> {
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<FileUploadResponseDto> {
         const result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);
         return result.toPromise();
     }
