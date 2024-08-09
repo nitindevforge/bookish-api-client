@@ -27,7 +27,7 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
-import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FileUploadDto } from '../models/FileUploadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -40,6 +40,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -877,6 +879,39 @@ export class ObservableFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, search, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.followerControllerFindMyFriendsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
+        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param followerPayloadDto 
      */
     public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>> {
@@ -1136,10 +1171,10 @@ export class ObservableStorageApi {
     }
 
     /**
-     * @param fileUploadPayloadDto 
+     * @param fileUploadDto 
      */
-    public fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<HttpInfo<void>> {
-        const requestContextPromise = this.requestFactory.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.storageControllerGetPreSignedURL(fileUploadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1153,15 +1188,15 @@ export class ObservableStorageApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.fileUploadControllerGetPreSignedURLWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.storageControllerGetPreSignedURLWithHttpInfo(rsp)));
             }));
     }
 
     /**
-     * @param fileUploadPayloadDto 
+     * @param fileUploadDto 
      */
-    public fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<void> {
-        return this.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<void> {
+        return this.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
 }

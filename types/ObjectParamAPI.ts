@@ -26,7 +26,7 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
-import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FileUploadDto } from '../models/FileUploadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -39,6 +39,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -742,6 +744,27 @@ export class ObjectEventsApi {
 import { ObservableFollowerApi } from "./ObservableAPI";
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/FollowerApi";
 
+export interface FollowerApiFollowerControllerFindMyFriendsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerFindMyFriends
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof FollowerApifollowerControllerFindMyFriends
+     */
+    limit: number
+    /**
+     * 
+     * @type string
+     * @memberof FollowerApifollowerControllerFindMyFriends
+     */
+    search?: string
+}
+
 export interface FollowerApiFollowerControllerFollowRequest {
     /**
      * 
@@ -765,6 +788,20 @@ export class ObjectFollowerApi {
 
     public constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor) {
         this.api = new ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFindMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public followerControllerFindMyFriends(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
@@ -945,13 +982,13 @@ export class ObjectPaymentApi {
 import { ObservableStorageApi } from "./ObservableAPI";
 import { StorageApiRequestFactory, StorageApiResponseProcessor} from "../apis/StorageApi";
 
-export interface StorageApiFileUploadControllerGetPreSignedURLRequest {
+export interface StorageApiStorageControllerGetPreSignedURLRequest {
     /**
      * 
-     * @type FileUploadPayloadDto
-     * @memberof StorageApifileUploadControllerGetPreSignedURL
+     * @type FileUploadDto
+     * @memberof StorageApistorageControllerGetPreSignedURL
      */
-    fileUploadPayloadDto: FileUploadPayloadDto
+    fileUploadDto: FileUploadDto
 }
 
 export class ObjectStorageApi {
@@ -964,15 +1001,15 @@ export class ObjectStorageApi {
     /**
      * @param param the request object
      */
-    public fileUploadControllerGetPreSignedURLWithHttpInfo(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
-        return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto,  options).toPromise();
+    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public fileUploadControllerGetPreSignedURL(param: StorageApiFileUploadControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
-        return this.api.fileUploadControllerGetPreSignedURL(param.fileUploadPayloadDto,  options).toPromise();
+    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
+        return this.api.storageControllerGetPreSignedURL(param.fileUploadDto,  options).toPromise();
     }
 
 }

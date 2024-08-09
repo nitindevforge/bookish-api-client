@@ -26,7 +26,7 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
-import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FileUploadDto } from '../models/FileUploadDto';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -39,6 +39,8 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -565,6 +567,26 @@ export class PromiseFollowerApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param search 
+     */
+    public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerFindMyFriends(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param followerPayloadDto 
      */
     public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
@@ -736,18 +758,18 @@ export class PromiseStorageApi {
     }
 
     /**
-     * @param fileUploadPayloadDto 
+     * @param fileUploadDto 
      */
-    public fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<HttpInfo<void>> {
-        const result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param fileUploadPayloadDto 
+     * @param fileUploadDto 
      */
-    public fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<void> {
-        const result = this.api.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<void> {
+        const result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);
         return result.toPromise();
     }
 

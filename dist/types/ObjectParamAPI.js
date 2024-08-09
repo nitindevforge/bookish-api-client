@@ -188,6 +188,12 @@ var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (param, options) {
+        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
+    };
+    ObjectFollowerApi.prototype.followerControllerFindMyFriends = function (param, options) {
+        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search, options).toPromise();
+    };
     ObjectFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto, options).toPromise();
     };
@@ -256,11 +262,11 @@ var ObjectStorageApi = (function () {
     function ObjectStorageApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_8.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (param, options) {
-        return this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(param.fileUploadPayloadDto, options).toPromise();
+    ObjectStorageApi.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (param, options) {
+        return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto, options).toPromise();
     };
-    ObjectStorageApi.prototype.fileUploadControllerGetPreSignedURL = function (param, options) {
-        return this.api.fileUploadControllerGetPreSignedURL(param.fileUploadPayloadDto, options).toPromise();
+    ObjectStorageApi.prototype.storageControllerGetPreSignedURL = function (param, options) {
+        return this.api.storageControllerGetPreSignedURL(param.fileUploadDto, options).toPromise();
     };
     return ObjectStorageApi;
 }());

@@ -4,11 +4,11 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fileUploadControllerGetPreSignedURL**](StorageApi.md#fileUploadControllerGetPreSignedURL) | **POST** /v1/storage/file | 
+[**storageControllerGetPreSignedURL**](StorageApi.md#storageControllerGetPreSignedURL) | **POST** /v1/storage/file | 
 
 
-# **fileUploadControllerGetPreSignedURL**
-> void fileUploadControllerGetPreSignedURL(fileUploadPayloadDto)
+# **storageControllerGetPreSignedURL**
+> void storageControllerGetPreSignedURL(fileUploadDto)
 
 
 ### Example
@@ -21,15 +21,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .StorageApi(configuration);
 
-let body:.StorageApiFileUploadControllerGetPreSignedURLRequest = {
-  // FileUploadPayloadDto
-  fileUploadPayloadDto: {
-    key: "key_example",
-    directory: "directory_example",
+let body:.StorageApiStorageControllerGetPreSignedURLRequest = {
+  // FileUploadDto
+  fileUploadDto: {
+    fileName: "fileName_example",
   },
 };
 
-apiInstance.fileUploadControllerGetPreSignedURL(body).then((data:any) => {
+apiInstance.storageControllerGetPreSignedURL(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```
@@ -39,7 +38,7 @@ apiInstance.fileUploadControllerGetPreSignedURL(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **fileUploadPayloadDto** | **FileUploadPayloadDto**|  |
+ **fileUploadDto** | **FileUploadDto**|  |
 
 
 ### Return type

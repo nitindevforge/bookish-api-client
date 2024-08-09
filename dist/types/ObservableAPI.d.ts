@@ -12,7 +12,7 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
-import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FileUploadDto } from '../models/FileUploadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
@@ -20,6 +20,7 @@ import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
@@ -117,6 +118,8 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
@@ -152,6 +155,6 @@ export declare class ObservableStorageApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
-    fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<HttpInfo<void>>;
-    fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Observable<void>;
+    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<void>>;
+    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<void>;
 }

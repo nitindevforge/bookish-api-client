@@ -62,7 +62,7 @@ var StorageApiRequestFactory = (function (_super) {
     function StorageApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    StorageApiRequestFactory.prototype.fileUploadControllerGetPreSignedURL = function (fileUploadPayloadDto, _options) {
+    StorageApiRequestFactory.prototype.storageControllerGetPreSignedURL = function (fileUploadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, defaultAuth;
@@ -70,8 +70,8 @@ var StorageApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (fileUploadPayloadDto === null || fileUploadPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("StorageApi", "fileUploadControllerGetPreSignedURL", "fileUploadPayloadDto");
+                        if (fileUploadDto === null || fileUploadDto === undefined) {
+                            throw new baseapi_1.RequiredError("StorageApi", "storageControllerGetPreSignedURL", "fileUploadDto");
                         }
                         localVarPath = '/v1/storage/file';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
@@ -80,7 +80,7 @@ var StorageApiRequestFactory = (function (_super) {
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(fileUploadPayloadDto, "FileUploadPayloadDto", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(fileUploadDto, "FileUploadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
                         if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
@@ -99,7 +99,7 @@ exports.StorageApiRequestFactory = StorageApiRequestFactory;
 var StorageApiResponseProcessor = (function () {
     function StorageApiResponseProcessor() {
     }
-    StorageApiResponseProcessor.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (response) {
+    StorageApiResponseProcessor.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, _e, _f;
             return __generator(this, function (_g) {
