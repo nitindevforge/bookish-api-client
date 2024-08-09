@@ -188,12 +188,6 @@ var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    ObjectFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (param, options) {
-        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
-    };
-    ObjectFollowerApi.prototype.followerControllerFindMyFriends = function (param, options) {
-        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search, options).toPromise();
-    };
     ObjectFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto, options).toPromise();
     };
