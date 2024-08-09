@@ -1173,7 +1173,7 @@ export class ObservableStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<void>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<any>> {
         const requestContextPromise = this.requestFactory.storageControllerGetPreSignedURL(fileUploadDto, _options);
 
         // build promise chain
@@ -1195,8 +1195,8 @@ export class ObservableStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<void> {
-        return this.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<any> {
+        return this.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options).pipe(map((apiResponse: HttpInfo<any>) => apiResponse.data));
     }
 
 }

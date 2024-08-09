@@ -1001,14 +1001,14 @@ export class ObjectStorageApi {
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<void>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<any>> {
         return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<void> {
+    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<any> {
         return this.api.storageControllerGetPreSignedURL(param.fileUploadDto,  options).toPromise();
     }
 

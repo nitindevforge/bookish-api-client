@@ -760,7 +760,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<void>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<any>> {
         const result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
         return result.toPromise();
     }
@@ -768,7 +768,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<void> {
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<any> {
         const result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);
         return result.toPromise();
     }

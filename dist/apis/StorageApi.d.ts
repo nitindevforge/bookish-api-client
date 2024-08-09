@@ -6,5 +6,5 @@ export declare class StorageApiRequestFactory extends BaseAPIRequestFactory {
     storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class StorageApiResponseProcessor {
-    storageControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    storageControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<any>>;
 }

@@ -101,27 +101,33 @@ var StorageApiResponseProcessor = (function () {
     }
     StorageApiResponseProcessor.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
-            var contentType, body, _a, _b, _c, _d, _e, _f;
-            return __generator(this, function (_g) {
-                switch (_g.label) {
+            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
+            return __generator(this, function (_l) {
+                switch (_l.label) {
                     case 0:
                         contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-                        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
-                            return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, undefined)];
-                        }
-                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 2];
+                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
                         _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
                         _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
                         return [4, response.body.text()];
                     case 1:
-                        body = _b.apply(_a, [_d.apply(_c, [_g.sent(), contentType]),
-                            "void", ""]);
+                        body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
+                            "any", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
-                        _e = exception_1.ApiException.bind;
-                        _f = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
+                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 3:
+                        body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
+                            "any", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 4:
+                        _j = exception_1.ApiException.bind;
+                        _k = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
                         return [4, response.getBodyAsAny()];
-                    case 3: throw new (_e.apply(exception_1.ApiException, _f.concat([_g.sent(), response.headers])))();
+                    case 5: throw new (_j.apply(exception_1.ApiException, _k.concat([_l.sent(), response.headers])))();
                 }
             });
         });

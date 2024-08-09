@@ -155,6 +155,6 @@ export declare class ObservableStorageApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
-    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<void>>;
-    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<void>;
+    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<HttpInfo<any>>;
+    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Observable<any>;
 }
