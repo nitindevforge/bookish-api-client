@@ -701,17 +701,17 @@ export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string
 }
 
-export interface EventsApiEventControllerFindUpcomingMyEventsRequest {
+export interface EventsApiEventControllerUpcomingMyEventsRequest {
     /**
      * 
      * @type number
-     * @memberof EventsApieventControllerFindUpcomingMyEvents
+     * @memberof EventsApieventControllerUpcomingMyEvents
      */
     page: number
     /**
      * 
      * @type number
-     * @memberof EventsApieventControllerFindUpcomingMyEvents
+     * @memberof EventsApieventControllerUpcomingMyEvents
      */
     limit: number
 }
@@ -782,15 +782,15 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerFindUpcomingMyEventsWithHttpInfo(param: EventsApiEventControllerFindUpcomingMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
-        return this.api.eventControllerFindUpcomingMyEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    public eventControllerUpcomingMyEventsWithHttpInfo(param: EventsApiEventControllerUpcomingMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        return this.api.eventControllerUpcomingMyEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindUpcomingMyEvents(param: EventsApiEventControllerFindUpcomingMyEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
-        return this.api.eventControllerFindUpcomingMyEvents(param.page, param.limit,  options).toPromise();
+    public eventControllerUpcomingMyEvents(param: EventsApiEventControllerUpcomingMyEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
+        return this.api.eventControllerUpcomingMyEvents(param.page, param.limit,  options).toPromise();
     }
 
 }

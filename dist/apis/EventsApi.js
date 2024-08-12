@@ -208,7 +208,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindUpcomingMyEvents = function (page, limit, _options) {
+    EventsApiRequestFactory.prototype.eventControllerUpcomingMyEvents = function (page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -217,12 +217,12 @@ var EventsApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "page");
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerUpcomingMyEvents", "page");
                         }
                         if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "limit");
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerUpcomingMyEvents", "limit");
                         }
-                        localVarPath = '/v1/my-events';
+                        localVarPath = '/v1/my-upcoming-events';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (page !== undefined) {
@@ -399,7 +399,7 @@ var EventsApiResponseProcessor = (function () {
             });
         });
     };
-    EventsApiResponseProcessor.prototype.eventControllerFindUpcomingMyEventsWithHttpInfo = function (response) {
+    EventsApiResponseProcessor.prototype.eventControllerUpcomingMyEventsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

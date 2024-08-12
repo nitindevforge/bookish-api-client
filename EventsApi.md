@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
-[**eventControllerFindUpcomingMyEvents**](EventsApi.md#eventControllerFindUpcomingMyEvents) | **GET** /v1/my-events | 
+[**eventControllerUpcomingMyEvents**](EventsApi.md#eventControllerUpcomingMyEvents) | **GET** /v1/my-upcoming-events | 
 
 
 # **eventControllerCreateEvent**
@@ -237,8 +237,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **eventControllerFindUpcomingMyEvents**
-> MyEventsResponseDto eventControllerFindUpcomingMyEvents()
+# **eventControllerUpcomingMyEvents**
+> MyEventsResponseDto eventControllerUpcomingMyEvents()
 
 
 ### Example
@@ -251,14 +251,14 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindUpcomingMyEventsRequest = {
+let body:.EventsApiEventControllerUpcomingMyEventsRequest = {
   // number
   page: 3.14,
   // number
   limit: 3.14,
 };
 
-apiInstance.eventControllerFindUpcomingMyEvents(body).then((data:any) => {
+apiInstance.eventControllerUpcomingMyEvents(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

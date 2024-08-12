@@ -114,8 +114,8 @@ export declare class ObservableEventsApi {
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto>;
     eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Observable<MyEventResponseDto>;
-    eventControllerFindUpcomingMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>>;
-    eventControllerFindUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Observable<MyEventsResponseDto>;
+    eventControllerUpcomingMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>>;
+    eventControllerUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Observable<MyEventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class ObservableFollowerApi {

@@ -569,8 +569,8 @@ export class PromiseEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerFindUpcomingMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
-        const result = this.api.eventControllerFindUpcomingMyEventsWithHttpInfo(page, limit, _options);
+    public eventControllerUpcomingMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        const result = this.api.eventControllerUpcomingMyEventsWithHttpInfo(page, limit, _options);
         return result.toPromise();
     }
 
@@ -578,8 +578,8 @@ export class PromiseEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerFindUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
-        const result = this.api.eventControllerFindUpcomingMyEvents(page, limit, _options);
+    public eventControllerUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
+        const result = this.api.eventControllerUpcomingMyEvents(page, limit, _options);
         return result.toPromise();
     }
 

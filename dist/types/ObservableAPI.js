@@ -715,9 +715,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerFindMyEvent = function (eventId, _options) {
         return this.eventControllerFindMyEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindUpcomingMyEventsWithHttpInfo = function (page, limit, _options) {
+    ObservableEventsApi.prototype.eventControllerUpcomingMyEventsWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindUpcomingMyEvents(page, limit, _options);
+        var requestContextPromise = this.requestFactory.eventControllerUpcomingMyEvents(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_51 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -736,11 +736,11 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_52(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindUpcomingMyEventsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerUpcomingMyEventsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindUpcomingMyEvents = function (page, limit, _options) {
-        return this.eventControllerFindUpcomingMyEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerUpcomingMyEvents = function (page, limit, _options) {
+        return this.eventControllerUpcomingMyEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     return ObservableEventsApi;
 }());
