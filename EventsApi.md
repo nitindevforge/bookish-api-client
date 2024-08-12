@@ -252,12 +252,12 @@ const configuration = .createConfiguration();
 const apiInstance = new .EventsApi(configuration);
 
 let body:.EventsApiEventControllerFindMyUpcomingEventsRequest = {
-  // 'UPCOMING' | 'VISITED'
-  type: "UPCOMING",
   // number
   page: 3.14,
   // number
   limit: 3.14,
+  // 'UPCOMING' | 'VISITED'
+  type: "UPCOMING",
 };
 
 apiInstance.eventControllerFindMyUpcomingEvents(body).then((data:any) => {
@@ -270,9 +270,9 @@ apiInstance.eventControllerFindMyUpcomingEvents(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**&#39;UPCOMING&#39; | &#39;VISITED&#39;**]**Array<&#39;UPCOMING&#39; &#124; &#39;VISITED&#39;>** |  | defaults to 'UPCOMING'
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
+ **type** | [**&#39;UPCOMING&#39; | &#39;VISITED&#39;**]**Array<&#39;UPCOMING&#39; &#124; &#39;VISITED&#39;>** |  | defaults to 'UPCOMING'
 
 
 ### Return type

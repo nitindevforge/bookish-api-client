@@ -566,22 +566,22 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param type 
      * @param page 
      * @param limit 
+     * @param type 
      */
-    public eventControllerFindMyUpcomingEventsWithHttpInfo(type: 'UPCOMING' | 'VISITED', page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
-        const result = this.api.eventControllerFindMyUpcomingEventsWithHttpInfo(type, page, limit, _options);
+    public eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        const result = this.api.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, type, _options);
         return result.toPromise();
     }
 
     /**
-     * @param type 
      * @param page 
      * @param limit 
+     * @param type 
      */
-    public eventControllerFindMyUpcomingEvents(type: 'UPCOMING' | 'VISITED', page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
-        const result = this.api.eventControllerFindMyUpcomingEvents(type, page, limit, _options);
+    public eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto> {
+        const result = this.api.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
         return result.toPromise();
     }
 

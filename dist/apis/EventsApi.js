@@ -208,7 +208,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindMyUpcomingEvents = function (type, page, limit, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, type, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -216,26 +216,26 @@ var EventsApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (type === null || type === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "type");
-                        }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "page");
                         }
                         if (limit === null || limit === undefined) {
                             throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "limit");
                         }
+                        if (type === null || type === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "type");
+                        }
                         localVarPath = '/v1/upcoming/events';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        if (type !== undefined) {
-                            requestContext.setQueryParam("type", ObjectSerializer_1.ObjectSerializer.serialize(type, "'UPCOMING' | 'VISITED'", ""));
-                        }
                         if (page !== undefined) {
                             requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
                         }
                         if (limit !== undefined) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
+                        if (type !== undefined) {
+                            requestContext.setQueryParam("type", ObjectSerializer_1.ObjectSerializer.serialize(type, "'UPCOMING' | 'VISITED'", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

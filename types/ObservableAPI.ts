@@ -892,12 +892,12 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param type 
      * @param page 
      * @param limit 
+     * @param type 
      */
-    public eventControllerFindMyUpcomingEventsWithHttpInfo(type: 'UPCOMING' | 'VISITED', page: number, limit: number, _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindMyUpcomingEvents(type, page, limit, _options);
+    public eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -916,12 +916,12 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param type 
      * @param page 
      * @param limit 
+     * @param type 
      */
-    public eventControllerFindMyUpcomingEvents(type: 'UPCOMING' | 'VISITED', page: number, limit: number, _options?: Configuration): Observable<MyEventsResponseDto> {
-        return this.eventControllerFindMyUpcomingEventsWithHttpInfo(type, page, limit, _options).pipe(map((apiResponse: HttpInfo<MyEventsResponseDto>) => apiResponse.data));
+    public eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Observable<MyEventsResponseDto> {
+        return this.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, type, _options).pipe(map((apiResponse: HttpInfo<MyEventsResponseDto>) => apiResponse.data));
     }
 
 }
