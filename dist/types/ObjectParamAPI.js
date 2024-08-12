@@ -241,10 +241,10 @@ var ObjectPaymentApi = (function () {
         return this.api.paymentControllerCreatePayment(param.stripePaymentPayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (param, options) {
-        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto, options).toPromise();
+        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripeCreatePayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerCreatePaymentIntent = function (param, options) {
-        return this.api.paymentControllerCreatePaymentIntent(param.stripePayloadDto, options).toPromise();
+        return this.api.paymentControllerCreatePaymentIntent(param.stripeCreatePayloadDto, options).toPromise();
     };
     ObjectPaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (param, options) {
         return this.api.paymentControllerDeleteCardDetailsWithHttpInfo(param.paymentPayloadDto, options).toPromise();

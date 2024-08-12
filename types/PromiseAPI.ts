@@ -54,7 +54,7 @@ import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripePayloadDto } from '../models/StripePayloadDto';
+import { StripeCreatePayloadDto } from '../models/StripeCreatePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -709,18 +709,18 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param stripeCreatePayloadDto 
      */
-    public paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        const result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
+    public paymentControllerCreatePaymentIntentWithHttpInfo(stripeCreatePayloadDto: StripeCreatePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
+        const result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripeCreatePayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param stripeCreatePayloadDto 
      */
-    public paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
-        const result = this.api.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
+    public paymentControllerCreatePaymentIntent(stripeCreatePayloadDto: StripeCreatePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
+        const result = this.api.paymentControllerCreatePaymentIntent(stripeCreatePayloadDto, _options);
         return result.toPromise();
     }
 
