@@ -193,11 +193,18 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param type 
      * @param page 
      * @param limit 
      */
-    public async eventControllerFindMyUpcomingEvents(page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindMyUpcomingEvents(type: 'UPCOMING' | 'VISITED', page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'type' is not null or undefined
+        if (type === null || type === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "type");
+        }
+
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
@@ -217,6 +224,11 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (type !== undefined) {
+            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "'UPCOMING' | 'VISITED'", ""));
+        }
 
         // Query Params
         if (page !== undefined) {

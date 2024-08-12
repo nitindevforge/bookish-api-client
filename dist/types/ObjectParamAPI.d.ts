@@ -182,6 +182,7 @@ export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;
 }
 export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
+    type: 'UPCOMING' | 'VISITED';
     page: number;
     limit: number;
 }
