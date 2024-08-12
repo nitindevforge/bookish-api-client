@@ -208,7 +208,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindUpcomingMyEvents = function (page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -217,10 +217,10 @@ var EventsApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "page");
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "page");
                         }
                         if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "limit");
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "limit");
                         }
                         localVarPath = '/v1/my-events';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
@@ -399,7 +399,7 @@ var EventsApiResponseProcessor = (function () {
             });
         });
     };
-    EventsApiResponseProcessor.prototype.eventControllerFindMyUpcomingEventsWithHttpInfo = function (response) {
+    EventsApiResponseProcessor.prototype.eventControllerFindUpcomingMyEventsWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

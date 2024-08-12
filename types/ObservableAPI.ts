@@ -895,8 +895,8 @@ export class ObservableEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindMyUpcomingEvents(page, limit, _options);
+    public eventControllerFindUpcomingMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindUpcomingMyEvents(page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -910,7 +910,7 @@ export class ObservableEventsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerFindMyUpcomingEventsWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerFindUpcomingMyEventsWithHttpInfo(rsp)));
             }));
     }
 
@@ -918,8 +918,8 @@ export class ObservableEventsApi {
      * @param page 
      * @param limit 
      */
-    public eventControllerFindMyUpcomingEvents(page: number, limit: number, _options?: Configuration): Observable<MyEventsResponseDto> {
-        return this.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<MyEventsResponseDto>) => apiResponse.data));
+    public eventControllerFindUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Observable<MyEventsResponseDto> {
+        return this.eventControllerFindUpcomingMyEventsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<MyEventsResponseDto>) => apiResponse.data));
     }
 
 }

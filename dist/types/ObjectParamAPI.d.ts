@@ -181,7 +181,7 @@ export interface EventsApiEventControllerFindEventsRequest {
 export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;
 }
-export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
+export interface EventsApiEventControllerFindUpcomingMyEventsRequest {
     page: number;
     limit: number;
 }
@@ -196,8 +196,8 @@ export declare class ObjectEventsApi {
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
     eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<MyEventResponseDto>;
-    eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;
-    eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
+    eventControllerFindUpcomingMyEventsWithHttpInfo(param: EventsApiEventControllerFindUpcomingMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;
+    eventControllerFindUpcomingMyEvents(param: EventsApiEventControllerFindUpcomingMyEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export interface FollowerApiFollowerControllerFollowRequest {

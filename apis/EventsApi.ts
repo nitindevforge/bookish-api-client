@@ -196,18 +196,18 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      */
-    public async eventControllerFindMyUpcomingEvents(page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindUpcomingMyEvents(page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "page");
+            throw new RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "page");
         }
 
 
         // verify required parameter 'limit' is not null or undefined
         if (limit === null || limit === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerFindMyUpcomingEvents", "limit");
+            throw new RequiredError("EventsApi", "eventControllerFindUpcomingMyEvents", "limit");
         }
 
 
@@ -380,10 +380,10 @@ export class EventsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to eventControllerFindMyUpcomingEvents
+     * @params response Response returned by the server for a request to eventControllerFindUpcomingMyEvents
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async eventControllerFindMyUpcomingEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventsResponseDto >> {
+     public async eventControllerFindUpcomingMyEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventsResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: MyEventsResponseDto = ObjectSerializer.deserialize(
