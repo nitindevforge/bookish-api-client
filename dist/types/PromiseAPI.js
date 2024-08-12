@@ -230,12 +230,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindMyEvent(eventId, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerUpcomingMyEventsWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.eventControllerUpcomingMyEventsWithHttpInfo(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerFindMyUpcomingEventsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerUpcomingMyEvents = function (page, limit, _options) {
-        var result = this.api.eventControllerUpcomingMyEvents(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, _options) {
+        var result = this.api.eventControllerFindMyUpcomingEvents(page, limit, _options);
         return result.toPromise();
     };
     return PromiseEventsApi;
