@@ -1,6 +1,7 @@
-export declare class StripePayloadDto {
-    'amount': number;
-    'id': number;
+import { MyEvents } from '../models/MyEvents';
+export declare class MyEventsResponseDto {
+    'data': MyEvents;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

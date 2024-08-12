@@ -10,30 +10,31 @@
  * Do not edit the class manually.
  */
 
+import { MyEvents } from '../models/MyEvents';
 import { HttpFile } from '../http/http';
 
-export class StripePayloadDto {
-    'amount': number;
-    'id': number;
+export class MyEventsResponseDto {
+    'data': MyEvents;
+    'isSuccess': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "amount",
-            "baseName": "amount",
-            "type": "number",
+            "name": "data",
+            "baseName": "data",
+            "type": "MyEvents",
             "format": ""
         },
         {
-            "name": "id",
-            "baseName": "id",
-            "type": "number",
+            "name": "isSuccess",
+            "baseName": "isSuccess",
+            "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return StripePayloadDto.attributeTypeMap;
+        return MyEventsResponseDto.attributeTypeMap;
     }
 
     public constructor() {

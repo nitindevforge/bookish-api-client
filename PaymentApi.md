@@ -28,6 +28,7 @@ let body:.PaymentApiPaymentControllerCreatePaymentRequest = {
   // StripePaymentPayloadDto
   stripePaymentPayloadDto: {
     paymentId: "paymentId_example",
+    eventId: "eventId_example",
   },
 };
 
@@ -84,6 +85,7 @@ let body:.PaymentApiPaymentControllerCreatePaymentIntentRequest = {
   // StripePayloadDto
   stripePayloadDto: {
     amount: 3.14,
+    id: 3.14,
   },
 };
 

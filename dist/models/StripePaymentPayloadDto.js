@@ -14,6 +14,12 @@ var StripePaymentPayloadDto = (function () {
             "baseName": "paymentId",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "eventId",
+            "baseName": "eventId",
+            "type": "string",
+            "format": ""
         }
     ];
     return StripePaymentPayloadDto;

@@ -53,6 +53,10 @@ __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
+__exportStar(require("../models/MyEventResponseDto"), exports);
+__exportStar(require("../models/MyEvents"), exports);
+__exportStar(require("../models/MyEventsResponse"), exports);
+__exportStar(require("../models/MyEventsResponseDto"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
@@ -118,6 +122,10 @@ var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var MetaResponse_1 = require("../models/MetaResponse");
+var MyEventResponseDto_1 = require("../models/MyEventResponseDto");
+var MyEvents_1 = require("../models/MyEvents");
+var MyEventsResponse_1 = require("../models/MyEventsResponse");
+var MyEventsResponseDto_1 = require("../models/MyEventsResponseDto");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
@@ -195,6 +203,10 @@ var typeMap = {
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "MetaResponse": MetaResponse_1.MetaResponse,
+    "MyEventResponseDto": MyEventResponseDto_1.MyEventResponseDto,
+    "MyEvents": MyEvents_1.MyEvents,
+    "MyEventsResponse": MyEventsResponse_1.MyEventsResponse,
+    "MyEventsResponseDto": MyEventsResponseDto_1.MyEventsResponseDto,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,

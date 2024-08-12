@@ -206,6 +206,22 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseEventsApi.prototype.eventControllerFinMyEventWithHttpInfo = function (eventId, _options) {
+        var result = this.api.eventControllerFinMyEventWithHttpInfo(eventId, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFinMyEvent = function (eventId, _options) {
+        var result = this.api.eventControllerFinMyEvent(eventId, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFinMyEventsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerFinMyEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFinMyEvents = function (page, limit, _options) {
+        var result = this.api.eventControllerFinMyEvents(page, limit, _options);
+        return result.toPromise();
+    };
     PromiseEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
         var result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
         return result.toPromise();

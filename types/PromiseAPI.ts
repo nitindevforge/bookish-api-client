@@ -39,6 +39,10 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEvents } from '../models/MyEvents';
+import { MyEventsResponse } from '../models/MyEventsResponse';
+import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -508,6 +512,40 @@ export class PromiseEventsApi {
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId 
+     */
+    public eventControllerFinMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
+        const result = this.api.eventControllerFinMyEventWithHttpInfo(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId 
+     */
+    public eventControllerFinMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto> {
+        const result = this.api.eventControllerFinMyEvent(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public eventControllerFinMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        const result = this.api.eventControllerFinMyEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public eventControllerFinMyEvents(page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
+        const result = this.api.eventControllerFinMyEvents(page, limit, _options);
         return result.toPromise();
     }
 

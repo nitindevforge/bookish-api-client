@@ -39,6 +39,10 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
+import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEvents } from '../models/MyEvents';
+import { MyEventsResponse } from '../models/MyEventsResponse';
+import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -664,6 +668,30 @@ export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto
 }
 
+export interface EventsApiEventControllerFinMyEventRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EventsApieventControllerFinMyEvent
+     */
+    eventId: string
+}
+
+export interface EventsApiEventControllerFinMyEventsRequest {
+    /**
+     * 
+     * @type number
+     * @memberof EventsApieventControllerFinMyEvents
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof EventsApieventControllerFinMyEvents
+     */
+    limit: number
+}
+
 export interface EventsApiEventControllerFindEventByIdRequest {
     /**
      * 
@@ -707,6 +735,34 @@ export class ObjectEventsApi {
      */
     public eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFinMyEventWithHttpInfo(param: EventsApiEventControllerFinMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
+        return this.api.eventControllerFinMyEventWithHttpInfo(param.eventId,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFinMyEvent(param: EventsApiEventControllerFinMyEventRequest, options?: Configuration): Promise<MyEventResponseDto> {
+        return this.api.eventControllerFinMyEvent(param.eventId,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFinMyEventsWithHttpInfo(param: EventsApiEventControllerFinMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        return this.api.eventControllerFinMyEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFinMyEvents(param: EventsApiEventControllerFinMyEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
+        return this.api.eventControllerFinMyEvents(param.page, param.limit,  options).toPromise();
     }
 
     /**

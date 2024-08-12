@@ -19,6 +19,8 @@ import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
@@ -169,6 +171,13 @@ import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/Eve
 export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
+export interface EventsApiEventControllerFinMyEventRequest {
+    eventId: string;
+}
+export interface EventsApiEventControllerFinMyEventsRequest {
+    page: number;
+    limit: number;
+}
 export interface EventsApiEventControllerFindEventByIdRequest {
     id: string;
 }
@@ -181,6 +190,10 @@ export declare class ObjectEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
+    eventControllerFinMyEventWithHttpInfo(param: EventsApiEventControllerFinMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
+    eventControllerFinMyEvent(param: EventsApiEventControllerFinMyEventRequest, options?: Configuration): Promise<MyEventResponseDto>;
+    eventControllerFinMyEventsWithHttpInfo(param: EventsApiEventControllerFinMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;
+    eventControllerFinMyEvents(param: EventsApiEventControllerFinMyEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
     eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;

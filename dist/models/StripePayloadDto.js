@@ -14,6 +14,12 @@ var StripePayloadDto = (function () {
             "baseName": "amount",
             "type": "number",
             "format": ""
+        },
+        {
+            "name": "id",
+            "baseName": "id",
+            "type": "number",
+            "format": ""
         }
     ];
     return StripePayloadDto;
