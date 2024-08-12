@@ -5,10 +5,10 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
-[**eventControllerFinMyEvent**](EventsApi.md#eventControllerFinMyEvent) | **GET** /v1/my-event | 
-[**eventControllerFinMyEvents**](EventsApi.md#eventControllerFinMyEvents) | **GET** /v1/my-events | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
+[**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
+[**eventControllerFindMyEvents**](EventsApi.md#eventControllerFindMyEvents) | **GET** /v1/my-events | 
 
 
 # **eventControllerCreateEvent**
@@ -61,117 +61,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **eventControllerFinMyEvent**
-> MyEventResponseDto eventControllerFinMyEvent()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
-
-let body:.EventsApiEventControllerFinMyEventRequest = {
-  // string
-  eventId: "eventId_example",
-};
-
-apiInstance.eventControllerFinMyEvent(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **eventId** | [**string**] |  | defaults to undefined
-
-
-### Return type
-
-**MyEventResponseDto**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **eventControllerFinMyEvents**
-> MyEventsResponseDto eventControllerFinMyEvents()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
-
-let body:.EventsApiEventControllerFinMyEventsRequest = {
-  // number
-  page: 3.14,
-  // number
-  limit: 3.14,
-};
-
-apiInstance.eventControllerFinMyEvents(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
-
-
-### Return type
-
-**MyEventsResponseDto**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -275,6 +164,117 @@ Name | Type | Description  | Notes
 ### Return type
 
 **EventsResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerFindMyEvent**
+> MyEventResponseDto eventControllerFindMyEvent()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerFindMyEventRequest = {
+  // string
+  eventId: "eventId_example",
+};
+
+apiInstance.eventControllerFindMyEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eventId** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**MyEventResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerFindMyEvents**
+> MyEventsResponseDto eventControllerFindMyEvents()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerFindMyEventsRequest = {
+  // number
+  page: 3.14,
+  // number
+  limit: 3.14,
+};
+
+apiInstance.eventControllerFindMyEvents(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+
+
+### Return type
+
+**MyEventsResponseDto**
 
 ### Authorization
 

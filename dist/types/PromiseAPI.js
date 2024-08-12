@@ -206,22 +206,6 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFinMyEventWithHttpInfo = function (eventId, _options) {
-        var result = this.api.eventControllerFinMyEventWithHttpInfo(eventId, _options);
-        return result.toPromise();
-    };
-    PromiseEventsApi.prototype.eventControllerFinMyEvent = function (eventId, _options) {
-        var result = this.api.eventControllerFinMyEvent(eventId, _options);
-        return result.toPromise();
-    };
-    PromiseEventsApi.prototype.eventControllerFinMyEventsWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.eventControllerFinMyEventsWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseEventsApi.prototype.eventControllerFinMyEvents = function (page, limit, _options) {
-        var result = this.api.eventControllerFinMyEvents(page, limit, _options);
-        return result.toPromise();
-    };
     PromiseEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
         var result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
         return result.toPromise();
@@ -236,6 +220,22 @@ var PromiseEventsApi = (function () {
     };
     PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, _options) {
         var result = this.api.eventControllerFindEvents(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
+        var result = this.api.eventControllerFindMyEventWithHttpInfo(eventId, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindMyEvent = function (eventId, _options) {
+        var result = this.api.eventControllerFindMyEvent(eventId, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindMyEventsWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerFindMyEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindMyEvents = function (page, limit, _options) {
+        var result = this.api.eventControllerFindMyEvents(page, limit, _options);
         return result.toPromise();
     };
     return PromiseEventsApi;

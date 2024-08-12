@@ -168,18 +168,6 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
-    ObjectEventsApi.prototype.eventControllerFinMyEventWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFinMyEventWithHttpInfo(param.eventId, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerFinMyEvent = function (param, options) {
-        return this.api.eventControllerFinMyEvent(param.eventId, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerFinMyEventsWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFinMyEventsWithHttpInfo(param.page, param.limit, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerFinMyEvents = function (param, options) {
-        return this.api.eventControllerFinMyEvents(param.page, param.limit, options).toPromise();
-    };
     ObjectEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, options).toPromise();
     };
@@ -191,6 +179,18 @@ var ObjectEventsApi = (function () {
     };
     ObjectEventsApi.prototype.eventControllerFindEvents = function (param, options) {
         return this.api.eventControllerFindEvents(param.page, param.limit, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindMyEvent = function (param, options) {
+        return this.api.eventControllerFindMyEvent(param.eventId, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindMyEventsWithHttpInfo = function (param, options) {
+        return this.api.eventControllerFindMyEventsWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindMyEvents = function (param, options) {
+        return this.api.eventControllerFindMyEvents(param.page, param.limit, options).toPromise();
     };
     return ObjectEventsApi;
 }());

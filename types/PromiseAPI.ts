@@ -516,40 +516,6 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventId 
-     */
-    public eventControllerFinMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
-        const result = this.api.eventControllerFinMyEventWithHttpInfo(eventId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param eventId 
-     */
-    public eventControllerFinMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto> {
-        const result = this.api.eventControllerFinMyEvent(eventId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public eventControllerFinMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
-        const result = this.api.eventControllerFinMyEventsWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page 
-     * @param limit 
-     */
-    public eventControllerFinMyEvents(page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
-        const result = this.api.eventControllerFinMyEvents(page, limit, _options);
-        return result.toPromise();
-    }
-
-    /**
      * @param id 
      */
     public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
@@ -580,6 +546,40 @@ export class PromiseEventsApi {
      */
     public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
         const result = this.api.eventControllerFindEvents(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId 
+     */
+    public eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
+        const result = this.api.eventControllerFindMyEventWithHttpInfo(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId 
+     */
+    public eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto> {
+        const result = this.api.eventControllerFindMyEvent(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public eventControllerFindMyEventsWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
+        const result = this.api.eventControllerFindMyEventsWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public eventControllerFindMyEvents(page: number, limit: number, _options?: Configuration): Promise<MyEventsResponseDto> {
+        const result = this.api.eventControllerFindMyEvents(page, limit, _options);
         return result.toPromise();
     }
 
