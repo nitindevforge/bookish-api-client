@@ -62,7 +62,7 @@ var StorageApiRequestFactory = (function (_super) {
     function StorageApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    StorageApiRequestFactory.prototype.fileUploadControllerGetPreSignedURL = function (fileUploadPayloadDto, _options) {
+    StorageApiRequestFactory.prototype.storageControllerGetPreSignedURL = function (fileUploadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, defaultAuth;
@@ -70,8 +70,8 @@ var StorageApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (fileUploadPayloadDto === null || fileUploadPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("StorageApi", "fileUploadControllerGetPreSignedURL", "fileUploadPayloadDto");
+                        if (fileUploadDto === null || fileUploadDto === undefined) {
+                            throw new baseapi_1.RequiredError("StorageApi", "storageControllerGetPreSignedURL", "fileUploadDto");
                         }
                         localVarPath = '/v1/storage/file';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
@@ -80,7 +80,7 @@ var StorageApiRequestFactory = (function (_super) {
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(fileUploadPayloadDto, "FileUploadPayloadDto", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(fileUploadDto, "FileUploadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
                         if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
@@ -99,29 +99,35 @@ exports.StorageApiRequestFactory = StorageApiRequestFactory;
 var StorageApiResponseProcessor = (function () {
     function StorageApiResponseProcessor() {
     }
-    StorageApiResponseProcessor.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (response) {
+    StorageApiResponseProcessor.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
-            var contentType, body, _a, _b, _c, _d, _e, _f;
-            return __generator(this, function (_g) {
-                switch (_g.label) {
+            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
+            return __generator(this, function (_l) {
+                switch (_l.label) {
                     case 0:
                         contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-                        if ((0, util_1.isCodeInRange)("201", response.httpStatusCode)) {
-                            return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, undefined)];
-                        }
-                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 2];
+                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
                         _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
                         _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
                         return [4, response.body.text()];
                     case 1:
-                        body = _b.apply(_a, [_d.apply(_c, [_g.sent(), contentType]),
-                            "void", ""]);
+                        body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
+                            "FileUploadResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
-                        _e = exception_1.ApiException.bind;
-                        _f = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
+                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 3:
+                        body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
+                            "FileUploadResponseDto", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 4:
+                        _j = exception_1.ApiException.bind;
+                        _k = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
                         return [4, response.getBodyAsAny()];
-                    case 3: throw new (_e.apply(exception_1.ApiException, _f.concat([_g.sent(), response.headers])))();
+                    case 5: throw new (_j.apply(exception_1.ApiException, _k.concat([_l.sent(), response.headers])))();
                 }
             });
         });

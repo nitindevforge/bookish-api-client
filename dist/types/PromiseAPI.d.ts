@@ -11,7 +11,8 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
-import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
+import { FileUploadDto } from '../models/FileUploadDto';
+import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
@@ -19,6 +20,7 @@ import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
+import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -112,6 +114,8 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis
 export declare class PromiseFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
+    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
@@ -141,6 +145,6 @@ import { StorageApiRequestFactory, StorageApiResponseProcessor } from "../apis/S
 export declare class PromiseStorageApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: StorageApiRequestFactory, responseProcessor?: StorageApiResponseProcessor);
-    fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<HttpInfo<void>>;
-    fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<void>;
+    storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<FileUploadResponseDto>>;
+    storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<FileUploadResponseDto>;
 }

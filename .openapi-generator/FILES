@@ -50,7 +50,8 @@ models/EventResponseDto.ts
 models/Events.ts
 models/EventsList.ts
 models/EventsResponseDto.ts
-models/FileUploadPayloadDto.ts
+models/FileUploadDto.ts
+models/FileUploadResponseDto.ts
 models/Follower.ts
 models/FollowerPayloadDto.ts
 models/FollowerResponseDto.ts
@@ -63,10 +64,13 @@ models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts
+models/ModelFile.ts
+models/MyAllFriendsResponseDto.ts
 models/MyEventResponseDto.ts
 models/MyEvents.ts
 models/MyEventsResponse.ts
 models/MyEventsResponseDto.ts
+models/MyFriendsResponse.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts
 models/PasswordChangeResponse.ts
