@@ -294,12 +294,12 @@ var PromisePaymentApi = (function () {
         var result = this.api.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripeCreatePayloadDto, _options) {
-        var result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripeCreatePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntentWithHttpInfo = function (stripePayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
         return result.toPromise();
     };
-    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripeCreatePayloadDto, _options) {
-        var result = this.api.paymentControllerCreatePaymentIntent(stripeCreatePayloadDto, _options);
+    PromisePaymentApi.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
+        var result = this.api.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
         return result.toPromise();
     };
     PromisePaymentApi.prototype.paymentControllerDeleteCardDetailsWithHttpInfo = function (paymentPayloadDto, _options) {

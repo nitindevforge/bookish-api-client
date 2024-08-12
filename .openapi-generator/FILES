@@ -79,7 +79,7 @@ models/Rating.ts
 models/Review.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
-models/StripeCreatePayloadDto.ts
+models/StripePayloadDto.ts
 models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts

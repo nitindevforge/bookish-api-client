@@ -55,7 +55,7 @@ import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCreatePayloadDto } from '../models/StripeCreatePayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -1097,10 +1097,10 @@ export class ObservablePaymentApi {
     }
 
     /**
-     * @param stripeCreatePayloadDto 
+     * @param stripePayloadDto 
      */
-    public paymentControllerCreatePaymentIntentWithHttpInfo(stripeCreatePayloadDto: StripeCreatePayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>> {
-        const requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripeCreatePayloadDto, _options);
+    public paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<HttpInfo<StripeResponseDto>> {
+        const requestContextPromise = this.requestFactory.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1119,10 +1119,10 @@ export class ObservablePaymentApi {
     }
 
     /**
-     * @param stripeCreatePayloadDto 
+     * @param stripePayloadDto 
      */
-    public paymentControllerCreatePaymentIntent(stripeCreatePayloadDto: StripeCreatePayloadDto, _options?: Configuration): Observable<StripeResponseDto> {
-        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripeCreatePayloadDto, _options).pipe(map((apiResponse: HttpInfo<StripeResponseDto>) => apiResponse.data));
+    public paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Observable<StripeResponseDto> {
+        return this.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options).pipe(map((apiResponse: HttpInfo<StripeResponseDto>) => apiResponse.data));
     }
 
     /**

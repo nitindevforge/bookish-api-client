@@ -1,6 +1,5 @@
 export declare class StripePayloadDto {
     'amount': number;
-    'id': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

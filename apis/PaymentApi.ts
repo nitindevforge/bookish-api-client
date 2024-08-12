@@ -11,7 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
-import { StripeCreatePayloadDto } from '../models/StripeCreatePayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 
@@ -67,14 +67,14 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param stripeCreatePayloadDto 
+     * @param stripePayloadDto 
      */
-    public async paymentControllerCreatePaymentIntent(stripeCreatePayloadDto: StripeCreatePayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'stripeCreatePayloadDto' is not null or undefined
-        if (stripeCreatePayloadDto === null || stripeCreatePayloadDto === undefined) {
-            throw new RequiredError("PaymentApi", "paymentControllerCreatePaymentIntent", "stripeCreatePayloadDto");
+        // verify required parameter 'stripePayloadDto' is not null or undefined
+        if (stripePayloadDto === null || stripePayloadDto === undefined) {
+            throw new RequiredError("PaymentApi", "paymentControllerCreatePaymentIntent", "stripePayloadDto");
         }
 
 
@@ -92,7 +92,7 @@ export class PaymentApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(stripeCreatePayloadDto, "StripeCreatePayloadDto", ""),
+            ObjectSerializer.serialize(stripePayloadDto, "StripePayloadDto", ""),
             contentType
         );
         requestContext.setBody(serializedBody);

@@ -68,7 +68,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **paymentControllerCreatePaymentIntent**
-> StripeResponseDto paymentControllerCreatePaymentIntent(stripeCreatePayloadDto)
+> StripeResponseDto paymentControllerCreatePaymentIntent(stripePayloadDto)
 
 
 ### Example
@@ -82,8 +82,8 @@ const configuration = .createConfiguration();
 const apiInstance = new .PaymentApi(configuration);
 
 let body:.PaymentApiPaymentControllerCreatePaymentIntentRequest = {
-  // StripeCreatePayloadDto
-  stripeCreatePayloadDto: {
+  // StripePayloadDto
+  stripePayloadDto: {
     amount: 3.14,
   },
 };
@@ -98,7 +98,7 @@ apiInstance.paymentControllerCreatePaymentIntent(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **stripeCreatePayloadDto** | **StripeCreatePayloadDto**|  |
+ **stripePayloadDto** | **StripePayloadDto**|  |
 
 
 ### Return type

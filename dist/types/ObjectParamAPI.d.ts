@@ -26,7 +26,7 @@ import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCreatePayloadDto } from '../models/StripeCreatePayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
@@ -231,7 +231,7 @@ export interface PaymentApiPaymentControllerCreatePaymentRequest {
     stripePaymentPayloadDto: StripePaymentPayloadDto;
 }
 export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
-    stripeCreatePayloadDto: StripeCreatePayloadDto;
+    stripePayloadDto: StripePayloadDto;
 }
 export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
     paymentPayloadDto: PaymentPayloadDto;

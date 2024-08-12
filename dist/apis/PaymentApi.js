@@ -100,7 +100,7 @@ var PaymentApiRequestFactory = (function (_super) {
             });
         });
     };
-    PaymentApiRequestFactory.prototype.paymentControllerCreatePaymentIntent = function (stripeCreatePayloadDto, _options) {
+    PaymentApiRequestFactory.prototype.paymentControllerCreatePaymentIntent = function (stripePayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -108,8 +108,8 @@ var PaymentApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (stripeCreatePayloadDto === null || stripeCreatePayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("PaymentApi", "paymentControllerCreatePaymentIntent", "stripeCreatePayloadDto");
+                        if (stripePayloadDto === null || stripePayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("PaymentApi", "paymentControllerCreatePaymentIntent", "stripePayloadDto");
                         }
                         localVarPath = '/v1/payment/intent';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
@@ -118,7 +118,7 @@ var PaymentApiRequestFactory = (function (_super) {
                             "application/json"
                         ]);
                         requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(stripeCreatePayloadDto, "StripeCreatePayloadDto", ""), contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(stripePayloadDto, "StripePayloadDto", ""), contentType);
                         requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

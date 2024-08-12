@@ -54,7 +54,7 @@ import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
-import { StripeCreatePayloadDto } from '../models/StripeCreatePayloadDto';
+import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -915,10 +915,10 @@ export interface PaymentApiPaymentControllerCreatePaymentRequest {
 export interface PaymentApiPaymentControllerCreatePaymentIntentRequest {
     /**
      * 
-     * @type StripeCreatePayloadDto
+     * @type StripePayloadDto
      * @memberof PaymentApipaymentControllerCreatePaymentIntent
      */
-    stripeCreatePayloadDto: StripeCreatePayloadDto
+    stripePayloadDto: StripePayloadDto
 }
 
 export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
@@ -958,14 +958,14 @@ export class ObjectPaymentApi {
      * @param param the request object
      */
     public paymentControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
-        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripeCreatePayloadDto,  options).toPromise();
+        return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
-        return this.api.paymentControllerCreatePaymentIntent(param.stripeCreatePayloadDto,  options).toPromise();
+        return this.api.paymentControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
