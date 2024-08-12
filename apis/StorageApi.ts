@@ -8,8 +8,7 @@ import {canConsumeForm, isCodeInRange} from '../util';
 import {SecurityAuthentication} from '../auth/auth';
 
 
-import { FileUploadDto } from '../models/FileUploadDto';
-import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
+import { FileUploadPayloadDto } from '../models/FileUploadPayloadDto';
 
 /**
  * no description
@@ -17,14 +16,14 @@ import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
 export class StorageApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * @param fileUploadDto 
+     * @param fileUploadPayloadDto 
      */
-    public async storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<RequestContext> {
+    public async fileUploadControllerGetPreSignedURL(fileUploadPayloadDto: FileUploadPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'fileUploadDto' is not null or undefined
-        if (fileUploadDto === null || fileUploadDto === undefined) {
-            throw new RequiredError("StorageApi", "storageControllerGetPreSignedURL", "fileUploadDto");
+        // verify required parameter 'fileUploadPayloadDto' is not null or undefined
+        if (fileUploadPayloadDto === null || fileUploadPayloadDto === undefined) {
+            throw new RequiredError("StorageApi", "fileUploadControllerGetPreSignedURL", "fileUploadPayloadDto");
         }
 
 
@@ -42,7 +41,7 @@ export class StorageApiRequestFactory extends BaseAPIRequestFactory {
         ]);
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(fileUploadDto, "FileUploadDto", ""),
+            ObjectSerializer.serialize(fileUploadPayloadDto, "FileUploadPayloadDto", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -64,25 +63,21 @@ export class StorageApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to storageControllerGetPreSignedURL
+     * @params response Response returned by the server for a request to fileUploadControllerGetPreSignedURL
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async storageControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FileUploadResponseDto >> {
+     public async fileUploadControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FileUploadResponseDto = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "FileUploadResponseDto", ""
-            ) as FileUploadResponseDto;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        if (isCodeInRange("201", response.httpStatusCode)) {
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, undefined);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FileUploadResponseDto = ObjectSerializer.deserialize(
+            const body: void = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FileUploadResponseDto", ""
-            ) as FileUploadResponseDto;
+                "void", ""
+            ) as void;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

@@ -230,14 +230,6 @@ var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, search, _options) {
-        var result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options);
-        return result.toPromise();
-    };
-    PromiseFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, search, _options) {
-        var result = this.api.followerControllerFindMyFriends(page, limit, search, _options);
-        return result.toPromise();
-    };
     PromiseFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (followerPayloadDto, _options) {
         var result = this.api.followerControllerFollowWithHttpInfo(followerPayloadDto, _options);
         return result.toPromise();
@@ -318,12 +310,12 @@ var PromiseStorageApi = (function () {
     function PromiseStorageApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_8.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseStorageApi.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (fileUploadDto, _options) {
-        var result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
+    PromiseStorageApi.prototype.fileUploadControllerGetPreSignedURLWithHttpInfo = function (fileUploadPayloadDto, _options) {
+        var result = this.api.fileUploadControllerGetPreSignedURLWithHttpInfo(fileUploadPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseStorageApi.prototype.storageControllerGetPreSignedURL = function (fileUploadDto, _options) {
-        var result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);
+    PromiseStorageApi.prototype.fileUploadControllerGetPreSignedURL = function (fileUploadPayloadDto, _options) {
+        var result = this.api.fileUploadControllerGetPreSignedURL(fileUploadPayloadDto, _options);
         return result.toPromise();
     };
     return PromiseStorageApi;

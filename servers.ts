@@ -50,6 +50,6 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
     }
 }
 
-export const server1 = new ServerConfiguration<{  "scheme": "http" | "https",  "host": "localhost:3000" | "bookish-backend-qa-jamzism34a-uc.a.run.app"  }>("{scheme}://{host}", {  "scheme": "https" , "host": "localhost:3000"  })
+export const server1 = new ServerConfiguration<{  "scheme": "http" | "https",  "host": "localhost:3000" | "35.201.108.252"  }>("{scheme}://{host}", {  "scheme": "https" , "host": "localhost:3000"  })
 
 export const servers = [server1];

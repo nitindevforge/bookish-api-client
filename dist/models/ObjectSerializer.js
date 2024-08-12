@@ -40,8 +40,7 @@ __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
 __exportStar(require("../models/EventsList"), exports);
 __exportStar(require("../models/EventsResponseDto"), exports);
-__exportStar(require("../models/FileUploadDto"), exports);
-__exportStar(require("../models/FileUploadResponseDto"), exports);
+__exportStar(require("../models/FileUploadPayloadDto"), exports);
 __exportStar(require("../models/Follower"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
 __exportStar(require("../models/FollowerResponseDto"), exports);
@@ -54,9 +53,6 @@ __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
-__exportStar(require("../models/ModelFile"), exports);
-__exportStar(require("../models/MyAllFriendsResponseDto"), exports);
-__exportStar(require("../models/MyFriendsResponse"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
 __exportStar(require("../models/PasswordChangeResponseDto"), exports);
@@ -109,8 +105,7 @@ var EventResponseDto_1 = require("../models/EventResponseDto");
 var Events_1 = require("../models/Events");
 var EventsList_1 = require("../models/EventsList");
 var EventsResponseDto_1 = require("../models/EventsResponseDto");
-var FileUploadDto_1 = require("../models/FileUploadDto");
-var FileUploadResponseDto_1 = require("../models/FileUploadResponseDto");
+var FileUploadPayloadDto_1 = require("../models/FileUploadPayloadDto");
 var Follower_1 = require("../models/Follower");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
 var FollowerResponseDto_1 = require("../models/FollowerResponseDto");
@@ -123,9 +118,6 @@ var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var MetaResponse_1 = require("../models/MetaResponse");
-var ModelFile_1 = require("../models/ModelFile");
-var MyAllFriendsResponseDto_1 = require("../models/MyAllFriendsResponseDto");
-var MyFriendsResponse_1 = require("../models/MyFriendsResponse");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
 var PasswordChangeResponseDto_1 = require("../models/PasswordChangeResponseDto");
@@ -190,8 +182,7 @@ var typeMap = {
     "Events": Events_1.Events,
     "EventsList": EventsList_1.EventsList,
     "EventsResponseDto": EventsResponseDto_1.EventsResponseDto,
-    "FileUploadDto": FileUploadDto_1.FileUploadDto,
-    "FileUploadResponseDto": FileUploadResponseDto_1.FileUploadResponseDto,
+    "FileUploadPayloadDto": FileUploadPayloadDto_1.FileUploadPayloadDto,
     "Follower": Follower_1.Follower,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto_1.FollowerResponseDto,
@@ -204,9 +195,6 @@ var typeMap = {
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "MetaResponse": MetaResponse_1.MetaResponse,
-    "ModelFile": ModelFile_1.ModelFile,
-    "MyAllFriendsResponseDto": MyAllFriendsResponseDto_1.MyAllFriendsResponseDto,
-    "MyFriendsResponse": MyFriendsResponse_1.MyFriendsResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,
     "PasswordChangeResponseDto": PasswordChangeResponseDto_1.PasswordChangeResponseDto,

@@ -15,9 +15,9 @@ export declare class ServerConfiguration<T extends {
 }
 export declare const server1: ServerConfiguration<{
     scheme: "http" | "https";
-    host: "localhost:3000";
+    host: "localhost:3000" | "35.201.108.252";
 }>;
 export declare const servers: ServerConfiguration<{
     scheme: "http" | "https";
-    host: "localhost:3000";
+    host: "localhost:3000" | "35.201.108.252";
 }>[];
