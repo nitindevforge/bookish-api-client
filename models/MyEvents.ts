@@ -14,7 +14,7 @@ import { MyEventsResponse } from '../models/MyEventsResponse';
 import { HttpFile } from '../http/http';
 
 export class MyEvents {
-    'data': MyEventsResponse;
+    'data': Array<MyEventsResponse>;
     'count': number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -23,7 +23,7 @@ export class MyEvents {
         {
             "name": "data",
             "baseName": "data",
-            "type": "MyEventsResponse",
+            "type": "Array<MyEventsResponse>",
             "format": ""
         },
         {

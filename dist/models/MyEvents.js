@@ -12,7 +12,7 @@ var MyEvents = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "MyEventsResponse",
+            "type": "Array<MyEventsResponse>",
             "format": ""
         },
         {
