@@ -27,7 +27,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
-import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
+import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -40,7 +40,6 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
-import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
@@ -58,6 +57,7 @@ import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StorageResponseDto } from '../models/StorageResponseDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
@@ -802,7 +802,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<FileUploadResponseDto>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<StorageResponseDto>> {
         const result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
         return result.toPromise();
     }
@@ -810,7 +810,7 @@ export class PromiseStorageApi {
     /**
      * @param fileUploadDto 
      */
-    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<FileUploadResponseDto> {
+    public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<StorageResponseDto> {
         const result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);
         return result.toPromise();
     }

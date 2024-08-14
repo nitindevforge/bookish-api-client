@@ -24,7 +24,7 @@ export * from '../models/Events';
 export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
 export * from '../models/FileUploadDto';
-export * from '../models/FileUploadResponseDto';
+export * from '../models/FileUrl';
 export * from '../models/Follower';
 export * from '../models/FollowerPayloadDto';
 export * from '../models/FollowerResponseDto';
@@ -37,7 +37,6 @@ export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
-export * from '../models/ModelFile';
 export * from '../models/MyAllFriendsResponseDto';
 export * from '../models/MyEventResponseDto';
 export * from '../models/MyEvents';
@@ -55,6 +54,7 @@ export * from '../models/Rating';
 export * from '../models/Review';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
+export * from '../models/StorageResponseDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
@@ -98,7 +98,7 @@ import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
 import { FileUploadDto } from '../models/FileUploadDto';
-import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
+import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -111,7 +111,6 @@ import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
-import { ModelFile } from '../models/ModelFile';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
@@ -129,6 +128,7 @@ import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
+import { StorageResponseDto } from '../models/StorageResponseDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
@@ -188,7 +188,7 @@ let typeMap: {[index: string]: any} = {
     "EventsList": EventsList,
     "EventsResponseDto": EventsResponseDto,
     "FileUploadDto": FileUploadDto,
-    "FileUploadResponseDto": FileUploadResponseDto,
+    "FileUrl": FileUrl,
     "Follower": Follower,
     "FollowerPayloadDto": FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto,
@@ -201,7 +201,6 @@ let typeMap: {[index: string]: any} = {
     "InterestsResponseDto": InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,
-    "ModelFile": ModelFile,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto,
     "MyEventResponseDto": MyEventResponseDto,
     "MyEvents": MyEvents,
@@ -219,6 +218,7 @@ let typeMap: {[index: string]: any} = {
     "Review": Review,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
+    "StorageResponseDto": StorageResponseDto,
     "StripePayloadDto": StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,

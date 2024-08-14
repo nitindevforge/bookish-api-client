@@ -51,7 +51,7 @@ models/Events.ts
 models/EventsList.ts
 models/EventsResponseDto.ts
 models/FileUploadDto.ts
-models/FileUploadResponseDto.ts
+models/FileUrl.ts
 models/Follower.ts
 models/FollowerPayloadDto.ts
 models/FollowerResponseDto.ts
@@ -64,7 +64,6 @@ models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts
-models/ModelFile.ts
 models/MyAllFriendsResponseDto.ts
 models/MyEventResponseDto.ts
 models/MyEvents.ts
@@ -83,6 +82,7 @@ models/Rating.ts
 models/Review.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
+models/StorageResponseDto.ts
 models/StripePayloadDto.ts
 models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts

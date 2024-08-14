@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **storageControllerGetPreSignedURL**
-> FileUploadResponseDto storageControllerGetPreSignedURL(fileUploadDto)
+> StorageResponseDto storageControllerGetPreSignedURL(fileUploadDto)
 
 
 ### Example
@@ -43,7 +43,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**FileUploadResponseDto**
+**StorageResponseDto**
 
 ### Authorization
 

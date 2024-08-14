@@ -41,7 +41,7 @@ __exportStar(require("../models/Events"), exports);
 __exportStar(require("../models/EventsList"), exports);
 __exportStar(require("../models/EventsResponseDto"), exports);
 __exportStar(require("../models/FileUploadDto"), exports);
-__exportStar(require("../models/FileUploadResponseDto"), exports);
+__exportStar(require("../models/FileUrl"), exports);
 __exportStar(require("../models/Follower"), exports);
 __exportStar(require("../models/FollowerPayloadDto"), exports);
 __exportStar(require("../models/FollowerResponseDto"), exports);
@@ -54,7 +54,6 @@ __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
-__exportStar(require("../models/ModelFile"), exports);
 __exportStar(require("../models/MyAllFriendsResponseDto"), exports);
 __exportStar(require("../models/MyEventResponseDto"), exports);
 __exportStar(require("../models/MyEvents"), exports);
@@ -72,6 +71,7 @@ __exportStar(require("../models/Rating"), exports);
 __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
+__exportStar(require("../models/StorageResponseDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
@@ -114,7 +114,7 @@ var Events_1 = require("../models/Events");
 var EventsList_1 = require("../models/EventsList");
 var EventsResponseDto_1 = require("../models/EventsResponseDto");
 var FileUploadDto_1 = require("../models/FileUploadDto");
-var FileUploadResponseDto_1 = require("../models/FileUploadResponseDto");
+var FileUrl_1 = require("../models/FileUrl");
 var Follower_1 = require("../models/Follower");
 var FollowerPayloadDto_1 = require("../models/FollowerPayloadDto");
 var FollowerResponseDto_1 = require("../models/FollowerResponseDto");
@@ -127,7 +127,6 @@ var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var MetaResponse_1 = require("../models/MetaResponse");
-var ModelFile_1 = require("../models/ModelFile");
 var MyAllFriendsResponseDto_1 = require("../models/MyAllFriendsResponseDto");
 var MyEventResponseDto_1 = require("../models/MyEventResponseDto");
 var MyEvents_1 = require("../models/MyEvents");
@@ -145,6 +144,7 @@ var Rating_1 = require("../models/Rating");
 var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
+var StorageResponseDto_1 = require("../models/StorageResponseDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
@@ -199,7 +199,7 @@ var typeMap = {
     "EventsList": EventsList_1.EventsList,
     "EventsResponseDto": EventsResponseDto_1.EventsResponseDto,
     "FileUploadDto": FileUploadDto_1.FileUploadDto,
-    "FileUploadResponseDto": FileUploadResponseDto_1.FileUploadResponseDto,
+    "FileUrl": FileUrl_1.FileUrl,
     "Follower": Follower_1.Follower,
     "FollowerPayloadDto": FollowerPayloadDto_1.FollowerPayloadDto,
     "FollowerResponseDto": FollowerResponseDto_1.FollowerResponseDto,
@@ -212,7 +212,6 @@ var typeMap = {
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "MetaResponse": MetaResponse_1.MetaResponse,
-    "ModelFile": ModelFile_1.ModelFile,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto_1.MyAllFriendsResponseDto,
     "MyEventResponseDto": MyEventResponseDto_1.MyEventResponseDto,
     "MyEvents": MyEvents_1.MyEvents,
@@ -230,6 +229,7 @@ var typeMap = {
     "Review": Review_1.Review,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
+    "StorageResponseDto": StorageResponseDto_1.StorageResponseDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,

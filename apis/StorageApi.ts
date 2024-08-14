@@ -9,7 +9,7 @@ import {SecurityAuthentication} from '../auth/auth';
 
 
 import { FileUploadDto } from '../models/FileUploadDto';
-import { FileUploadResponseDto } from '../models/FileUploadResponseDto';
+import { StorageResponseDto } from '../models/StorageResponseDto';
 
 /**
  * no description
@@ -67,22 +67,22 @@ export class StorageApiResponseProcessor {
      * @params response Response returned by the server for a request to storageControllerGetPreSignedURL
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async storageControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FileUploadResponseDto >> {
+     public async storageControllerGetPreSignedURLWithHttpInfo(response: ResponseContext): Promise<HttpInfo<StorageResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: FileUploadResponseDto = ObjectSerializer.deserialize(
+            const body: StorageResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FileUploadResponseDto", ""
-            ) as FileUploadResponseDto;
+                "StorageResponseDto", ""
+            ) as StorageResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: FileUploadResponseDto = ObjectSerializer.deserialize(
+            const body: StorageResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "FileUploadResponseDto", ""
-            ) as FileUploadResponseDto;
+                "StorageResponseDto", ""
+            ) as StorageResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
