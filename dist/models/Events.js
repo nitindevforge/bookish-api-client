@@ -46,6 +46,18 @@ var Events = (function () {
             "format": ""
         },
         {
+            "name": "latitude",
+            "baseName": "latitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "longitude",
+            "baseName": "longitude",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "owner",
             "baseName": "owner",
             "type": "UserDetails",

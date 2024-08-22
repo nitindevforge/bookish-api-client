@@ -20,6 +20,8 @@ export class Events {
     'date': Date;
     'price': number;
     'description': string;
+    'latitude': number;
+    'longitude': number;
     'owner': UserDetails;
     'createdAt': Date;
     'updatedAt': Date;
@@ -61,6 +63,18 @@ export class Events {
             "name": "description",
             "baseName": "description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "latitude",
+            "baseName": "latitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "longitude",
+            "baseName": "longitude",
+            "type": "number",
             "format": ""
         },
         {
