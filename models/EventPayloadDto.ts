@@ -18,6 +18,8 @@ export class EventPayloadDto {
     'date': Date;
     'price': number;
     'description': string;
+    'latitude': number;
+    'longitude': number;
     'id'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -51,6 +53,18 @@ export class EventPayloadDto {
             "name": "description",
             "baseName": "description",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "latitude",
+            "baseName": "latitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "longitude",
+            "baseName": "longitude",
+            "type": "number",
             "format": ""
         },
         {

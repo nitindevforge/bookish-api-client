@@ -40,6 +40,18 @@ var EventPayloadDto = (function () {
             "format": ""
         },
         {
+            "name": "latitude",
+            "baseName": "latitude",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "longitude",
+            "baseName": "longitude",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "id",
             "baseName": "_id",
             "type": "string",

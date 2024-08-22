@@ -4,6 +4,8 @@ export declare class EventPayloadDto {
     'date': Date;
     'price': number;
     'description': string;
+    'latitude': number;
+    'longitude': number;
     'id'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
