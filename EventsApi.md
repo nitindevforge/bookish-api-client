@@ -33,8 +33,12 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     date: new Date('1970-01-01T00:00:00.00Z'),
     price: 3.14,
     description: "description_example",
-    latitude: 3.14,
-    longitude: 3.14,
+    location: {
+      type: "type_example",
+      coordinates: [
+        3.14,
+      ],
+    },
     id: "id_example",
   },
 };

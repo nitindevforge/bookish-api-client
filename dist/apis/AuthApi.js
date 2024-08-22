@@ -155,7 +155,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, _options) {
+    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -169,6 +169,12 @@ var AuthApiRequestFactory = (function (_super) {
                         if (limit === null || limit === undefined) {
                             throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "limit");
                         }
+                        if (longitude === null || longitude === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "longitude");
+                        }
+                        if (latitude === null || latitude === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "latitude");
+                        }
                         localVarPath = '/v1/auth/activities';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
@@ -177,6 +183,12 @@ var AuthApiRequestFactory = (function (_super) {
                         }
                         if (limit !== undefined) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
+                        if (longitude !== undefined) {
+                            requestContext.setQueryParam("longitude", ObjectSerializer_1.ObjectSerializer.serialize(longitude, "number", ""));
+                        }
+                        if (latitude !== undefined) {
+                            requestContext.setQueryParam("latitude", ObjectSerializer_1.ObjectSerializer.serialize(latitude, "number", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

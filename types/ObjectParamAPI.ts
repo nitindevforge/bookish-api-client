@@ -38,6 +38,7 @@ import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { Location } from '../models/Location';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -118,6 +119,18 @@ export interface AuthApiAuthControllerGetActivityRequest {
      * @memberof AuthApiauthControllerGetActivity
      */
     limit: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetActivity
+     */
+    longitude: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetActivity
+     */
+    latitude: number
 }
 
 export interface AuthApiAuthControllerGetInterestsRequest {
@@ -233,14 +246,14 @@ export class ObjectAuthApi {
      * @param param the request object
      */
     public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
-        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit,  options).toPromise();
+        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
-        return this.api.authControllerGetActivity(param.page, param.limit,  options).toPromise();
+        return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
     }
 
     /**

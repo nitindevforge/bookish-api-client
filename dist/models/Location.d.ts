@@ -1,10 +1,6 @@
-import { Events } from '../models/Events';
-import { Location } from '../models/Location';
-import { UserDetails } from '../models/UserDetails';
-export declare class MetaResponse {
-    'userId': UserDetails;
-    'eventId': Events;
-    'location': Location;
+export declare class Location {
+    'type': string;
+    'coordinates': Array<number>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

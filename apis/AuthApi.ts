@@ -150,8 +150,10 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public async authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
@@ -163,6 +165,18 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         // verify required parameter 'limit' is not null or undefined
         if (limit === null || limit === undefined) {
             throw new RequiredError("AuthApi", "authControllerGetActivity", "limit");
+        }
+
+
+        // verify required parameter 'longitude' is not null or undefined
+        if (longitude === null || longitude === undefined) {
+            throw new RequiredError("AuthApi", "authControllerGetActivity", "longitude");
+        }
+
+
+        // verify required parameter 'latitude' is not null or undefined
+        if (latitude === null || latitude === undefined) {
+            throw new RequiredError("AuthApi", "authControllerGetActivity", "latitude");
         }
 
 
@@ -181,6 +195,16 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (longitude !== undefined) {
+            requestContext.setQueryParam("longitude", ObjectSerializer.serialize(longitude, "number", ""));
+        }
+
+        // Query Params
+        if (latitude !== undefined) {
+            requestContext.setQueryParam("latitude", ObjectSerializer.serialize(latitude, "number", ""));
         }
 
 

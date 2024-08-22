@@ -10,40 +10,30 @@
  * Do not edit the class manually.
  */
 
-import { Events } from '../models/Events';
-import { Location } from '../models/Location';
-import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
-export class MetaResponse {
-    'userId': UserDetails;
-    'eventId': Events;
-    'location': Location;
+export class Location {
+    'type': string;
+    'coordinates': Array<number>;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "userId",
-            "baseName": "userId",
-            "type": "UserDetails",
+            "name": "type",
+            "baseName": "type",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "eventId",
-            "baseName": "eventId",
-            "type": "Events",
-            "format": ""
-        },
-        {
-            "name": "location",
-            "baseName": "location",
-            "type": "Location",
+            "name": "coordinates",
+            "baseName": "coordinates",
+            "type": "Array<number>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return MetaResponse.attributeTypeMap;
+        return Location.attributeTypeMap;
     }
 
     public constructor() {

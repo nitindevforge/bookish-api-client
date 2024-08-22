@@ -38,6 +38,7 @@ import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { Location } from '../models/Location';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -139,18 +140,22 @@ export class PromiseAuthApi {
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
-        const result = this.api.authControllerGetActivityWithHttpInfo(page, limit, _options);
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+        const result = this.api.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
 
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public authControllerGetActivity(page: number, limit: number, _options?: Configuration): Promise<ActivityResponseDto> {
-        const result = this.api.authControllerGetActivity(page, limit, _options);
+    public authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<ActivityResponseDto> {
+        const result = this.api.authControllerGetActivity(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
 

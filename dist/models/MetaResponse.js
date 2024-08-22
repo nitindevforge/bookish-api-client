@@ -20,6 +20,12 @@ var MetaResponse = (function () {
             "baseName": "eventId",
             "type": "Events",
             "format": ""
+        },
+        {
+            "name": "location",
+            "baseName": "location",
+            "type": "Location",
+            "format": ""
         }
     ];
     return MetaResponse;

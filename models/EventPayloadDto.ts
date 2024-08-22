@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { Location } from '../models/Location';
 import { HttpFile } from '../http/http';
 
 export class EventPayloadDto {
@@ -18,8 +19,7 @@ export class EventPayloadDto {
     'date': Date;
     'price': number;
     'description': string;
-    'latitude': number;
-    'longitude': number;
+    'location': Location;
     'id'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -56,15 +56,9 @@ export class EventPayloadDto {
             "format": ""
         },
         {
-            "name": "latitude",
-            "baseName": "latitude",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "longitude",
-            "baseName": "longitude",
-            "type": "number",
+            "name": "location",
+            "baseName": "location",
+            "type": "Location",
             "format": ""
         },
         {

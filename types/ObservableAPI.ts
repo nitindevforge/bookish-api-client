@@ -39,6 +39,7 @@ import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { Location } from '../models/Location';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -182,9 +183,11 @@ export class ObservableAuthApi {
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public authControllerGetActivityWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
-        const requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, _options);
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, longitude, latitude, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -205,9 +208,11 @@ export class ObservableAuthApi {
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public authControllerGetActivity(page: number, limit: number, _options?: Configuration): Observable<ActivityResponseDto> {
-        return this.authControllerGetActivityWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
+    public authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<ActivityResponseDto> {
+        return this.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
     }
 
     /**

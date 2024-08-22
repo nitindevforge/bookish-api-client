@@ -51,6 +51,8 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
 export interface AuthApiAuthControllerGetActivityRequest {
     page: number;
     limit: number;
+    longitude: number;
+    latitude: number;
 }
 export interface AuthApiAuthControllerGetInterestsRequest {
 }

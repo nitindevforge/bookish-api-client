@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { Location } from '../models/Location';
 import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
@@ -20,8 +21,7 @@ export class Events {
     'date': Date;
     'price': number;
     'description': string;
-    'latitude': number;
-    'longitude': number;
+    'location': Location;
     'owner': UserDetails;
     'createdAt': Date;
     'updatedAt': Date;
@@ -66,15 +66,9 @@ export class Events {
             "format": ""
         },
         {
-            "name": "latitude",
-            "baseName": "latitude",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "longitude",
-            "baseName": "longitude",
-            "type": "number",
+            "name": "location",
+            "baseName": "location",
+            "type": "Location",
             "format": ""
         },
         {

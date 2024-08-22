@@ -1,11 +1,11 @@
+import { Location } from '../models/Location';
 export declare class EventPayloadDto {
     'title': string;
     'image': string;
     'date': Date;
     'price': number;
     'description': string;
-    'latitude': number;
-    'longitude': number;
+    'location': Location;
     'id'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
