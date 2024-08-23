@@ -153,7 +153,7 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
      * @param longitude 
      * @param latitude 
      */
-    public async authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
@@ -168,16 +168,6 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         }
 
 
-        // verify required parameter 'longitude' is not null or undefined
-        if (longitude === null || longitude === undefined) {
-            throw new RequiredError("AuthApi", "authControllerGetActivity", "longitude");
-        }
-
-
-        // verify required parameter 'latitude' is not null or undefined
-        if (latitude === null || latitude === undefined) {
-            throw new RequiredError("AuthApi", "authControllerGetActivity", "latitude");
-        }
 
 
         // Path Params

@@ -124,13 +124,13 @@ export interface AuthApiAuthControllerGetActivityRequest {
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
-    longitude: number
+    longitude?: number
     /**
      * 
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
-    latitude: number
+    latitude?: number
 }
 
 export interface AuthApiAuthControllerGetInterestsRequest {

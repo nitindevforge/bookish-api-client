@@ -186,7 +186,7 @@ export class ObservableAuthApi {
      * @param longitude 
      * @param latitude 
      */
-    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
         const requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, longitude, latitude, _options);
 
         // build promise chain
@@ -211,7 +211,7 @@ export class ObservableAuthApi {
      * @param longitude 
      * @param latitude 
      */
-    public authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<ActivityResponseDto> {
+    public authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<ActivityResponseDto> {
         return this.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
     }
 

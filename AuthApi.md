@@ -205,9 +205,9 @@ let body:.AuthApiAuthControllerGetActivityRequest = {
   page: 3.14,
   // number
   limit: 3.14,
-  // number
+  // number (optional)
   longitude: 3.14,
-  // number
+  // number (optional)
   latitude: 3.14,
 };
 
@@ -223,8 +223,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
- **longitude** | [**number**] |  | defaults to undefined
- **latitude** | [**number**] |  | defaults to undefined
+ **longitude** | [**number**] |  | (optional) defaults to undefined
+ **latitude** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type

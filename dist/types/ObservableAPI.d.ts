@@ -51,8 +51,8 @@ export declare class ObservableAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Observable<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;

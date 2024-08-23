@@ -48,8 +48,8 @@ export declare class PromiseAuthApi {
     authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

@@ -143,7 +143,7 @@ export class PromiseAuthApi {
      * @param longitude 
      * @param latitude 
      */
-    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         const result = this.api.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
@@ -154,7 +154,7 @@ export class PromiseAuthApi {
      * @param longitude 
      * @param latitude 
      */
-    public authControllerGetActivity(page: number, limit: number, longitude: number, latitude: number, _options?: Configuration): Promise<ActivityResponseDto> {
+    public authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<ActivityResponseDto> {
         const result = this.api.authControllerGetActivity(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }

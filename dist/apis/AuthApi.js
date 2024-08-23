@@ -169,12 +169,6 @@ var AuthApiRequestFactory = (function (_super) {
                         if (limit === null || limit === undefined) {
                             throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "limit");
                         }
-                        if (longitude === null || longitude === undefined) {
-                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "longitude");
-                        }
-                        if (latitude === null || latitude === undefined) {
-                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetActivity", "latitude");
-                        }
                         localVarPath = '/v1/auth/activities';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
