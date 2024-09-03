@@ -34,6 +34,12 @@ var EventPayloadDto = (function () {
             "format": ""
         },
         {
+            "name": "numberOfTickets",
+            "baseName": "numberOfTickets",
+            "type": "number",
+            "format": ""
+        },
+        {
             "name": "description",
             "baseName": "description",
             "type": "string",

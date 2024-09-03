@@ -109,6 +109,8 @@ export declare class PromiseEventsApi {
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto>;
+    eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export declare class PromiseFollowerApi {

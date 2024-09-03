@@ -6,6 +6,7 @@ export declare class Events {
     'image': string;
     'date': Date;
     'price': number;
+    'numberOfTickets': number;
     'description': string;
     'location': Location;
     'owner': UserDetails;

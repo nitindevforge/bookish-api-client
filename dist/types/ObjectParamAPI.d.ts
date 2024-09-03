@@ -190,6 +190,9 @@ export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
     limit: number;
     type: 'UPCOMING' | 'VISITED';
 }
+export interface EventsApiEventControllerUpdateEventRequest {
+    eventPayloadDto: EventPayloadDto;
+}
 export declare class ObjectEventsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
@@ -203,6 +206,8 @@ export declare class ObjectEventsApi {
     eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;
     eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
+    eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
 }
 import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis/FollowerApi";
 export interface FollowerApiFollowerControllerFindMyFriendsRequest {

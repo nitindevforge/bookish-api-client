@@ -12,6 +12,7 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
+    eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class EventsApiResponseProcessor {
     eventControllerCreateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
@@ -19,4 +20,5 @@ export declare class EventsApiResponseProcessor {
     eventControllerFindEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
     eventControllerFindMyEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventsResponseDto>>;
+    eventControllerUpdateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
 }

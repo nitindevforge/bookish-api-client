@@ -594,6 +594,22 @@ export class PromiseEventsApi {
         return result.toPromise();
     }
 
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        const result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventPayloadDto 
+     */
+    public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
+        const result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
 
 }
 

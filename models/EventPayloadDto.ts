@@ -18,6 +18,7 @@ export class EventPayloadDto {
     'image': string;
     'date': Date;
     'price': number;
+    'numberOfTickets': number;
     'description': string;
     'location': Location;
     'id'?: string;
@@ -46,6 +47,12 @@ export class EventPayloadDto {
         {
             "name": "price",
             "baseName": "price",
+            "type": "number",
+            "format": ""
+        },
+        {
+            "name": "numberOfTickets",
+            "baseName": "numberOfTickets",
             "type": "number",
             "format": ""
         },

@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
 [**eventControllerFindMyUpcomingEvents**](EventsApi.md#eventControllerFindMyUpcomingEvents) | **GET** /v1/upcoming/events | 
+[**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
 
 
 # **eventControllerCreateEvent**
@@ -32,6 +33,7 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     image: "image_example",
     date: new Date('1970-01-01T00:00:00.00Z'),
     price: 3.14,
+    numberOfTickets: 3.14,
     description: "description_example",
     location: {
       type: "type_example",
@@ -292,6 +294,74 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerUpdateEvent**
+> EventResponseDto eventControllerUpdateEvent(eventPayloadDto)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerUpdateEventRequest = {
+  // EventPayloadDto
+  eventPayloadDto: {
+    title: "title_example",
+    image: "image_example",
+    date: new Date('1970-01-01T00:00:00.00Z'),
+    price: 3.14,
+    numberOfTickets: 3.14,
+    description: "description_example",
+    location: {
+      type: "type_example",
+      coordinates: [
+        3.14,
+      ],
+    },
+    id: "id_example",
+  },
+};
+
+apiInstance.eventControllerUpdateEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **eventPayloadDto** | **EventPayloadDto**|  |
+
+
+### Return type
+
+**EventResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

@@ -192,6 +192,12 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (param, options) {
         return this.api.eventControllerFindMyUpcomingEvents(param.page, param.limit, param.type, options).toPromise();
     };
+    ObjectEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerUpdateEvent = function (param, options) {
+        return this.api.eventControllerUpdateEvent(param.eventPayloadDto, options).toPromise();
+    };
     return ObjectEventsApi;
 }());
 exports.ObjectEventsApi = ObjectEventsApi;

@@ -238,6 +238,14 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
         return result.toPromise();
     };
+    PromiseEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerUpdateEvent = function (eventPayloadDto, _options) {
+        var result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    };
     return PromiseEventsApi;
 }());
 exports.PromiseEventsApi = PromiseEventsApi;

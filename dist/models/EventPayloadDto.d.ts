@@ -4,6 +4,7 @@ export declare class EventPayloadDto {
     'image': string;
     'date': Date;
     'price': number;
+    'numberOfTickets': number;
     'description': string;
     'location': Location;
     'id'?: string;

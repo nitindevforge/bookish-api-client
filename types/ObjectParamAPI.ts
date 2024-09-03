@@ -739,6 +739,15 @@ export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
     type: 'UPCOMING' | 'VISITED'
 }
 
+export interface EventsApiEventControllerUpdateEventRequest {
+    /**
+     * 
+     * @type EventPayloadDto
+     * @memberof EventsApieventControllerUpdateEvent
+     */
+    eventPayloadDto: EventPayloadDto
+}
+
 export class ObjectEventsApi {
     private api: ObservableEventsApi
 
@@ -814,6 +823,20 @@ export class ObjectEventsApi {
      */
     public eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
         return this.api.eventControllerFindMyUpcomingEvents(param.page, param.limit, param.type,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto> {
+        return this.api.eventControllerUpdateEvent(param.eventPayloadDto,  options).toPromise();
     }
 
 }
