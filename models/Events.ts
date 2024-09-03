@@ -20,7 +20,7 @@ export class Events {
     'image': string;
     'date': Date;
     'price': number;
-    'numberOfTickets': number;
+    'noOfTickets': number;
     'description': string;
     'location': Location;
     'owner': UserDetails;
@@ -61,8 +61,8 @@ export class Events {
             "format": ""
         },
         {
-            "name": "numberOfTickets",
-            "baseName": "numberOfTickets",
+            "name": "noOfTickets",
+            "baseName": "noOfTickets",
             "type": "number",
             "format": ""
         },
