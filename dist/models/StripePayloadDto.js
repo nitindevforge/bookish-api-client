@@ -16,8 +16,8 @@ var StripePayloadDto = (function () {
             "format": ""
         },
         {
-            "name": "eventId",
-            "baseName": "eventId",
+            "name": "event",
+            "baseName": "event",
             "type": "string",
             "format": ""
         }

@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class StripePayloadDto {
     'amount': number;
-    'eventId': string;
+    'event': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -26,8 +26,8 @@ export class StripePayloadDto {
             "format": ""
         },
         {
-            "name": "eventId",
-            "baseName": "eventId",
+            "name": "event",
+            "baseName": "event",
             "type": "string",
             "format": ""
         }    ];
