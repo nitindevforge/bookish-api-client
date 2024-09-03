@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { Book } from '../models/Book';
 import { Events } from '../models/Events';
 import { Location } from '../models/Location';
 import { UserDetails } from '../models/UserDetails';
@@ -18,6 +19,7 @@ import { HttpFile } from '../http/http';
 export class MetaResponse {
     'userId': UserDetails;
     'eventId': Events;
+    'bookId': Book;
     'location': Location;
 
     static readonly discriminator: string | undefined = undefined;
@@ -33,6 +35,12 @@ export class MetaResponse {
             "name": "eventId",
             "baseName": "eventId",
             "type": "Events",
+            "format": ""
+        },
+        {
+            "name": "bookId",
+            "baseName": "bookId",
+            "type": "Book",
             "format": ""
         },
         {

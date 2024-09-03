@@ -22,6 +22,12 @@ var MetaResponse = (function () {
             "format": ""
         },
         {
+            "name": "bookId",
+            "baseName": "bookId",
+            "type": "Book",
+            "format": ""
+        },
+        {
             "name": "location",
             "baseName": "location",
             "type": "Location",
