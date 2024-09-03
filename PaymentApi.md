@@ -85,6 +85,7 @@ let body:.PaymentApiPaymentControllerCreatePaymentIntentRequest = {
   // StripePayloadDto
   stripePayloadDto: {
     amount: 3.14,
+    eventId: "eventId_example",
   },
 };
 
