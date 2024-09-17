@@ -18,6 +18,7 @@ export * from '../models/CardListResponseDto';
 export * from '../models/CardNetwork';
 export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
+export * from '../models/EventDeleteResponseDto';
 export * from '../models/EventPayloadDto';
 export * from '../models/EventResponseDto';
 export * from '../models/Events';

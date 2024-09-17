@@ -168,6 +168,12 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
+    ObjectEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerDeleteEventWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerDeleteEvent = function (param, options) {
+        return this.api.eventControllerDeleteEvent(param.id, options).toPromise();
+    };
     ObjectEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, options).toPromise();
     };

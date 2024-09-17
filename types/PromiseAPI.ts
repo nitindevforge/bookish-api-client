@@ -21,6 +21,7 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
@@ -521,6 +522,22 @@ export class PromiseEventsApi {
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public eventControllerDeleteEventWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>> {
+        const result = this.api.eventControllerDeleteEventWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id 
+     */
+    public eventControllerDeleteEvent(id: string, _options?: Configuration): Promise<EventDeleteResponseDto> {
+        const result = this.api.eventControllerDeleteEvent(id, _options);
         return result.toPromise();
     }
 

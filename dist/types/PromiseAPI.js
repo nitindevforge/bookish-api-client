@@ -206,6 +206,14 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (id, _options) {
+        var result = this.api.eventControllerDeleteEventWithHttpInfo(id, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerDeleteEvent = function (id, _options) {
+        var result = this.api.eventControllerDeleteEvent(id, _options);
+        return result.toPromise();
+    };
     PromiseEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, _options) {
         var result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
         return result.toPromise();

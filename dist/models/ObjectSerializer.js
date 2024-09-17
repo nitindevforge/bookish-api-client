@@ -35,6 +35,7 @@ __exportStar(require("../models/CardListResponseDto"), exports);
 __exportStar(require("../models/CardNetwork"), exports);
 __exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/EventDeleteResponseDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
@@ -109,6 +110,7 @@ var CardListResponseDto_1 = require("../models/CardListResponseDto");
 var CardNetwork_1 = require("../models/CardNetwork");
 var CardSecure_1 = require("../models/CardSecure");
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var EventDeleteResponseDto_1 = require("../models/EventDeleteResponseDto");
 var EventPayloadDto_1 = require("../models/EventPayloadDto");
 var EventResponseDto_1 = require("../models/EventResponseDto");
 var Events_1 = require("../models/Events");
@@ -195,6 +197,7 @@ var typeMap = {
     "CardNetwork": CardNetwork_1.CardNetwork,
     "CardSecure": CardSecure_1.CardSecure,
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "EventDeleteResponseDto": EventDeleteResponseDto_1.EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto_1.EventPayloadDto,
     "EventResponseDto": EventResponseDto_1.EventResponseDto,
     "Events": Events_1.Events,

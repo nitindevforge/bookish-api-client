@@ -45,6 +45,7 @@ models/CardListResponseDto.ts
 models/CardNetwork.ts
 models/CardSecure.ts
 models/ChangePayloadDto.ts
+models/EventDeleteResponseDto.ts
 models/EventPayloadDto.ts
 models/EventResponseDto.ts
 models/Events.ts

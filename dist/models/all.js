@@ -34,6 +34,7 @@ __exportStar(require("../models/CardListResponseDto"), exports);
 __exportStar(require("../models/CardNetwork"), exports);
 __exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/EventDeleteResponseDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
