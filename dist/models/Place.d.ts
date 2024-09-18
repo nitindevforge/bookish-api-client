@@ -1,12 +1,6 @@
-export declare class EventPayloadDto {
-    'title': string;
-    'image': string;
-    'date': Date;
-    'price': number;
-    'noOfTickets': number;
-    'description': string;
-    'placeId': string;
-    'id'?: string;
+export declare class Place {
+    'label': string;
+    'value': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

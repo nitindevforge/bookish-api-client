@@ -64,6 +64,7 @@ models/FriendsResponseDto.ts
 models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/Location.ts
+models/LocationPlacesResponseDto.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts
 models/MyAllFriendsResponseDto.ts
@@ -80,6 +81,7 @@ models/PaymentPayloadDto.ts
 models/PaymentResponse.ts
 models/PaymentResponseDto.ts
 models/PermissionResponseDto.ts
+models/Place.ts
 models/Rating.ts
 models/Review.ts
 models/RoleResponseDto.ts

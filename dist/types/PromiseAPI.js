@@ -230,6 +230,14 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindEvents(page, limit, _options);
         return result.toPromise();
     };
+    PromiseEventsApi.prototype.eventControllerFindLocationWithHttpInfo = function (place, _options) {
+        var result = this.api.eventControllerFindLocationWithHttpInfo(place, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindLocation = function (place, _options) {
+        var result = this.api.eventControllerFindLocation(place, _options);
+        return result.toPromise();
+    };
     PromiseEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
         var result = this.api.eventControllerFindMyEventWithHttpInfo(eventId, _options);
         return result.toPromise();

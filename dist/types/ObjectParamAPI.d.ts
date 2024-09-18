@@ -19,6 +19,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
@@ -186,6 +187,9 @@ export interface EventsApiEventControllerFindEventsRequest {
     page: number;
     limit?: number;
 }
+export interface EventsApiEventControllerFindLocationRequest {
+    place: string;
+}
 export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;
 }
@@ -208,6 +212,8 @@ export declare class ObjectEventsApi {
     eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerFindLocationWithHttpInfo(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocation(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;

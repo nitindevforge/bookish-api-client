@@ -41,6 +41,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -56,6 +57,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Place } from '../models/Place';
 import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -899,6 +901,35 @@ export class ObservableEventsApi {
      */
     public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto> {
         return this.eventControllerFindEventsWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param place 
+     */
+    public eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindLocation(place, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerFindLocationWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param place 
+     */
+    public eventControllerFindLocation(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto> {
+        return this.eventControllerFindLocationWithHttpInfo(place, _options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
     }
 
     /**

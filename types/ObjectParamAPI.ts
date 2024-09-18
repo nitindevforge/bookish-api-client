@@ -40,6 +40,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -55,6 +56,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Place } from '../models/Place';
 import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -719,6 +721,15 @@ export interface EventsApiEventControllerFindEventsRequest {
     limit?: number
 }
 
+export interface EventsApiEventControllerFindLocationRequest {
+    /**
+     * 
+     * @type string
+     * @memberof EventsApieventControllerFindLocation
+     */
+    place: string
+}
+
 export interface EventsApiEventControllerFindMyEventRequest {
     /**
      * 
@@ -819,6 +830,20 @@ export class ObjectEventsApi {
      */
     public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
         return this.api.eventControllerFindEvents(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindLocationWithHttpInfo(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        return this.api.eventControllerFindLocationWithHttpInfo(param.place,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindLocation(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
+        return this.api.eventControllerFindLocation(param.place,  options).toPromise();
     }
 
     /**

@@ -54,6 +54,7 @@ __exportStar(require("../models/FriendsResponseDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/Location"), exports);
+__exportStar(require("../models/LocationPlacesResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
 __exportStar(require("../models/MyAllFriendsResponseDto"), exports);
@@ -69,6 +70,7 @@ __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
+__exportStar(require("../models/Place"), exports);
 __exportStar(require("../models/Rating"), exports);
 __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
@@ -129,6 +131,7 @@ var FriendsResponseDto_1 = require("../models/FriendsResponseDto");
 var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var Location_1 = require("../models/Location");
+var LocationPlacesResponseDto_1 = require("../models/LocationPlacesResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var MetaResponse_1 = require("../models/MetaResponse");
 var MyAllFriendsResponseDto_1 = require("../models/MyAllFriendsResponseDto");
@@ -144,6 +147,7 @@ var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PaymentResponse_1 = require("../models/PaymentResponse");
 var PaymentResponseDto_1 = require("../models/PaymentResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
+var Place_1 = require("../models/Place");
 var Rating_1 = require("../models/Rating");
 var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
@@ -216,6 +220,7 @@ var typeMap = {
     "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "Location": Location_1.Location,
+    "LocationPlacesResponseDto": LocationPlacesResponseDto_1.LocationPlacesResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "MetaResponse": MetaResponse_1.MetaResponse,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto_1.MyAllFriendsResponseDto,
@@ -231,6 +236,7 @@ var typeMap = {
     "PaymentResponse": PaymentResponse_1.PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto_1.PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
+    "Place": Place_1.Place,
     "Rating": Rating_1.Rating,
     "Review": Review_1.Review,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,

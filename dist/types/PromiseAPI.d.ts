@@ -19,6 +19,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
@@ -108,6 +109,8 @@ export declare class PromiseEventsApi {
     eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto>;
+    eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocation(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;

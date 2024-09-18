@@ -40,6 +40,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -55,6 +56,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Place } from '../models/Place';
 import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -572,6 +574,22 @@ export class PromiseEventsApi {
      */
     public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
         const result = this.api.eventControllerFindEvents(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param place 
+     */
+    public eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        const result = this.api.eventControllerFindLocationWithHttpInfo(place, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param place 
+     */
+    public eventControllerFindLocation(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto> {
+        const result = this.api.eventControllerFindLocation(place, _options);
         return result.toPromise();
     }
 

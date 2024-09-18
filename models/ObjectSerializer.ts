@@ -37,6 +37,7 @@ export * from '../models/FriendsResponseDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/Location';
+export * from '../models/LocationPlacesResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
 export * from '../models/MyAllFriendsResponseDto';
@@ -52,6 +53,7 @@ export * from '../models/PaymentPayloadDto';
 export * from '../models/PaymentResponse';
 export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
+export * from '../models/Place';
 export * from '../models/Rating';
 export * from '../models/Review';
 export * from '../models/RoleResponseDto';
@@ -113,6 +115,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -128,6 +131,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
+import { Place } from '../models/Place';
 import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -205,6 +209,7 @@ let typeMap: {[index: string]: any} = {
     "InterestsPayloadDto": InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto,
     "Location": Location,
+    "LocationPlacesResponseDto": LocationPlacesResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto,
@@ -220,6 +225,7 @@ let typeMap: {[index: string]: any} = {
     "PaymentResponse": PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
+    "Place": Place,
     "Rating": Rating,
     "Review": Review,
     "RoleResponseDto": RoleResponseDto,

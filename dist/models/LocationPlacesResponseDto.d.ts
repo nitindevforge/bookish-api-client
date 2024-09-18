@@ -1,12 +1,7 @@
-export declare class EventPayloadDto {
-    'title': string;
-    'image': string;
-    'date': Date;
-    'price': number;
-    'noOfTickets': number;
-    'description': string;
-    'placeId': string;
-    'id'?: string;
+import { Place } from '../models/Place';
+export declare class LocationPlacesResponseDto {
+    'data': Array<Place>;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

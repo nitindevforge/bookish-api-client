@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
+[**eventControllerFindLocation**](EventsApi.md#eventControllerFindLocation) | **GET** /v1/location | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
 [**eventControllerFindMyUpcomingEvents**](EventsApi.md#eventControllerFindMyUpcomingEvents) | **GET** /v1/upcoming/events | 
 [**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
@@ -36,12 +37,7 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",
-    location: {
-      type: "type_example",
-      coordinates: [
-        3.14,
-      ],
-    },
+    placeId: "placeId_example",
     id: "id_example",
   },
 };
@@ -246,6 +242,60 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **eventControllerFindLocation**
+> LocationPlacesResponseDto eventControllerFindLocation()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerFindLocationRequest = {
+  // string
+  place: "place_example",
+};
+
+apiInstance.eventControllerFindLocation(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **place** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**LocationPlacesResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **eventControllerFindMyEvent**
 > MyEventResponseDto eventControllerFindMyEvent()
 
@@ -383,12 +433,7 @@ let body:.EventsApiEventControllerUpdateEventRequest = {
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",
-    location: {
-      type: "type_example",
-      coordinates: [
-        3.14,
-      ],
-    },
+    placeId: "placeId_example",
     id: "id_example",
   },
 };
