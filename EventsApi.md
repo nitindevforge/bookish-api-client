@@ -8,9 +8,9 @@ Method | HTTP request | Description
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
-[**eventControllerFindLocationPlaces**](EventsApi.md#eventControllerFindLocationPlaces) | **POST** /v1/location | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
 [**eventControllerFindMyUpcomingEvents**](EventsApi.md#eventControllerFindMyUpcomingEvents) | **GET** /v1/upcoming/events | 
+[**eventControllerFindSearchPlaces**](EventsApi.md#eventControllerFindSearchPlaces) | **POST** /v1/search-places | 
 [**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
 
 
@@ -242,62 +242,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **eventControllerFindLocationPlaces**
-> LocationPlacesResponseDto eventControllerFindLocationPlaces(locationPayloadDto)
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
-
-let body:.EventsApiEventControllerFindLocationPlacesRequest = {
-  // LocationPayloadDto
-  locationPayloadDto: {
-    place: "place_example",
-  },
-};
-
-apiInstance.eventControllerFindLocationPlaces(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **locationPayloadDto** | **LocationPayloadDto**|  |
-
-
-### Return type
-
-**LocationPlacesResponseDto**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **eventControllerFindMyEvent**
 > MyEventResponseDto eventControllerFindMyEvent()
 
@@ -401,6 +345,62 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerFindSearchPlaces**
+> LocationPlacesResponseDto eventControllerFindSearchPlaces(locationPayloadDto)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerFindSearchPlacesRequest = {
+  // LocationPayloadDto
+  locationPayloadDto: {
+    place: "place_example",
+  },
+};
+
+apiInstance.eventControllerFindSearchPlaces(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **locationPayloadDto** | **LocationPayloadDto**|  |
+
+
+### Return type
+
+**LocationPlacesResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

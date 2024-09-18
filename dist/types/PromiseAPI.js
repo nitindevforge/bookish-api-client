@@ -230,14 +230,6 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindEvents(page, limit, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindLocationPlacesWithHttpInfo = function (locationPayloadDto, _options) {
-        var result = this.api.eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto, _options);
-        return result.toPromise();
-    };
-    PromiseEventsApi.prototype.eventControllerFindLocationPlaces = function (locationPayloadDto, _options) {
-        var result = this.api.eventControllerFindLocationPlaces(locationPayloadDto, _options);
-        return result.toPromise();
-    };
     PromiseEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
         var result = this.api.eventControllerFindMyEventWithHttpInfo(eventId, _options);
         return result.toPromise();
@@ -252,6 +244,14 @@ var PromiseEventsApi = (function () {
     };
     PromiseEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, type, _options) {
         var result = this.api.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindSearchPlacesWithHttpInfo = function (locationPayloadDto, _options) {
+        var result = this.api.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseEventsApi.prototype.eventControllerFindSearchPlaces = function (locationPayloadDto, _options) {
+        var result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (eventPayloadDto, _options) {

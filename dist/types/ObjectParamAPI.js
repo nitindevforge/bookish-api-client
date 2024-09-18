@@ -186,12 +186,6 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerFindEvents = function (param, options) {
         return this.api.eventControllerFindEvents(param.page, param.limit, options).toPromise();
     };
-    ObjectEventsApi.prototype.eventControllerFindLocationPlacesWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.locationPayloadDto, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerFindLocationPlaces = function (param, options) {
-        return this.api.eventControllerFindLocationPlaces(param.locationPayloadDto, options).toPromise();
-    };
     ObjectEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId, options).toPromise();
     };
@@ -203,6 +197,12 @@ var ObjectEventsApi = (function () {
     };
     ObjectEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (param, options) {
         return this.api.eventControllerFindMyUpcomingEvents(param.page, param.limit, param.type, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindSearchPlacesWithHttpInfo = function (param, options) {
+        return this.api.eventControllerFindSearchPlacesWithHttpInfo(param.locationPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindSearchPlaces = function (param, options) {
+        return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();

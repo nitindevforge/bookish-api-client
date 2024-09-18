@@ -579,22 +579,6 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param locationPayloadDto 
-     */
-    public eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
-        const result = this.api.eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param locationPayloadDto 
-     */
-    public eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto> {
-        const result = this.api.eventControllerFindLocationPlaces(locationPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
      * @param eventId 
      */
     public eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
@@ -627,6 +611,22 @@ export class PromiseEventsApi {
      */
     public eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto> {
         const result = this.api.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param locationPayloadDto 
+     */
+    public eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        const result = this.api.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param locationPayloadDto 
+     */
+    public eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto> {
+        const result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
         return result.toPromise();
     }
 

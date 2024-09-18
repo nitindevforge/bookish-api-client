@@ -722,15 +722,6 @@ export interface EventsApiEventControllerFindEventsRequest {
     limit?: number
 }
 
-export interface EventsApiEventControllerFindLocationPlacesRequest {
-    /**
-     * 
-     * @type LocationPayloadDto
-     * @memberof EventsApieventControllerFindLocationPlaces
-     */
-    locationPayloadDto: LocationPayloadDto
-}
-
 export interface EventsApiEventControllerFindMyEventRequest {
     /**
      * 
@@ -759,6 +750,15 @@ export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
     type: 'UPCOMING' | 'VISITED'
+}
+
+export interface EventsApiEventControllerFindSearchPlacesRequest {
+    /**
+     * 
+     * @type LocationPayloadDto
+     * @memberof EventsApieventControllerFindSearchPlaces
+     */
+    locationPayloadDto: LocationPayloadDto
 }
 
 export interface EventsApiEventControllerUpdateEventRequest {
@@ -836,20 +836,6 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerFindLocationPlacesWithHttpInfo(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
-        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.locationPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public eventControllerFindLocationPlaces(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
-        return this.api.eventControllerFindLocationPlaces(param.locationPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
     public eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId,  options).toPromise();
     }
@@ -873,6 +859,20 @@ export class ObjectEventsApi {
      */
     public eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
         return this.api.eventControllerFindMyUpcomingEvents(param.page, param.limit, param.type,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindSearchPlacesWithHttpInfo(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        return this.api.eventControllerFindSearchPlacesWithHttpInfo(param.locationPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
+        return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto,  options).toPromise();
     }
 
     /**

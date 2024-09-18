@@ -14,9 +14,9 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerDeleteEvent(id: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindEventById(id: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
-    eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
+    eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;
     eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class EventsApiResponseProcessor {
@@ -24,8 +24,8 @@ export declare class EventsApiResponseProcessor {
     eventControllerDeleteEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventDeleteResponseDto>>;
     eventControllerFindEventByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
     eventControllerFindEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventsResponseDto>>;
-    eventControllerFindLocationPlacesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindMyEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventsResponseDto>>;
+    eventControllerFindSearchPlacesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerUpdateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
 }
