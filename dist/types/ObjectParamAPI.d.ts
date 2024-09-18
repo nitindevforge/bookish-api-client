@@ -19,6 +19,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -188,7 +189,7 @@ export interface EventsApiEventControllerFindEventsRequest {
     limit?: number;
 }
 export interface EventsApiEventControllerFindLocationPlacesRequest {
-    place: string;
+    locationPayloadDto: LocationPayloadDto;
 }
 export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;

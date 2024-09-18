@@ -208,23 +208,26 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindLocationPlaces = function (place, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindLocationPlaces = function (locationPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (place === null || place === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindLocationPlaces", "place");
+                        if (locationPayloadDto === null || locationPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindLocationPlaces", "locationPayloadDto");
                         }
                         localVarPath = '/v1/location';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        if (place !== undefined) {
-                            requestContext.setQueryParam("place", ObjectSerializer_1.ObjectSerializer.serialize(place, "string", ""));
-                        }
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(locationPayloadDto, "LocationPayloadDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];

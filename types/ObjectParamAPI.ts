@@ -40,6 +40,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
@@ -724,10 +725,10 @@ export interface EventsApiEventControllerFindEventsRequest {
 export interface EventsApiEventControllerFindLocationPlacesRequest {
     /**
      * 
-     * @type string
+     * @type LocationPayloadDto
      * @memberof EventsApieventControllerFindLocationPlaces
      */
-    place: string
+    locationPayloadDto: LocationPayloadDto
 }
 
 export interface EventsApiEventControllerFindMyEventRequest {
@@ -836,14 +837,14 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerFindLocationPlacesWithHttpInfo(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
-        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.place,  options).toPromise();
+        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.locationPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerFindLocationPlaces(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
-        return this.api.eventControllerFindLocationPlaces(param.place,  options).toPromise();
+        return this.api.eventControllerFindLocationPlaces(param.locationPayloadDto,  options).toPromise();
     }
 
     /**

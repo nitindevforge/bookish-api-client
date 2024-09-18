@@ -41,6 +41,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
@@ -904,10 +905,10 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param place 
+     * @param locationPayloadDto 
      */
-    public eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindLocationPlaces(place, _options);
+    public eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindLocationPlaces(locationPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -926,10 +927,10 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param place 
+     * @param locationPayloadDto 
      */
-    public eventControllerFindLocationPlaces(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto> {
-        return this.eventControllerFindLocationPlacesWithHttpInfo(place, _options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
+    public eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<LocationPlacesResponseDto> {
+        return this.eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto, _options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
     }
 
     /**

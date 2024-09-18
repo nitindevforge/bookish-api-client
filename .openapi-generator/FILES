@@ -64,6 +64,7 @@ models/FriendsResponseDto.ts
 models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/Location.ts
+models/LocationPayloadDto.ts
 models/LocationPlacesResponseDto.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts

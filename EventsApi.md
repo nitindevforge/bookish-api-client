@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **eventControllerFindLocationPlaces**
-> LocationPlacesResponseDto eventControllerFindLocationPlaces()
+> LocationPlacesResponseDto eventControllerFindLocationPlaces(locationPayloadDto)
 
 
 ### Example
@@ -257,8 +257,10 @@ const configuration = .createConfiguration();
 const apiInstance = new .EventsApi(configuration);
 
 let body:.EventsApiEventControllerFindLocationPlacesRequest = {
-  // string
-  place: "place_example",
+  // LocationPayloadDto
+  locationPayloadDto: {
+    place: "place_example",
+  },
 };
 
 apiInstance.eventControllerFindLocationPlaces(body).then((data:any) => {
@@ -271,7 +273,7 @@ apiInstance.eventControllerFindLocationPlaces(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **place** | [**string**] |  | defaults to undefined
+ **locationPayloadDto** | **LocationPayloadDto**|  |
 
 
 ### Return type
@@ -284,7 +286,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

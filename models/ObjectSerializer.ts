@@ -37,6 +37,7 @@ export * from '../models/FriendsResponseDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/Location';
+export * from '../models/LocationPayloadDto';
 export * from '../models/LocationPlacesResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
@@ -115,6 +116,7 @@ import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
@@ -209,6 +211,7 @@ let typeMap: {[index: string]: any} = {
     "InterestsPayloadDto": InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto,
     "Location": Location,
+    "LocationPayloadDto": LocationPayloadDto,
     "LocationPlacesResponseDto": LocationPlacesResponseDto,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,

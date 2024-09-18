@@ -5,6 +5,7 @@ import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
@@ -13,7 +14,7 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerDeleteEvent(id: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindEventById(id: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
-    eventControllerFindLocationPlaces(place: string, _options?: Configuration): Promise<RequestContext>;
+    eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
     eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;

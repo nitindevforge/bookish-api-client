@@ -20,6 +20,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -118,8 +119,8 @@ export declare class ObservableEventsApi {
     eventControllerFindEventById(id: string, _options?: Configuration): Observable<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto>;
-    eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>>;
-    eventControllerFindLocationPlaces(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto>;
+    eventControllerFindLocationPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Observable<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>>;

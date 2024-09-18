@@ -12,6 +12,7 @@ import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
@@ -195,14 +196,14 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param place 
+     * @param locationPayloadDto 
      */
-    public async eventControllerFindLocationPlaces(place: string, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindLocationPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'place' is not null or undefined
-        if (place === null || place === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerFindLocationPlaces", "place");
+        // verify required parameter 'locationPayloadDto' is not null or undefined
+        if (locationPayloadDto === null || locationPayloadDto === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerFindLocationPlaces", "locationPayloadDto");
         }
 
 
@@ -213,11 +214,17 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Query Params
-        if (place !== undefined) {
-            requestContext.setQueryParam("place", ObjectSerializer.serialize(place, "string", ""));
-        }
 
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(locationPayloadDto, "LocationPayloadDto", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

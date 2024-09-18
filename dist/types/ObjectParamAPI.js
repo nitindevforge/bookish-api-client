@@ -187,10 +187,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerFindEvents(param.page, param.limit, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindLocationPlacesWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.place, options).toPromise();
+        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.locationPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindLocationPlaces = function (param, options) {
-        return this.api.eventControllerFindLocationPlaces(param.place, options).toPromise();
+        return this.api.eventControllerFindLocationPlaces(param.locationPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId, options).toPromise();

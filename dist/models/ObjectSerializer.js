@@ -54,6 +54,7 @@ __exportStar(require("../models/FriendsResponseDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/Location"), exports);
+__exportStar(require("../models/LocationPayloadDto"), exports);
 __exportStar(require("../models/LocationPlacesResponseDto"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
@@ -131,6 +132,7 @@ var FriendsResponseDto_1 = require("../models/FriendsResponseDto");
 var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var Location_1 = require("../models/Location");
+var LocationPayloadDto_1 = require("../models/LocationPayloadDto");
 var LocationPlacesResponseDto_1 = require("../models/LocationPlacesResponseDto");
 var LoginPayloadDto_1 = require("../models/LoginPayloadDto");
 var MetaResponse_1 = require("../models/MetaResponse");
@@ -220,6 +222,7 @@ var typeMap = {
     "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "Location": Location_1.Location,
+    "LocationPayloadDto": LocationPayloadDto_1.LocationPayloadDto,
     "LocationPlacesResponseDto": LocationPlacesResponseDto_1.LocationPlacesResponseDto,
     "LoginPayloadDto": LoginPayloadDto_1.LoginPayloadDto,
     "MetaResponse": MetaResponse_1.MetaResponse,

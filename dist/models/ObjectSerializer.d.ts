@@ -37,6 +37,7 @@ export * from '../models/FriendsResponseDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/Location';
+export * from '../models/LocationPayloadDto';
 export * from '../models/LocationPlacesResponseDto';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
