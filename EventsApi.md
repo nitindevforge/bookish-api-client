@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
-[**eventControllerFindLocation**](EventsApi.md#eventControllerFindLocation) | **GET** /v1/location | 
+[**eventControllerFindLocationPlaces**](EventsApi.md#eventControllerFindLocationPlaces) | **POST** /v1/location | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
 [**eventControllerFindMyUpcomingEvents**](EventsApi.md#eventControllerFindMyUpcomingEvents) | **GET** /v1/upcoming/events | 
 [**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
@@ -242,8 +242,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **eventControllerFindLocation**
-> LocationPlacesResponseDto eventControllerFindLocation()
+# **eventControllerFindLocationPlaces**
+> LocationPlacesResponseDto eventControllerFindLocationPlaces()
 
 
 ### Example
@@ -256,12 +256,12 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindLocationRequest = {
+let body:.EventsApiEventControllerFindLocationPlacesRequest = {
   // string
   place: "place_example",
 };
 
-apiInstance.eventControllerFindLocation(body).then((data:any) => {
+apiInstance.eventControllerFindLocationPlaces(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

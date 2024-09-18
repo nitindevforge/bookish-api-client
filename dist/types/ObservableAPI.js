@@ -715,9 +715,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerFindEvents = function (page, limit, _options) {
         return this.eventControllerFindEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindLocationWithHttpInfo = function (place, _options) {
+    ObservableEventsApi.prototype.eventControllerFindLocationPlacesWithHttpInfo = function (place, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindLocation(place, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindLocationPlaces(place, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_51 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -736,11 +736,11 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_52(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindLocationWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindLocationPlacesWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindLocation = function (place, _options) {
-        return this.eventControllerFindLocationWithHttpInfo(place, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindLocationPlaces = function (place, _options) {
+        return this.eventControllerFindLocationPlacesWithHttpInfo(place, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
         var _this = this;

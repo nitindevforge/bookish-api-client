@@ -109,8 +109,8 @@ export declare class PromiseEventsApi {
     eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto>;
-    eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
-    eventControllerFindLocation(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto>;
+    eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocationPlaces(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;

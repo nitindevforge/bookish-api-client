@@ -721,11 +721,11 @@ export interface EventsApiEventControllerFindEventsRequest {
     limit?: number
 }
 
-export interface EventsApiEventControllerFindLocationRequest {
+export interface EventsApiEventControllerFindLocationPlacesRequest {
     /**
      * 
      * @type string
-     * @memberof EventsApieventControllerFindLocation
+     * @memberof EventsApieventControllerFindLocationPlaces
      */
     place: string
 }
@@ -835,15 +835,15 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerFindLocationWithHttpInfo(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
-        return this.api.eventControllerFindLocationWithHttpInfo(param.place,  options).toPromise();
+    public eventControllerFindLocationPlacesWithHttpInfo(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        return this.api.eventControllerFindLocationPlacesWithHttpInfo(param.place,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindLocation(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
-        return this.api.eventControllerFindLocation(param.place,  options).toPromise();
+    public eventControllerFindLocationPlaces(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
+        return this.api.eventControllerFindLocationPlaces(param.place,  options).toPromise();
     }
 
     /**

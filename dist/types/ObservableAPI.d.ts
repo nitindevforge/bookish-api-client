@@ -118,8 +118,8 @@ export declare class ObservableEventsApi {
     eventControllerFindEventById(id: string, _options?: Configuration): Observable<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Observable<EventsResponseDto>;
-    eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>>;
-    eventControllerFindLocation(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto>;
+    eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocationPlaces(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Observable<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Observable<HttpInfo<MyEventsResponseDto>>;

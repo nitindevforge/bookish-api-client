@@ -197,12 +197,12 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param place 
      */
-    public async eventControllerFindLocation(place: string, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindLocationPlaces(place: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'place' is not null or undefined
         if (place === null || place === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerFindLocation", "place");
+            throw new RequiredError("EventsApi", "eventControllerFindLocationPlaces", "place");
         }
 
 
@@ -210,7 +210,7 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         const localVarPath = '/v1/location';
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
@@ -520,10 +520,10 @@ export class EventsApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to eventControllerFindLocation
+     * @params response Response returned by the server for a request to eventControllerFindLocationPlaces
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async eventControllerFindLocationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LocationPlacesResponseDto >> {
+     public async eventControllerFindLocationPlacesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LocationPlacesResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: LocationPlacesResponseDto = ObjectSerializer.deserialize(

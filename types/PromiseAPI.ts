@@ -580,16 +580,16 @@ export class PromiseEventsApi {
     /**
      * @param place 
      */
-    public eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
-        const result = this.api.eventControllerFindLocationWithHttpInfo(place, _options);
+    public eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        const result = this.api.eventControllerFindLocationPlacesWithHttpInfo(place, _options);
         return result.toPromise();
     }
 
     /**
      * @param place 
      */
-    public eventControllerFindLocation(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto> {
-        const result = this.api.eventControllerFindLocation(place, _options);
+    public eventControllerFindLocationPlaces(place: string, _options?: Configuration): Promise<LocationPlacesResponseDto> {
+        const result = this.api.eventControllerFindLocationPlaces(place, _options);
         return result.toPromise();
     }
 

@@ -1,6 +1,6 @@
 {
   "name": "@nitin2912/bookish-api-client",
-  "version": "7.9.4",
+  "version": "7.9.5",
   "description": "OpenAPI client for ",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
@@ -40,4 +40,5 @@
     "url": "https://github.com/nitindevforge/bookish-api-client/issues"
   },
   "homepage": "https://github.com/nitindevforge/bookish-api-client#readme"
+
 }

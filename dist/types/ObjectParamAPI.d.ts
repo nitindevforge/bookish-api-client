@@ -187,7 +187,7 @@ export interface EventsApiEventControllerFindEventsRequest {
     page: number;
     limit?: number;
 }
-export interface EventsApiEventControllerFindLocationRequest {
+export interface EventsApiEventControllerFindLocationPlacesRequest {
     place: string;
 }
 export interface EventsApiEventControllerFindMyEventRequest {
@@ -212,8 +212,8 @@ export declare class ObjectEventsApi {
     eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;
     eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto>;
-    eventControllerFindLocationWithHttpInfo(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
-    eventControllerFindLocation(param: EventsApiEventControllerFindLocationRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
+    eventControllerFindLocationPlacesWithHttpInfo(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
+    eventControllerFindLocationPlaces(param: EventsApiEventControllerFindLocationPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
     eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>>;

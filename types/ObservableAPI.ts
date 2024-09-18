@@ -906,8 +906,8 @@ export class ObservableEventsApi {
     /**
      * @param place 
      */
-    public eventControllerFindLocationWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindLocation(place, _options);
+    public eventControllerFindLocationPlacesWithHttpInfo(place: string, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindLocationPlaces(place, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -921,15 +921,15 @@ export class ObservableEventsApi {
                 for (let middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerFindLocationWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerFindLocationPlacesWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param place 
      */
-    public eventControllerFindLocation(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto> {
-        return this.eventControllerFindLocationWithHttpInfo(place, _options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
+    public eventControllerFindLocationPlaces(place: string, _options?: Configuration): Observable<LocationPlacesResponseDto> {
+        return this.eventControllerFindLocationPlacesWithHttpInfo(place, _options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
     }
 
     /**

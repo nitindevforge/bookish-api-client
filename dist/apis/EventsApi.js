@@ -208,7 +208,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindLocation = function (place, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindLocationPlaces = function (place, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -217,10 +217,10 @@ var EventsApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (place === null || place === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindLocation", "place");
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindLocationPlaces", "place");
                         }
                         localVarPath = '/v1/location';
-                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (place !== undefined) {
                             requestContext.setQueryParam("place", ObjectSerializer_1.ObjectSerializer.serialize(place, "string", ""));
@@ -513,7 +513,7 @@ var EventsApiResponseProcessor = (function () {
             });
         });
     };
-    EventsApiResponseProcessor.prototype.eventControllerFindLocationWithHttpInfo = function (response) {
+    EventsApiResponseProcessor.prototype.eventControllerFindLocationPlacesWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {
