@@ -11,6 +11,7 @@
  */
 
 import { Location } from '../models/Location';
+import { Place } from '../models/Place';
 import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
@@ -21,6 +22,7 @@ export class Events {
     'date': Date;
     'price': number;
     'noOfTickets': number;
+    'place': Place;
     'description': string;
     'location': Location;
     'owner': UserDetails;
@@ -64,6 +66,12 @@ export class Events {
             "name": "noOfTickets",
             "baseName": "noOfTickets",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "place",
+            "baseName": "place",
+            "type": "Place",
             "format": ""
         },
         {

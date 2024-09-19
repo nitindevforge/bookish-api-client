@@ -1,4 +1,5 @@
 import { Location } from '../models/Location';
+import { Place } from '../models/Place';
 import { UserDetails } from '../models/UserDetails';
 export declare class Events {
     'id': string;
@@ -7,6 +8,7 @@ export declare class Events {
     'date': Date;
     'price': number;
     'noOfTickets': number;
+    'place': Place;
     'description': string;
     'location': Location;
     'owner': UserDetails;
