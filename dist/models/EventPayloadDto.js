@@ -48,7 +48,7 @@ var EventPayloadDto = (function () {
         {
             "name": "place",
             "baseName": "place",
-            "type": "Place",
+            "type": "Places",
             "format": ""
         },
         {

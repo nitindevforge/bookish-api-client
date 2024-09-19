@@ -82,7 +82,7 @@ models/PaymentPayloadDto.ts
 models/PaymentResponse.ts
 models/PaymentResponseDto.ts
 models/PermissionResponseDto.ts
-models/Place.ts
+models/Places.ts
 models/Rating.ts
 models/Review.ts
 models/RoleResponseDto.ts

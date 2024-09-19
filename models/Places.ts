@@ -10,31 +10,30 @@
  * Do not edit the class manually.
  */
 
-import { Places } from '../models/Places';
 import { HttpFile } from '../http/http';
 
-export class LocationPlacesResponseDto {
-    'data': Array<Places>;
-    'isSuccess': boolean;
+export class Places {
+    'label': string;
+    'value': string;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "Array<Places>",
+            "name": "label",
+            "baseName": "label",
+            "type": "string",
             "format": ""
         },
         {
-            "name": "isSuccess",
-            "baseName": "isSuccess",
-            "type": "boolean",
+            "name": "value",
+            "baseName": "value",
+            "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return LocationPlacesResponseDto.attributeTypeMap;
+        return Places.attributeTypeMap;
     }
 
     public constructor() {

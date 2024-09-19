@@ -1,7 +1,6 @@
-import { Places } from '../models/Places';
-export declare class LocationPlacesResponseDto {
-    'data': Array<Places>;
-    'isSuccess': boolean;
+export declare class Places {
+    'label': string;
+    'value': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

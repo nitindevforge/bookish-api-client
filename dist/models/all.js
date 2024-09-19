@@ -70,7 +70,7 @@ __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
-__exportStar(require("../models/Place"), exports);
+__exportStar(require("../models/Places"), exports);
 __exportStar(require("../models/Rating"), exports);
 __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);

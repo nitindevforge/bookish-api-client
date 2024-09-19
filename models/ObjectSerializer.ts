@@ -54,7 +54,7 @@ export * from '../models/PaymentPayloadDto';
 export * from '../models/PaymentResponse';
 export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
-export * from '../models/Place';
+export * from '../models/Places';
 export * from '../models/Rating';
 export * from '../models/Review';
 export * from '../models/RoleResponseDto';
@@ -133,7 +133,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponse } from '../models/PaymentResponse';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
-import { Place } from '../models/Place';
+import { Places } from '../models/Places';
 import { Rating } from '../models/Rating';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
@@ -228,7 +228,7 @@ let typeMap: {[index: string]: any} = {
     "PaymentResponse": PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto,
-    "Place": Place,
+    "Places": Places,
     "Rating": Rating,
     "Review": Review,
     "RoleResponseDto": RoleResponseDto,

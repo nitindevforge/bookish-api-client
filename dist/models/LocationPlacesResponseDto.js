@@ -12,7 +12,7 @@ var LocationPlacesResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<Place>",
+            "type": "Array<Places>",
             "format": ""
         },
         {

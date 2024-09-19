@@ -48,7 +48,7 @@ var Events = (function () {
         {
             "name": "place",
             "baseName": "place",
-            "type": "Place",
+            "type": "Places",
             "format": ""
         },
         {

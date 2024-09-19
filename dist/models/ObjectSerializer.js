@@ -71,7 +71,7 @@ __exportStar(require("../models/PaymentPayloadDto"), exports);
 __exportStar(require("../models/PaymentResponse"), exports);
 __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
-__exportStar(require("../models/Place"), exports);
+__exportStar(require("../models/Places"), exports);
 __exportStar(require("../models/Rating"), exports);
 __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
@@ -149,7 +149,7 @@ var PaymentPayloadDto_1 = require("../models/PaymentPayloadDto");
 var PaymentResponse_1 = require("../models/PaymentResponse");
 var PaymentResponseDto_1 = require("../models/PaymentResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
-var Place_1 = require("../models/Place");
+var Places_1 = require("../models/Places");
 var Rating_1 = require("../models/Rating");
 var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
@@ -239,7 +239,7 @@ var typeMap = {
     "PaymentResponse": PaymentResponse_1.PaymentResponse,
     "PaymentResponseDto": PaymentResponseDto_1.PaymentResponseDto,
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
-    "Place": Place_1.Place,
+    "Places": Places_1.Places,
     "Rating": Rating_1.Rating,
     "Review": Review_1.Review,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,

@@ -1,4 +1,4 @@
-import { Place } from '../models/Place';
+import { Places } from '../models/Places';
 export declare class EventPayloadDto {
     'title': string;
     'image': string;
@@ -6,7 +6,7 @@ export declare class EventPayloadDto {
     'price': number;
     'noOfTickets': number;
     'description': string;
-    'place': Place;
+    'place': Places;
     'id'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

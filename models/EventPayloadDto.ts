@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { Place } from '../models/Place';
+import { Places } from '../models/Places';
 import { HttpFile } from '../http/http';
 
 export class EventPayloadDto {
@@ -20,7 +20,7 @@ export class EventPayloadDto {
     'price': number;
     'noOfTickets': number;
     'description': string;
-    'place': Place;
+    'place': Places;
     'id'?: string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -65,7 +65,7 @@ export class EventPayloadDto {
         {
             "name": "place",
             "baseName": "place",
-            "type": "Place",
+            "type": "Places",
             "format": ""
         },
         {
