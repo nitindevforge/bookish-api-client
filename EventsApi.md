@@ -37,7 +37,10 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",
-    placeId: "placeId_example",
+    place: {
+      label: "label_example",
+      value: "value_example",
+    },
     id: "id_example",
   },
 };
@@ -435,7 +438,10 @@ let body:.EventsApiEventControllerUpdateEventRequest = {
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",
-    placeId: "placeId_example",
+    place: {
+      label: "label_example",
+      value: "value_example",
+    },
     id: "id_example",
   },
 };
