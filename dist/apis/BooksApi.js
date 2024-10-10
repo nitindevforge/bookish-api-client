@@ -135,7 +135,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (type, page, limit, rate, search, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -145,6 +145,9 @@ var BooksApiRequestFactory = (function (_super) {
                         _config = _options || this.configuration;
                         if (type === null || type === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "type");
+                        }
+                        if (rate === null || rate === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "rate");
                         }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "page");
@@ -188,7 +191,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindBooks = function (search, page, limit, rate, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBooks = function (rate, page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -196,8 +199,8 @@ var BooksApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (search === null || search === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "search");
+                        if (rate === null || rate === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "rate");
                         }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "page");

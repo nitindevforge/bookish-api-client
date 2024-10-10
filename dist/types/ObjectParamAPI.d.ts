@@ -116,16 +116,16 @@ export interface BooksApiBookControllerFindBookByIdRequest {
 }
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
     type: string;
+    rate: number;
     page: number;
     limit: number;
-    rate?: number;
     search?: string;
 }
 export interface BooksApiBookControllerFindBooksRequest {
-    search: string;
+    rate: number;
     page: number;
     limit: number;
-    rate?: number;
+    search?: string;
 }
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;

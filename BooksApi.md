@@ -148,11 +148,11 @@ let body:.BooksApiBookControllerFindBookReviewBaseRequest = {
   // string
   type: "type_example",
   // number
+  rate: 3.14,
+  // number
   page: 3.14,
   // number
   limit: 3.14,
-  // number (optional)
-  rate: 3.14,
   // string (optional)
   search: "search_example",
 };
@@ -168,9 +168,9 @@ apiInstance.bookControllerFindBookReviewBase(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | [**string**] |  | defaults to undefined
+ **rate** | [**number**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
- **rate** | [**number**] |  | (optional) defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -211,14 +211,14 @@ const configuration = .createConfiguration();
 const apiInstance = new .BooksApi(configuration);
 
 let body:.BooksApiBookControllerFindBooksRequest = {
-  // string
-  search: "search_example",
+  // number
+  rate: 3.14,
   // number
   page: 3.14,
   // number
   limit: 3.14,
-  // number (optional)
-  rate: 3.14,
+  // string (optional)
+  search: "search_example",
 };
 
 apiInstance.bookControllerFindBooks(body).then((data:any) => {
@@ -231,10 +231,10 @@ apiInstance.bookControllerFindBooks(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search** | [**string**] |  | defaults to undefined
+ **rate** | [**number**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
- **rate** | [**number**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
