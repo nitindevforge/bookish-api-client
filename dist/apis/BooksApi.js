@@ -135,7 +135,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (type, page, limit, search, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -145,6 +145,9 @@ var BooksApiRequestFactory = (function (_super) {
                         _config = _options || this.configuration;
                         if (type === null || type === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "type");
+                        }
+                        if (rate === null || rate === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "rate");
                         }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "page");
@@ -157,6 +160,9 @@ var BooksApiRequestFactory = (function (_super) {
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (type !== undefined) {
                             requestContext.setQueryParam("type", ObjectSerializer_1.ObjectSerializer.serialize(type, "string", ""));
+                        }
+                        if (rate !== undefined) {
+                            requestContext.setQueryParam("rate", ObjectSerializer_1.ObjectSerializer.serialize(rate, "number", ""));
                         }
                         if (search !== undefined) {
                             requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
@@ -185,7 +191,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindBooks = function (search, page, limit, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBooks = function (search, rate, page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -195,6 +201,9 @@ var BooksApiRequestFactory = (function (_super) {
                         _config = _options || this.configuration;
                         if (search === null || search === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "search");
+                        }
+                        if (rate === null || rate === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "rate");
                         }
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBooks", "page");
@@ -207,6 +216,9 @@ var BooksApiRequestFactory = (function (_super) {
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (search !== undefined) {
                             requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
+                        }
+                        if (rate !== undefined) {
+                            requestContext.setQueryParam("rate", ObjectSerializer_1.ObjectSerializer.serialize(rate, "number", ""));
                         }
                         if (page !== undefined) {
                             requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));

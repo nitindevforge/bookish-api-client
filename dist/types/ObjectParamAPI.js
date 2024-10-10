@@ -103,16 +103,16 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindBookById(param.id, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.rate, param.page, param.limit, param.search, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBookReviewBase = function (param, options) {
-        return this.api.bookControllerFindBookReviewBase(param.type, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBookReviewBase(param.type, param.rate, param.page, param.limit, param.search, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindBooksWithHttpInfo(param.search, param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindBooksWithHttpInfo(param.search, param.rate, param.page, param.limit, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBooks = function (param, options) {
-        return this.api.bookControllerFindBooks(param.search, param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindBooks(param.search, param.rate, param.page, param.limit, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.status, param.rate, param.review, options).toPromise();

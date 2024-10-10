@@ -10,6 +10,12 @@ var SignupPayloadDto = (function () {
     SignupPayloadDto.discriminator = undefined;
     SignupPayloadDto.attributeTypeMap = [
         {
+            "name": "userName",
+            "baseName": "userName",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "email",
             "baseName": "email",
             "type": "string",

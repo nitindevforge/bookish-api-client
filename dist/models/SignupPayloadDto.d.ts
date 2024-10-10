@@ -1,4 +1,5 @@
 export declare class SignupPayloadDto {
+    'userName': string;
     'email': string;
     'password': string;
     static readonly discriminator: string | undefined;

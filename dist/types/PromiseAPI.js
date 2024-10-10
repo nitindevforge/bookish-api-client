@@ -126,20 +126,20 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBookById(id, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, page, limit, search, _options) {
-        var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, search, _options);
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, rate, page, limit, search, _options) {
+        var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBookReviewBase = function (type, page, limit, search, _options) {
-        var result = this.api.bookControllerFindBookReviewBase(type, page, limit, search, _options);
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
+        var result = this.api.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, _options) {
-        var result = this.api.bookControllerFindBooksWithHttpInfo(search, page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, rate, page, limit, _options) {
+        var result = this.api.bookControllerFindBooksWithHttpInfo(search, rate, page, limit, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBooks = function (search, page, limit, _options) {
-        var result = this.api.bookControllerFindBooks(search, page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindBooks = function (search, rate, page, limit, _options) {
+        var result = this.api.bookControllerFindBooks(search, rate, page, limit, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {
