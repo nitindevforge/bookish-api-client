@@ -398,9 +398,9 @@ var ObservableBooksApi = (function () {
     ObservableBooksApi.prototype.bookControllerFindBookById = function (id, _options) {
         return this.bookControllerFindBookByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, rate, page, limit, search, _options) {
+    ObservableBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, page, limit, rate, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, page, limit, rate, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_29 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -422,12 +422,12 @@ var ObservableBooksApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBookReviewBaseWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
-        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindBookReviewBase = function (type, page, limit, rate, search, _options) {
+        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, page, limit, rate, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, rate, page, limit, _options) {
+    ObservableBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (search, page, limit, rate, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindBooks(search, rate, page, limit, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindBooks(search, page, limit, rate, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_31 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -449,8 +449,8 @@ var ObservableBooksApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBooksWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBooks = function (search, rate, page, limit, _options) {
-        return this.bookControllerFindBooksWithHttpInfo(search, rate, page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindBooks = function (search, page, limit, rate, _options) {
+        return this.bookControllerFindBooksWithHttpInfo(search, page, limit, rate, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {
         var _this = this;

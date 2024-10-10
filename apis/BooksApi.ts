@@ -110,23 +110,17 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * @param type 
-     * @param rate 
      * @param page 
      * @param limit 
+     * @param rate 
      * @param search 
      */
-    public async bookControllerFindBookReviewBase(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindBookReviewBase(type: string, page: number, limit: number, rate?: number, search?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'type' is not null or undefined
         if (type === null || type === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "type");
-        }
-
-
-        // verify required parameter 'rate' is not null or undefined
-        if (rate === null || rate === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "rate");
         }
 
 
@@ -140,6 +134,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "limit");
         }
+
 
 
 
@@ -193,22 +188,16 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * @param search 
-     * @param rate 
      * @param page 
      * @param limit 
+     * @param rate 
      */
-    public async bookControllerFindBooks(search: string, rate: number, page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindBooks(search: string, page: number, limit: number, rate?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'search' is not null or undefined
         if (search === null || search === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindBooks", "search");
-        }
-
-
-        // verify required parameter 'rate' is not null or undefined
-        if (rate === null || rate === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBooks", "rate");
         }
 
 
@@ -222,6 +211,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindBooks", "limit");
         }
+
 
 
         // Path Params
