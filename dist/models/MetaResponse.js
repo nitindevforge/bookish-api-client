@@ -28,6 +28,12 @@ var MetaResponse = (function () {
             "format": ""
         },
         {
+            "name": "reviewBookId",
+            "baseName": "reviewBookId",
+            "type": "UserBooks",
+            "format": ""
+        },
+        {
             "name": "location",
             "baseName": "location",
             "type": "Location",
