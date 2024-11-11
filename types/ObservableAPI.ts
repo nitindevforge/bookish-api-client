@@ -73,6 +73,7 @@ import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserFollowers } from '../models/UserFollowers';
@@ -95,6 +96,33 @@ export class ObservableAuthApi {
         this.configuration = configuration;
         this.requestFactory = requestFactory || new AuthApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new AuthApiResponseProcessor();
+    }
+
+    /**
+     */
+    public authControllerAccountDeletionWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserDeleteResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerAccountDeletion(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerAccountDeletionWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public authControllerAccountDeletion(_options?: Configuration): Observable<UserDeleteResponseDto> {
+        return this.authControllerAccountDeletionWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<UserDeleteResponseDto>) => apiResponse.data));
     }
 
     /**

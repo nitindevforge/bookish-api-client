@@ -72,6 +72,7 @@ import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserFollowers } from '../models/UserFollowers';
@@ -82,6 +83,9 @@ import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 
 import { ObservableAuthApi } from "./ObservableAPI";
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
+
+export interface AuthApiAuthControllerAccountDeletionRequest {
+}
 
 export interface AuthApiAuthControllerChangePasswordRequest {
     /**
@@ -202,6 +206,20 @@ export class ObjectAuthApi {
 
     public constructor(configuration: Configuration, requestFactory?: AuthApiRequestFactory, responseProcessor?: AuthApiResponseProcessor) {
         this.api = new ObservableAuthApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerAccountDeletionWithHttpInfo(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
+        return this.api.authControllerAccountDeletionWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerAccountDeletion(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: Configuration): Promise<UserDeleteResponseDto> {
+        return this.api.authControllerAccountDeletion( options).toPromise();
     }
 
     /**

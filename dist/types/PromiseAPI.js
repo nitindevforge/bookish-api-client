@@ -6,6 +6,14 @@ var PromiseAuthApi = (function () {
     function PromiseAuthApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAuthApi(configuration, requestFactory, responseProcessor);
     }
+    PromiseAuthApi.prototype.authControllerAccountDeletionWithHttpInfo = function (_options) {
+        var result = this.api.authControllerAccountDeletionWithHttpInfo(_options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerAccountDeletion = function (_options) {
+        var result = this.api.authControllerAccountDeletion(_options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerChangePasswordWithHttpInfo = function (changePayloadDto, _options) {
         var result = this.api.authControllerChangePasswordWithHttpInfo(changePayloadDto, _options);
         return result.toPromise();

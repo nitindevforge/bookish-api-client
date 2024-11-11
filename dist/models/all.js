@@ -85,6 +85,7 @@ __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);
+__exportStar(require("../models/UserDeleteResponseDto"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserFollowerResponseDto"), exports);
 __exportStar(require("../models/UserFollowers"), exports);

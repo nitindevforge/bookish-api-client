@@ -37,11 +37,14 @@ import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { AuthApiRequestFactory, AuthApiResponseProcessor } from "../apis/AuthApi";
+export interface AuthApiAuthControllerAccountDeletionRequest {
+}
 export interface AuthApiAuthControllerChangePasswordRequest {
     changePayloadDto: ChangePayloadDto;
 }
@@ -82,6 +85,8 @@ export interface AuthApiAuthControllerVerifyOtpRequest {
 export declare class ObjectAuthApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: AuthApiRequestFactory, responseProcessor?: AuthApiResponseProcessor);
+    authControllerAccountDeletionWithHttpInfo(param?: AuthApiAuthControllerAccountDeletionRequest, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>>;
+    authControllerAccountDeletion(param?: AuthApiAuthControllerAccountDeletionRequest, options?: Configuration): Promise<UserDeleteResponseDto>;
     authControllerChangePasswordWithHttpInfo(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>>;
     authControllerChangePassword(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<PasswordChangeResponseDto>;
     authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

@@ -72,6 +72,7 @@ import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserFollowers } from '../models/UserFollowers';
@@ -91,6 +92,20 @@ export class PromiseAuthApi {
         responseProcessor?: AuthApiResponseProcessor
     ) {
         this.api = new ObservableAuthApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     */
+    public authControllerAccountDeletionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
+        const result = this.api.authControllerAccountDeletionWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public authControllerAccountDeletion(_options?: Configuration): Promise<UserDeleteResponseDto> {
+        const result = this.api.authControllerAccountDeletion(_options);
+        return result.toPromise();
     }
 
     /**

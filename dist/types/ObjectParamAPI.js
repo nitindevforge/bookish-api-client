@@ -6,6 +6,14 @@ var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAuthApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectAuthApi.prototype.authControllerAccountDeletionWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerAccountDeletionWithHttpInfo(options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerAccountDeletion = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerAccountDeletion(options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerChangePasswordWithHttpInfo = function (param, options) {
         return this.api.authControllerChangePasswordWithHttpInfo(param.changePayloadDto, options).toPromise();
     };

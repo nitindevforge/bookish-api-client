@@ -86,6 +86,7 @@ __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);
+__exportStar(require("../models/UserDeleteResponseDto"), exports);
 __exportStar(require("../models/UserDetails"), exports);
 __exportStar(require("../models/UserFollowerResponseDto"), exports);
 __exportStar(require("../models/UserFollowers"), exports);
@@ -164,6 +165,7 @@ var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto")
 var UserBooks_1 = require("../models/UserBooks");
 var UserBooksResponse_1 = require("../models/UserBooksResponse");
 var UserBooksResponseDto_1 = require("../models/UserBooksResponseDto");
+var UserDeleteResponseDto_1 = require("../models/UserDeleteResponseDto");
 var UserDetails_1 = require("../models/UserDetails");
 var UserFollowerResponseDto_1 = require("../models/UserFollowerResponseDto");
 var UserFollowers_1 = require("../models/UserFollowers");
@@ -254,6 +256,7 @@ var typeMap = {
     "UserBooks": UserBooks_1.UserBooks,
     "UserBooksResponse": UserBooksResponse_1.UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto_1.UserBooksResponseDto,
+    "UserDeleteResponseDto": UserDeleteResponseDto_1.UserDeleteResponseDto,
     "UserDetails": UserDetails_1.UserDetails,
     "UserFollowerResponseDto": UserFollowerResponseDto_1.UserFollowerResponseDto,
     "UserFollowers": UserFollowers_1.UserFollowers,

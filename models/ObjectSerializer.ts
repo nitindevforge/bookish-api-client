@@ -69,6 +69,7 @@ export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
+export * from '../models/UserDeleteResponseDto';
 export * from '../models/UserDetails';
 export * from '../models/UserFollowerResponseDto';
 export * from '../models/UserFollowers';
@@ -148,6 +149,7 @@ import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
+import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserDetails } from '../models/UserDetails';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserFollowers } from '../models/UserFollowers';
@@ -243,6 +245,7 @@ let typeMap: {[index: string]: any} = {
     "UserBooks": UserBooks,
     "UserBooksResponse": UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto,
+    "UserDeleteResponseDto": UserDeleteResponseDto,
     "UserDetails": UserDetails,
     "UserFollowerResponseDto": UserFollowerResponseDto,
     "UserFollowers": UserFollowers,

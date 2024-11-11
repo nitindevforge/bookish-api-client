@@ -97,6 +97,7 @@ models/UserBookReviewResponseDto.ts
 models/UserBooks.ts
 models/UserBooksResponse.ts
 models/UserBooksResponseDto.ts
+models/UserDeleteResponseDto.ts
 models/UserDetails.ts
 models/UserFollowerResponseDto.ts
 models/UserFollowers.ts
