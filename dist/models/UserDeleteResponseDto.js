@@ -10,9 +10,9 @@ var UserDeleteResponseDto = (function () {
     UserDeleteResponseDto.discriminator = undefined;
     UserDeleteResponseDto.attributeTypeMap = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "boolean",
+            "name": "message",
+            "baseName": "message",
+            "type": "string",
             "format": ""
         },
         {

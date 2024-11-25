@@ -184,7 +184,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, _options) {
+    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -212,6 +212,9 @@ var AuthApiRequestFactory = (function (_super) {
                         }
                         if (latitude !== undefined) {
                             requestContext.setQueryParam("latitude", ObjectSerializer_1.ObjectSerializer.serialize(latitude, "number", ""));
+                        }
+                        if (global !== undefined) {
+                            requestContext.setQueryParam("global", ObjectSerializer_1.ObjectSerializer.serialize(global, "boolean", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

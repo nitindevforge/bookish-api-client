@@ -59,6 +59,7 @@ export interface AuthApiAuthControllerGetActivityRequest {
     limit: number;
     longitude?: number;
     latitude?: number;
+    global?: boolean;
 }
 export interface AuthApiAuthControllerGetInterestsRequest {
 }

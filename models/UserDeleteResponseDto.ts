@@ -13,16 +13,16 @@
 import { HttpFile } from '../http/http';
 
 export class UserDeleteResponseDto {
-    'data': boolean;
+    'message': string;
     'isSuccess': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "data",
-            "baseName": "data",
-            "type": "boolean",
+            "name": "message",
+            "baseName": "message",
+            "type": "string",
             "format": ""
         },
         {

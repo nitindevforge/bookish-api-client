@@ -258,6 +258,8 @@ let body:.AuthApiAuthControllerGetActivityRequest = {
   longitude: 3.14,
   // number (optional)
   latitude: 3.14,
+  // boolean (optional)
+  global: true,
 };
 
 apiInstance.authControllerGetActivity(body).then((data:any) => {
@@ -274,6 +276,7 @@ Name | Type | Description  | Notes
  **limit** | [**number**] |  | defaults to undefined
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
+ **global** | [**boolean**] |  | (optional) defaults to undefined
 
 
 ### Return type

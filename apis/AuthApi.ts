@@ -181,8 +181,9 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
      * @param limit 
      * @param longitude 
      * @param latitude 
+     * @param global 
      */
-    public async authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
@@ -195,6 +196,7 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("AuthApi", "authControllerGetActivity", "limit");
         }
+
 
 
 
@@ -224,6 +226,11 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (latitude !== undefined) {
             requestContext.setQueryParam("latitude", ObjectSerializer.serialize(latitude, "number", ""));
+        }
+
+        // Query Params
+        if (global !== undefined) {
+            requestContext.setQueryParam("global", ObjectSerializer.serialize(global, "boolean", ""));
         }
 
 

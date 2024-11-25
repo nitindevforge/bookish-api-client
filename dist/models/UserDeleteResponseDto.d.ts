@@ -1,5 +1,5 @@
 export declare class UserDeleteResponseDto {
-    'data': boolean;
+    'message': string;
     'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

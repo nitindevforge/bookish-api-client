@@ -139,6 +139,12 @@ export interface AuthApiAuthControllerGetActivityRequest {
      * @memberof AuthApiauthControllerGetActivity
      */
     latitude?: number
+    /**
+     * 
+     * @type boolean
+     * @memberof AuthApiauthControllerGetActivity
+     */
+    global?: boolean
 }
 
 export interface AuthApiAuthControllerGetInterestsRequest {
@@ -268,14 +274,14 @@ export class ObjectAuthApi {
      * @param param the request object
      */
     public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
-        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
+        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
-        return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
+        return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
     }
 
     /**
