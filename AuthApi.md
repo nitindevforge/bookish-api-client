@@ -9,6 +9,7 @@ Method | HTTP request | Description
 [**authControllerCreateUser**](AuthApi.md#authControllerCreateUser) | **POST** /v1/auth/signup | 
 [**authControllerForgetPassword**](AuthApi.md#authControllerForgetPassword) | **PUT** /v1/auth/forget-password | 
 [**authControllerGetActivity**](AuthApi.md#authControllerGetActivity) | **GET** /v1/auth/activities | 
+[**authControllerGetEventsActivity**](AuthApi.md#authControllerGetEventsActivity) | **GET** /v1/auth/events/activities | 
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
 [**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
@@ -263,6 +264,72 @@ let body:.AuthApiAuthControllerGetActivityRequest = {
 };
 
 apiInstance.authControllerGetActivity(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **longitude** | [**number**] |  | (optional) defaults to undefined
+ **latitude** | [**number**] |  | (optional) defaults to undefined
+ **global** | [**boolean**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ActivityResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerGetEventsActivity**
+> ActivityResponseDto authControllerGetEventsActivity()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
+
+let body:.AuthApiAuthControllerGetEventsActivityRequest = {
+  // number
+  page: 3.14,
+  // number
+  limit: 3.14,
+  // number (optional)
+  longitude: 3.14,
+  // number (optional)
+  latitude: 3.14,
+  // boolean (optional)
+  global: true,
+};
+
+apiInstance.authControllerGetEventsActivity(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
 }).catch((error:any) => console.error(error));
 ```

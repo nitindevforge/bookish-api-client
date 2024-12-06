@@ -61,6 +61,13 @@ export interface AuthApiAuthControllerGetActivityRequest {
     latitude?: number;
     global?: boolean;
 }
+export interface AuthApiAuthControllerGetEventsActivityRequest {
+    page: number;
+    limit: number;
+    longitude?: number;
+    latitude?: number;
+    global?: boolean;
+}
 export interface AuthApiAuthControllerGetInterestsRequest {
 }
 export interface AuthApiAuthControllerLoginRequest {
@@ -96,6 +103,8 @@ export declare class ObjectAuthApi {
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
     authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<InterestsResponseDto>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

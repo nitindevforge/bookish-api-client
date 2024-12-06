@@ -250,6 +250,43 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param longitude 
+     * @param latitude 
+     * @param global 
+     */
+    public authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerGetEventsActivityWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param longitude 
+     * @param latitude 
+     * @param global 
+     */
+    public authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<ActivityResponseDto> {
+        return this.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
+    }
+
+    /**
      */
     public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>> {
         const requestContextPromise = this.requestFactory.authControllerGetInterests(_options);

@@ -181,6 +181,30 @@ export class PromiseAuthApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param longitude 
+     * @param latitude 
+     * @param global 
+     */
+    public authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+        const result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     * @param longitude 
+     * @param latitude 
+     * @param global 
+     */
+    public authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<ActivityResponseDto> {
+        const result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
+        return result.toPromise();
+    }
+
+    /**
      */
     public authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>> {
         const result = this.api.authControllerGetInterestsWithHttpInfo(_options);

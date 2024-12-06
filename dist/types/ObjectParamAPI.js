@@ -38,6 +38,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerGetActivity = function (param, options) {
         return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetEventsActivity = function (param, options) {
+        return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
         return this.api.authControllerGetInterestsWithHttpInfo(options).toPromise();

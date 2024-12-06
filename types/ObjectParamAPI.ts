@@ -147,6 +147,39 @@ export interface AuthApiAuthControllerGetActivityRequest {
     global?: boolean
 }
 
+export interface AuthApiAuthControllerGetEventsActivityRequest {
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetEventsActivity
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetEventsActivity
+     */
+    limit: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetEventsActivity
+     */
+    longitude?: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetEventsActivity
+     */
+    latitude?: number
+    /**
+     * 
+     * @type boolean
+     * @memberof AuthApiauthControllerGetEventsActivity
+     */
+    global?: boolean
+}
+
 export interface AuthApiAuthControllerGetInterestsRequest {
 }
 
@@ -282,6 +315,20 @@ export class ObjectAuthApi {
      */
     public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
         return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
+        return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
+        return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
     }
 
     /**

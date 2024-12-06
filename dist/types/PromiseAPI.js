@@ -46,6 +46,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerGetActivity(page, limit, longitude, latitude, global, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, _options) {
+        var result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, _options) {
+        var result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {
         var result = this.api.authControllerGetInterestsWithHttpInfo(_options);
         return result.toPromise();
