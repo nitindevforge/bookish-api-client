@@ -388,8 +388,9 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param rate Updated list of permission IDs associated with this role
      */
-    public async bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'bookId' is not null or undefined
@@ -408,6 +409,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindUserBookReviews", "limit");
         }
+
 
 
         // Path Params
@@ -431,6 +433,42 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
         }
+
+        // Query Params
+        if (rate !== undefined) {
+            const serializedParams = ObjectSerializer.serialize(rate, "Array<number>", "");
+            for (const serializedParam of serializedParams) {
+                requestContext.appendQueryParam("rate", serializedParam);
+            }
+        }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["bearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     */
+    public async bookControllerFindUserWhichReadBook(_options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // Path Params
+        const localVarPath = '/v1/book/reader';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -698,6 +736,38 @@ export class BooksApiResponseProcessor {
      * @throws ApiException if the response code was not in [200, 299]
      */
      public async bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserBooksResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserBooksResponseDto", ""
+            ) as UserBooksResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: UserBooksResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserBooksResponseDto", ""
+            ) as UserBooksResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to bookControllerFindUserWhichReadBook
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async bookControllerFindUserWhichReadBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: UserBooksResponseDto = ObjectSerializer.deserialize(

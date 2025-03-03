@@ -5,6 +5,8 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
@@ -14,6 +16,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -21,6 +24,9 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateRoleDto } from '../models/CreateRoleDto';
+import { CreateStaffDto } from '../models/CreateStaffDto';
+import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -67,6 +73,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UpdateRoleDto } from '../models/UpdateRoleDto';
+import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
@@ -80,6 +88,40 @@ import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
+import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
+import { ObservableAnalyticsApi } from './ObservableAPI';
+
+import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor} from "../apis/AnalyticsApi";
+export class PromiseAnalyticsApi {
+    private api: ObservableAnalyticsApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: AnalyticsApiRequestFactory,
+        responseProcessor?: AnalyticsApiResponseProcessor
+    ) {
+        this.api = new ObservableAnalyticsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     */
+    public analyticsControllerGetAnalyticsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<AnalyticsResponseDTO>> {
+        const result = this.api.analyticsControllerGetAnalyticsWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public analyticsControllerGetAnalytics(_options?: Configuration): Promise<AnalyticsResponseDTO> {
+        const result = this.api.analyticsControllerGetAnalytics(_options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
 import { ObservableAuthApi } from './ObservableAPI';
 
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
@@ -109,7 +151,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param changePayloadDto 
+     * @param changePayloadDto
      */
     public authControllerChangePasswordWithHttpInfo(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>> {
         const result = this.api.authControllerChangePasswordWithHttpInfo(changePayloadDto, _options);
@@ -117,7 +159,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param changePayloadDto 
+     * @param changePayloadDto
      */
     public authControllerChangePassword(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<PasswordChangeResponseDto> {
         const result = this.api.authControllerChangePassword(changePayloadDto, _options);
@@ -125,7 +167,55 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param signupPayloadDto 
+     * @param signupPayloadDto
+     */
+    public authControllerCreateBusinessUserWithHttpInfo(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerCreateBusinessUserWithHttpInfo(signupPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param signupPayloadDto
+     */
+    public authControllerCreateBusinessUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerCreateBusinessUser(signupPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param createRoleDto Payload to create a new role
+     */
+    public authControllerCreateRolesWithHttpInfo(createRoleDto: CreateRoleDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerCreateRolesWithHttpInfo(createRoleDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param createRoleDto Payload to create a new role
+     */
+    public authControllerCreateRoles(createRoleDto: CreateRoleDto, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerCreateRoles(createRoleDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param createStaffDto
+     */
+    public authControllerCreateStaffWithHttpInfo(createStaffDto: CreateStaffDto, _options?: Configuration): Promise<HttpInfo<CreateStaffDto>> {
+        const result = this.api.authControllerCreateStaffWithHttpInfo(createStaffDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param createStaffDto
+     */
+    public authControllerCreateStaff(createStaffDto: CreateStaffDto, _options?: Configuration): Promise<CreateStaffDto> {
+        const result = this.api.authControllerCreateStaff(createStaffDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param signupPayloadDto
      */
     public authControllerCreateUserWithHttpInfo(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         const result = this.api.authControllerCreateUserWithHttpInfo(signupPayloadDto, _options);
@@ -133,7 +223,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param signupPayloadDto 
+     * @param signupPayloadDto
      */
     public authControllerCreateUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerCreateUser(signupPayloadDto, _options);
@@ -141,7 +231,39 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param forgetPasswordPayloadDto 
+     * @param id
+     */
+    public authControllerDeleteRoleWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerDeleteRoleWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerDeleteRole(id: string, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerDeleteRole(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerDeleteStaffWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
+        const result = this.api.authControllerDeleteStaffWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerDeleteStaff(id: string, _options?: Configuration): Promise<UserDeleteResponseDto> {
+        const result = this.api.authControllerDeleteStaff(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param forgetPasswordPayloadDto
      */
     public authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         const result = this.api.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options);
@@ -149,7 +271,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param forgetPasswordPayloadDto 
+     * @param forgetPasswordPayloadDto
      */
     public authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         const result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
@@ -157,11 +279,11 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param longitude 
-     * @param latitude 
-     * @param global 
+     * @param page
+     * @param limit
+     * @param [longitude]
+     * @param [latitude]
+     * @param [global]
      */
     public authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         const result = this.api.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
@@ -169,11 +291,11 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param longitude 
-     * @param latitude 
-     * @param global 
+     * @param page
+     * @param limit
+     * @param [longitude]
+     * @param [latitude]
+     * @param [global]
      */
     public authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<ActivityResponseDto> {
         const result = this.api.authControllerGetActivity(page, limit, longitude, latitude, global, _options);
@@ -181,11 +303,31 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param longitude 
-     * @param latitude 
-     * @param global 
+     * @param page
+     * @param limit
+     * @param [search]
+     */
+    public authControllerGetAllStaffWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetAllStaffWithHttpInfo(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [search]
+     */
+    public authControllerGetAllStaff(page: number, limit: number, search?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetAllStaff(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [longitude]
+     * @param [latitude]
+     * @param [global]
      */
     public authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         const result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
@@ -193,11 +335,11 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param longitude 
-     * @param latitude 
-     * @param global 
+     * @param page
+     * @param limit
+     * @param [longitude]
+     * @param [latitude]
+     * @param [global]
      */
     public authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<ActivityResponseDto> {
         const result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
@@ -219,7 +361,21 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param loginPayloadDto 
+     */
+    public authControllerGetPermissionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetPermissionWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public authControllerGetPermission(_options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetPermission(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param loginPayloadDto
      */
     public authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         const result = this.api.authControllerLoginWithHttpInfo(loginPayloadDto, _options);
@@ -227,7 +383,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param loginPayloadDto 
+     * @param loginPayloadDto
      */
     public authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerLogin(loginPayloadDto, _options);
@@ -235,7 +391,65 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param id 
+     * @param id
+     * @param updateRoleDto
+     */
+    public authControllerUpdateRolesWithHttpInfo(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerUpdateRolesWithHttpInfo(id, updateRoleDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     * @param updateRoleDto
+     */
+    public authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerUpdateRoles(id, updateRoleDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     * @param updateStaffDto
+     */
+    public authControllerUpdateStaffWithHttpInfo(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerUpdateStaffWithHttpInfo(id, updateStaffDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     * @param updateStaffDto
+     */
+    public authControllerUpdateStaff(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerUpdateStaff(id, updateStaffDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [allRoles]
+     * @param [search]
+     */
+    public authControllerUserWithHttpInfo(page: number, limit: number, allRoles?: boolean, search?: string, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerUserWithHttpInfo(page, limit, allRoles, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [allRoles]
+     * @param [search]
+     */
+    public authControllerUser(page: number, limit: number, allRoles?: boolean, search?: string, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerUser(page, limit, allRoles, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
      */
     public authControllerUserByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         const result = this.api.authControllerUserByIdWithHttpInfo(id, _options);
@@ -243,7 +457,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param id 
+     * @param id
      */
     public authControllerUserById(id: string, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserById(id, _options);
@@ -251,7 +465,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param id 
+     * @param id
      */
     public authControllerUserFollowersWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
         const result = this.api.authControllerUserFollowersWithHttpInfo(id, _options);
@@ -259,7 +473,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param id 
+     * @param id
      */
     public authControllerUserFollowers(id: string, _options?: Configuration): Promise<UserFollowerResponseDto> {
         const result = this.api.authControllerUserFollowers(id, _options);
@@ -281,7 +495,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param userRolePayloadDto 
+     * @param userRolePayloadDto
      */
     public authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         const result = this.api.authControllerUserRoleUpdateWithHttpInfo(userRolePayloadDto, _options);
@@ -289,7 +503,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param userRolePayloadDto 
+     * @param userRolePayloadDto
      */
     public authControllerUserRoleUpdate(userRolePayloadDto: UserRolePayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserRoleUpdate(userRolePayloadDto, _options);
@@ -297,7 +511,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param userUpdatePayloadDto 
+     * @param userUpdatePayloadDto
      */
     public authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         const result = this.api.authControllerUserUpdateWithHttpInfo(userUpdatePayloadDto, _options);
@@ -305,7 +519,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param userUpdatePayloadDto 
+     * @param userUpdatePayloadDto
      */
     public authControllerUserUpdate(userUpdatePayloadDto: UserUpdatePayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerUserUpdate(userUpdatePayloadDto, _options);
@@ -313,7 +527,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param otpEntityPayloadDto 
+     * @param otpEntityPayloadDto
      */
     public authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         const result = this.api.authControllerVerifyOtpWithHttpInfo(otpEntityPayloadDto, _options);
@@ -321,7 +535,7 @@ export class PromiseAuthApi {
     }
 
     /**
-     * @param otpEntityPayloadDto 
+     * @param otpEntityPayloadDto
      */
     public authControllerVerifyOtp(otpEntityPayloadDto: OtpEntityPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         const result = this.api.authControllerVerifyOtp(otpEntityPayloadDto, _options);
@@ -348,7 +562,7 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookPayloadDto 
+     * @param bookPayloadDto
      */
     public bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         const result = this.api.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options);
@@ -356,7 +570,7 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookPayloadDto 
+     * @param bookPayloadDto
      */
     public bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto> {
         const result = this.api.bookControllerAddBook(bookPayloadDto, _options);
@@ -364,7 +578,7 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param id 
+     * @param id
      */
     public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         const result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
@@ -372,7 +586,7 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param id 
+     * @param id
      */
     public bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto> {
         const result = this.api.bookControllerFindBookById(id, _options);
@@ -380,11 +594,11 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param type 
-     * @param rate 
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param type
+     * @param rate
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public bookControllerFindBookReviewBaseWithHttpInfo(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
         const result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options);
@@ -392,11 +606,11 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param type 
-     * @param rate 
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param type
+     * @param rate
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public bookControllerFindBookReviewBase(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
         const result = this.api.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
@@ -404,10 +618,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param rate 
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param rate
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
         const result = this.api.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, _options);
@@ -415,10 +629,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param rate 
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param rate
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksResponseDto> {
         const result = this.api.bookControllerFindBooks(rate, page, limit, search, _options);
@@ -426,10 +640,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookId 
-     * @param status 
-     * @param rate 
-     * @param review 
+     * @param bookId
+     * @param [status]
+     * @param [rate]
+     * @param [review]
      */
     public bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         const result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, status, rate, review, _options);
@@ -437,10 +651,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookId 
-     * @param status 
-     * @param rate 
-     * @param review 
+     * @param bookId
+     * @param [status]
+     * @param [rate]
+     * @param [review]
      */
     public bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto> {
         const result = this.api.bookControllerFindUserBookReview(bookId, status, rate, review, _options);
@@ -448,10 +662,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookId 
-     * @param status 
-     * @param rate 
-     * @param review 
+     * @param bookId
+     * @param [status]
+     * @param [rate]
+     * @param [review]
      */
     public bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>> {
         const result = this.api.bookControllerFindUserBookReviewCountWithHttpInfo(bookId, status, rate, review, _options);
@@ -459,10 +673,10 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookId 
-     * @param status 
-     * @param rate 
-     * @param review 
+     * @param bookId
+     * @param [status]
+     * @param [rate]
+     * @param [review]
      */
     public bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<BookReviewCountResponseDto> {
         const result = this.api.bookControllerFindUserBookReviewCount(bookId, status, rate, review, _options);
@@ -470,27 +684,43 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param bookId 
-     * @param page 
-     * @param limit 
+     * @param bookId
+     * @param page
+     * @param limit
+     * @param [rate] Updated list of permission IDs associated with this role
      */
-    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, _options);
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, rate, _options);
         return result.toPromise();
     }
 
     /**
-     * @param bookId 
-     * @param page 
-     * @param limit 
+     * @param bookId
+     * @param page
+     * @param limit
+     * @param [rate] Updated list of permission IDs associated with this role
      */
-    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, _options?: Configuration): Promise<UserBooksResponseDto> {
-        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, _options);
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, rate, _options);
         return result.toPromise();
     }
 
     /**
-     * @param userBookPayloadDto 
+     */
+    public bookControllerFindUserWhichReadBookWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserWhichReadBookWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public bookControllerFindUserWhichReadBook(_options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserWhichReadBook(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userBookPayloadDto
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         const result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
@@ -498,7 +728,7 @@ export class PromiseBooksApi {
     }
 
     /**
-     * @param userBookPayloadDto 
+     * @param userBookPayloadDto
      */
     public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookReviewResponseDto> {
         const result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
@@ -558,7 +788,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventPayloadDto 
+     * @param eventPayloadDto
      */
     public eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         const result = this.api.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options);
@@ -566,7 +796,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventPayloadDto 
+     * @param eventPayloadDto
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
@@ -574,40 +804,58 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param id 
+     * @param id
+     * @param [withBookedEvent]
      */
-    public eventControllerDeleteEventWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>> {
-        const result = this.api.eventControllerDeleteEventWithHttpInfo(id, _options);
+    public eventControllerDeleteEventWithHttpInfo(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>> {
+        const result = this.api.eventControllerDeleteEventWithHttpInfo(id, withBookedEvent, _options);
         return result.toPromise();
     }
 
     /**
-     * @param id 
+     * @param id
+     * @param [withBookedEvent]
      */
-    public eventControllerDeleteEvent(id: string, _options?: Configuration): Promise<EventDeleteResponseDto> {
-        const result = this.api.eventControllerDeleteEvent(id, _options);
+    public eventControllerDeleteEvent(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<EventDeleteResponseDto> {
+        const result = this.api.eventControllerDeleteEvent(id, withBookedEvent, _options);
         return result.toPromise();
     }
 
     /**
-     * @param id 
      */
-    public eventControllerFindEventByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
-        const result = this.api.eventControllerFindEventByIdWithHttpInfo(id, _options);
+    public eventControllerFindCustomerOfEventsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        const result = this.api.eventControllerFindCustomerOfEventsWithHttpInfo(_options);
         return result.toPromise();
     }
 
     /**
-     * @param id 
      */
-    public eventControllerFindEventById(id: string, _options?: Configuration): Promise<EventResponseDto> {
-        const result = this.api.eventControllerFindEventById(id, _options);
+    public eventControllerFindCustomerOfEvents(_options?: Configuration): Promise<LocationPlacesResponseDto> {
+        const result = this.api.eventControllerFindCustomerOfEvents(_options);
         return result.toPromise();
     }
 
     /**
-     * @param page 
-     * @param limit 
+     * @param id
+     * @param [withBookedEvent]
+     */
+    public eventControllerFindEventByIdWithHttpInfo(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
+        const result = this.api.eventControllerFindEventByIdWithHttpInfo(id, withBookedEvent, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     * @param [withBookedEvent]
+     */
+    public eventControllerFindEventById(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<EventResponseDto> {
+        const result = this.api.eventControllerFindEventById(id, withBookedEvent, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param [limit]
      */
     public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
         const result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, _options);
@@ -615,8 +863,8 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
+     * @param page
+     * @param [limit]
      */
     public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
         const result = this.api.eventControllerFindEvents(page, limit, _options);
@@ -624,7 +872,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventId 
+     * @param eventId
      */
     public eventControllerFindMyEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
         const result = this.api.eventControllerFindMyEventWithHttpInfo(eventId, _options);
@@ -632,7 +880,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventId 
+     * @param eventId
      */
     public eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<MyEventResponseDto> {
         const result = this.api.eventControllerFindMyEvent(eventId, _options);
@@ -640,9 +888,9 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param type 
+     * @param page
+     * @param limit
+     * @param type
      */
     public eventControllerFindMyUpcomingEventsWithHttpInfo(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
         const result = this.api.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, type, _options);
@@ -650,9 +898,9 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param type 
+     * @param page
+     * @param limit
+     * @param type
      */
     public eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto> {
         const result = this.api.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
@@ -660,7 +908,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param locationPayloadDto 
+     * @param locationPayloadDto
      */
     public eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
         const result = this.api.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options);
@@ -668,7 +916,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param locationPayloadDto 
+     * @param locationPayloadDto
      */
     public eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto> {
         const result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
@@ -676,7 +924,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventPayloadDto 
+     * @param eventPayloadDto
      */
     public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         const result = this.api.eventControllerUpdateEventWithHttpInfo(eventPayloadDto, _options);
@@ -684,7 +932,7 @@ export class PromiseEventsApi {
     }
 
     /**
-     * @param eventPayloadDto 
+     * @param eventPayloadDto
      */
     public eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerUpdateEvent(eventPayloadDto, _options);
@@ -711,9 +959,9 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
         const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options);
@@ -721,9 +969,9 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
         const result = this.api.followerControllerFindMyFriends(page, limit, search, _options);
@@ -731,7 +979,7 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param followerPayloadDto 
+     * @param followerPayloadDto
      */
     public followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
         const result = this.api.followerControllerFollowWithHttpInfo(followerPayloadDto, _options);
@@ -739,7 +987,7 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param followerPayloadDto 
+     * @param followerPayloadDto
      */
     public followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
         const result = this.api.followerControllerFollow(followerPayloadDto, _options);
@@ -747,7 +995,7 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param followerPayloadDto 
+     * @param followerPayloadDto
      */
     public followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
         const result = this.api.followerControllerUnfollowWithHttpInfo(followerPayloadDto, _options);
@@ -755,7 +1003,7 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param followerPayloadDto 
+     * @param followerPayloadDto
      */
     public followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto> {
         const result = this.api.followerControllerUnfollow(followerPayloadDto, _options);
@@ -782,9 +1030,9 @@ export class PromiseFriendsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public friendControllerFindFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
         const result = this.api.friendControllerFindFriendsWithHttpInfo(page, limit, search, _options);
@@ -792,12 +1040,45 @@ export class PromiseFriendsApi {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param page
+     * @param limit
+     * @param [search]
      */
     public friendControllerFindFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<FriendsResponseDto> {
         const result = this.api.friendControllerFindFriends(page, limit, search, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableNielsenBooksApi } from './ObservableAPI';
+
+import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor} from "../apis/NielsenBooksApi";
+export class PromiseNielsenBooksApi {
+    private api: ObservableNielsenBooksApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: NielsenBooksApiRequestFactory,
+        responseProcessor?: NielsenBooksApiResponseProcessor
+    ) {
+        this.api = new ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     */
+    public nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public nielsenBooksControllerGetNielsenBooks(_options?: Configuration): Promise<void> {
+        const result = this.api.nielsenBooksControllerGetNielsenBooks(_options);
         return result.toPromise();
     }
 
@@ -821,7 +1102,35 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePaymentPayloadDto 
+     */
+    public paymentControllerConnectAccountWithHttpInfo(_options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
+        const result = this.api.paymentControllerConnectAccountWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerConnectAccount(_options?: Configuration): Promise<BusinessConnectedAccount> {
+        const result = this.api.paymentControllerConnectAccount(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerCreateAccountVerificationLinkWithHttpInfo(_options?: Configuration): Promise<HttpInfo<VerificationLinkResponseDTO>> {
+        const result = this.api.paymentControllerCreateAccountVerificationLinkWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerCreateAccountVerificationLink(_options?: Configuration): Promise<VerificationLinkResponseDTO> {
+        const result = this.api.paymentControllerCreateAccountVerificationLink(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param stripePaymentPayloadDto
      */
     public paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<PaymentResponseDto>> {
         const result = this.api.paymentControllerCreatePaymentWithHttpInfo(stripePaymentPayloadDto, _options);
@@ -829,7 +1138,7 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePaymentPayloadDto 
+     * @param stripePaymentPayloadDto
      */
     public paymentControllerCreatePayment(stripePaymentPayloadDto: StripePaymentPayloadDto, _options?: Configuration): Promise<PaymentResponseDto> {
         const result = this.api.paymentControllerCreatePayment(stripePaymentPayloadDto, _options);
@@ -837,7 +1146,7 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param stripePayloadDto
      */
     public paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
         const result = this.api.paymentControllerCreatePaymentIntentWithHttpInfo(stripePayloadDto, _options);
@@ -845,7 +1154,7 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param stripePayloadDto 
+     * @param stripePayloadDto
      */
     public paymentControllerCreatePaymentIntent(stripePayloadDto: StripePayloadDto, _options?: Configuration): Promise<StripeResponseDto> {
         const result = this.api.paymentControllerCreatePaymentIntent(stripePayloadDto, _options);
@@ -853,7 +1162,7 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param paymentPayloadDto 
+     * @param paymentPayloadDto
      */
     public paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
         const result = this.api.paymentControllerDeleteCardDetailsWithHttpInfo(paymentPayloadDto, _options);
@@ -861,7 +1170,7 @@ export class PromisePaymentApi {
     }
 
     /**
-     * @param paymentPayloadDto 
+     * @param paymentPayloadDto
      */
     public paymentControllerDeleteCardDetails(paymentPayloadDto: PaymentPayloadDto, _options?: Configuration): Promise<CardListResponseDto> {
         const result = this.api.paymentControllerDeleteCardDetails(paymentPayloadDto, _options);
@@ -879,6 +1188,20 @@ export class PromisePaymentApi {
      */
     public paymentControllerGetCardList(_options?: Configuration): Promise<CardListResponseDto> {
         const result = this.api.paymentControllerGetCardList(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerRetrieveConnectedAccountWithHttpInfo(_options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
+        const result = this.api.paymentControllerRetrieveConnectedAccountWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public paymentControllerRetrieveConnectedAccount(_options?: Configuration): Promise<BusinessConnectedAccount> {
+        const result = this.api.paymentControllerRetrieveConnectedAccount(_options);
         return result.toPromise();
     }
 
@@ -902,7 +1225,7 @@ export class PromiseStorageApi {
     }
 
     /**
-     * @param fileUploadDto 
+     * @param fileUploadDto
      */
     public storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<HttpInfo<StorageResponseDto>> {
         const result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);
@@ -910,7 +1233,7 @@ export class PromiseStorageApi {
     }
 
     /**
-     * @param fileUploadDto 
+     * @param fileUploadDto
      */
     public storageControllerGetPreSignedURL(fileUploadDto: FileUploadDto, _options?: Configuration): Promise<StorageResponseDto> {
         const result = this.api.storageControllerGetPreSignedURL(fileUploadDto, _options);

@@ -124,6 +124,9 @@ var RequestContext = (function () {
     RequestContext.prototype.setQueryParam = function (name, value) {
         this.url.searchParams.set(name, value);
     };
+    RequestContext.prototype.appendQueryParam = function (name, value) {
+        this.url.searchParams.append(name, value);
+    };
     RequestContext.prototype.addCookie = function (name, value) {
         if (!this.headers["Cookie"]) {
             this.headers["Cookie"] = "";
@@ -182,6 +185,9 @@ var ResponseContext = (function () {
         for (var _i = 0, parameters_1 = parameters; _i < parameters_1.length; _i++) {
             var parameter = parameters_1[_i];
             var _a = parameter.split("=", 2), key = _a[0], value = _a[1];
+            if (!key) {
+                continue;
+            }
             key = key.toLowerCase().trim();
             if (value === undefined) {
                 result[""] = key;
@@ -246,9 +252,6 @@ var HttpInfo = (function (_super) {
     __extends(HttpInfo, _super);
     function HttpInfo(httpStatusCode, headers, body, data) {
         var _this = _super.call(this, httpStatusCode, headers, body) || this;
-        _this.httpStatusCode = httpStatusCode;
-        _this.headers = headers;
-        _this.body = body;
         _this.data = data;
         return _this;
     }

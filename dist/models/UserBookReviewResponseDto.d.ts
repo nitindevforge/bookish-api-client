@@ -3,6 +3,9 @@ export declare class UserBookReviewResponseDto {
     'data': UserBooks;
     'isSuccess': boolean;
     static readonly discriminator: string | undefined;
+    static readonly mapping: {
+        [index: string]: string;
+    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

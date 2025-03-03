@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
+[**eventControllerFindCustomerOfEvents**](EventsApi.md#eventControllerFindCustomerOfEvents) | **GET** /v1/event-customers | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
 [**eventControllerFindEvents**](EventsApi.md#eventControllerFindEvents) | **GET** /v1/events | 
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
@@ -22,14 +23,14 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerCreateEventRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerCreateEventRequest = {
-  // EventPayloadDto
+const request: EventsApiEventControllerCreateEventRequest = {
+  
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
@@ -45,9 +46,8 @@ let body:.EventsApiEventControllerCreateEventRequest = {
   },
 };
 
-apiInstance.eventControllerCreateEvent(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerCreateEvent(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -88,20 +88,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerDeleteEventRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerDeleteEventRequest = {
-  // string
+const request: EventsApiEventControllerDeleteEventRequest = {
+  
   id: "id_example",
+  
+  withBookedEvent: true,
 };
 
-apiInstance.eventControllerDeleteEvent(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerDeleteEvent(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -110,11 +111,58 @@ apiInstance.eventControllerDeleteEvent(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
+ **withBookedEvent** | [**boolean**] |  | (optional) defaults to undefined
 
 
 ### Return type
 
 **EventDeleteResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerFindCustomerOfEvents**
+> LocationPlacesResponseDto eventControllerFindCustomerOfEvents()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, EventsApi } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
+
+const request = {};
+
+const data = await apiInstance.eventControllerFindCustomerOfEvents(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+
+### Return type
+
+**LocationPlacesResponseDto**
 
 ### Authorization
 
@@ -142,20 +190,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindEventByIdRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindEventByIdRequest = {
-  // string
+const request: EventsApiEventControllerFindEventByIdRequest = {
+  
   id: "id_example",
+  
+  withBookedEvent: true,
 };
 
-apiInstance.eventControllerFindEventById(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerFindEventById(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -164,6 +213,7 @@ apiInstance.eventControllerFindEventById(body).then((data:any) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | [**string**] |  | defaults to undefined
+ **withBookedEvent** | [**boolean**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -196,22 +246,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindEventsRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindEventsRequest = {
-  // number
+const request: EventsApiEventControllerFindEventsRequest = {
+  
   page: 3.14,
-  // number (optional)
+  
   limit: 3.14,
 };
 
-apiInstance.eventControllerFindEvents(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerFindEvents(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -253,20 +302,19 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindMyEventRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindMyEventRequest = {
-  // string
+const request: EventsApiEventControllerFindMyEventRequest = {
+  
   eventId: "eventId_example",
 };
 
-apiInstance.eventControllerFindMyEvent(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerFindMyEvent(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -307,24 +355,23 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindMyUpcomingEventsRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindMyUpcomingEventsRequest = {
-  // number
+const request: EventsApiEventControllerFindMyUpcomingEventsRequest = {
+  
   page: 3.14,
-  // number
+  
   limit: 3.14,
-  // 'UPCOMING' | 'VISITED'
+  
   type: "UPCOMING",
 };
 
-apiInstance.eventControllerFindMyUpcomingEvents(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerFindMyUpcomingEvents(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -367,22 +414,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindSearchPlacesRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerFindSearchPlacesRequest = {
-  // LocationPayloadDto
+const request: EventsApiEventControllerFindSearchPlacesRequest = {
+  
   locationPayloadDto: {
     place: "place_example",
   },
 };
 
-apiInstance.eventControllerFindSearchPlaces(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerFindSearchPlaces(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -423,14 +469,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerUpdateEventRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .EventsApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
 
-let body:.EventsApiEventControllerUpdateEventRequest = {
-  // EventPayloadDto
+const request: EventsApiEventControllerUpdateEventRequest = {
+  
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
@@ -446,9 +492,8 @@ let body:.EventsApiEventControllerUpdateEventRequest = {
   },
 };
 
-apiInstance.eventControllerUpdateEvent(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.eventControllerUpdateEvent(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

@@ -8,6 +8,7 @@ var UserUpdatePayloadDto = (function () {
         return UserUpdatePayloadDto.attributeTypeMap;
     };
     UserUpdatePayloadDto.discriminator = undefined;
+    UserUpdatePayloadDto.mapping = undefined;
     UserUpdatePayloadDto.attributeTypeMap = [
         {
             "name": "firstName",

@@ -8,6 +8,7 @@ var PasswordChangeResponseDto = (function () {
         return PasswordChangeResponseDto.attributeTypeMap;
     };
     PasswordChangeResponseDto.discriminator = undefined;
+    PasswordChangeResponseDto.mapping = undefined;
     PasswordChangeResponseDto.attributeTypeMap = [
         {
             "name": "data",

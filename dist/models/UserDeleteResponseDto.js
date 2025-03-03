@@ -8,6 +8,7 @@ var UserDeleteResponseDto = (function () {
         return UserDeleteResponseDto.attributeTypeMap;
     };
     UserDeleteResponseDto.discriminator = undefined;
+    UserDeleteResponseDto.mapping = undefined;
     UserDeleteResponseDto.attributeTypeMap = [
         {
             "name": "message",

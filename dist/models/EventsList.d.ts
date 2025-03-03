@@ -3,6 +3,9 @@ export declare class EventsList {
     'data': Array<Events>;
     'count': number;
     static readonly discriminator: string | undefined;
+    static readonly mapping: {
+        [index: string]: string;
+    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

@@ -8,6 +8,7 @@ var InterestsPayloadDto = (function () {
         return InterestsPayloadDto.attributeTypeMap;
     };
     InterestsPayloadDto.discriminator = undefined;
+    InterestsPayloadDto.mapping = undefined;
     InterestsPayloadDto.attributeTypeMap = [
         {
             "name": "id",

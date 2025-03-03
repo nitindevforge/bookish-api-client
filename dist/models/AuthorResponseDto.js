@@ -8,6 +8,7 @@ var AuthorResponseDto = (function () {
         return AuthorResponseDto.attributeTypeMap;
     };
     AuthorResponseDto.discriminator = undefined;
+    AuthorResponseDto.mapping = undefined;
     AuthorResponseDto.attributeTypeMap = [
         {
             "name": "id",

@@ -8,6 +8,7 @@ var LocationPayloadDto = (function () {
         return LocationPayloadDto.attributeTypeMap;
     };
     LocationPayloadDto.discriminator = undefined;
+    LocationPayloadDto.mapping = undefined;
     LocationPayloadDto.attributeTypeMap = [
         {
             "name": "place",

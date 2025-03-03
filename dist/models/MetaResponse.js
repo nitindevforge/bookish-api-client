@@ -8,6 +8,7 @@ var MetaResponse = (function () {
         return MetaResponse.attributeTypeMap;
     };
     MetaResponse.discriminator = undefined;
+    MetaResponse.mapping = undefined;
     MetaResponse.attributeTypeMap = [
         {
             "name": "userId",

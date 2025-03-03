@@ -2,6 +2,9 @@ export declare class CardNetwork {
     'available': Array<string>;
     'preferred': string;
     static readonly discriminator: string | undefined;
+    static readonly mapping: {
+        [index: string]: string;
+    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

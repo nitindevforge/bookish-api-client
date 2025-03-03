@@ -8,6 +8,7 @@ var CardNetwork = (function () {
         return CardNetwork.attributeTypeMap;
     };
     CardNetwork.discriminator = undefined;
+    CardNetwork.mapping = undefined;
     CardNetwork.attributeTypeMap = [
         {
             "name": "available",

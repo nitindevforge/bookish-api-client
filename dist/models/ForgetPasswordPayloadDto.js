@@ -8,6 +8,7 @@ var ForgetPasswordPayloadDto = (function () {
         return ForgetPasswordPayloadDto.attributeTypeMap;
     };
     ForgetPasswordPayloadDto.discriminator = undefined;
+    ForgetPasswordPayloadDto.mapping = undefined;
     ForgetPasswordPayloadDto.attributeTypeMap = [
         {
             "name": "email",

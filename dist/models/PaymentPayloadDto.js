@@ -8,6 +8,7 @@ var PaymentPayloadDto = (function () {
         return PaymentPayloadDto.attributeTypeMap;
     };
     PaymentPayloadDto.discriminator = undefined;
+    PaymentPayloadDto.mapping = undefined;
     PaymentPayloadDto.attributeTypeMap = [
         {
             "name": "id",

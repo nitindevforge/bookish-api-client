@@ -8,6 +8,7 @@ var Places = (function () {
         return Places.attributeTypeMap;
     };
     Places.discriminator = undefined;
+    Places.mapping = undefined;
     Places.attributeTypeMap = [
         {
             "name": "label",

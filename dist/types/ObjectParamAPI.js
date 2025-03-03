@@ -1,10 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = void 0;
+exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectNielsenBooksApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = exports.ObjectAnalyticsApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
+var ObjectAnalyticsApi = (function () {
+    function ObjectAnalyticsApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_1.ObservableAnalyticsApi(configuration, requestFactory, responseProcessor);
+    }
+    ObjectAnalyticsApi.prototype.analyticsControllerGetAnalyticsWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.analyticsControllerGetAnalyticsWithHttpInfo(options).toPromise();
+    };
+    ObjectAnalyticsApi.prototype.analyticsControllerGetAnalytics = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.analyticsControllerGetAnalytics(options).toPromise();
+    };
+    return ObjectAnalyticsApi;
+}());
+exports.ObjectAnalyticsApi = ObjectAnalyticsApi;
+var ObservableAPI_2 = require("./ObservableAPI");
 var ObjectAuthApi = (function () {
     function ObjectAuthApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_1.ObservableAuthApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_2.ObservableAuthApi(configuration, requestFactory, responseProcessor);
     }
     ObjectAuthApi.prototype.authControllerAccountDeletionWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
@@ -20,11 +36,41 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerChangePassword = function (param, options) {
         return this.api.authControllerChangePassword(param.changePayloadDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerCreateBusinessUserWithHttpInfo = function (param, options) {
+        return this.api.authControllerCreateBusinessUserWithHttpInfo(param.signupPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateBusinessUser = function (param, options) {
+        return this.api.authControllerCreateBusinessUser(param.signupPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateRolesWithHttpInfo = function (param, options) {
+        return this.api.authControllerCreateRolesWithHttpInfo(param.createRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateRoles = function (param, options) {
+        return this.api.authControllerCreateRoles(param.createRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateStaffWithHttpInfo = function (param, options) {
+        return this.api.authControllerCreateStaffWithHttpInfo(param.createStaffDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateStaff = function (param, options) {
+        return this.api.authControllerCreateStaff(param.createStaffDto, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerCreateUserWithHttpInfo = function (param, options) {
         return this.api.authControllerCreateUserWithHttpInfo(param.signupPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerCreateUser = function (param, options) {
         return this.api.authControllerCreateUser(param.signupPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerDeleteRoleWithHttpInfo = function (param, options) {
+        return this.api.authControllerDeleteRoleWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerDeleteRole = function (param, options) {
+        return this.api.authControllerDeleteRole(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerDeleteStaffWithHttpInfo = function (param, options) {
+        return this.api.authControllerDeleteStaffWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerDeleteStaff = function (param, options) {
+        return this.api.authControllerDeleteStaff(param.id, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (param, options) {
         return this.api.authControllerForgetPasswordWithHttpInfo(param.forgetPasswordPayloadDto, options).toPromise();
@@ -37,6 +83,12 @@ var ObjectAuthApi = (function () {
     };
     ObjectAuthApi.prototype.authControllerGetActivity = function (param, options) {
         return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetAllStaff = function (param, options) {
+        return this.api.authControllerGetAllStaff(param.page, param.limit, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (param, options) {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
@@ -52,11 +104,37 @@ var ObjectAuthApi = (function () {
         if (param === void 0) { param = {}; }
         return this.api.authControllerGetInterests(options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetPermissionWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetPermissionWithHttpInfo(options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetPermission = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.authControllerGetPermission(options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerLoginWithHttpInfo = function (param, options) {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerLogin = function (param, options) {
         return this.api.authControllerLogin(param.loginPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateRolesWithHttpInfo = function (param, options) {
+        return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateRoles = function (param, options) {
+        return this.api.authControllerUpdateRoles(param.id, param.updateRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateStaffWithHttpInfo = function (param, options) {
+        return this.api.authControllerUpdateStaffWithHttpInfo(param.id, param.updateStaffDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateStaff = function (param, options) {
+        return this.api.authControllerUpdateStaff(param.id, param.updateStaffDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUserWithHttpInfo = function (param, options) {
+        return this.api.authControllerUserWithHttpInfo(param.page, param.limit, param.allRoles, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUser = function (param, options) {
+        return this.api.authControllerUser(param.page, param.limit, param.allRoles, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUserByIdWithHttpInfo = function (param, options) {
         return this.api.authControllerUserByIdWithHttpInfo(param.id, options).toPromise();
@@ -99,10 +177,10 @@ var ObjectAuthApi = (function () {
     return ObjectAuthApi;
 }());
 exports.ObjectAuthApi = ObjectAuthApi;
-var ObservableAPI_2 = require("./ObservableAPI");
+var ObservableAPI_3 = require("./ObservableAPI");
 var ObjectBooksApi = (function () {
     function ObjectBooksApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_2.ObservableBooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_3.ObservableBooksApi(configuration, requestFactory, responseProcessor);
     }
     ObjectBooksApi.prototype.bookControllerAddBookWithHttpInfo = function (param, options) {
         return this.api.bookControllerAddBookWithHttpInfo(param.bookPayloadDto, options).toPromise();
@@ -141,10 +219,18 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.status, param.rate, param.review, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviewsWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, param.rate, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviews = function (param, options) {
-        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, param.rate, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserWhichReadBookWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.bookControllerFindUserWhichReadBookWithHttpInfo(options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindUserWhichReadBook = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.bookControllerFindUserWhichReadBook(options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (param, options) {
         return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto, options).toPromise();
@@ -155,10 +241,10 @@ var ObjectBooksApi = (function () {
     return ObjectBooksApi;
 }());
 exports.ObjectBooksApi = ObjectBooksApi;
-var ObservableAPI_3 = require("./ObservableAPI");
+var ObservableAPI_4 = require("./ObservableAPI");
 var ObjectDefaultApi = (function () {
     function ObjectDefaultApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_3.ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_4.ObservableDefaultApi(configuration, requestFactory, responseProcessor);
     }
     ObjectDefaultApi.prototype.appControllerGetHelloWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
@@ -171,10 +257,10 @@ var ObjectDefaultApi = (function () {
     return ObjectDefaultApi;
 }());
 exports.ObjectDefaultApi = ObjectDefaultApi;
-var ObservableAPI_4 = require("./ObservableAPI");
+var ObservableAPI_5 = require("./ObservableAPI");
 var ObjectEventsApi = (function () {
     function ObjectEventsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableEventsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
@@ -183,16 +269,24 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (param, options) {
-        return this.api.eventControllerDeleteEventWithHttpInfo(param.id, options).toPromise();
+        return this.api.eventControllerDeleteEventWithHttpInfo(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteEvent = function (param, options) {
-        return this.api.eventControllerDeleteEvent(param.id, options).toPromise();
+        return this.api.eventControllerDeleteEvent(param.id, param.withBookedEvent, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.eventControllerFindCustomerOfEventsWithHttpInfo(options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerFindCustomerOfEvents = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.eventControllerFindCustomerOfEvents(options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, options).toPromise();
+        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventById = function (param, options) {
-        return this.api.eventControllerFindEventById(param.id, options).toPromise();
+        return this.api.eventControllerFindEventById(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, options).toPromise();
@@ -227,10 +321,10 @@ var ObjectEventsApi = (function () {
     return ObjectEventsApi;
 }());
 exports.ObjectEventsApi = ObjectEventsApi;
-var ObservableAPI_5 = require("./ObservableAPI");
+var ObservableAPI_6 = require("./ObservableAPI");
 var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (param, options) {
         return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
@@ -253,10 +347,10 @@ var ObjectFollowerApi = (function () {
     return ObjectFollowerApi;
 }());
 exports.ObjectFollowerApi = ObjectFollowerApi;
-var ObservableAPI_6 = require("./ObservableAPI");
+var ObservableAPI_7 = require("./ObservableAPI");
 var ObjectFriendsApi = (function () {
     function ObjectFriendsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (param, options) {
         return this.api.friendControllerFindFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
@@ -267,11 +361,43 @@ var ObjectFriendsApi = (function () {
     return ObjectFriendsApi;
 }());
 exports.ObjectFriendsApi = ObjectFriendsApi;
-var ObservableAPI_7 = require("./ObservableAPI");
+var ObservableAPI_8 = require("./ObservableAPI");
+var ObjectNielsenBooksApi = (function () {
+    function ObjectNielsenBooksApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_8.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+    }
+    ObjectNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBooksWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo(options).toPromise();
+    };
+    ObjectNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBooks = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.nielsenBooksControllerGetNielsenBooks(options).toPromise();
+    };
+    return ObjectNielsenBooksApi;
+}());
+exports.ObjectNielsenBooksApi = ObjectNielsenBooksApi;
+var ObservableAPI_9 = require("./ObservableAPI");
 var ObjectPaymentApi = (function () {
     function ObjectPaymentApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectPaymentApi.prototype.paymentControllerConnectAccountWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerConnectAccountWithHttpInfo(options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerConnectAccount = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerConnectAccount(options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerCreateAccountVerificationLinkWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerCreateAccountVerificationLinkWithHttpInfo(options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerCreateAccountVerificationLink = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerCreateAccountVerificationLink(options).toPromise();
+    };
     ObjectPaymentApi.prototype.paymentControllerCreatePaymentWithHttpInfo = function (param, options) {
         return this.api.paymentControllerCreatePaymentWithHttpInfo(param.stripePaymentPayloadDto, options).toPromise();
     };
@@ -298,13 +424,21 @@ var ObjectPaymentApi = (function () {
         if (param === void 0) { param = {}; }
         return this.api.paymentControllerGetCardList(options).toPromise();
     };
+    ObjectPaymentApi.prototype.paymentControllerRetrieveConnectedAccountWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerRetrieveConnectedAccountWithHttpInfo(options).toPromise();
+    };
+    ObjectPaymentApi.prototype.paymentControllerRetrieveConnectedAccount = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.paymentControllerRetrieveConnectedAccount(options).toPromise();
+    };
     return ObjectPaymentApi;
 }());
 exports.ObjectPaymentApi = ObjectPaymentApi;
-var ObservableAPI_8 = require("./ObservableAPI");
+var ObservableAPI_10 = require("./ObservableAPI");
 var ObjectStorageApi = (function () {
     function ObjectStorageApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableStorageApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
     ObjectStorageApi.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (param, options) {
         return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto, options).toPromise();

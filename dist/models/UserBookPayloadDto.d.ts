@@ -4,6 +4,9 @@ export declare class UserBookPayloadDto {
     'rate'?: number;
     'review'?: string;
     static readonly discriminator: string | undefined;
+    static readonly mapping: {
+        [index: string]: string;
+    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

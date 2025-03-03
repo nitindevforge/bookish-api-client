@@ -8,6 +8,7 @@ var BillingDetails = (function () {
         return BillingDetails.attributeTypeMap;
     };
     BillingDetails.discriminator = undefined;
+    BillingDetails.mapping = undefined;
     BillingDetails.attributeTypeMap = [
         {
             "name": "address",

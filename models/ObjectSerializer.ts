@@ -2,6 +2,8 @@ export * from '../models/Activity';
 export * from '../models/ActivityResponse';
 export * from '../models/ActivityResponseDto';
 export * from '../models/Address';
+export * from '../models/AnalyticsResponseDTO';
+export * from '../models/AttendeeDTO';
 export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
 export * from '../models/Book';
@@ -11,6 +13,7 @@ export * from '../models/BookReviewCountResponseDto';
 export * from '../models/Books';
 export * from '../models/BooksResponseDto';
 export * from '../models/BooksReviewResponseDto';
+export * from '../models/BusinessConnectedAccount';
 export * from '../models/Card';
 export * from '../models/CardChecks';
 export * from '../models/CardList';
@@ -18,6 +21,9 @@ export * from '../models/CardListResponseDto';
 export * from '../models/CardNetwork';
 export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
+export * from '../models/CreateRoleDto';
+export * from '../models/CreateStaffDto';
+export * from '../models/EventDTO';
 export * from '../models/EventDeleteResponseDto';
 export * from '../models/EventPayloadDto';
 export * from '../models/EventResponseDto';
@@ -64,6 +70,8 @@ export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
+export * from '../models/UpdateRoleDto';
+export * from '../models/UpdateStaffDto';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBooks';
@@ -77,11 +85,14 @@ export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
 export * from '../models/UserUpdatePayloadDto';
+export * from '../models/VerificationLinkResponseDTO';
 
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
@@ -91,6 +102,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BusinessConnectedAccount , BusinessConnectedAccountStatusEnum   } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -98,6 +110,9 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateRoleDto } from '../models/CreateRoleDto';
+import { CreateStaffDto } from '../models/CreateStaffDto';
+import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -144,6 +159,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UpdateRoleDto } from '../models/UpdateRoleDto';
+import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
@@ -157,6 +174,7 @@ import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
+import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 
 /* tslint:disable:no-unused-variable */
 let primitives = [
@@ -171,6 +189,7 @@ let primitives = [
                  ];
 
 let enumsMap: Set<string> = new Set<string>([
+    "BusinessConnectedAccountStatusEnum",
 ]);
 
 let typeMap: {[index: string]: any} = {
@@ -178,6 +197,8 @@ let typeMap: {[index: string]: any} = {
     "ActivityResponse": ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto,
     "Address": Address,
+    "AnalyticsResponseDTO": AnalyticsResponseDTO,
+    "AttendeeDTO": AttendeeDTO,
     "AuthorResponseDto": AuthorResponseDto,
     "BillingDetails": BillingDetails,
     "Book": Book,
@@ -187,6 +208,7 @@ let typeMap: {[index: string]: any} = {
     "Books": Books,
     "BooksResponseDto": BooksResponseDto,
     "BooksReviewResponseDto": BooksReviewResponseDto,
+    "BusinessConnectedAccount": BusinessConnectedAccount,
     "Card": Card,
     "CardChecks": CardChecks,
     "CardList": CardList,
@@ -194,6 +216,9 @@ let typeMap: {[index: string]: any} = {
     "CardNetwork": CardNetwork,
     "CardSecure": CardSecure,
     "ChangePayloadDto": ChangePayloadDto,
+    "CreateRoleDto": CreateRoleDto,
+    "CreateStaffDto": CreateStaffDto,
+    "EventDTO": EventDTO,
     "EventDeleteResponseDto": EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto,
     "EventResponseDto": EventResponseDto,
@@ -240,6 +265,8 @@ let typeMap: {[index: string]: any} = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
+    "UpdateRoleDto": UpdateRoleDto,
+    "UpdateStaffDto": UpdateStaffDto,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto,
     "UserBooks": UserBooks,
@@ -253,6 +280,7 @@ let typeMap: {[index: string]: any} = {
     "UserResponseDto": UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto,
     "UserUpdatePayloadDto": UserUpdatePayloadDto,
+    "VerificationLinkResponseDTO": VerificationLinkResponseDTO,
 }
 
 type MimeTypeDescriptor = {
@@ -271,7 +299,7 @@ type MimeTypeDescriptor = {
  * the payload.
  */
 const parseMimeType = (mimeType: string): MimeTypeDescriptor => {
-    const [type, subtype] = mimeType.split('/');
+    const [type = '', subtype = ''] = mimeType.split('/');
     return {
         type,
         subtype,
@@ -307,6 +335,13 @@ const supportedMimeTypePredicatesWithPriority: MimeTypePredicate[] = [
     isFormUrlencodedMimeType,
 ];
 
+const nullableSuffix = " | null";
+const optionalSuffix = " | undefined";
+const arrayPrefix = "Array<";
+const arraySuffix = ">";
+const mapPrefix = "{ [key: string]: ";
+const mapSuffix = "; }";
+
 export class ObjectSerializer {
     public static findCorrectType(data: any, expectedType: string) {
         if (data == undefined) {
@@ -331,8 +366,11 @@ export class ObjectSerializer {
             } else {
                 if (data[discriminatorProperty]) {
                     var discriminatorType = data[discriminatorProperty];
-                    if(typeMap[discriminatorType]){
-                        return discriminatorType; // use the type given in the discriminator
+                    let mapping = typeMap[expectedType].mapping;
+                    if (mapping != undefined && mapping[discriminatorType]) {
+                        return mapping[discriminatorType]; // use the type given in the discriminator
+                    } else if(typeMap[discriminatorType]) {
+                        return discriminatorType;
                     } else {
                         return expectedType; // discriminator did not map to a type
                     }
@@ -343,17 +381,33 @@ export class ObjectSerializer {
         }
     }
 
-    public static serialize(data: any, type: string, format: string) {
+    public static serialize(data: any, type: string, format: string): any {
         if (data == undefined) {
             return data;
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
+        } else if (type.endsWith(nullableSuffix)) {
+            let subType: string = type.slice(0, -nullableSuffix.length); // Type | null => Type
+            return ObjectSerializer.serialize(data, subType, format);
+        } else if (type.endsWith(optionalSuffix)) {
+            let subType: string = type.slice(0, -optionalSuffix.length); // Type | undefined => Type
+            return ObjectSerializer.serialize(data, subType, format);
+        } else if (type.startsWith(arrayPrefix)) {
+            let subType: string = type.slice(arrayPrefix.length, -arraySuffix.length); // Array<Type> => Type
             let transformedData: any[] = [];
             for (let date of data) {
                 transformedData.push(ObjectSerializer.serialize(date, subType, format));
+            }
+            return transformedData;
+        } else if (type.startsWith(mapPrefix)) {
+            let subType: string = type.slice(mapPrefix.length, -mapSuffix.length); // { [key: string]: Type; } => Type
+            let transformedData: { [key: string]: any } = {};
+            for (let key in data) {
+                transformedData[key] = ObjectSerializer.serialize(
+                    data[key],
+                    subType,
+                    format,
+                );
             }
             return transformedData;
         } else if (type === "Date") {
@@ -388,19 +442,35 @@ export class ObjectSerializer {
         }
     }
 
-    public static deserialize(data: any, type: string, format: string) {
+    public static deserialize(data: any, type: string, format: string): any {
         // polymorphism may change the actual type.
         type = ObjectSerializer.findCorrectType(data, type);
         if (data == undefined) {
             return data;
         } else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
-        } else if (type.lastIndexOf("Array<", 0) === 0) { // string.startsWith pre es6
-            let subType: string = type.replace("Array<", ""); // Array<Type> => Type>
-            subType = subType.substring(0, subType.length - 1); // Type> => Type
+        } else if (type.endsWith(nullableSuffix)) {
+            let subType: string = type.slice(0, -nullableSuffix.length); // Type | null => Type
+            return ObjectSerializer.deserialize(data, subType, format);
+        } else if (type.endsWith(optionalSuffix)) {
+            let subType: string = type.slice(0, -optionalSuffix.length); // Type | undefined => Type
+            return ObjectSerializer.deserialize(data, subType, format);
+        } else if (type.startsWith(arrayPrefix)) {
+            let subType: string = type.slice(arrayPrefix.length, -arraySuffix.length); // Array<Type> => Type
             let transformedData: any[] = [];
             for (let date of data) {
                 transformedData.push(ObjectSerializer.deserialize(date, subType, format));
+            }
+            return transformedData;
+        } else if (type.startsWith(mapPrefix)) {
+            let subType: string = type.slice(mapPrefix.length, -mapSuffix.length); // { [key: string]: Type; } => Type
+            let transformedData: { [key: string]: any } = {};
+            for (let key in data) {
+                transformedData[key] = ObjectSerializer.deserialize(
+                    data[key],
+                    subType,
+                    format,
+                );
             }
             return transformedData;
         } else if (type === "Date") {
@@ -436,7 +506,7 @@ export class ObjectSerializer {
         if (mediaType === undefined) {
             return undefined;
         }
-        return mediaType.split(";")[0].trim().toLowerCase();
+        return (mediaType.split(";")[0] ?? '').trim().toLowerCase();
     }
 
     /**

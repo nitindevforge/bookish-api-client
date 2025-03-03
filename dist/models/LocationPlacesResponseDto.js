@@ -8,6 +8,7 @@ var LocationPlacesResponseDto = (function () {
         return LocationPlacesResponseDto.attributeTypeMap;
     };
     LocationPlacesResponseDto.discriminator = undefined;
+    LocationPlacesResponseDto.mapping = undefined;
     LocationPlacesResponseDto.attributeTypeMap = [
         {
             "name": "data",

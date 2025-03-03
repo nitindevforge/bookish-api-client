@@ -5,6 +5,8 @@ import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { Address } from '../models/Address';
+import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
@@ -14,6 +16,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
 import { CardList } from '../models/CardList';
@@ -21,6 +24,9 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateRoleDto } from '../models/CreateRoleDto';
+import { CreateStaffDto } from '../models/CreateStaffDto';
+import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -67,6 +73,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { UpdateRoleDto } from '../models/UpdateRoleDto';
+import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBooks } from '../models/UserBooks';
@@ -80,6 +88,36 @@ import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
+import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
+
+import { ObservableAnalyticsApi } from "./ObservableAPI";
+import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor} from "../apis/AnalyticsApi";
+
+export interface AnalyticsApiAnalyticsControllerGetAnalyticsRequest {
+}
+
+export class ObjectAnalyticsApi {
+    private api: ObservableAnalyticsApi
+
+    public constructor(configuration: Configuration, requestFactory?: AnalyticsApiRequestFactory, responseProcessor?: AnalyticsApiResponseProcessor) {
+        this.api = new ObservableAnalyticsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public analyticsControllerGetAnalyticsWithHttpInfo(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: Configuration): Promise<HttpInfo<AnalyticsResponseDTO>> {
+        return this.api.analyticsControllerGetAnalyticsWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public analyticsControllerGetAnalytics(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: Configuration): Promise<AnalyticsResponseDTO> {
+        return this.api.analyticsControllerGetAnalytics( options).toPromise();
+    }
+
+}
 
 import { ObservableAuthApi } from "./ObservableAPI";
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
@@ -96,6 +134,33 @@ export interface AuthApiAuthControllerChangePasswordRequest {
     changePayloadDto: ChangePayloadDto
 }
 
+export interface AuthApiAuthControllerCreateBusinessUserRequest {
+    /**
+     * 
+     * @type SignupPayloadDto
+     * @memberof AuthApiauthControllerCreateBusinessUser
+     */
+    signupPayloadDto: SignupPayloadDto
+}
+
+export interface AuthApiAuthControllerCreateRolesRequest {
+    /**
+     * Payload to create a new role
+     * @type CreateRoleDto
+     * @memberof AuthApiauthControllerCreateRoles
+     */
+    createRoleDto: CreateRoleDto
+}
+
+export interface AuthApiAuthControllerCreateStaffRequest {
+    /**
+     * 
+     * @type CreateStaffDto
+     * @memberof AuthApiauthControllerCreateStaff
+     */
+    createStaffDto: CreateStaffDto
+}
+
 export interface AuthApiAuthControllerCreateUserRequest {
     /**
      * 
@@ -103,6 +168,26 @@ export interface AuthApiAuthControllerCreateUserRequest {
      * @memberof AuthApiauthControllerCreateUser
      */
     signupPayloadDto: SignupPayloadDto
+}
+
+export interface AuthApiAuthControllerDeleteRoleRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerDeleteRole
+     */
+    id: string
+}
+
+export interface AuthApiAuthControllerDeleteStaffRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerDeleteStaff
+     */
+    id: string
 }
 
 export interface AuthApiAuthControllerForgetPasswordRequest {
@@ -117,63 +202,97 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
 export interface AuthApiAuthControllerGetActivityRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     longitude?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     latitude?: number
     /**
      * 
+     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerGetActivity
      */
     global?: boolean
 }
 
+export interface AuthApiAuthControllerGetAllStaffRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof AuthApiauthControllerGetAllStaff
+     */
+    page: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof AuthApiauthControllerGetAllStaff
+     */
+    limit: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerGetAllStaff
+     */
+    search?: string
+}
+
 export interface AuthApiAuthControllerGetEventsActivityRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     longitude?: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     latitude?: number
     /**
      * 
+     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerGetEventsActivity
      */
@@ -181,6 +300,9 @@ export interface AuthApiAuthControllerGetEventsActivityRequest {
 }
 
 export interface AuthApiAuthControllerGetInterestsRequest {
+}
+
+export interface AuthApiAuthControllerGetPermissionRequest {
 }
 
 export interface AuthApiAuthControllerLoginRequest {
@@ -192,9 +314,73 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto
 }
 
+export interface AuthApiAuthControllerUpdateRolesRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerUpdateRoles
+     */
+    id: string
+    /**
+     * 
+     * @type UpdateRoleDto
+     * @memberof AuthApiauthControllerUpdateRoles
+     */
+    updateRoleDto: UpdateRoleDto
+}
+
+export interface AuthApiAuthControllerUpdateStaffRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerUpdateStaff
+     */
+    id: string
+    /**
+     * 
+     * @type UpdateStaffDto
+     * @memberof AuthApiauthControllerUpdateStaff
+     */
+    updateStaffDto: UpdateStaffDto
+}
+
+export interface AuthApiAuthControllerUserRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof AuthApiauthControllerUser
+     */
+    page: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof AuthApiauthControllerUser
+     */
+    limit: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof AuthApiauthControllerUser
+     */
+    allRoles?: boolean
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof AuthApiauthControllerUser
+     */
+    search?: string
+}
+
 export interface AuthApiAuthControllerUserByIdRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUserById
      */
@@ -204,6 +390,7 @@ export interface AuthApiAuthControllerUserByIdRequest {
 export interface AuthApiAuthControllerUserFollowersRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUserFollowers
      */
@@ -278,6 +465,48 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerCreateBusinessUserWithHttpInfo(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerCreateBusinessUserWithHttpInfo(param.signupPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerCreateBusinessUser(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerCreateBusinessUser(param.signupPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerCreateRolesWithHttpInfo(param: AuthApiAuthControllerCreateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerCreateRolesWithHttpInfo(param.createRoleDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerCreateRoles(param: AuthApiAuthControllerCreateRolesRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerCreateRoles(param.createRoleDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerCreateStaffWithHttpInfo(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<HttpInfo<CreateStaffDto>> {
+        return this.api.authControllerCreateStaffWithHttpInfo(param.createStaffDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerCreateStaff(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<CreateStaffDto> {
+        return this.api.authControllerCreateStaff(param.createStaffDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerCreateUserWithHttpInfo(param.signupPayloadDto,  options).toPromise();
     }
@@ -287,6 +516,34 @@ export class ObjectAuthApi {
      */
     public authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerCreateUser(param.signupPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerDeleteRoleWithHttpInfo(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerDeleteRoleWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerDeleteRole(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerDeleteRole(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerDeleteStaffWithHttpInfo(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
+        return this.api.authControllerDeleteStaffWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerDeleteStaff(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<UserDeleteResponseDto> {
+        return this.api.authControllerDeleteStaff(param.id,  options).toPromise();
     }
 
     /**
@@ -320,6 +577,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerGetAllStaffWithHttpInfo(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetAllStaff(param.page, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global,  options).toPromise();
     }
@@ -348,6 +619,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerGetPermissionWithHttpInfo(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetPermissionWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetPermission(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetPermission( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto,  options).toPromise();
     }
@@ -357,6 +642,48 @@ export class ObjectAuthApi {
      */
     public authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerLogin(param.loginPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerUpdateRoles(param.id, param.updateRoleDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerUpdateStaffWithHttpInfo(param.id, param.updateStaffDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateStaff(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerUpdateStaff(param.id, param.updateStaffDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUserWithHttpInfo(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerUserWithHttpInfo(param.page, param.limit, param.allRoles, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUser(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerUser(param.page, param.limit, param.allRoles, param.search,  options).toPromise();
     }
 
     /**
@@ -460,6 +787,7 @@ export interface BooksApiBookControllerAddBookRequest {
 export interface BooksApiBookControllerFindBookByIdRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBookById
      */
@@ -469,30 +797,35 @@ export interface BooksApiBookControllerFindBookByIdRequest {
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBookReviewBase
      */
     type: string
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBookReviewBase
      */
     rate: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBookReviewBase
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBookReviewBase
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBookReviewBase
      */
@@ -502,24 +835,28 @@ export interface BooksApiBookControllerFindBookReviewBaseRequest {
 export interface BooksApiBookControllerFindBooksRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     rate: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBooks
      */
@@ -529,24 +866,28 @@ export interface BooksApiBookControllerFindBooksRequest {
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
     bookId: string
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
     status?: string
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReview
      */
     rate?: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
@@ -556,24 +897,28 @@ export interface BooksApiBookControllerFindUserBookReviewRequest {
 export interface BooksApiBookControllerFindUserBookReviewCountRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     bookId: string
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     status?: string
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     rate?: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
@@ -583,22 +928,35 @@ export interface BooksApiBookControllerFindUserBookReviewCountRequest {
 export interface BooksApiBookControllerFindUserBookReviewsRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     bookId: string
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     limit: number
+    /**
+     * Updated list of permission IDs associated with this role
+     * Defaults to: undefined
+     * @type Array&lt;number&gt;
+     * @memberof BooksApibookControllerFindUserBookReviews
+     */
+    rate?: Array<number>
+}
+
+export interface BooksApiBookControllerFindUserWhichReadBookRequest {
 }
 
 export interface BooksApiBookControllerUserBookMarkRequest {
@@ -705,14 +1063,28 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit,  options).toPromise();
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
-        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit,  options).toPromise();
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserWhichReadBookWithHttpInfo(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        return this.api.bookControllerFindUserWhichReadBookWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindUserWhichReadBook(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: Configuration): Promise<UserBooksResponseDto> {
+        return this.api.bookControllerFindUserWhichReadBook( options).toPromise();
     }
 
     /**
@@ -775,30 +1147,51 @@ export interface EventsApiEventControllerCreateEventRequest {
 export interface EventsApiEventControllerDeleteEventRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerDeleteEvent
      */
     id: string
+    /**
+     * 
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof EventsApieventControllerDeleteEvent
+     */
+    withBookedEvent?: boolean
+}
+
+export interface EventsApiEventControllerFindCustomerOfEventsRequest {
 }
 
 export interface EventsApiEventControllerFindEventByIdRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindEventById
      */
     id: string
+    /**
+     * 
+     * Defaults to: undefined
+     * @type boolean
+     * @memberof EventsApieventControllerFindEventById
+     */
+    withBookedEvent?: boolean
 }
 
 export interface EventsApiEventControllerFindEventsRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
@@ -808,6 +1201,7 @@ export interface EventsApiEventControllerFindEventsRequest {
 export interface EventsApiEventControllerFindMyEventRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindMyEvent
      */
@@ -817,18 +1211,21 @@ export interface EventsApiEventControllerFindMyEventRequest {
 export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
     limit: number
     /**
      * 
+     * Defaults to: &#39;UPCOMING&#39;
      * @type &#39;UPCOMING&#39; | &#39;VISITED&#39;
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
@@ -878,28 +1275,42 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>> {
-        return this.api.eventControllerDeleteEventWithHttpInfo(param.id,  options).toPromise();
+        return this.api.eventControllerDeleteEventWithHttpInfo(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerDeleteEvent(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<EventDeleteResponseDto> {
-        return this.api.eventControllerDeleteEvent(param.id,  options).toPromise();
+        return this.api.eventControllerDeleteEvent(param.id, param.withBookedEvent,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindCustomerOfEventsWithHttpInfo(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
+        return this.api.eventControllerFindCustomerOfEventsWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerFindCustomerOfEvents(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: Configuration): Promise<LocationPlacesResponseDto> {
+        return this.api.eventControllerFindCustomerOfEvents( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
-        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id,  options).toPromise();
+        return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto> {
-        return this.api.eventControllerFindEventById(param.id,  options).toPromise();
+        return this.api.eventControllerFindEventById(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
@@ -980,18 +1391,21 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/
 export interface FollowerApiFollowerControllerFindMyFriendsRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof FollowerApifollowerControllerFindMyFriends
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof FollowerApifollowerControllerFindMyFriends
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof FollowerApifollowerControllerFindMyFriends
      */
@@ -1073,18 +1487,21 @@ import { FriendsApiRequestFactory, FriendsApiResponseProcessor} from "../apis/Fr
 export interface FriendsApiFriendControllerFindFriendsRequest {
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof FriendsApifriendControllerFindFriends
      */
     page: number
     /**
      * 
+     * Defaults to: undefined
      * @type number
      * @memberof FriendsApifriendControllerFindFriends
      */
     limit: number
     /**
      * 
+     * Defaults to: undefined
      * @type string
      * @memberof FriendsApifriendControllerFindFriends
      */
@@ -1114,8 +1531,43 @@ export class ObjectFriendsApi {
 
 }
 
+import { ObservableNielsenBooksApi } from "./ObservableAPI";
+import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor} from "../apis/NielsenBooksApi";
+
+export interface NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest {
+}
+
+export class ObjectNielsenBooksApi {
+    private api: ObservableNielsenBooksApi
+
+    public constructor(configuration: Configuration, requestFactory?: NielsenBooksApiRequestFactory, responseProcessor?: NielsenBooksApiResponseProcessor) {
+        this.api = new ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBooksWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBooks(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.nielsenBooksControllerGetNielsenBooks( options).toPromise();
+    }
+
+}
+
 import { ObservablePaymentApi } from "./ObservableAPI";
 import { PaymentApiRequestFactory, PaymentApiResponseProcessor} from "../apis/PaymentApi";
+
+export interface PaymentApiPaymentControllerConnectAccountRequest {
+}
+
+export interface PaymentApiPaymentControllerCreateAccountVerificationLinkRequest {
+}
 
 export interface PaymentApiPaymentControllerCreatePaymentRequest {
     /**
@@ -1147,11 +1599,42 @@ export interface PaymentApiPaymentControllerDeleteCardDetailsRequest {
 export interface PaymentApiPaymentControllerGetCardListRequest {
 }
 
+export interface PaymentApiPaymentControllerRetrieveConnectedAccountRequest {
+}
+
 export class ObjectPaymentApi {
     private api: ObservablePaymentApi
 
     public constructor(configuration: Configuration, requestFactory?: PaymentApiRequestFactory, responseProcessor?: PaymentApiResponseProcessor) {
         this.api = new ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerConnectAccountWithHttpInfo(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
+        return this.api.paymentControllerConnectAccountWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerConnectAccount(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: Configuration): Promise<BusinessConnectedAccount> {
+        return this.api.paymentControllerConnectAccount( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerCreateAccountVerificationLinkWithHttpInfo(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: Configuration): Promise<HttpInfo<VerificationLinkResponseDTO>> {
+        return this.api.paymentControllerCreateAccountVerificationLinkWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerCreateAccountVerificationLink(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: Configuration): Promise<VerificationLinkResponseDTO> {
+        return this.api.paymentControllerCreateAccountVerificationLink( options).toPromise();
     }
 
     /**
@@ -1208,6 +1691,20 @@ export class ObjectPaymentApi {
      */
     public paymentControllerGetCardList(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerGetCardList( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerRetrieveConnectedAccountWithHttpInfo(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
+        return this.api.paymentControllerRetrieveConnectedAccountWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public paymentControllerRetrieveConnectedAccount(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: Configuration): Promise<BusinessConnectedAccount> {
+        return this.api.paymentControllerRetrieveConnectedAccount( options).toPromise();
     }
 
 }

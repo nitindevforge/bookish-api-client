@@ -18,6 +18,7 @@ export declare class HttpException extends Error {
     constructor(msg: string);
 }
 export type RequestBody = undefined | string | FormData | URLSearchParams;
+type Headers = Record<string, string>;
 export declare class RequestContext {
     private httpMethod;
     private headers;
@@ -28,11 +29,10 @@ export declare class RequestContext {
     setUrl(url: string): void;
     setBody(body: RequestBody): void;
     getHttpMethod(): HttpMethod;
-    getHeaders(): {
-        [key: string]: string;
-    };
+    getHeaders(): Headers;
     getBody(): RequestBody;
     setQueryParam(name: string, value: string): void;
+    appendQueryParam(name: string, value: string): void;
     addCookie(name: string, value: string): void;
     setHeaderParam(key: string, value: string): void;
 }
@@ -48,16 +48,10 @@ export declare class SelfDecodingBody implements ResponseBody {
 }
 export declare class ResponseContext {
     httpStatusCode: number;
-    headers: {
-        [key: string]: string;
-    };
+    headers: Headers;
     body: ResponseBody;
-    constructor(httpStatusCode: number, headers: {
-        [key: string]: string;
-    }, body: ResponseBody);
-    getParsedHeader(headerName: string): {
-        [parameter: string]: string;
-    };
+    constructor(httpStatusCode: number, headers: Headers, body: ResponseBody);
+    getParsedHeader(headerName: string): Headers;
     getBodyAsFile(): Promise<HttpFile>;
     getBodyAsAny(): Promise<string | Blob | undefined>;
 }
@@ -69,13 +63,6 @@ export interface PromiseHttpLibrary {
 }
 export declare function wrapHttpLibrary(promiseHttpLibrary: PromiseHttpLibrary): HttpLibrary;
 export declare class HttpInfo<T> extends ResponseContext {
-    httpStatusCode: number;
-    headers: {
-        [key: string]: string;
-    };
-    body: ResponseBody;
     data: T;
-    constructor(httpStatusCode: number, headers: {
-        [key: string]: string;
-    }, body: ResponseBody, data: T);
+    constructor(httpStatusCode: number, headers: Headers, body: ResponseBody, data: T);
 }

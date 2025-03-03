@@ -8,6 +8,7 @@ var FollowerResponseDto = (function () {
         return FollowerResponseDto.attributeTypeMap;
     };
     FollowerResponseDto.discriminator = undefined;
+    FollowerResponseDto.mapping = undefined;
     FollowerResponseDto.attributeTypeMap = [
         {
             "name": "data",

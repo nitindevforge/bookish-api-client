@@ -8,6 +8,7 @@ var UserResponseDto = (function () {
         return UserResponseDto.attributeTypeMap;
     };
     UserResponseDto.discriminator = undefined;
+    UserResponseDto.mapping = undefined;
     UserResponseDto.attributeTypeMap = [
         {
             "name": "data",

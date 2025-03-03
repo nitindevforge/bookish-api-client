@@ -8,6 +8,7 @@ var Activity = (function () {
         return Activity.attributeTypeMap;
     };
     Activity.discriminator = undefined;
+    Activity.mapping = undefined;
     Activity.attributeTypeMap = [
         {
             "name": "id",

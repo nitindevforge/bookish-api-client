@@ -8,6 +8,7 @@ var BooksResponseDto = (function () {
         return BooksResponseDto.attributeTypeMap;
     };
     BooksResponseDto.discriminator = undefined;
+    BooksResponseDto.mapping = undefined;
     BooksResponseDto.attributeTypeMap = [
         {
             "name": "data",

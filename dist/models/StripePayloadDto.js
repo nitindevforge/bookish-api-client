@@ -8,6 +8,7 @@ var StripePayloadDto = (function () {
         return StripePayloadDto.attributeTypeMap;
     };
     StripePayloadDto.discriminator = undefined;
+    StripePayloadDto.mapping = undefined;
     StripePayloadDto.attributeTypeMap = [
         {
             "name": "amount",

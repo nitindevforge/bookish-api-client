@@ -8,6 +8,7 @@ var Rating = (function () {
         return Rating.attributeTypeMap;
     };
     Rating.discriminator = undefined;
+    Rating.mapping = undefined;
     Rating.attributeTypeMap = [
         {
             "name": "rate",

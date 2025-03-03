@@ -8,6 +8,7 @@ var Follower = (function () {
         return Follower.attributeTypeMap;
     };
     Follower.discriminator = undefined;
+    Follower.mapping = undefined;
     Follower.attributeTypeMap = [
         {
             "name": "follower",

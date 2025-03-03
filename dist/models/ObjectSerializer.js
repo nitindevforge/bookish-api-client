@@ -19,6 +19,8 @@ __exportStar(require("../models/Activity"), exports);
 __exportStar(require("../models/ActivityResponse"), exports);
 __exportStar(require("../models/ActivityResponseDto"), exports);
 __exportStar(require("../models/Address"), exports);
+__exportStar(require("../models/AnalyticsResponseDTO"), exports);
+__exportStar(require("../models/AttendeeDTO"), exports);
 __exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
@@ -28,6 +30,7 @@ __exportStar(require("../models/BookReviewCountResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/BooksReviewResponseDto"), exports);
+__exportStar(require("../models/BusinessConnectedAccount"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);
 __exportStar(require("../models/CardList"), exports);
@@ -35,6 +38,9 @@ __exportStar(require("../models/CardListResponseDto"), exports);
 __exportStar(require("../models/CardNetwork"), exports);
 __exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/CreateRoleDto"), exports);
+__exportStar(require("../models/CreateStaffDto"), exports);
+__exportStar(require("../models/EventDTO"), exports);
 __exportStar(require("../models/EventDeleteResponseDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
@@ -81,6 +87,8 @@ __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
+__exportStar(require("../models/UpdateRoleDto"), exports);
+__exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
@@ -94,10 +102,13 @@ __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
 __exportStar(require("../models/UserUpdatePayloadDto"), exports);
+__exportStar(require("../models/VerificationLinkResponseDTO"), exports);
 var Activity_1 = require("../models/Activity");
 var ActivityResponse_1 = require("../models/ActivityResponse");
 var ActivityResponseDto_1 = require("../models/ActivityResponseDto");
 var Address_1 = require("../models/Address");
+var AnalyticsResponseDTO_1 = require("../models/AnalyticsResponseDTO");
+var AttendeeDTO_1 = require("../models/AttendeeDTO");
 var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
@@ -107,6 +118,7 @@ var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto
 var Books_1 = require("../models/Books");
 var BooksResponseDto_1 = require("../models/BooksResponseDto");
 var BooksReviewResponseDto_1 = require("../models/BooksReviewResponseDto");
+var BusinessConnectedAccount_1 = require("../models/BusinessConnectedAccount");
 var Card_1 = require("../models/Card");
 var CardChecks_1 = require("../models/CardChecks");
 var CardList_1 = require("../models/CardList");
@@ -114,6 +126,9 @@ var CardListResponseDto_1 = require("../models/CardListResponseDto");
 var CardNetwork_1 = require("../models/CardNetwork");
 var CardSecure_1 = require("../models/CardSecure");
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var CreateRoleDto_1 = require("../models/CreateRoleDto");
+var CreateStaffDto_1 = require("../models/CreateStaffDto");
+var EventDTO_1 = require("../models/EventDTO");
 var EventDeleteResponseDto_1 = require("../models/EventDeleteResponseDto");
 var EventPayloadDto_1 = require("../models/EventPayloadDto");
 var EventResponseDto_1 = require("../models/EventResponseDto");
@@ -160,6 +175,8 @@ var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
+var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
+var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
 var UserBooks_1 = require("../models/UserBooks");
@@ -173,6 +190,7 @@ var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
 var UserRolePayloadDto_1 = require("../models/UserRolePayloadDto");
 var UserUpdatePayloadDto_1 = require("../models/UserUpdatePayloadDto");
+var VerificationLinkResponseDTO_1 = require("../models/VerificationLinkResponseDTO");
 var primitives = [
     "string",
     "boolean",
@@ -183,12 +201,16 @@ var primitives = [
     "number",
     "any"
 ];
-var enumsMap = new Set([]);
+var enumsMap = new Set([
+    "BusinessConnectedAccountStatusEnum",
+]);
 var typeMap = {
     "Activity": Activity_1.Activity,
     "ActivityResponse": ActivityResponse_1.ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto_1.ActivityResponseDto,
     "Address": Address_1.Address,
+    "AnalyticsResponseDTO": AnalyticsResponseDTO_1.AnalyticsResponseDTO,
+    "AttendeeDTO": AttendeeDTO_1.AttendeeDTO,
     "AuthorResponseDto": AuthorResponseDto_1.AuthorResponseDto,
     "BillingDetails": BillingDetails_1.BillingDetails,
     "Book": Book_1.Book,
@@ -198,6 +220,7 @@ var typeMap = {
     "Books": Books_1.Books,
     "BooksResponseDto": BooksResponseDto_1.BooksResponseDto,
     "BooksReviewResponseDto": BooksReviewResponseDto_1.BooksReviewResponseDto,
+    "BusinessConnectedAccount": BusinessConnectedAccount_1.BusinessConnectedAccount,
     "Card": Card_1.Card,
     "CardChecks": CardChecks_1.CardChecks,
     "CardList": CardList_1.CardList,
@@ -205,6 +228,9 @@ var typeMap = {
     "CardNetwork": CardNetwork_1.CardNetwork,
     "CardSecure": CardSecure_1.CardSecure,
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "CreateRoleDto": CreateRoleDto_1.CreateRoleDto,
+    "CreateStaffDto": CreateStaffDto_1.CreateStaffDto,
+    "EventDTO": EventDTO_1.EventDTO,
     "EventDeleteResponseDto": EventDeleteResponseDto_1.EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto_1.EventPayloadDto,
     "EventResponseDto": EventResponseDto_1.EventResponseDto,
@@ -251,6 +277,8 @@ var typeMap = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
+    "UpdateRoleDto": UpdateRoleDto_1.UpdateRoleDto,
+    "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
     "UserBooks": UserBooks_1.UserBooks,
@@ -264,9 +292,10 @@ var typeMap = {
     "UserResponseDto": UserResponseDto_1.UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto_1.UserRolePayloadDto,
     "UserUpdatePayloadDto": UserUpdatePayloadDto_1.UserUpdatePayloadDto,
+    "VerificationLinkResponseDTO": VerificationLinkResponseDTO_1.VerificationLinkResponseDTO,
 };
 var parseMimeType = function (mimeType) {
-    var _a = mimeType.split('/'), type = _a[0], subtype = _a[1];
+    var _a = mimeType.split('/'), _b = _a[0], type = _b === void 0 ? '' : _b, _c = _a[1], subtype = _c === void 0 ? '' : _c;
     return {
         type: type,
         subtype: subtype,
@@ -293,6 +322,12 @@ var supportedMimeTypePredicatesWithPriority = [
     isOctetStreamMimeType,
     isFormUrlencodedMimeType,
 ];
+var nullableSuffix = " | null";
+var optionalSuffix = " | undefined";
+var arrayPrefix = "Array<";
+var arraySuffix = ">";
+var mapPrefix = "{ [key: string]: ";
+var mapSuffix = "; }";
 var ObjectSerializer = (function () {
     function ObjectSerializer() {
     }
@@ -320,7 +355,11 @@ var ObjectSerializer = (function () {
             else {
                 if (data[discriminatorProperty]) {
                     var discriminatorType = data[discriminatorProperty];
-                    if (typeMap[discriminatorType]) {
+                    var mapping = typeMap[expectedType].mapping;
+                    if (mapping != undefined && mapping[discriminatorType]) {
+                        return mapping[discriminatorType];
+                    }
+                    else if (typeMap[discriminatorType]) {
                         return discriminatorType;
                     }
                     else {
@@ -340,13 +379,28 @@ var ObjectSerializer = (function () {
         else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         }
-        else if (type.lastIndexOf("Array<", 0) === 0) {
-            var subType = type.replace("Array<", "");
-            subType = subType.substring(0, subType.length - 1);
+        else if (type.endsWith(nullableSuffix)) {
+            var subType = type.slice(0, -nullableSuffix.length);
+            return ObjectSerializer.serialize(data, subType, format);
+        }
+        else if (type.endsWith(optionalSuffix)) {
+            var subType = type.slice(0, -optionalSuffix.length);
+            return ObjectSerializer.serialize(data, subType, format);
+        }
+        else if (type.startsWith(arrayPrefix)) {
+            var subType = type.slice(arrayPrefix.length, -arraySuffix.length);
             var transformedData = [];
             for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
                 var date = data_1[_i];
                 transformedData.push(ObjectSerializer.serialize(date, subType, format));
+            }
+            return transformedData;
+        }
+        else if (type.startsWith(mapPrefix)) {
+            var subType = type.slice(mapPrefix.length, -mapSuffix.length);
+            var transformedData = {};
+            for (var key in data) {
+                transformedData[key] = ObjectSerializer.serialize(data[key], subType, format);
             }
             return transformedData;
         }
@@ -387,13 +441,28 @@ var ObjectSerializer = (function () {
         else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         }
-        else if (type.lastIndexOf("Array<", 0) === 0) {
-            var subType = type.replace("Array<", "");
-            subType = subType.substring(0, subType.length - 1);
+        else if (type.endsWith(nullableSuffix)) {
+            var subType = type.slice(0, -nullableSuffix.length);
+            return ObjectSerializer.deserialize(data, subType, format);
+        }
+        else if (type.endsWith(optionalSuffix)) {
+            var subType = type.slice(0, -optionalSuffix.length);
+            return ObjectSerializer.deserialize(data, subType, format);
+        }
+        else if (type.startsWith(arrayPrefix)) {
+            var subType = type.slice(arrayPrefix.length, -arraySuffix.length);
             var transformedData = [];
             for (var _i = 0, data_2 = data; _i < data_2.length; _i++) {
                 var date = data_2[_i];
                 transformedData.push(ObjectSerializer.deserialize(date, subType, format));
+            }
+            return transformedData;
+        }
+        else if (type.startsWith(mapPrefix)) {
+            var subType = type.slice(mapPrefix.length, -mapSuffix.length);
+            var transformedData = {};
+            for (var key in data) {
+                transformedData[key] = ObjectSerializer.deserialize(data[key], subType, format);
             }
             return transformedData;
         }
@@ -420,10 +489,11 @@ var ObjectSerializer = (function () {
         }
     };
     ObjectSerializer.normalizeMediaType = function (mediaType) {
+        var _a;
         if (mediaType === undefined) {
             return undefined;
         }
-        return mediaType.split(";")[0].trim().toLowerCase();
+        return ((_a = mediaType.split(";")[0]) !== null && _a !== void 0 ? _a : '').trim().toLowerCase();
     };
     ObjectSerializer.getPreferredMediaType = function (mediaTypes) {
         if (mediaTypes.length === 0) {

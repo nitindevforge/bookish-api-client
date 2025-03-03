@@ -8,6 +8,7 @@ var CardChecks = (function () {
         return CardChecks.attributeTypeMap;
     };
     CardChecks.discriminator = undefined;
+    CardChecks.mapping = undefined;
     CardChecks.attributeTypeMap = [
         {
             "name": "addressLine1Check",

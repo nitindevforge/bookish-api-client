@@ -27,6 +27,7 @@ export type HttpBearerConfiguration = {
 export type OAuth2Configuration = {
     accessToken: string;
 };
+export type HttpSignatureConfiguration = unknown;
 export type AuthMethodsConfiguration = {
     "default"?: SecurityAuthentication;
     "bearer"?: HttpBearerConfiguration;

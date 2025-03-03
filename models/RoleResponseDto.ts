@@ -16,9 +16,12 @@ import { HttpFile } from '../http/http';
 export class RoleResponseDto {
     'id': string;
     'name': string;
+    'description': string;
     'permissions': Array<PermissionResponseDto>;
 
     static readonly discriminator: string | undefined = undefined;
+
+    static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
@@ -30,6 +33,12 @@ export class RoleResponseDto {
         {
             "name": "name",
             "baseName": "name",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
             "type": "string",
             "format": ""
         },
@@ -47,4 +56,3 @@ export class RoleResponseDto {
     public constructor() {
     }
 }
-

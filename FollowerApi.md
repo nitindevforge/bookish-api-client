@@ -17,24 +17,23 @@ Method | HTTP request | Description
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, FollowerApi } from '';
+import type { FollowerApiFollowerControllerFindMyFriendsRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .FollowerApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerFindMyFriendsRequest = {
-  // number
+const request: FollowerApiFollowerControllerFindMyFriendsRequest = {
+  
   page: 3.14,
-  // number
+  
   limit: 3.14,
-  // string (optional)
+  
   search: "search_example",
 };
 
-apiInstance.followerControllerFindMyFriends(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.followerControllerFindMyFriends(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -77,22 +76,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, FollowerApi } from '';
+import type { FollowerApiFollowerControllerFollowRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .FollowerApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerFollowRequest = {
-  // FollowerPayloadDto
+const request: FollowerApiFollowerControllerFollowRequest = {
+  
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-apiInstance.followerControllerFollow(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.followerControllerFollow(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 
@@ -133,22 +131,21 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import {  } from '';
-import * as fs from 'fs';
+import { createConfiguration, FollowerApi } from '';
+import type { FollowerApiFollowerControllerUnfollowRequest } from '';
 
-const configuration = .createConfiguration();
-const apiInstance = new .FollowerApi(configuration);
+const configuration = createConfiguration();
+const apiInstance = new FollowerApi(configuration);
 
-let body:.FollowerApiFollowerControllerUnfollowRequest = {
-  // FollowerPayloadDto
+const request: FollowerApiFollowerControllerUnfollowRequest = {
+  
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-apiInstance.followerControllerUnfollow(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
+const data = await apiInstance.followerControllerUnfollow(request);
+console.log('API called successfully. Returned data:', data);
 ```
 
 

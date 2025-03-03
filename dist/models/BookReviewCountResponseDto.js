@@ -8,6 +8,7 @@ var BookReviewCountResponseDto = (function () {
         return BookReviewCountResponseDto.attributeTypeMap;
     };
     BookReviewCountResponseDto.discriminator = undefined;
+    BookReviewCountResponseDto.mapping = undefined;
     BookReviewCountResponseDto.attributeTypeMap = [
         {
             "name": "data",

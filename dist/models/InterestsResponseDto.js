@@ -8,6 +8,7 @@ var InterestsResponseDto = (function () {
         return InterestsResponseDto.attributeTypeMap;
     };
     InterestsResponseDto.discriminator = undefined;
+    InterestsResponseDto.mapping = undefined;
     InterestsResponseDto.attributeTypeMap = [
         {
             "name": "data",
