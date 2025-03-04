@@ -1,14 +1,6 @@
-import { Places } from '../models/Places';
-export declare class EventPayloadDto {
-    'title': string;
-    'image': string;
-    'date': Date;
-    'price': number;
-    'noOfTickets': number;
-    'description': string;
-    'place': Places;
-    'id'?: string;
-    'book'?: string;
+export declare class StoreDetailsPayloadDto {
+    'storeName': string;
+    'storeLogo': string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

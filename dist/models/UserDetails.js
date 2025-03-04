@@ -93,6 +93,18 @@ var UserDetails = (function () {
             "baseName": "updatedAt",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "storeName",
+            "baseName": "storeName",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeLogo",
+            "baseName": "storeLogo",
+            "type": "string",
+            "format": ""
         }
     ];
     return UserDetails;

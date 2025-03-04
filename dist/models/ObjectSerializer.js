@@ -83,6 +83,7 @@ __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
 __exportStar(require("../models/StorageResponseDto"), exports);
+__exportStar(require("../models/StoreDetailsPayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
@@ -171,6 +172,7 @@ var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
 var StorageResponseDto_1 = require("../models/StorageResponseDto");
+var StoreDetailsPayloadDto_1 = require("../models/StoreDetailsPayloadDto");
 var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
@@ -273,6 +275,7 @@ var typeMap = {
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,
     "StorageResponseDto": StorageResponseDto_1.StorageResponseDto,
+    "StoreDetailsPayloadDto": StoreDetailsPayloadDto_1.StoreDetailsPayloadDto,
     "StripePayloadDto": StripePayloadDto_1.StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,

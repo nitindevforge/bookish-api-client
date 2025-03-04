@@ -29,6 +29,8 @@ export class UserDetails {
     'followerCount': number;
     'createdAt': Date;
     'updatedAt': Date;
+    'storeName': string;
+    'storeLogo': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -118,6 +120,18 @@ export class UserDetails {
             "baseName": "updatedAt",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "storeName",
+            "baseName": "storeName",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "storeLogo",
+            "baseName": "storeLogo",
+            "type": "string",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

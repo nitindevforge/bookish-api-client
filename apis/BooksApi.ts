@@ -388,7 +388,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param bookId 
      * @param page 
      * @param limit 
-     * @param rate Updated list of permission IDs associated with this role
+     * @param rate 
      */
     public async bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;

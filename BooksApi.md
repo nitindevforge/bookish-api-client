@@ -401,7 +401,7 @@ const request: BooksApiBookControllerFindUserBookReviewsRequest = {
   page: 3.14,
   
   limit: 3.14,
-    // Updated list of permission IDs associated with this role (optional)
+  
   rate: [],
 };
 
@@ -417,7 +417,7 @@ Name | Type | Description  | Notes
  **bookId** | [**string**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
- **rate** | **Array&lt;number&gt;** | Updated list of permission IDs associated with this role | (optional) defaults to undefined
+ **rate** | **Array&lt;number&gt;** |  | (optional) defaults to undefined
 
 
 ### Return type

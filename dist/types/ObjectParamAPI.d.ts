@@ -35,6 +35,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
+import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -111,6 +112,9 @@ export interface AuthApiAuthControllerGetPermissionRequest {
 export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
 }
+export interface AuthApiAuthControllerStoreDetailsUpdateRequest {
+    storeDetailsPayloadDto: StoreDetailsPayloadDto;
+}
 export interface AuthApiAuthControllerUpdateRolesRequest {
     id: string;
     updateRoleDto: UpdateRoleDto;
@@ -175,6 +179,8 @@ export declare class ObjectAuthApi {
     authControllerGetPermission(param?: AuthApiAuthControllerGetPermissionRequest, options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
+    authControllerStoreDetailsUpdateWithHttpInfo(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerStoreDetailsUpdate(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<void>;
     authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;

@@ -35,6 +35,7 @@ import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
+import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
@@ -90,6 +91,8 @@ export declare class PromiseAuthApi {
     authControllerGetPermission(_options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
+    authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<void>;
     authControllerUpdateStaffWithHttpInfo(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<HttpInfo<void>>;

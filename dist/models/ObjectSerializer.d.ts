@@ -66,6 +66,7 @@ export * from '../models/Review';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/StorageResponseDto';
+export * from '../models/StoreDetailsPayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';

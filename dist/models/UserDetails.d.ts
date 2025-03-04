@@ -15,6 +15,8 @@ export declare class UserDetails {
     'followerCount': number;
     'createdAt': Date;
     'updatedAt': Date;
+    'storeName': string;
+    'storeLogo': string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

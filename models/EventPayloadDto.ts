@@ -22,6 +22,7 @@ export class EventPayloadDto {
     'description': string;
     'place': Places;
     'id'?: string;
+    'book'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -73,6 +74,12 @@ export class EventPayloadDto {
         {
             "name": "id",
             "baseName": "_id",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "book",
+            "baseName": "book",
             "type": "string",
             "format": ""
         }    ];

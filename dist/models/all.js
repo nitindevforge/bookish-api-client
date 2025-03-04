@@ -82,6 +82,7 @@ __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
 __exportStar(require("../models/StorageResponseDto"), exports);
+__exportStar(require("../models/StoreDetailsPayloadDto"), exports);
 __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);

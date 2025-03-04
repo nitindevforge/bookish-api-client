@@ -99,6 +99,7 @@ models/Review.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts
 models/StorageResponseDto.ts
+models/StoreDetailsPayloadDto.ts
 models/StripePayloadDto.ts
 models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts

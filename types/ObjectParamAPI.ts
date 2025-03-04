@@ -69,6 +69,7 @@ import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
+import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
@@ -312,6 +313,15 @@ export interface AuthApiAuthControllerLoginRequest {
      * @memberof AuthApiauthControllerLogin
      */
     loginPayloadDto: LoginPayloadDto
+}
+
+export interface AuthApiAuthControllerStoreDetailsUpdateRequest {
+    /**
+     * 
+     * @type StoreDetailsPayloadDto
+     * @memberof AuthApiauthControllerStoreDetailsUpdate
+     */
+    storeDetailsPayloadDto: StoreDetailsPayloadDto
 }
 
 export interface AuthApiAuthControllerUpdateRolesRequest {
@@ -647,6 +657,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerStoreDetailsUpdateWithHttpInfo(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerStoreDetailsUpdateWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerStoreDetailsUpdate(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerStoreDetailsUpdate(param.storeDetailsPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto,  options).toPromise();
     }
@@ -948,7 +972,7 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
      */
     limit: number
     /**
-     * Updated list of permission IDs associated with this role
+     * 
      * Defaults to: undefined
      * @type Array&lt;number&gt;
      * @memberof BooksApibookControllerFindUserBookReviews

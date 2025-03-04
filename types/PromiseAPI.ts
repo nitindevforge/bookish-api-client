@@ -69,6 +69,7 @@ import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
+import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
@@ -391,6 +392,22 @@ export class PromiseAuthApi {
     }
 
     /**
+     * @param storeDetailsPayloadDto
+     */
+    public authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param storeDetailsPayloadDto
+     */
+    public authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param id
      * @param updateRoleDto
      */
@@ -687,7 +704,7 @@ export class PromiseBooksApi {
      * @param bookId
      * @param page
      * @param limit
-     * @param [rate] Updated list of permission IDs associated with this role
+     * @param [rate]
      */
     public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
         const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, rate, _options);
@@ -698,7 +715,7 @@ export class PromiseBooksApi {
      * @param bookId
      * @param page
      * @param limit
-     * @param [rate] Updated list of permission IDs associated with this role
+     * @param [rate]
      */
     public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<UserBooksResponseDto> {
         const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, rate, _options);

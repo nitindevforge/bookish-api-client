@@ -43,6 +43,7 @@ const request: EventsApiEventControllerCreateEventRequest = {
       value: "value_example",
     },
     id: "id_example",
+    book: "book_example",
   },
 };
 
@@ -489,6 +490,7 @@ const request: EventsApiEventControllerUpdateEventRequest = {
       value: "value_example",
     },
     id: "id_example",
+    book: "book_example",
   },
 };
 

@@ -66,6 +66,7 @@ export * from '../models/Review';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
 export * from '../models/StorageResponseDto';
+export * from '../models/StoreDetailsPayloadDto';
 export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
@@ -155,6 +156,7 @@ import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
+import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
@@ -261,6 +263,7 @@ let typeMap: {[index: string]: any} = {
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,
     "StorageResponseDto": StorageResponseDto,
+    "StoreDetailsPayloadDto": StoreDetailsPayloadDto,
     "StripePayloadDto": StripePayloadDto,
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,
