@@ -315,15 +315,6 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto
 }
 
-export interface AuthApiAuthControllerStoreDetailsUpdateRequest {
-    /**
-     * 
-     * @type StoreDetailsPayloadDto
-     * @memberof AuthApiauthControllerStoreDetailsUpdate
-     */
-    storeDetailsPayloadDto: StoreDetailsPayloadDto
-}
-
 export interface AuthApiAuthControllerUpdateRolesRequest {
     /**
      * 
@@ -354,6 +345,15 @@ export interface AuthApiAuthControllerUpdateStaffRequest {
      * @memberof AuthApiauthControllerUpdateStaff
      */
     updateStaffDto: UpdateStaffDto
+}
+
+export interface AuthApiAuthControllerUpdateStoreDetailsRequest {
+    /**
+     * 
+     * @type StoreDetailsPayloadDto
+     * @memberof AuthApiauthControllerUpdateStoreDetails
+     */
+    storeDetailsPayloadDto: StoreDetailsPayloadDto
 }
 
 export interface AuthApiAuthControllerUserRequest {
@@ -657,20 +657,6 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerStoreDetailsUpdateWithHttpInfo(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        return this.api.authControllerStoreDetailsUpdateWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public authControllerStoreDetailsUpdate(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
-        return this.api.authControllerStoreDetailsUpdate(param.storeDetailsPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
     public authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto,  options).toPromise();
     }
@@ -694,6 +680,20 @@ export class ObjectAuthApi {
      */
     public authControllerUpdateStaff(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerUpdateStaff(param.id, param.updateStaffDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateStoreDetailsWithHttpInfo(param: AuthApiAuthControllerUpdateStoreDetailsRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUpdateStoreDetailsWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerUpdateStoreDetails(param: AuthApiAuthControllerUpdateStoreDetailsRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUpdateStoreDetails(param.storeDetailsPayloadDto,  options).toPromise();
     }
 
     /**

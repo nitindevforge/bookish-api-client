@@ -142,14 +142,6 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerLogin(loginPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerStoreDetailsUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
-        var result = this.api.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
-        return result.toPromise();
-    };
-    PromiseAuthApi.prototype.authControllerStoreDetailsUpdate = function (storeDetailsPayloadDto, _options) {
-        var result = this.api.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
-        return result.toPromise();
-    };
     PromiseAuthApi.prototype.authControllerUpdateRolesWithHttpInfo = function (id, updateRoleDto, _options) {
         var result = this.api.authControllerUpdateRolesWithHttpInfo(id, updateRoleDto, _options);
         return result.toPromise();
@@ -164,6 +156,14 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerUpdateStaff = function (id, updateStaffDto, _options) {
         var result = this.api.authControllerUpdateStaff(id, updateStaffDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUpdateStoreDetailsWithHttpInfo = function (storeDetailsPayloadDto, _options) {
+        var result = this.api.authControllerUpdateStoreDetailsWithHttpInfo(storeDetailsPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUpdateStoreDetails = function (storeDetailsPayloadDto, _options) {
+        var result = this.api.authControllerUpdateStoreDetails(storeDetailsPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerUserWithHttpInfo = function (page, limit, allRoles, search, _options) {
