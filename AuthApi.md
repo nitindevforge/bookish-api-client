@@ -19,9 +19,9 @@ Method | HTTP request | Description
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerGetPermission**](AuthApi.md#authControllerGetPermission) | **GET** /v1/auth/permissions | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
+[**authControllerStoreDetailsUpdate**](AuthApi.md#authControllerStoreDetailsUpdate) | **PUT** /v1/auth/store-details | 
 [**authControllerUpdateRoles**](AuthApi.md#authControllerUpdateRoles) | **PUT** /v1/auth/update/role/{id} | 
 [**authControllerUpdateStaff**](AuthApi.md#authControllerUpdateStaff) | **PUT** /v1/auth/staff/{id} | 
-[**authControllerUpdateStoreDetails**](AuthApi.md#authControllerUpdateStoreDetails) | **PUT** /v1/auth/store-details | 
 [**authControllerUser**](AuthApi.md#authControllerUser) | **GET** /v1/auth/roles | 
 [**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
 [**authControllerUserFollowers**](AuthApi.md#authControllerUserFollowers) | **GET** /v1/auth/follower | 
@@ -849,6 +849,62 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **authControllerStoreDetailsUpdate**
+> UserResponseDto authControllerStoreDetailsUpdate(storeDetailsPayloadDto)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerStoreDetailsUpdateRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerStoreDetailsUpdateRequest = {
+  
+  storeDetailsPayloadDto: {
+    storeName: "storeName_example",
+    storeLogo: "storeLogo_example",
+  },
+};
+
+const data = await apiInstance.authControllerStoreDetailsUpdate(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **storeDetailsPayloadDto** | **StoreDetailsPayloadDto**|  |
+
+
+### Return type
+
+**UserResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **authControllerUpdateRoles**
 > authControllerUpdateRoles(updateRoleDto)
 
@@ -965,62 +1021,6 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Staff updated successfully |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **authControllerUpdateStoreDetails**
-> UserResponseDto authControllerUpdateStoreDetails(storeDetailsPayloadDto)
-
-
-### Example
-
-
-```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUpdateStoreDetailsRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
-
-const request: AuthApiAuthControllerUpdateStoreDetailsRequest = {
-  
-  storeDetailsPayloadDto: {
-    storeName: "storeName_example",
-    storeLogo: "storeLogo_example",
-  },
-};
-
-const data = await apiInstance.authControllerUpdateStoreDetails(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **storeDetailsPayloadDto** | **StoreDetailsPayloadDto**|  |
-
-
-### Return type
-
-**UserResponseDto**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

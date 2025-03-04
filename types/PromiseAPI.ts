@@ -392,6 +392,22 @@ export class PromiseAuthApi {
     }
 
     /**
+     * @param storeDetailsPayloadDto
+     */
+    public authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param storeDetailsPayloadDto
+     */
+    public authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param id
      * @param updateRoleDto
      */
@@ -424,22 +440,6 @@ export class PromiseAuthApi {
      */
     public authControllerUpdateStaff(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<void> {
         const result = this.api.authControllerUpdateStaff(id, updateStaffDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param storeDetailsPayloadDto
-     */
-    public authControllerUpdateStoreDetailsWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        const result = this.api.authControllerUpdateStoreDetailsWithHttpInfo(storeDetailsPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param storeDetailsPayloadDto
-     */
-    public authControllerUpdateStoreDetails(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
-        const result = this.api.authControllerUpdateStoreDetails(storeDetailsPayloadDto, _options);
         return result.toPromise();
     }
 
