@@ -452,9 +452,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerLogin = function (loginPayloadDto, _options) {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerStoreDetailsUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
+    ObservableAuthApi.prototype.authControllerUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.authControllerUpdate(storeDetailsPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_33 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -473,11 +473,11 @@ var ObservableAuthApi = (function () {
                 var middleware = _a[_i];
                 _loop_34(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerStoreDetailsUpdateWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerUpdateWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerStoreDetailsUpdate = function (storeDetailsPayloadDto, _options) {
-        return this.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerUpdate = function (storeDetailsPayloadDto, _options) {
+        return this.authControllerUpdateWithHttpInfo(storeDetailsPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerUpdateRolesWithHttpInfo = function (id, updateRoleDto, _options) {
         var _this = this;

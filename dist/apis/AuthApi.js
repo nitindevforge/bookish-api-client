@@ -590,7 +590,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerStoreDetailsUpdate = function (storeDetailsPayloadDto, _options) {
+    AuthApiRequestFactory.prototype.authControllerUpdate = function (storeDetailsPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -599,9 +599,9 @@ var AuthApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (storeDetailsPayloadDto === null || storeDetailsPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("AuthApi", "authControllerStoreDetailsUpdate", "storeDetailsPayloadDto");
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerUpdate", "storeDetailsPayloadDto");
                         }
-                        localVarPath = '/v1/auth/store-details';
+                        localVarPath = '/v1/auth/store';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
@@ -1426,7 +1426,7 @@ var AuthApiResponseProcessor = (function () {
             });
         });
     };
-    AuthApiResponseProcessor.prototype.authControllerStoreDetailsUpdateWithHttpInfo = function (response) {
+    AuthApiResponseProcessor.prototype.authControllerUpdateWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

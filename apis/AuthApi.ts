@@ -689,17 +689,17 @@ export class AuthApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param storeDetailsPayloadDto 
      */
-    public async authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'storeDetailsPayloadDto' is not null or undefined
         if (storeDetailsPayloadDto === null || storeDetailsPayloadDto === undefined) {
-            throw new RequiredError("AuthApi", "authControllerStoreDetailsUpdate", "storeDetailsPayloadDto");
+            throw new RequiredError("AuthApi", "authControllerUpdate", "storeDetailsPayloadDto");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/auth/store-details';
+        const localVarPath = '/v1/auth/store';
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.PUT);
@@ -1564,10 +1564,10 @@ export class AuthApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to authControllerStoreDetailsUpdate
+     * @params response Response returned by the server for a request to authControllerUpdate
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async authControllerStoreDetailsUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto >> {
+     public async authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: UserResponseDto = ObjectSerializer.deserialize(

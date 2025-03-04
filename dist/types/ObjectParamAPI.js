@@ -118,11 +118,11 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerLogin = function (param, options) {
         return this.api.authControllerLogin(param.loginPayloadDto, options).toPromise();
     };
-    ObjectAuthApi.prototype.authControllerStoreDetailsUpdateWithHttpInfo = function (param, options) {
-        return this.api.authControllerStoreDetailsUpdateWithHttpInfo(param.storeDetailsPayloadDto, options).toPromise();
+    ObjectAuthApi.prototype.authControllerUpdateWithHttpInfo = function (param, options) {
+        return this.api.authControllerUpdateWithHttpInfo(param.storeDetailsPayloadDto, options).toPromise();
     };
-    ObjectAuthApi.prototype.authControllerStoreDetailsUpdate = function (param, options) {
-        return this.api.authControllerStoreDetailsUpdate(param.storeDetailsPayloadDto, options).toPromise();
+    ObjectAuthApi.prototype.authControllerUpdate = function (param, options) {
+        return this.api.authControllerUpdate(param.storeDetailsPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUpdateRolesWithHttpInfo = function (param, options) {
         return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto, options).toPromise();

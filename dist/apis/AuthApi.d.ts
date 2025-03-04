@@ -36,7 +36,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
     authControllerGetPermission(_options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateStaff(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUser(page: number, limit: number, allRoles?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
@@ -63,7 +63,7 @@ export declare class AuthApiResponseProcessor {
     authControllerGetInterestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetPermissionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
-    authControllerStoreDetailsUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdateRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerUpdateStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerUserWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;

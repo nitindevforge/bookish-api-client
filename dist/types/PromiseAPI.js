@@ -142,12 +142,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerLogin(loginPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerStoreDetailsUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
-        var result = this.api.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
+    PromiseAuthApi.prototype.authControllerUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
+        var result = this.api.authControllerUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerStoreDetailsUpdate = function (storeDetailsPayloadDto, _options) {
-        var result = this.api.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+    PromiseAuthApi.prototype.authControllerUpdate = function (storeDetailsPayloadDto, _options) {
+        var result = this.api.authControllerUpdate(storeDetailsPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerUpdateRolesWithHttpInfo = function (id, updateRoleDto, _options) {

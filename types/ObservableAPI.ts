@@ -605,8 +605,8 @@ export class ObservableAuthApi {
     /**
      * @param storeDetailsPayloadDto
      */
-    public authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
-        const requestContextPromise = this.requestFactory.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+    public authControllerUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerUpdate(storeDetailsPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -620,15 +620,15 @@ export class ObservableAuthApi {
                 for (const middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerStoreDetailsUpdateWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerUpdateWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param storeDetailsPayloadDto
      */
-    public authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<UserResponseDto> {
-        return this.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
+    public authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<UserResponseDto> {
+        return this.authControllerUpdateWithHttpInfo(storeDetailsPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
     }
 
     /**

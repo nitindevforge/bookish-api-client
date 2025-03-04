@@ -394,16 +394,16 @@ export class PromiseAuthApi {
     /**
      * @param storeDetailsPayloadDto
      */
-    public authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        const result = this.api.authControllerStoreDetailsUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
+    public authControllerUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerUpdateWithHttpInfo(storeDetailsPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
      * @param storeDetailsPayloadDto
      */
-    public authControllerStoreDetailsUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
-        const result = this.api.authControllerStoreDetailsUpdate(storeDetailsPayloadDto, _options);
+    public authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerUpdate(storeDetailsPayloadDto, _options);
         return result.toPromise();
     }
 

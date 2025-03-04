@@ -112,7 +112,7 @@ export interface AuthApiAuthControllerGetPermissionRequest {
 export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
 }
-export interface AuthApiAuthControllerStoreDetailsUpdateRequest {
+export interface AuthApiAuthControllerUpdateRequest {
     storeDetailsPayloadDto: StoreDetailsPayloadDto;
 }
 export interface AuthApiAuthControllerUpdateRolesRequest {
@@ -179,8 +179,8 @@ export declare class ObjectAuthApi {
     authControllerGetPermission(param?: AuthApiAuthControllerGetPermissionRequest, options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
-    authControllerStoreDetailsUpdateWithHttpInfo(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
-    authControllerStoreDetailsUpdate(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
+    authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<void>;
     authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;

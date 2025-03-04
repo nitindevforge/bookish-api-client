@@ -315,11 +315,11 @@ export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto
 }
 
-export interface AuthApiAuthControllerStoreDetailsUpdateRequest {
+export interface AuthApiAuthControllerUpdateRequest {
     /**
      * 
      * @type StoreDetailsPayloadDto
-     * @memberof AuthApiauthControllerStoreDetailsUpdate
+     * @memberof AuthApiauthControllerUpdate
      */
     storeDetailsPayloadDto: StoreDetailsPayloadDto
 }
@@ -657,15 +657,15 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerStoreDetailsUpdateWithHttpInfo(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
-        return this.api.authControllerStoreDetailsUpdateWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
+    public authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerUpdateWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerStoreDetailsUpdate(param: AuthApiAuthControllerStoreDetailsUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
-        return this.api.authControllerStoreDetailsUpdate(param.storeDetailsPayloadDto,  options).toPromise();
+    public authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerUpdate(param.storeDetailsPayloadDto,  options).toPromise();
     }
 
     /**
