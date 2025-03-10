@@ -454,6 +454,22 @@ var PromiseNielsenBooksApi = (function () {
     function PromiseNielsenBooksApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_8.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
     }
+    PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo = function (id, body, _options) {
+        var result = this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id, body, _options);
+        return result.toPromise();
+    };
+    PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookById = function (id, body, _options) {
+        var result = this.api.nielsenBooksControllerGetNielsenBookById(id, body, _options);
+        return result.toPromise();
+    };
+    PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo = function (id, _options) {
+        var result = this.api.nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(id, _options);
+        return result.toPromise();
+    };
+    PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookImageById = function (id, _options) {
+        var result = this.api.nielsenBooksControllerGetNielsenBookImageById(id, _options);
+        return result.toPromise();
+    };
     PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBooksWithHttpInfo = function (_options) {
         var result = this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options);
         return result.toPromise();

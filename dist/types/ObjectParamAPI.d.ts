@@ -363,11 +363,22 @@ export declare class ObjectFriendsApi {
     friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto>;
 }
 import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor } from "../apis/NielsenBooksApi";
+export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest {
+    id: string;
+    body: any;
+}
+export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest {
+    id: string;
+}
 export interface NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest {
 }
 export declare class ObjectNielsenBooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: NielsenBooksApiRequestFactory, responseProcessor?: NielsenBooksApiResponseProcessor);
+    nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<void>;
+    nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookImageById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<void>;
     nielsenBooksControllerGetNielsenBooksWithHttpInfo(param?: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest, options?: Configuration): Promise<HttpInfo<void>>;
     nielsenBooksControllerGetNielsenBooks(param?: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest, options?: Configuration): Promise<void>;
 }

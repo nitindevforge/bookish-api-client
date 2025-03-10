@@ -204,6 +204,10 @@ export declare class ObservableNielsenBooksApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: NielsenBooksApiRequestFactory, responseProcessor?: NielsenBooksApiResponseProcessor);
+    nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id: string, body: any, _options?: Configuration): Observable<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookById(id: string, body: any, _options?: Configuration): Observable<void>;
+    nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookImageById(id: string, _options?: Configuration): Observable<void>;
     nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
     nielsenBooksControllerGetNielsenBooks(_options?: Configuration): Observable<void>;
 }

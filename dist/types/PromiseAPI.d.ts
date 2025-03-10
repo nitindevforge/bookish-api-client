@@ -187,6 +187,10 @@ import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor } from 
 export declare class PromiseNielsenBooksApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: NielsenBooksApiRequestFactory, responseProcessor?: NielsenBooksApiResponseProcessor);
+    nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id: string, body: any, _options?: Configuration): Promise<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookById(id: string, body: any, _options?: Configuration): Promise<void>;
+    nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<void>>;
+    nielsenBooksControllerGetNielsenBookImageById(id: string, _options?: Configuration): Promise<void>;
     nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>>;
     nielsenBooksControllerGetNielsenBooks(_options?: Configuration): Promise<void>;
 }

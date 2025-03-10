@@ -1558,6 +1558,32 @@ export class ObjectFriendsApi {
 import { ObservableNielsenBooksApi } from "./ObservableAPI";
 import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor} from "../apis/NielsenBooksApi";
 
+export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof NielsenBooksApinielsenBooksControllerGetNielsenBookById
+     */
+    id: string
+    /**
+     * 
+     * @type any
+     * @memberof NielsenBooksApinielsenBooksControllerGetNielsenBookById
+     */
+    body: any
+}
+
+export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof NielsenBooksApinielsenBooksControllerGetNielsenBookImageById
+     */
+    id: string
+}
+
 export interface NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest {
 }
 
@@ -1566,6 +1592,34 @@ export class ObjectNielsenBooksApi {
 
     public constructor(configuration: Configuration, requestFactory?: NielsenBooksApiRequestFactory, responseProcessor?: NielsenBooksApiResponseProcessor) {
         this.api = new ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param.id, param.body,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBookById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<void> {
+        return this.api.nielsenBooksControllerGetNielsenBookById(param.id, param.body,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param.id,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public nielsenBooksControllerGetNielsenBookImageById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<void> {
+        return this.api.nielsenBooksControllerGetNielsenBookImageById(param.id,  options).toPromise();
     }
 
     /**

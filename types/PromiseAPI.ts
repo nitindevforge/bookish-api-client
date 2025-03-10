@@ -1086,6 +1086,40 @@ export class PromiseNielsenBooksApi {
     }
 
     /**
+     * @param id
+     * @param body
+     */
+    public nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id: string, body: any, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id, body, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     * @param body
+     */
+    public nielsenBooksControllerGetNielsenBookById(id: string, body: any, _options?: Configuration): Promise<void> {
+        const result = this.api.nielsenBooksControllerGetNielsenBookById(id, body, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     */
+    public nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(id, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param id
+     */
+    public nielsenBooksControllerGetNielsenBookImageById(id: string, _options?: Configuration): Promise<void> {
+        const result = this.api.nielsenBooksControllerGetNielsenBookImageById(id, _options);
+        return result.toPromise();
+    }
+
+    /**
      */
     public nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
         const result = this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo(_options);
