@@ -7,6 +7,12 @@ export * from '../models/AttendeeDTO';
 export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
 export * from '../models/Book';
+export * from '../models/BookMarkEventDTO';
+export * from '../models/BookMarkEventListDTO';
+export * from '../models/BookMarkEventListResponseDto';
+export * from '../models/BookMarkEventPayloadDto';
+export * from '../models/BookMarkEventStatusResponseDto';
+export * from '../models/BookMarkEventsListPayloadDto';
 export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
 export * from '../models/BookReviewCountResponseDto';
@@ -21,8 +27,10 @@ export * from '../models/CardListResponseDto';
 export * from '../models/CardNetwork';
 export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
+export * from '../models/CreateBookMarkEventResponseDto';
 export * from '../models/CreateRoleDto';
 export * from '../models/CreateStaffDto';
+export * from '../models/DeleteBookMarkEventResponseDto';
 export * from '../models/EventDTO';
 export * from '../models/EventDeleteResponseDto';
 export * from '../models/EventPayloadDto';
@@ -97,6 +105,12 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
+import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
+import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
+import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
+import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -111,8 +125,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -204,6 +220,12 @@ let typeMap: {[index: string]: any} = {
     "AuthorResponseDto": AuthorResponseDto,
     "BillingDetails": BillingDetails,
     "Book": Book,
+    "BookMarkEventDTO": BookMarkEventDTO,
+    "BookMarkEventListDTO": BookMarkEventListDTO,
+    "BookMarkEventListResponseDto": BookMarkEventListResponseDto,
+    "BookMarkEventPayloadDto": BookMarkEventPayloadDto,
+    "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto,
+    "BookMarkEventsListPayloadDto": BookMarkEventsListPayloadDto,
     "BookPayloadDto": BookPayloadDto,
     "BookResponseDto": BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto,
@@ -218,8 +240,10 @@ let typeMap: {[index: string]: any} = {
     "CardNetwork": CardNetwork,
     "CardSecure": CardSecure,
     "ChangePayloadDto": ChangePayloadDto,
+    "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto,
     "CreateStaffDto": CreateStaffDto,
+    "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto,
     "EventDTO": EventDTO,
     "EventDeleteResponseDto": EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto,

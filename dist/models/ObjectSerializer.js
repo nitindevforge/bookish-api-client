@@ -24,6 +24,12 @@ __exportStar(require("../models/AttendeeDTO"), exports);
 __exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
+__exportStar(require("../models/BookMarkEventDTO"), exports);
+__exportStar(require("../models/BookMarkEventListDTO"), exports);
+__exportStar(require("../models/BookMarkEventListResponseDto"), exports);
+__exportStar(require("../models/BookMarkEventPayloadDto"), exports);
+__exportStar(require("../models/BookMarkEventStatusResponseDto"), exports);
+__exportStar(require("../models/BookMarkEventsListPayloadDto"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
 __exportStar(require("../models/BookReviewCountResponseDto"), exports);
@@ -38,8 +44,10 @@ __exportStar(require("../models/CardListResponseDto"), exports);
 __exportStar(require("../models/CardNetwork"), exports);
 __exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/CreateBookMarkEventResponseDto"), exports);
 __exportStar(require("../models/CreateRoleDto"), exports);
 __exportStar(require("../models/CreateStaffDto"), exports);
+__exportStar(require("../models/DeleteBookMarkEventResponseDto"), exports);
 __exportStar(require("../models/EventDTO"), exports);
 __exportStar(require("../models/EventDeleteResponseDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
@@ -113,6 +121,12 @@ var AttendeeDTO_1 = require("../models/AttendeeDTO");
 var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
+var BookMarkEventDTO_1 = require("../models/BookMarkEventDTO");
+var BookMarkEventListDTO_1 = require("../models/BookMarkEventListDTO");
+var BookMarkEventListResponseDto_1 = require("../models/BookMarkEventListResponseDto");
+var BookMarkEventPayloadDto_1 = require("../models/BookMarkEventPayloadDto");
+var BookMarkEventStatusResponseDto_1 = require("../models/BookMarkEventStatusResponseDto");
+var BookMarkEventsListPayloadDto_1 = require("../models/BookMarkEventsListPayloadDto");
 var BookPayloadDto_1 = require("../models/BookPayloadDto");
 var BookResponseDto_1 = require("../models/BookResponseDto");
 var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto");
@@ -127,8 +141,10 @@ var CardListResponseDto_1 = require("../models/CardListResponseDto");
 var CardNetwork_1 = require("../models/CardNetwork");
 var CardSecure_1 = require("../models/CardSecure");
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var CreateBookMarkEventResponseDto_1 = require("../models/CreateBookMarkEventResponseDto");
 var CreateRoleDto_1 = require("../models/CreateRoleDto");
 var CreateStaffDto_1 = require("../models/CreateStaffDto");
+var DeleteBookMarkEventResponseDto_1 = require("../models/DeleteBookMarkEventResponseDto");
 var EventDTO_1 = require("../models/EventDTO");
 var EventDeleteResponseDto_1 = require("../models/EventDeleteResponseDto");
 var EventPayloadDto_1 = require("../models/EventPayloadDto");
@@ -216,6 +232,12 @@ var typeMap = {
     "AuthorResponseDto": AuthorResponseDto_1.AuthorResponseDto,
     "BillingDetails": BillingDetails_1.BillingDetails,
     "Book": Book_1.Book,
+    "BookMarkEventDTO": BookMarkEventDTO_1.BookMarkEventDTO,
+    "BookMarkEventListDTO": BookMarkEventListDTO_1.BookMarkEventListDTO,
+    "BookMarkEventListResponseDto": BookMarkEventListResponseDto_1.BookMarkEventListResponseDto,
+    "BookMarkEventPayloadDto": BookMarkEventPayloadDto_1.BookMarkEventPayloadDto,
+    "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto_1.BookMarkEventStatusResponseDto,
+    "BookMarkEventsListPayloadDto": BookMarkEventsListPayloadDto_1.BookMarkEventsListPayloadDto,
     "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
     "BookResponseDto": BookResponseDto_1.BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto_1.BookReviewCountResponseDto,
@@ -230,8 +252,10 @@ var typeMap = {
     "CardNetwork": CardNetwork_1.CardNetwork,
     "CardSecure": CardSecure_1.CardSecure,
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto_1.CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto_1.CreateRoleDto,
     "CreateStaffDto": CreateStaffDto_1.CreateStaffDto,
+    "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto_1.DeleteBookMarkEventResponseDto,
     "EventDTO": EventDTO_1.EventDTO,
     "EventDeleteResponseDto": EventDeleteResponseDto_1.EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto_1.EventPayloadDto,

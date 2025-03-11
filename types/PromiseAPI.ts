@@ -10,6 +10,12 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
+import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
+import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
+import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
+import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -24,8 +30,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -805,6 +813,22 @@ export class PromiseEventsApi {
     }
 
     /**
+     * @param bookMarkEventPayloadDto
+     */
+    public eventControllerBookMarkEventWithHttpInfo(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>> {
+        const result = this.api.eventControllerBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookMarkEventPayloadDto
+     */
+    public eventControllerBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<CreateBookMarkEventResponseDto> {
+        const result = this.api.eventControllerBookMarkEvent(bookMarkEventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param eventPayloadDto
      */
     public eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
@@ -817,6 +841,22 @@ export class PromiseEventsApi {
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookMarkEventPayloadDto
+     */
+    public eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>> {
+        const result = this.api.eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookMarkEventPayloadDto
+     */
+    public eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<DeleteBookMarkEventResponseDto> {
+        const result = this.api.eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -941,6 +981,38 @@ export class PromiseEventsApi {
     }
 
     /**
+     * @param bookMarkEventsListPayloadDto
+     */
+    public eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+        const result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookMarkEventsListPayloadDto
+     */
+    public eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Promise<BookMarkEventListResponseDto> {
+        const result = this.api.eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId
+     */
+    public eventControllerGetBookMarkEventStatusWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>> {
+        const result = this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param eventId
+     */
+    public eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<BookMarkEventStatusResponseDto> {
+        const result = this.api.eventControllerGetBookMarkEventStatus(eventId, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param eventPayloadDto
      */
     public eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
@@ -979,9 +1051,10 @@ export class PromiseFollowerApi {
      * @param page
      * @param limit
      * @param [search]
+     * @param [id]
      */
-    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, _options);
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, id, _options);
         return result.toPromise();
     }
 
@@ -989,9 +1062,10 @@ export class PromiseFollowerApi {
      * @param page
      * @param limit
      * @param [search]
+     * @param [id]
      */
-    public followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        const result = this.api.followerControllerFindMyFriends(page, limit, search, _options);
+    public followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerFindMyFriends(page, limit, search, id, _options);
         return result.toPromise();
     }
 

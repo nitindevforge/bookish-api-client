@@ -5,7 +5,7 @@ import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 export declare class FollowerApiRequestFactory extends BaseAPIRequestFactory {
-    followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<RequestContext>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext>;
     followerControllerUnfollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }

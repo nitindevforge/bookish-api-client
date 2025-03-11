@@ -268,11 +268,23 @@ var ObjectEventsApi = (function () {
     function ObjectEventsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_5.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
+    ObjectEventsApi.prototype.eventControllerBookMarkEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerBookMarkEvent = function (param, options) {
+        return this.api.eventControllerBookMarkEvent(param.bookMarkEventPayloadDto, options).toPromise();
+    };
     ObjectEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (param, options) {
+        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (param, options) {
+        return this.api.eventControllerDeleteBookMarkEvent(param.bookMarkEventPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerDeleteEventWithHttpInfo(param.id, param.withBookedEvent, options).toPromise();
@@ -318,6 +330,18 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerFindSearchPlaces = function (param, options) {
         return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto, options).toPromise();
     };
+    ObjectEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (param, options) {
+        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.bookMarkEventsListPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerGetBookMarkEventList = function (param, options) {
+        return this.api.eventControllerGetBookMarkEventList(param.bookMarkEventsListPayloadDto, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (param, options) {
+        return this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(param.eventId, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerGetBookMarkEventStatus = function (param, options) {
+        return this.api.eventControllerGetBookMarkEventStatus(param.eventId, options).toPromise();
+    };
     ObjectEventsApi.prototype.eventControllerUpdateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
     };
@@ -333,10 +357,10 @@ var ObjectFollowerApi = (function () {
         this.api = new ObservableAPI_6.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (param, options) {
-        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
+        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, param.id, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerFindMyFriends = function (param, options) {
-        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search, options).toPromise();
+        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search, param.id, options).toPromise();
     };
     ObjectFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (param, options) {
         return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto, options).toPromise();

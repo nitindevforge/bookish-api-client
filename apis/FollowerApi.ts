@@ -21,8 +21,9 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      * @param search 
+     * @param id 
      */
-    public async followerControllerFindMyFriends(page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
@@ -35,6 +36,7 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("FollowerApi", "followerControllerFindMyFriends", "limit");
         }
+
 
 
 
@@ -58,6 +60,11 @@ export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (id !== undefined) {
+            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
         }
 
 

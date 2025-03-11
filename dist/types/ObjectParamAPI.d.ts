@@ -2,6 +2,10 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
+import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
+import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
+import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -10,8 +14,10 @@ import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -275,8 +281,14 @@ export declare class ObjectDefaultApi {
     appControllerGetHello(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<void>;
 }
 import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/EventsApi";
+export interface EventsApiEventControllerBookMarkEventRequest {
+    bookMarkEventPayloadDto: BookMarkEventPayloadDto;
+}
 export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
+}
+export interface EventsApiEventControllerDeleteBookMarkEventRequest {
+    bookMarkEventPayloadDto: BookMarkEventPayloadDto;
 }
 export interface EventsApiEventControllerDeleteEventRequest {
     id: string;
@@ -303,14 +315,24 @@ export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
 export interface EventsApiEventControllerFindSearchPlacesRequest {
     locationPayloadDto: LocationPayloadDto;
 }
+export interface EventsApiEventControllerGetBookMarkEventListRequest {
+    bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto;
+}
+export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
+    eventId: string;
+}
 export interface EventsApiEventControllerUpdateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
 export declare class ObjectEventsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
+    eventControllerBookMarkEventWithHttpInfo(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>>;
+    eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<CreateBookMarkEventResponseDto>;
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
+    eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
+    eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto>;
     eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>>;
     eventControllerDeleteEvent(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<EventDeleteResponseDto>;
     eventControllerFindCustomerOfEventsWithHttpInfo(param?: EventsApiEventControllerFindCustomerOfEventsRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
@@ -325,6 +347,10 @@ export declare class ObjectEventsApi {
     eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
     eventControllerFindSearchPlacesWithHttpInfo(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
+    eventControllerGetBookMarkEventListWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
+    eventControllerGetBookMarkEventList(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto>;
+    eventControllerGetBookMarkEventStatusWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>>;
+    eventControllerGetBookMarkEventStatus(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<BookMarkEventStatusResponseDto>;
     eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto>;
 }
@@ -333,6 +359,7 @@ export interface FollowerApiFollowerControllerFindMyFriendsRequest {
     page: number;
     limit: number;
     search?: string;
+    id?: string;
 }
 export interface FollowerApiFollowerControllerFollowRequest {
     followerPayloadDto: FollowerPayloadDto;

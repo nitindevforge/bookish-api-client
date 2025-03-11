@@ -39,6 +39,12 @@ models/AttendeeDTO.ts
 models/AuthorResponseDto.ts
 models/BillingDetails.ts
 models/Book.ts
+models/BookMarkEventDTO.ts
+models/BookMarkEventListDTO.ts
+models/BookMarkEventListResponseDto.ts
+models/BookMarkEventPayloadDto.ts
+models/BookMarkEventStatusResponseDto.ts
+models/BookMarkEventsListPayloadDto.ts
 models/BookPayloadDto.ts
 models/BookResponseDto.ts
 models/BookReviewCountResponseDto.ts
@@ -53,8 +59,10 @@ models/CardListResponseDto.ts
 models/CardNetwork.ts
 models/CardSecure.ts
 models/ChangePayloadDto.ts
+models/CreateBookMarkEventResponseDto.ts
 models/CreateRoleDto.ts
 models/CreateStaffDto.ts
+models/DeleteBookMarkEventResponseDto.ts
 models/EventDTO.ts
 models/EventDeleteResponseDto.ts
 models/EventPayloadDto.ts

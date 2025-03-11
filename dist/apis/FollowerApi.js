@@ -62,7 +62,7 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerFindMyFriends = function (page, limit, search, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerFindMyFriends = function (page, limit, search, id, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -87,6 +87,9 @@ var FollowerApiRequestFactory = (function (_super) {
                         }
                         if (limit !== undefined) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
+                        if (id !== undefined) {
+                            requestContext.setQueryParam("id", ObjectSerializer_1.ObjectSerializer.serialize(id, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

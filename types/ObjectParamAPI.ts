@@ -10,6 +10,12 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
+import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
+import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
+import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
+import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -24,8 +30,10 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDTO } from '../models/EventDTO';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -1159,6 +1167,15 @@ export class ObjectDefaultApi {
 import { ObservableEventsApi } from "./ObservableAPI";
 import { EventsApiRequestFactory, EventsApiResponseProcessor} from "../apis/EventsApi";
 
+export interface EventsApiEventControllerBookMarkEventRequest {
+    /**
+     * 
+     * @type BookMarkEventPayloadDto
+     * @memberof EventsApieventControllerBookMarkEvent
+     */
+    bookMarkEventPayloadDto: BookMarkEventPayloadDto
+}
+
 export interface EventsApiEventControllerCreateEventRequest {
     /**
      * 
@@ -1166,6 +1183,15 @@ export interface EventsApiEventControllerCreateEventRequest {
      * @memberof EventsApieventControllerCreateEvent
      */
     eventPayloadDto: EventPayloadDto
+}
+
+export interface EventsApiEventControllerDeleteBookMarkEventRequest {
+    /**
+     * 
+     * @type BookMarkEventPayloadDto
+     * @memberof EventsApieventControllerDeleteBookMarkEvent
+     */
+    bookMarkEventPayloadDto: BookMarkEventPayloadDto
 }
 
 export interface EventsApiEventControllerDeleteEventRequest {
@@ -1265,6 +1291,25 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
     locationPayloadDto: LocationPayloadDto
 }
 
+export interface EventsApiEventControllerGetBookMarkEventListRequest {
+    /**
+     * 
+     * @type BookMarkEventsListPayloadDto
+     * @memberof EventsApieventControllerGetBookMarkEventList
+     */
+    bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto
+}
+
+export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof EventsApieventControllerGetBookMarkEventStatus
+     */
+    eventId: string
+}
+
 export interface EventsApiEventControllerUpdateEventRequest {
     /**
      * 
@@ -1284,6 +1329,20 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
+    public eventControllerBookMarkEventWithHttpInfo(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>> {
+        return this.api.eventControllerBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<CreateBookMarkEventResponseDto> {
+        return this.api.eventControllerBookMarkEvent(param.bookMarkEventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
     }
@@ -1293,6 +1352,20 @@ export class ObjectEventsApi {
      */
     public eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>> {
+        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto> {
+        return this.api.eventControllerDeleteBookMarkEvent(param.bookMarkEventPayloadDto,  options).toPromise();
     }
 
     /**
@@ -1396,6 +1469,34 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
+    public eventControllerGetBookMarkEventListWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.bookMarkEventsListPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerGetBookMarkEventList(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto> {
+        return this.api.eventControllerGetBookMarkEventList(param.bookMarkEventsListPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerGetBookMarkEventStatusWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>> {
+        return this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(param.eventId,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerGetBookMarkEventStatus(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<BookMarkEventStatusResponseDto> {
+        return this.api.eventControllerGetBookMarkEventStatus(param.eventId,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
     }
@@ -1434,6 +1535,13 @@ export interface FollowerApiFollowerControllerFindMyFriendsRequest {
      * @memberof FollowerApifollowerControllerFindMyFriends
      */
     search?: string
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof FollowerApifollowerControllerFindMyFriends
+     */
+    id?: string
 }
 
 export interface FollowerApiFollowerControllerFollowRequest {
@@ -1465,14 +1573,14 @@ export class ObjectFollowerApi {
      * @param param the request object
      */
     public followerControllerFindMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
+        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.search, param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public followerControllerFindMyFriends(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search,  options).toPromise();
+        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.search, param.id,  options).toPromise();
     }
 
     /**
