@@ -11,7 +11,6 @@ import {SecurityAuthentication} from '../auth/auth';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -121,35 +120,25 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param bookMarkEventPayloadDto 
+     * @param eventId 
      */
-    public async eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'bookMarkEventPayloadDto' is not null or undefined
-        if (bookMarkEventPayloadDto === null || bookMarkEventPayloadDto === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerDeleteBookMarkEvent", "bookMarkEventPayloadDto");
+        // verify required parameter 'eventId' is not null or undefined
+        if (eventId === null || eventId === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerDeleteBookMarkEvent", "eventId");
         }
 
 
         // Path Params
-        const localVarPath = '/v1/bookmark-event';
+        const localVarPath = '/v1/bookmark-event/{eventId}'
+            .replace('{' + 'eventId' + '}', encodeURIComponent(String(eventId)));
 
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.DELETE);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(bookMarkEventPayloadDto, "BookMarkEventPayloadDto", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods
@@ -486,15 +475,17 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param bookMarkEventsListPayloadDto 
+     * @param page 
+     * @param limit 
      */
-    public async eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'bookMarkEventsListPayloadDto' is not null or undefined
-        if (bookMarkEventsListPayloadDto === null || bookMarkEventsListPayloadDto === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "bookMarkEventsListPayloadDto");
+        // verify required parameter 'page' is not null or undefined
+        if (page === null || page === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "page");
         }
+
 
 
         // Path Params
@@ -504,17 +495,16 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
+        // Query Params
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
+        }
 
-        // Body Params
-        const contentType = ObjectSerializer.getPreferredMediaType([
-            "application/json"
-        ]);
-        requestContext.setHeaderParam("Content-Type", contentType);
-        const serializedBody = ObjectSerializer.stringify(
-            ObjectSerializer.serialize(bookMarkEventsListPayloadDto, "BookMarkEventsListPayloadDto", ""),
-            contentType
-        );
-        requestContext.setBody(serializedBody);
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerBookMarkEvent**](EventsApi.md#eventControllerBookMarkEvent) | **POST** /v1/bookmark-event | 
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
-[**eventControllerDeleteBookMarkEvent**](EventsApi.md#eventControllerDeleteBookMarkEvent) | **DELETE** /v1/bookmark-event | 
+[**eventControllerDeleteBookMarkEvent**](EventsApi.md#eventControllerDeleteBookMarkEvent) | **DELETE** /v1/bookmark-event/{eventId} | 
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
 [**eventControllerFindCustomerOfEvents**](EventsApi.md#eventControllerFindCustomerOfEvents) | **GET** /v1/event-customers | 
 [**eventControllerFindEventById**](EventsApi.md#eventControllerFindEventById) | **GET** /v1/event | 
@@ -141,7 +141,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **eventControllerDeleteBookMarkEvent**
-> DeleteBookMarkEventResponseDto eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto)
+> DeleteBookMarkEventResponseDto eventControllerDeleteBookMarkEvent()
 
 
 ### Example
@@ -156,9 +156,7 @@ const apiInstance = new EventsApi(configuration);
 
 const request: EventsApiEventControllerDeleteBookMarkEventRequest = {
   
-  bookMarkEventPayloadDto: {
-    eventId: "eventId_example",
-  },
+  eventId: "eventId_example",
 };
 
 const data = await apiInstance.eventControllerDeleteBookMarkEvent(request);
@@ -170,7 +168,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bookMarkEventPayloadDto** | **BookMarkEventPayloadDto**|  |
+ **eventId** | [**string**] |  | defaults to undefined
 
 
 ### Return type
@@ -183,7 +181,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -577,7 +575,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **eventControllerGetBookMarkEventList**
-> BookMarkEventListResponseDto eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto)
+> BookMarkEventListResponseDto eventControllerGetBookMarkEventList()
 
 
 ### Example
@@ -592,10 +590,9 @@ const apiInstance = new EventsApi(configuration);
 
 const request: EventsApiEventControllerGetBookMarkEventListRequest = {
   
-  bookMarkEventsListPayloadDto: {
-    page: 3.14,
-    limit: 3.14,
-  },
+  page: 3.14,
+  
+  limit: 3.14,
 };
 
 const data = await apiInstance.eventControllerGetBookMarkEventList(request);
@@ -607,7 +604,8 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **bookMarkEventsListPayloadDto** | **BookMarkEventsListPayloadDto**|  |
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -620,7 +618,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

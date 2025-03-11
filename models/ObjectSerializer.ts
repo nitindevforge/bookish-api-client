@@ -11,7 +11,6 @@ export * from '../models/BookMarkEventDTO';
 export * from '../models/BookMarkEventListResponseDto';
 export * from '../models/BookMarkEventPayloadDto';
 export * from '../models/BookMarkEventStatusResponseDto';
-export * from '../models/BookMarkEventsListPayloadDto';
 export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
 export * from '../models/BookReviewCountResponseDto';
@@ -108,7 +107,6 @@ import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -222,7 +220,6 @@ let typeMap: {[index: string]: any} = {
     "BookMarkEventListResponseDto": BookMarkEventListResponseDto,
     "BookMarkEventPayloadDto": BookMarkEventPayloadDto,
     "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto,
-    "BookMarkEventsListPayloadDto": BookMarkEventsListPayloadDto,
     "BookPayloadDto": BookPayloadDto,
     "BookResponseDto": BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto,

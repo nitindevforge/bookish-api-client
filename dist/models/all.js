@@ -27,7 +27,6 @@ __exportStar(require("../models/BookMarkEventDTO"), exports);
 __exportStar(require("../models/BookMarkEventListResponseDto"), exports);
 __exportStar(require("../models/BookMarkEventPayloadDto"), exports);
 __exportStar(require("../models/BookMarkEventStatusResponseDto"), exports);
-__exportStar(require("../models/BookMarkEventsListPayloadDto"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
 __exportStar(require("../models/BookReviewCountResponseDto"), exports);

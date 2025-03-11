@@ -281,10 +281,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (param, options) {
-        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto, options).toPromise();
+        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.eventId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (param, options) {
-        return this.api.eventControllerDeleteBookMarkEvent(param.bookMarkEventPayloadDto, options).toPromise();
+        return this.api.eventControllerDeleteBookMarkEvent(param.eventId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerDeleteEventWithHttpInfo(param.id, param.withBookedEvent, options).toPromise();
@@ -331,10 +331,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (param, options) {
-        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.bookMarkEventsListPayloadDto, options).toPromise();
+        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.page, param.limit, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerGetBookMarkEventList = function (param, options) {
-        return this.api.eventControllerGetBookMarkEventList(param.bookMarkEventsListPayloadDto, options).toPromise();
+        return this.api.eventControllerGetBookMarkEventList(param.page, param.limit, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (param, options) {
         return this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(param.eventId, options).toPromise();

@@ -342,12 +342,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (bookMarkEventPayloadDto, _options) {
-        var result = this.api.eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (eventId, _options) {
+        var result = this.api.eventControllerDeleteBookMarkEventWithHttpInfo(eventId, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (bookMarkEventPayloadDto, _options) {
-        var result = this.api.eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (eventId, _options) {
+        var result = this.api.eventControllerDeleteBookMarkEvent(eventId, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (id, withBookedEvent, _options) {
@@ -406,12 +406,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (bookMarkEventsListPayloadDto, _options) {
-        var result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetBookMarkEventList = function (bookMarkEventsListPayloadDto, _options) {
-        var result = this.api.eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto, _options);
+    PromiseEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
+        var result = this.api.eventControllerGetBookMarkEventList(page, limit, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (eventId, _options) {

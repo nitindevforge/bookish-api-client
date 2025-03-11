@@ -5,7 +5,6 @@ import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -288,7 +287,7 @@ export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
 export interface EventsApiEventControllerDeleteBookMarkEventRequest {
-    bookMarkEventPayloadDto: BookMarkEventPayloadDto;
+    eventId: string;
 }
 export interface EventsApiEventControllerDeleteEventRequest {
     id: string;
@@ -316,7 +315,8 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
     locationPayloadDto: LocationPayloadDto;
 }
 export interface EventsApiEventControllerGetBookMarkEventListRequest {
-    bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto;
+    page: number;
+    limit?: number;
 }
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
     eventId: string;

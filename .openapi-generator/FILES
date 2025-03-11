@@ -43,7 +43,6 @@ models/BookMarkEventDTO.ts
 models/BookMarkEventListResponseDto.ts
 models/BookMarkEventPayloadDto.ts
 models/BookMarkEventStatusResponseDto.ts
-models/BookMarkEventsListPayloadDto.ts
 models/BookPayloadDto.ts
 models/BookResponseDto.ts
 models/BookReviewCountResponseDto.ts

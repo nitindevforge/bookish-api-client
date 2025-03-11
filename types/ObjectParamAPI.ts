@@ -14,7 +14,6 @@ import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -1187,10 +1186,11 @@ export interface EventsApiEventControllerCreateEventRequest {
 export interface EventsApiEventControllerDeleteBookMarkEventRequest {
     /**
      * 
-     * @type BookMarkEventPayloadDto
+     * Defaults to: undefined
+     * @type string
      * @memberof EventsApieventControllerDeleteBookMarkEvent
      */
-    bookMarkEventPayloadDto: BookMarkEventPayloadDto
+    eventId: string
 }
 
 export interface EventsApiEventControllerDeleteEventRequest {
@@ -1293,10 +1293,18 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
 export interface EventsApiEventControllerGetBookMarkEventListRequest {
     /**
      * 
-     * @type BookMarkEventsListPayloadDto
+     * Defaults to: undefined
+     * @type number
      * @memberof EventsApieventControllerGetBookMarkEventList
      */
-    bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto
+    page: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof EventsApieventControllerGetBookMarkEventList
+     */
+    limit?: number
 }
 
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
@@ -1357,14 +1365,14 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>> {
-        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto,  options).toPromise();
+        return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto> {
-        return this.api.eventControllerDeleteBookMarkEvent(param.bookMarkEventPayloadDto,  options).toPromise();
+        return this.api.eventControllerDeleteBookMarkEvent(param.eventId,  options).toPromise();
     }
 
     /**
@@ -1469,14 +1477,14 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerGetBookMarkEventListWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
-        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.bookMarkEventsListPayloadDto,  options).toPromise();
+        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerGetBookMarkEventList(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto> {
-        return this.api.eventControllerGetBookMarkEventList(param.bookMarkEventsListPayloadDto,  options).toPromise();
+        return this.api.eventControllerGetBookMarkEventList(param.page, param.limit,  options).toPromise();
     }
 
     /**

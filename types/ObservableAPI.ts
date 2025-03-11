@@ -15,7 +15,6 @@ import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
@@ -1338,10 +1337,10 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param bookMarkEventPayloadDto
+     * @param eventId
      */
-    public eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Observable<HttpInfo<DeleteBookMarkEventResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto, _options);
+    public eventControllerDeleteBookMarkEventWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<DeleteBookMarkEventResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(eventId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1360,10 +1359,10 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param bookMarkEventPayloadDto
+     * @param eventId
      */
-    public eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Observable<DeleteBookMarkEventResponseDto> {
-        return this.eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<DeleteBookMarkEventResponseDto>) => apiResponse.data));
+    public eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Observable<DeleteBookMarkEventResponseDto> {
+        return this.eventControllerDeleteBookMarkEventWithHttpInfo(eventId, _options).pipe(map((apiResponse: HttpInfo<DeleteBookMarkEventResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1578,10 +1577,11 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param bookMarkEventsListPayloadDto
+     * @param page
+     * @param [limit]
      */
-    public eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto, _options);
+    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1600,10 +1600,11 @@ export class ObservableEventsApi {
     }
 
     /**
-     * @param bookMarkEventsListPayloadDto
+     * @param page
+     * @param [limit]
      */
-    public eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Observable<BookMarkEventListResponseDto> {
-        return this.eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto, _options).pipe(map((apiResponse: HttpInfo<BookMarkEventListResponseDto>) => apiResponse.data));
+    public eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Observable<BookMarkEventListResponseDto> {
+        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<BookMarkEventListResponseDto>) => apiResponse.data));
     }
 
     /**

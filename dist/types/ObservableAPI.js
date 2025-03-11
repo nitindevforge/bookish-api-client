@@ -1076,9 +1076,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
         return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (bookMarkEventPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (eventId, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(eventId, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_77 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1100,8 +1100,8 @@ var ObservableEventsApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerDeleteBookMarkEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (bookMarkEventPayloadDto, _options) {
-        return this.eventControllerDeleteBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (eventId, _options) {
+        return this.eventControllerDeleteBookMarkEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (id, withBookedEvent, _options) {
         var _this = this;
@@ -1292,9 +1292,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerFindSearchPlaces = function (locationPayloadDto, _options) {
         return this.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (bookMarkEventsListPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_93 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1316,8 +1316,8 @@ var ObservableEventsApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerGetBookMarkEventListWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventList = function (bookMarkEventsListPayloadDto, _options) {
-        return this.eventControllerGetBookMarkEventListWithHttpInfo(bookMarkEventsListPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
+        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (eventId, _options) {
         var _this = this;

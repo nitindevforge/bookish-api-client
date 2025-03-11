@@ -28,7 +28,6 @@ __exportStar(require("../models/BookMarkEventDTO"), exports);
 __exportStar(require("../models/BookMarkEventListResponseDto"), exports);
 __exportStar(require("../models/BookMarkEventPayloadDto"), exports);
 __exportStar(require("../models/BookMarkEventStatusResponseDto"), exports);
-__exportStar(require("../models/BookMarkEventsListPayloadDto"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
 __exportStar(require("../models/BookReviewCountResponseDto"), exports);
@@ -124,7 +123,6 @@ var BookMarkEventDTO_1 = require("../models/BookMarkEventDTO");
 var BookMarkEventListResponseDto_1 = require("../models/BookMarkEventListResponseDto");
 var BookMarkEventPayloadDto_1 = require("../models/BookMarkEventPayloadDto");
 var BookMarkEventStatusResponseDto_1 = require("../models/BookMarkEventStatusResponseDto");
-var BookMarkEventsListPayloadDto_1 = require("../models/BookMarkEventsListPayloadDto");
 var BookPayloadDto_1 = require("../models/BookPayloadDto");
 var BookResponseDto_1 = require("../models/BookResponseDto");
 var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto");
@@ -234,7 +232,6 @@ var typeMap = {
     "BookMarkEventListResponseDto": BookMarkEventListResponseDto_1.BookMarkEventListResponseDto,
     "BookMarkEventPayloadDto": BookMarkEventPayloadDto_1.BookMarkEventPayloadDto,
     "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto_1.BookMarkEventStatusResponseDto,
-    "BookMarkEventsListPayloadDto": BookMarkEventsListPayloadDto_1.BookMarkEventsListPayloadDto,
     "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
     "BookResponseDto": BookResponseDto_1.BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto_1.BookReviewCountResponseDto,

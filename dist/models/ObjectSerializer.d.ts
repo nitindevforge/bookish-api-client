@@ -11,7 +11,6 @@ export * from '../models/BookMarkEventDTO';
 export * from '../models/BookMarkEventListResponseDto';
 export * from '../models/BookMarkEventPayloadDto';
 export * from '../models/BookMarkEventStatusResponseDto';
-export * from '../models/BookMarkEventsListPayloadDto';
 export * from '../models/BookPayloadDto';
 export * from '../models/BookResponseDto';
 export * from '../models/BookReviewCountResponseDto';

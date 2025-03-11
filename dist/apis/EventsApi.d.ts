@@ -4,7 +4,6 @@ import { RequestContext, ResponseContext, HttpInfo } from '../http/http';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
-import { BookMarkEventsListPayloadDto } from '../models/BookMarkEventsListPayloadDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -18,7 +17,7 @@ import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<RequestContext>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    eventControllerDeleteBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerDeleteEvent(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindCustomerOfEvents(_options?: Configuration): Promise<RequestContext>;
     eventControllerFindEventById(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<RequestContext>;
@@ -26,7 +25,7 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    eventControllerGetBookMarkEventList(bookMarkEventsListPayloadDto: BookMarkEventsListPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
     eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }

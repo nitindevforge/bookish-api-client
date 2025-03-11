@@ -138,26 +138,21 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerDeleteBookMarkEvent = function (bookMarkEventPayloadDto, _options) {
+    EventsApiRequestFactory.prototype.eventControllerDeleteBookMarkEvent = function (eventId, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (bookMarkEventPayloadDto === null || bookMarkEventPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerDeleteBookMarkEvent", "bookMarkEventPayloadDto");
+                        if (eventId === null || eventId === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerDeleteBookMarkEvent", "eventId");
                         }
-                        localVarPath = '/v1/bookmark-event';
+                        localVarPath = '/v1/bookmark-event/{eventId}'
+                            .replace('{' + 'eventId' + '}', encodeURIComponent(String(eventId)));
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.DELETE);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
-                            "application/json"
-                        ]);
-                        requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(bookMarkEventPayloadDto, "BookMarkEventPayloadDto", ""), contentType);
-                        requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
@@ -439,26 +434,26 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerGetBookMarkEventList = function (bookMarkEventsListPayloadDto, _options) {
+    EventsApiRequestFactory.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (bookMarkEventsListPayloadDto === null || bookMarkEventsListPayloadDto === undefined) {
-                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "bookMarkEventsListPayloadDto");
+                        if (page === null || page === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "page");
                         }
                         localVarPath = '/v1/bookmark-event-list';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
-                            "application/json"
-                        ]);
-                        requestContext.setHeaderParam("Content-Type", contentType);
-                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(bookMarkEventsListPayloadDto, "BookMarkEventsListPayloadDto", ""), contentType);
-                        requestContext.setBody(serializedBody);
+                        if (page !== undefined) {
+                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
+                        }
+                        if (limit !== undefined) {
+                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
