@@ -13,7 +13,7 @@ var CreateBookMarkEventResponseDto = (function () {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<BookMarkEventDTO>",
+            "type": "BookMarkEventDTO",
             "format": ""
         },
         {

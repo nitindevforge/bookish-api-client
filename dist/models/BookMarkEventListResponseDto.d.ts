@@ -1,6 +1,6 @@
-import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
+import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 export declare class BookMarkEventListResponseDto {
-    'data': BookMarkEventListDTO;
+    'data': Array<BookMarkEventDTO>;
     'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
