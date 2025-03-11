@@ -13,6 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class BookMarkEventDTO {
+    'id': string;
     'evenId': string;
     'userId': string;
 
@@ -21,6 +22,12 @@ export class BookMarkEventDTO {
     static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "evenId",
             "baseName": "evenId",
