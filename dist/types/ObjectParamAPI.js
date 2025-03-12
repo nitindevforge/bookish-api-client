@@ -201,10 +201,10 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindBookById(param.id, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.userBookStatusQueryDto, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBookReviewBase = function (param, options) {
-        return this.api.bookControllerFindBookReviewBase(param.type, param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBookReviewBase(param.userBookStatusQueryDto, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();

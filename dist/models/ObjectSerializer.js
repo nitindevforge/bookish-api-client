@@ -100,6 +100,7 @@ __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
+__exportStar(require("../models/UserBookStatusQueryDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);
@@ -197,6 +198,7 @@ var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
 var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
+var UserBookStatusQueryDto_1 = require("../models/UserBookStatusQueryDto");
 var UserBooks_1 = require("../models/UserBooks");
 var UserBooksResponse_1 = require("../models/UserBooksResponse");
 var UserBooksResponseDto_1 = require("../models/UserBooksResponseDto");
@@ -308,6 +310,7 @@ var typeMap = {
     "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
+    "UserBookStatusQueryDto": UserBookStatusQueryDto_1.UserBookStatusQueryDto,
     "UserBooks": UserBooks_1.UserBooks,
     "UserBooksResponse": UserBooksResponse_1.UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto_1.UserBooksResponseDto,

@@ -15,6 +15,7 @@ import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 
 /**
@@ -109,72 +110,35 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param type 
-     * @param rate 
-     * @param page 
-     * @param limit 
-     * @param search 
+     * @param userBookStatusQueryDto 
      */
-    public async bookControllerFindBookReviewBase(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'type' is not null or undefined
-        if (type === null || type === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "type");
+        // verify required parameter 'userBookStatusQueryDto' is not null or undefined
+        if (userBookStatusQueryDto === null || userBookStatusQueryDto === undefined) {
+            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "userBookStatusQueryDto");
         }
-
-
-        // verify required parameter 'rate' is not null or undefined
-        if (rate === null || rate === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "rate");
-        }
-
-
-        // verify required parameter 'page' is not null or undefined
-        if (page === null || page === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "page");
-        }
-
-
-        // verify required parameter 'limit' is not null or undefined
-        if (limit === null || limit === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerFindBookReviewBase", "limit");
-        }
-
 
 
         // Path Params
         const localVarPath = '/v1/books/type';
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Query Params
-        if (type !== undefined) {
-            requestContext.setQueryParam("type", ObjectSerializer.serialize(type, "string", ""));
-        }
 
-        // Query Params
-        if (rate !== undefined) {
-            requestContext.setQueryParam("rate", ObjectSerializer.serialize(rate, "number", ""));
-        }
-
-        // Query Params
-        if (search !== undefined) {
-            requestContext.setQueryParam("search", ObjectSerializer.serialize(search, "string", ""));
-        }
-
-        // Query Params
-        if (page !== undefined) {
-            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(userBookStatusQueryDto, "UserBookStatusQueryDto", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

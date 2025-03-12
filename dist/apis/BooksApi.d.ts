@@ -8,11 +8,12 @@ import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindBookReviewBase(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;

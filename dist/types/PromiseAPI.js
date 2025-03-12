@@ -246,12 +246,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBookById(id, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, rate, page, limit, search, _options) {
-        var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options);
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (userBookStatusQueryDto, _options) {
+        var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
-        var result = this.api.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
+    PromiseBooksApi.prototype.bookControllerFindBookReviewBase = function (userBookStatusQueryDto, _options) {
+        var result = this.api.bookControllerFindBookReviewBase(userBookStatusQueryDto, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (rate, page, limit, search, _options) {

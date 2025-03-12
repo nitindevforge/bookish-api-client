@@ -86,6 +86,7 @@ import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -829,39 +830,10 @@ export interface BooksApiBookControllerFindBookByIdRequest {
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
     /**
      * 
-     * Defaults to: undefined
-     * @type string
+     * @type UserBookStatusQueryDto
      * @memberof BooksApibookControllerFindBookReviewBase
      */
-    type: string
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    rate: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    page: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    limit: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type string
-     * @memberof BooksApibookControllerFindBookReviewBase
-     */
-    search?: string
+    userBookStatusQueryDto: UserBookStatusQueryDto
 }
 
 export interface BooksApiBookControllerFindBooksRequest {
@@ -1039,14 +1011,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.type, param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.userBookStatusQueryDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
-        return this.api.bookControllerFindBookReviewBase(param.type, param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindBookReviewBase(param.userBookStatusQueryDto,  options).toPromise();
     }
 
     /**

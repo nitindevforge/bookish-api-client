@@ -99,6 +99,7 @@ __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
+__exportStar(require("../models/UserBookStatusQueryDto"), exports);
 __exportStar(require("../models/UserBooks"), exports);
 __exportStar(require("../models/UserBooksResponse"), exports);
 __exportStar(require("../models/UserBooksResponseDto"), exports);

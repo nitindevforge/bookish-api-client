@@ -83,6 +83,7 @@ export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookReviewResponseDto';
+export * from '../models/UserBookStatusQueryDto';
 export * from '../models/UserBooks';
 export * from '../models/UserBooksResponse';
 export * from '../models/UserBooksResponseDto';
@@ -181,6 +182,7 @@ import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -296,6 +298,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateStaffDto": UpdateStaffDto,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto,
+    "UserBookStatusQueryDto": UserBookStatusQueryDto,
     "UserBooks": UserBooks,
     "UserBooksResponse": UserBooksResponse,
     "UserBooksResponseDto": UserBooksResponseDto,

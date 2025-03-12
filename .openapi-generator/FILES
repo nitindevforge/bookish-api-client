@@ -116,6 +116,7 @@ models/UpdateRoleDto.ts
 models/UpdateStaffDto.ts
 models/UserBookPayloadDto.ts
 models/UserBookReviewResponseDto.ts
+models/UserBookStatusQueryDto.ts
 models/UserBooks.ts
 models/UserBooksResponse.ts
 models/UserBooksResponseDto.ts

@@ -87,6 +87,7 @@ import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooks } from '../models/UserBooks';
 import { UserBooksResponse } from '../models/UserBooksResponse';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
@@ -985,14 +986,10 @@ export class ObservableBooksApi {
     }
 
     /**
-     * @param type
-     * @param rate
-     * @param page
-     * @param limit
-     * @param [search]
+     * @param userBookStatusQueryDto
      */
-    public bookControllerFindBookReviewBaseWithHttpInfo(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
+    public bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(userBookStatusQueryDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1011,14 +1008,10 @@ export class ObservableBooksApi {
     }
 
     /**
-     * @param type
-     * @param rate
-     * @param page
-     * @param limit
-     * @param [search]
+     * @param userBookStatusQueryDto
      */
-    public bookControllerFindBookReviewBase(type: string, rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
-        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    public bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
     }
 
     /**

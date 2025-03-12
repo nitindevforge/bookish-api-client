@@ -49,6 +49,7 @@ import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
+import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
@@ -214,11 +215,7 @@ export interface BooksApiBookControllerFindBookByIdRequest {
     id: string;
 }
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
-    type: string;
-    rate: number;
-    page: number;
-    limit: number;
-    search?: string;
+    userBookStatusQueryDto: UserBookStatusQueryDto;
 }
 export interface BooksApiBookControllerFindBooksRequest {
     rate: number;

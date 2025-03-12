@@ -135,44 +135,26 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindBookReviewBase = function (userBookStatusQueryDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (type === null || type === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "type");
-                        }
-                        if (rate === null || rate === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "rate");
-                        }
-                        if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "page");
-                        }
-                        if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "limit");
+                        if (userBookStatusQueryDto === null || userBookStatusQueryDto === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindBookReviewBase", "userBookStatusQueryDto");
                         }
                         localVarPath = '/v1/books/type';
-                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        if (type !== undefined) {
-                            requestContext.setQueryParam("type", ObjectSerializer_1.ObjectSerializer.serialize(type, "string", ""));
-                        }
-                        if (rate !== undefined) {
-                            requestContext.setQueryParam("rate", ObjectSerializer_1.ObjectSerializer.serialize(rate, "number", ""));
-                        }
-                        if (search !== undefined) {
-                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
-                        }
-                        if (page !== undefined) {
-                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
-                        }
-                        if (limit !== undefined) {
-                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
-                        }
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(userBookStatusQueryDto, "UserBookStatusQueryDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];

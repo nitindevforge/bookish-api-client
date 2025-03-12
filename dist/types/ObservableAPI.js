@@ -786,9 +786,9 @@ var ObservableBooksApi = (function () {
     ObservableBooksApi.prototype.bookControllerFindBookById = function (id, _options) {
         return this.bookControllerFindBookByIdWithHttpInfo(id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (type, rate, page, limit, search, _options) {
+    ObservableBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (userBookStatusQueryDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(type, rate, page, limit, search, _options);
+        var requestContextPromise = this.requestFactory.bookControllerFindBookReviewBase(userBookStatusQueryDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_57 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -810,8 +810,8 @@ var ObservableBooksApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindBookReviewBaseWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindBookReviewBase = function (type, rate, page, limit, search, _options) {
-        return this.bookControllerFindBookReviewBaseWithHttpInfo(type, rate, page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindBookReviewBase = function (userBookStatusQueryDto, _options) {
+        return this.bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (rate, page, limit, search, _options) {
         var _this = this;

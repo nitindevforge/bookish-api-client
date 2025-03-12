@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
-[**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **GET** /v1/books/type | 
+[**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
 [**bookControllerFindBooks**](BooksApi.md#bookControllerFindBooks) | **GET** /v1/books | 
 [**bookControllerFindUserBookReview**](BooksApi.md#bookControllerFindUserBookReview) | **GET** /v1/user/book/review | 
 [**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/book/review/count | 
@@ -130,7 +130,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **bookControllerFindBookReviewBase**
-> BooksReviewResponseDto bookControllerFindBookReviewBase()
+> BooksReviewResponseDto bookControllerFindBookReviewBase(userBookStatusQueryDto)
 
 
 ### Example
@@ -145,15 +145,14 @@ const apiInstance = new BooksApi(configuration);
 
 const request: BooksApiBookControllerFindBookReviewBaseRequest = {
   
-  type: "type_example",
-  
-  rate: 3.14,
-  
-  page: 3.14,
-  
-  limit: 3.14,
-  
-  search: "search_example",
+  userBookStatusQueryDto: {
+    type: "type_example",
+    rate: 3.14,
+    search: "search_example",
+    page: 3.14,
+    limit: 3.14,
+    userId: "userId_example",
+  },
 };
 
 const data = await apiInstance.bookControllerFindBookReviewBase(request);
@@ -165,11 +164,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **type** | [**string**] |  | defaults to undefined
- **rate** | [**number**] |  | defaults to undefined
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
- **search** | [**string**] |  | (optional) defaults to undefined
+ **userBookStatusQueryDto** | **UserBookStatusQueryDto**|  |
 
 
 ### Return type
@@ -182,7 +177,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
