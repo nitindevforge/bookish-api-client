@@ -11,8 +11,8 @@ var BookMarkEventDTO = (function () {
     BookMarkEventDTO.mapping = undefined;
     BookMarkEventDTO.attributeTypeMap = [
         {
-            "name": "evenId",
-            "baseName": "evenId",
+            "name": "eventId",
+            "baseName": "eventId",
             "type": "string",
             "format": ""
         },

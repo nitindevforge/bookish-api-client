@@ -13,7 +13,7 @@
 import { HttpFile } from '../http/http';
 
 export class BookMarkEventDTO {
-    'evenId': string;
+    'eventId': string;
     'userId': string;
 
     static readonly discriminator: string | undefined = undefined;
@@ -22,8 +22,8 @@ export class BookMarkEventDTO {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "evenId",
-            "baseName": "evenId",
+            "name": "eventId",
+            "baseName": "eventId",
             "type": "string",
             "format": ""
         },
