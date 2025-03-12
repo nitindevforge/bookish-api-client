@@ -17,8 +17,8 @@ var BookMarkEventListDTO = (function () {
             "format": ""
         },
         {
-            "name": "evenId",
-            "baseName": "evenId",
+            "name": "eventId",
+            "baseName": "eventId",
             "type": "Events",
             "format": ""
         },

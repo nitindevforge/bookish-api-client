@@ -16,7 +16,7 @@ import { HttpFile } from '../http/http';
 
 export class BookMarkEventListDTO {
     'id': string;
-    'evenId': Events;
+    'eventId': Events;
     'userId': UserDetails;
 
     static readonly discriminator: string | undefined = undefined;
@@ -31,8 +31,8 @@ export class BookMarkEventListDTO {
             "format": ""
         },
         {
-            "name": "evenId",
-            "baseName": "evenId",
+            "name": "eventId",
+            "baseName": "eventId",
             "type": "Events",
             "format": ""
         },
