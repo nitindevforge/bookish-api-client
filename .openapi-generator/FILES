@@ -91,6 +91,7 @@ models/MyEventResponseDto.ts
 models/MyEvents.ts
 models/MyEventsResponse.ts
 models/MyEventsResponseDto.ts
+models/MyFriendPayloadDto.ts
 models/MyFriendsResponse.ts
 models/ObjectSerializer.ts
 models/OtpEntityPayloadDto.ts

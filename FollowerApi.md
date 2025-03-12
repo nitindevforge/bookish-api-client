@@ -4,13 +4,13 @@ All URIs are relative to *https://localhost:3000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**followerControllerFindMyFriends**](FollowerApi.md#followerControllerFindMyFriends) | **GET** /v1/all/friends | 
+[**followerControllerFindMyFriends**](FollowerApi.md#followerControllerFindMyFriends) | **POST** /v1/all/friends | 
 [**followerControllerFollow**](FollowerApi.md#followerControllerFollow) | **POST** /v1/relationship/follow | 
 [**followerControllerUnfollow**](FollowerApi.md#followerControllerUnfollow) | **POST** /v1/relationship/unfollow | 
 
 
 # **followerControllerFindMyFriends**
-> MyAllFriendsResponseDto followerControllerFindMyFriends()
+> MyAllFriendsResponseDto followerControllerFindMyFriends(myFriendPayloadDto)
 
 
 ### Example
@@ -25,13 +25,12 @@ const apiInstance = new FollowerApi(configuration);
 
 const request: FollowerApiFollowerControllerFindMyFriendsRequest = {
   
-  page: 3.14,
-  
-  limit: 3.14,
-  
-  id: "id_example",
-  
-  search: "search_example",
+  myFriendPayloadDto: {
+    id: "id_example",
+    page: 3.14,
+    limit: 3.14,
+    search: "search_example",
+  },
 };
 
 const data = await apiInstance.followerControllerFindMyFriends(request);
@@ -43,10 +42,7 @@ console.log('API called successfully. Returned data:', data);
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
- **id** | [**string**] |  | (optional) defaults to undefined
- **search** | [**string**] |  | (optional) defaults to undefined
+ **myFriendPayloadDto** | **MyFriendPayloadDto**|  |
 
 
 ### Return type
@@ -59,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

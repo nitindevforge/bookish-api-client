@@ -63,6 +63,7 @@ import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
+import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -1687,13 +1688,10 @@ export class ObservableFollowerApi {
     }
 
     /**
-     * @param page
-     * @param limit
-     * @param [id]
-     * @param [search]
+     * @param myFriendPayloadDto
      */
-    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, id, search, _options);
+    public followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto: MyFriendPayloadDto, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(myFriendPayloadDto, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1712,13 +1710,10 @@ export class ObservableFollowerApi {
     }
 
     /**
-     * @param page
-     * @param limit
-     * @param [id]
-     * @param [search]
+     * @param myFriendPayloadDto
      */
-    public followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
-        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
+    public followerControllerFindMyFriends(myFriendPayloadDto: MyFriendPayloadDto, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
+        return this.followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
     }
 
     /**

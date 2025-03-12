@@ -75,6 +75,7 @@ __exportStar(require("../models/MyEventResponseDto"), exports);
 __exportStar(require("../models/MyEvents"), exports);
 __exportStar(require("../models/MyEventsResponse"), exports);
 __exportStar(require("../models/MyEventsResponseDto"), exports);
+__exportStar(require("../models/MyFriendPayloadDto"), exports);
 __exportStar(require("../models/MyFriendsResponse"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);

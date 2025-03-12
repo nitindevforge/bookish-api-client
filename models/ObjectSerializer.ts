@@ -59,6 +59,7 @@ export * from '../models/MyEventResponseDto';
 export * from '../models/MyEvents';
 export * from '../models/MyEventsResponse';
 export * from '../models/MyEventsResponseDto';
+export * from '../models/MyFriendPayloadDto';
 export * from '../models/MyFriendsResponse';
 export * from '../models/OtpEntityPayloadDto';
 export * from '../models/PasswordChangeResponse';
@@ -156,6 +157,7 @@ import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
+import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -270,6 +272,7 @@ let typeMap: {[index: string]: any} = {
     "MyEvents": MyEvents,
     "MyEventsResponse": MyEventsResponse,
     "MyEventsResponseDto": MyEventsResponseDto,
+    "MyFriendPayloadDto": MyFriendPayloadDto,
     "MyFriendsResponse": MyFriendsResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse,

@@ -62,35 +62,26 @@ var FollowerApiRequestFactory = (function (_super) {
     function FollowerApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    FollowerApiRequestFactory.prototype.followerControllerFindMyFriends = function (page, limit, id, search, _options) {
+    FollowerApiRequestFactory.prototype.followerControllerFindMyFriends = function (myFriendPayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
-                        if (page === null || page === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerFindMyFriends", "page");
-                        }
-                        if (limit === null || limit === undefined) {
-                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerFindMyFriends", "limit");
+                        if (myFriendPayloadDto === null || myFriendPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("FollowerApi", "followerControllerFindMyFriends", "myFriendPayloadDto");
                         }
                         localVarPath = '/v1/all/friends';
-                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
-                        if (id !== undefined) {
-                            requestContext.setQueryParam("id", ObjectSerializer_1.ObjectSerializer.serialize(id, "string", ""));
-                        }
-                        if (page !== undefined) {
-                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
-                        }
-                        if (limit !== undefined) {
-                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
-                        }
-                        if (search !== undefined) {
-                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
-                        }
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(myFriendPayloadDto, "MyFriendPayloadDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];

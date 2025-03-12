@@ -62,6 +62,7 @@ import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
+import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -1051,24 +1052,18 @@ export class PromiseFollowerApi {
     }
 
     /**
-     * @param page
-     * @param limit
-     * @param [id]
-     * @param [search]
+     * @param myFriendPayloadDto
      */
-    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options);
+    public followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto: MyFriendPayloadDto, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto, _options);
         return result.toPromise();
     }
 
     /**
-     * @param page
-     * @param limit
-     * @param [id]
-     * @param [search]
+     * @param myFriendPayloadDto
      */
-    public followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        const result = this.api.followerControllerFindMyFriends(page, limit, id, search, _options);
+    public followerControllerFindMyFriends(myFriendPayloadDto: MyFriendPayloadDto, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerFindMyFriends(myFriendPayloadDto, _options);
         return result.toPromise();
     }
 

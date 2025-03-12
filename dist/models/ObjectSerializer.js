@@ -76,6 +76,7 @@ __exportStar(require("../models/MyEventResponseDto"), exports);
 __exportStar(require("../models/MyEvents"), exports);
 __exportStar(require("../models/MyEventsResponse"), exports);
 __exportStar(require("../models/MyEventsResponseDto"), exports);
+__exportStar(require("../models/MyFriendPayloadDto"), exports);
 __exportStar(require("../models/MyFriendsResponse"), exports);
 __exportStar(require("../models/OtpEntityPayloadDto"), exports);
 __exportStar(require("../models/PasswordChangeResponse"), exports);
@@ -172,6 +173,7 @@ var MyEventResponseDto_1 = require("../models/MyEventResponseDto");
 var MyEvents_1 = require("../models/MyEvents");
 var MyEventsResponse_1 = require("../models/MyEventsResponse");
 var MyEventsResponseDto_1 = require("../models/MyEventsResponseDto");
+var MyFriendPayloadDto_1 = require("../models/MyFriendPayloadDto");
 var MyFriendsResponse_1 = require("../models/MyFriendsResponse");
 var OtpEntityPayloadDto_1 = require("../models/OtpEntityPayloadDto");
 var PasswordChangeResponse_1 = require("../models/PasswordChangeResponse");
@@ -282,6 +284,7 @@ var typeMap = {
     "MyEvents": MyEvents_1.MyEvents,
     "MyEventsResponse": MyEventsResponse_1.MyEventsResponse,
     "MyEventsResponseDto": MyEventsResponseDto_1.MyEventsResponseDto,
+    "MyFriendPayloadDto": MyFriendPayloadDto_1.MyFriendPayloadDto,
     "MyFriendsResponse": MyFriendsResponse_1.MyFriendsResponse,
     "OtpEntityPayloadDto": OtpEntityPayloadDto_1.OtpEntityPayloadDto,
     "PasswordChangeResponse": PasswordChangeResponse_1.PasswordChangeResponse,

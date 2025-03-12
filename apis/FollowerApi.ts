@@ -11,6 +11,7 @@ import {SecurityAuthentication} from '../auth/auth';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
+import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 
 /**
  * no description
@@ -18,55 +19,35 @@ import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 export class FollowerApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
-     * @param page 
-     * @param limit 
-     * @param id 
-     * @param search 
+     * @param myFriendPayloadDto 
      */
-    public async followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async followerControllerFindMyFriends(myFriendPayloadDto: MyFriendPayloadDto, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
-        // verify required parameter 'page' is not null or undefined
-        if (page === null || page === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerFindMyFriends", "page");
+        // verify required parameter 'myFriendPayloadDto' is not null or undefined
+        if (myFriendPayloadDto === null || myFriendPayloadDto === undefined) {
+            throw new RequiredError("FollowerApi", "followerControllerFindMyFriends", "myFriendPayloadDto");
         }
-
-
-        // verify required parameter 'limit' is not null or undefined
-        if (limit === null || limit === undefined) {
-            throw new RequiredError("FollowerApi", "followerControllerFindMyFriends", "limit");
-        }
-
-
 
 
         // Path Params
         const localVarPath = '/v1/all/friends';
 
         // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
-        // Query Params
-        if (id !== undefined) {
-            requestContext.setQueryParam("id", ObjectSerializer.serialize(id, "string", ""));
-        }
 
-        // Query Params
-        if (page !== undefined) {
-            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Query Params
-        if (search !== undefined) {
-            requestContext.setQueryParam("search", ObjectSerializer.serialize(search, "string", ""));
-        }
-
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(myFriendPayloadDto, "MyFriendPayloadDto", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
 
         let authMethod: SecurityAuthentication | undefined;
         // Apply auth methods

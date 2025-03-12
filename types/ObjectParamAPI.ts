@@ -62,6 +62,7 @@ import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
+import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { MyFriendsResponse } from '../models/MyFriendsResponse';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponse } from '../models/PasswordChangeResponse';
@@ -1531,32 +1532,10 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor} from "../apis/
 export interface FollowerApiFollowerControllerFindMyFriendsRequest {
     /**
      * 
-     * Defaults to: undefined
-     * @type number
+     * @type MyFriendPayloadDto
      * @memberof FollowerApifollowerControllerFindMyFriends
      */
-    page: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof FollowerApifollowerControllerFindMyFriends
-     */
-    limit: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type string
-     * @memberof FollowerApifollowerControllerFindMyFriends
-     */
-    id?: string
-    /**
-     * 
-     * Defaults to: undefined
-     * @type string
-     * @memberof FollowerApifollowerControllerFindMyFriends
-     */
-    search?: string
+    myFriendPayloadDto: MyFriendPayloadDto
 }
 
 export interface FollowerApiFollowerControllerFollowRequest {
@@ -1588,14 +1567,14 @@ export class ObjectFollowerApi {
      * @param param the request object
      */
     public followerControllerFindMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.page, param.limit, param.id, param.search,  options).toPromise();
+        return this.api.followerControllerFindMyFriendsWithHttpInfo(param.myFriendPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public followerControllerFindMyFriends(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        return this.api.followerControllerFindMyFriends(param.page, param.limit, param.id, param.search,  options).toPromise();
+        return this.api.followerControllerFindMyFriends(param.myFriendPayloadDto,  options).toPromise();
     }
 
     /**

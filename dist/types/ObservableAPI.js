@@ -1383,9 +1383,9 @@ var ObservableFollowerApi = (function () {
         this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
     }
-    ObservableFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, id, search, _options) {
+    ObservableFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (myFriendPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, id, search, _options);
+        var requestContextPromise = this.requestFactory.followerControllerFindMyFriends(myFriendPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_99 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1407,8 +1407,8 @@ var ObservableFollowerApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFindMyFriendsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, id, search, _options) {
-        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFollowerApi.prototype.followerControllerFindMyFriends = function (myFriendPayloadDto, _options) {
+        return this.followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (followerPayloadDto, _options) {
         var _this = this;
