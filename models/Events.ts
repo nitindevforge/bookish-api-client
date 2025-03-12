@@ -19,7 +19,8 @@ export class Events {
     'id': string;
     'title': string;
     'image': string;
-    'date': Date;
+    'startDate': Date;
+    'endDate': Date;
     'price': number;
     'noOfTickets': number;
     'place': Places;
@@ -53,8 +54,14 @@ export class Events {
             "format": ""
         },
         {
-            "name": "date",
-            "baseName": "date",
+            "name": "startDate",
+            "baseName": "startDate",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "endDate",
+            "baseName": "endDate",
             "type": "Date",
             "format": "date-time"
         },

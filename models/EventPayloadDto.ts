@@ -16,7 +16,8 @@ import { HttpFile } from '../http/http';
 export class EventPayloadDto {
     'title': string;
     'image': string;
-    'date': Date;
+    'startDate': Date;
+    'endDate': Date;
     'price': number;
     'noOfTickets': number;
     'description': string;
@@ -42,8 +43,14 @@ export class EventPayloadDto {
             "format": ""
         },
         {
-            "name": "date",
-            "baseName": "date",
+            "name": "startDate",
+            "baseName": "startDate",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "endDate",
+            "baseName": "endDate",
             "type": "Date",
             "format": "date-time"
         },

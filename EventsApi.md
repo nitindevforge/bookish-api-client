@@ -152,7 +152,8 @@ const request: EventsApiEventControllerCreateEventRequest = {
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
-    date: new Date('1970-01-01T00:00:00.00Z'),
+    startDate: new Date('1970-01-01T00:00:00.00Z'),
+    endDate: new Date('1970-01-01T00:00:00.00Z'),
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",
@@ -705,7 +706,8 @@ const request: EventsApiEventControllerUpdateEventRequest = {
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
-    date: new Date('1970-01-01T00:00:00.00Z'),
+    startDate: new Date('1970-01-01T00:00:00.00Z'),
+    endDate: new Date('1970-01-01T00:00:00.00Z'),
     price: 3.14,
     noOfTickets: 3.14,
     description: "description_example",

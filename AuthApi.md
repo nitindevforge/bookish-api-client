@@ -540,6 +540,8 @@ const request: AuthApiAuthControllerGetActivityRequest = {
   latitude: 3.14,
   
   global: true,
+  
+  search: "search_example",
 };
 
 const data = await apiInstance.authControllerGetActivity(request);
@@ -556,6 +558,7 @@ Name | Type | Description  | Notes
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
  **global** | [**boolean**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -663,6 +666,8 @@ const request: AuthApiAuthControllerGetEventsActivityRequest = {
   latitude: 3.14,
   
   global: true,
+  
+  search: "search_example",
 };
 
 const data = await apiInstance.authControllerGetEventsActivity(request);
@@ -679,6 +684,7 @@ Name | Type | Description  | Notes
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
  **global** | [**boolean**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
