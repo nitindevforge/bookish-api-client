@@ -13,8 +13,8 @@
 import { HttpFile } from '../http/http';
 
 export class UserBookStatusQueryDto {
-    'type': string;
-    'rate': number;
+    'type'?: string;
+    'rate'?: number;
     'search'?: string;
     'page': number;
     'limit': number;
