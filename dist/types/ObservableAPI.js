@@ -1049,9 +1049,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerBookMarkEvent = function (bookMarkEventPayloadDto, _options) {
         return this.eventControllerBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerBookMarkEventListWithHttpInfo = function (page, limit, userId, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerBookMarkEventList(page, limit, userId, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_75 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1070,15 +1070,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_76(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerBookMarkEventListWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
-        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerBookMarkEventList = function (page, limit, userId, _options) {
+        return this.eventControllerBookMarkEventListWithHttpInfo(page, limit, userId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (eventId, _options) {
+    ObservableEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (eventPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(eventId, _options);
+        var requestContextPromise = this.requestFactory.eventControllerCreateEvent(eventPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_77 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1097,15 +1097,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_78(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerDeleteBookMarkEventWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerCreateEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (eventId, _options) {
-        return this.eventControllerDeleteBookMarkEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerCreateEvent = function (eventPayloadDto, _options) {
+        return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (id, withBookedEvent, _options) {
+    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (eventId, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerDeleteEvent(id, withBookedEvent, _options);
+        var requestContextPromise = this.requestFactory.eventControllerDeleteBookMarkEvent(eventId, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_79 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1124,15 +1124,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_80(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerDeleteEventWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerDeleteBookMarkEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerDeleteEvent = function (id, withBookedEvent, _options) {
-        return this.eventControllerDeleteEventWithHttpInfo(id, withBookedEvent, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerDeleteBookMarkEvent = function (eventId, _options) {
+        return this.eventControllerDeleteBookMarkEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (_options) {
+    ObservableEventsApi.prototype.eventControllerDeleteEventWithHttpInfo = function (id, withBookedEvent, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindCustomerOfEvents(_options);
+        var requestContextPromise = this.requestFactory.eventControllerDeleteEvent(id, withBookedEvent, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_81 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1151,15 +1151,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_82(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindCustomerOfEventsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerDeleteEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindCustomerOfEvents = function (_options) {
-        return this.eventControllerFindCustomerOfEventsWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerDeleteEvent = function (id, withBookedEvent, _options) {
+        return this.eventControllerDeleteEventWithHttpInfo(id, withBookedEvent, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, withBookedEvent, _options) {
+    ObservableEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (_options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindEventById(id, withBookedEvent, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindCustomerOfEvents(_options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_83 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1178,15 +1178,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_84(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventByIdWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindCustomerOfEventsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEventById = function (id, withBookedEvent, _options) {
-        return this.eventControllerFindEventByIdWithHttpInfo(id, withBookedEvent, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindCustomerOfEvents = function (_options) {
+        return this.eventControllerFindCustomerOfEventsWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, _options) {
+    ObservableEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, withBookedEvent, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindEventById(id, withBookedEvent, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_85 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1205,15 +1205,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_86(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventByIdWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindEvents = function (page, limit, _options) {
-        return this.eventControllerFindEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindEventById = function (id, withBookedEvent, _options) {
+        return this.eventControllerFindEventByIdWithHttpInfo(id, withBookedEvent, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
+    ObservableEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindMyEvent(eventId, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_87 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1232,15 +1232,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_88(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindMyEventWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindEventsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindMyEvent = function (eventId, _options) {
-        return this.eventControllerFindMyEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindEvents = function (page, limit, _options) {
+        return this.eventControllerFindEventsWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindMyUpcomingEventsWithHttpInfo = function (page, limit, type, _options) {
+    ObservableEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindMyEvent(eventId, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_89 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1259,15 +1259,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_90(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindMyUpcomingEventsWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindMyEventWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, type, _options) {
-        return this.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, type, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindMyEvent = function (eventId, _options) {
+        return this.eventControllerFindMyEventWithHttpInfo(eventId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerFindSearchPlacesWithHttpInfo = function (locationPayloadDto, _options) {
+    ObservableEventsApi.prototype.eventControllerFindMyUpcomingEventsWithHttpInfo = function (page, limit, type, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerFindSearchPlaces(locationPayloadDto, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindMyUpcomingEvents(page, limit, type, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_91 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1286,15 +1286,15 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_92(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindSearchPlacesWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindMyUpcomingEventsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerFindSearchPlaces = function (locationPayloadDto, _options) {
-        return this.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindMyUpcomingEvents = function (page, limit, type, _options) {
+        return this.eventControllerFindMyUpcomingEventsWithHttpInfo(page, limit, type, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, userId, _options) {
+    ObservableEventsApi.prototype.eventControllerFindSearchPlacesWithHttpInfo = function (locationPayloadDto, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, userId, _options);
+        var requestContextPromise = this.requestFactory.eventControllerFindSearchPlaces(locationPayloadDto, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_93 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1313,11 +1313,11 @@ var ObservableEventsApi = (function () {
                 var middleware = _a[_i];
                 _loop_94(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerGetBookMarkEventListWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerFindSearchPlacesWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, userId, _options) {
-        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerFindSearchPlaces = function (locationPayloadDto, _options) {
+        return this.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (eventId, _options) {
         var _this = this;

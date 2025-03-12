@@ -1176,6 +1176,30 @@ export interface EventsApiEventControllerBookMarkEventRequest {
     bookMarkEventPayloadDto: BookMarkEventPayloadDto
 }
 
+export interface EventsApiEventControllerBookMarkEventListRequest {
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof EventsApieventControllerBookMarkEventList
+     */
+    page: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof EventsApieventControllerBookMarkEventList
+     */
+    limit?: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type string
+     * @memberof EventsApieventControllerBookMarkEventList
+     */
+    userId?: string
+}
+
 export interface EventsApiEventControllerCreateEventRequest {
     /**
      * 
@@ -1292,30 +1316,6 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
     locationPayloadDto: LocationPayloadDto
 }
 
-export interface EventsApiEventControllerGetBookMarkEventListRequest {
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof EventsApieventControllerGetBookMarkEventList
-     */
-    page: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type number
-     * @memberof EventsApieventControllerGetBookMarkEventList
-     */
-    limit?: number
-    /**
-     * 
-     * Defaults to: undefined
-     * @type string
-     * @memberof EventsApieventControllerGetBookMarkEventList
-     */
-    userId?: string
-}
-
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
     /**
      * 
@@ -1354,6 +1354,20 @@ export class ObjectEventsApi {
      */
     public eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<CreateBookMarkEventResponseDto> {
         return this.api.eventControllerBookMarkEvent(param.bookMarkEventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerBookMarkEventListWithHttpInfo(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+        return this.api.eventControllerBookMarkEventListWithHttpInfo(param.page, param.limit, param.userId,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerBookMarkEventList(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto> {
+        return this.api.eventControllerBookMarkEventList(param.page, param.limit, param.userId,  options).toPromise();
     }
 
     /**
@@ -1480,20 +1494,6 @@ export class ObjectEventsApi {
      */
     public eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
         return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public eventControllerGetBookMarkEventListWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
-        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.page, param.limit, param.userId,  options).toPromise();
-    }
-
-    /**
-     * @param param the request object
-     */
-    public eventControllerGetBookMarkEventList(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto> {
-        return this.api.eventControllerGetBookMarkEventList(param.page, param.limit, param.userId,  options).toPromise();
     }
 
     /**

@@ -274,6 +274,12 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerBookMarkEvent = function (param, options) {
         return this.api.eventControllerBookMarkEvent(param.bookMarkEventPayloadDto, options).toPromise();
     };
+    ObjectEventsApi.prototype.eventControllerBookMarkEventListWithHttpInfo = function (param, options) {
+        return this.api.eventControllerBookMarkEventListWithHttpInfo(param.page, param.limit, param.userId, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerBookMarkEventList = function (param, options) {
+        return this.api.eventControllerBookMarkEventList(param.page, param.limit, param.userId, options).toPromise();
+    };
     ObjectEventsApi.prototype.eventControllerCreateEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto, options).toPromise();
     };
@@ -329,12 +335,6 @@ var ObjectEventsApi = (function () {
     };
     ObjectEventsApi.prototype.eventControllerFindSearchPlaces = function (param, options) {
         return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (param, options) {
-        return this.api.eventControllerGetBookMarkEventListWithHttpInfo(param.page, param.limit, param.userId, options).toPromise();
-    };
-    ObjectEventsApi.prototype.eventControllerGetBookMarkEventList = function (param, options) {
-        return this.api.eventControllerGetBookMarkEventList(param.page, param.limit, param.userId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (param, options) {
         return this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(param.eventId, options).toPromise();

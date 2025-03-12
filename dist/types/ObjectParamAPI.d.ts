@@ -284,6 +284,11 @@ import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/Eve
 export interface EventsApiEventControllerBookMarkEventRequest {
     bookMarkEventPayloadDto: BookMarkEventPayloadDto;
 }
+export interface EventsApiEventControllerBookMarkEventListRequest {
+    page: number;
+    limit?: number;
+    userId?: string;
+}
 export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
 }
@@ -315,11 +320,6 @@ export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
 export interface EventsApiEventControllerFindSearchPlacesRequest {
     locationPayloadDto: LocationPayloadDto;
 }
-export interface EventsApiEventControllerGetBookMarkEventListRequest {
-    page: number;
-    limit?: number;
-    userId?: string;
-}
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
     eventId: string;
 }
@@ -331,6 +331,8 @@ export declare class ObjectEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerBookMarkEventWithHttpInfo(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>>;
     eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<CreateBookMarkEventResponseDto>;
+    eventControllerBookMarkEventListWithHttpInfo(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
+    eventControllerBookMarkEventList(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
     eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
@@ -349,8 +351,6 @@ export declare class ObjectEventsApi {
     eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto>;
     eventControllerFindSearchPlacesWithHttpInfo(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
-    eventControllerGetBookMarkEventListWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
-    eventControllerGetBookMarkEventList(param: EventsApiEventControllerGetBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerGetBookMarkEventStatusWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>>;
     eventControllerGetBookMarkEventStatus(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<BookMarkEventStatusResponseDto>;
     eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;

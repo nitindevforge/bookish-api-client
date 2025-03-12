@@ -154,6 +154,8 @@ export declare class PromiseEventsApi {
     constructor(configuration: Configuration, requestFactory?: EventsApiRequestFactory, responseProcessor?: EventsApiResponseProcessor);
     eventControllerBookMarkEventWithHttpInfo(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>>;
     eventControllerBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<CreateBookMarkEventResponseDto>;
+    eventControllerBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
+    eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
     eventControllerDeleteBookMarkEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
@@ -172,8 +174,6 @@ export declare class PromiseEventsApi {
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto>;
     eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto>;
-    eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
-    eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerGetBookMarkEventStatusWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>>;
     eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<BookMarkEventStatusResponseDto>;
     eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;

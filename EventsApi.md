@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**eventControllerBookMarkEvent**](EventsApi.md#eventControllerBookMarkEvent) | **POST** /v1/bookmark-event | 
+[**eventControllerBookMarkEventList**](EventsApi.md#eventControllerBookMarkEventList) | **GET** /v1/bookmark-event-list | 
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
 [**eventControllerDeleteBookMarkEvent**](EventsApi.md#eventControllerDeleteBookMarkEvent) | **DELETE** /v1/bookmark-event/{eventId} | 
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
@@ -14,7 +15,6 @@ Method | HTTP request | Description
 [**eventControllerFindMyEvent**](EventsApi.md#eventControllerFindMyEvent) | **GET** /v1/my-event | 
 [**eventControllerFindMyUpcomingEvents**](EventsApi.md#eventControllerFindMyUpcomingEvents) | **GET** /v1/upcoming/events | 
 [**eventControllerFindSearchPlaces**](EventsApi.md#eventControllerFindSearchPlaces) | **POST** /v1/search-places | 
-[**eventControllerGetBookMarkEventList**](EventsApi.md#eventControllerGetBookMarkEventList) | **GET** /v1/bookmark-event-list | 
 [**eventControllerGetBookMarkEventStatus**](EventsApi.md#eventControllerGetBookMarkEventStatus) | **GET** /v1/bookmark-event-status/{eventId} | 
 [**eventControllerUpdateEvent**](EventsApi.md#eventControllerUpdateEvent) | **PUT** /v1/event | 
 
@@ -63,6 +63,65 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerBookMarkEventList**
+> BookMarkEventListResponseDto eventControllerBookMarkEventList()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerBookMarkEventListRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new EventsApi(configuration);
+
+const request: EventsApiEventControllerBookMarkEventListRequest = {
+  
+  page: 3.14,
+  
+  limit: 3.14,
+  
+  userId: "userId_example",
+};
+
+const data = await apiInstance.eventControllerBookMarkEventList(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**BookMarkEventListResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 
@@ -563,65 +622,6 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
-**401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **eventControllerGetBookMarkEventList**
-> BookMarkEventListResponseDto eventControllerGetBookMarkEventList()
-
-
-### Example
-
-
-```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerGetBookMarkEventListRequest } from '';
-
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
-
-const request: EventsApiEventControllerGetBookMarkEventListRequest = {
-  
-  page: 3.14,
-  
-  limit: 3.14,
-  
-  userId: "userId_example",
-};
-
-const data = await apiInstance.eventControllerGetBookMarkEventList(request);
-console.log('API called successfully. Returned data:', data);
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | (optional) defaults to undefined
- **userId** | [**string**] |  | (optional) defaults to undefined
-
-
-### Return type
-
-**BookMarkEventListResponseDto**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 

@@ -829,6 +829,26 @@ export class PromiseEventsApi {
     }
 
     /**
+     * @param page
+     * @param [limit]
+     * @param [userId]
+     */
+    public eventControllerBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+        const result = this.api.eventControllerBookMarkEventListWithHttpInfo(page, limit, userId, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page
+     * @param [limit]
+     * @param [userId]
+     */
+    public eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto> {
+        const result = this.api.eventControllerBookMarkEventList(page, limit, userId, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param eventPayloadDto
      */
     public eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
@@ -977,26 +997,6 @@ export class PromiseEventsApi {
      */
     public eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto> {
         const result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page
-     * @param [limit]
-     * @param [userId]
-     */
-    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
-        const result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options);
-        return result.toPromise();
-    }
-
-    /**
-     * @param page
-     * @param [limit]
-     * @param [userId]
-     */
-    public eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto> {
-        const result = this.api.eventControllerGetBookMarkEventList(page, limit, userId, _options);
         return result.toPromise();
     }
 

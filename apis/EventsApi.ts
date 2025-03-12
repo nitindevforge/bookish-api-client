@@ -74,6 +74,60 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     * @param userId 
+     */
+    public async eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'page' is not null or undefined
+        if (page === null || page === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerBookMarkEventList", "page");
+        }
+
+
+
+
+        // Path Params
+        const localVarPath = '/v1/bookmark-event-list';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (page !== undefined) {
+            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
+        }
+
+        // Query Params
+        if (limit !== undefined) {
+            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
+        }
+
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["bearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
      * @param eventPayloadDto 
      */
     public async eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext> {
@@ -475,60 +529,6 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
-     * @param page 
-     * @param limit 
-     * @param userId 
-     */
-    public async eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<RequestContext> {
-        let _config = _options || this.configuration;
-
-        // verify required parameter 'page' is not null or undefined
-        if (page === null || page === undefined) {
-            throw new RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "page");
-        }
-
-
-
-
-        // Path Params
-        const localVarPath = '/v1/bookmark-event-list';
-
-        // Make Request Context
-        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
-        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
-
-        // Query Params
-        if (page !== undefined) {
-            requestContext.setQueryParam("page", ObjectSerializer.serialize(page, "number", ""));
-        }
-
-        // Query Params
-        if (limit !== undefined) {
-            requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
-        }
-
-        // Query Params
-        if (userId !== undefined) {
-            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
-        }
-
-
-        let authMethod: SecurityAuthentication | undefined;
-        // Apply auth methods
-        authMethod = _config.authMethods["bearer"]
-        if (authMethod?.applySecurityAuthentication) {
-            await authMethod?.applySecurityAuthentication(requestContext);
-        }
-        
-        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
-        if (defaultAuth?.applySecurityAuthentication) {
-            await defaultAuth?.applySecurityAuthentication(requestContext);
-        }
-
-        return requestContext;
-    }
-
-    /**
      * @param eventId 
      */
     public async eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<RequestContext> {
@@ -640,6 +640,38 @@ export class EventsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "CreateBookMarkEventResponseDto", ""
             ) as CreateBookMarkEventResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to eventControllerBookMarkEventList
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async eventControllerBookMarkEventListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookMarkEventListResponseDto >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: BookMarkEventListResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BookMarkEventListResponseDto", ""
+            ) as BookMarkEventListResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: BookMarkEventListResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "BookMarkEventListResponseDto", ""
+            ) as BookMarkEventListResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
@@ -928,38 +960,6 @@ export class EventsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "LocationPlacesResponseDto", ""
             ) as LocationPlacesResponseDto;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-
-        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
-    }
-
-    /**
-     * Unwraps the actual response sent by the server from the response context and deserializes the response content
-     * to the expected objects
-     *
-     * @params response Response returned by the server for a request to eventControllerGetBookMarkEventList
-     * @throws ApiException if the response code was not in [200, 299]
-     */
-     public async eventControllerGetBookMarkEventListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookMarkEventListResponseDto >> {
-        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: BookMarkEventListResponseDto = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "BookMarkEventListResponseDto", ""
-            ) as BookMarkEventListResponseDto;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
-        if (isCodeInRange("401", response.httpStatusCode)) {
-            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
-        }
-
-        // Work around for missing responses in specification, e.g. for petstore.yaml
-        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: BookMarkEventListResponseDto = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "BookMarkEventListResponseDto", ""
-            ) as BookMarkEventListResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
