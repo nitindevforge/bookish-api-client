@@ -1292,9 +1292,9 @@ var ObservableEventsApi = (function () {
     ObservableEventsApi.prototype.eventControllerFindSearchPlaces = function (locationPayloadDto, _options) {
         return this.eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, _options) {
+    ObservableEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, userId, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, _options);
+        var requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, userId, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_93 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1316,8 +1316,8 @@ var ObservableEventsApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.eventControllerGetBookMarkEventListWithHttpInfo(rsp); }));
         }));
     };
-    ObservableEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
-        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, userId, _options) {
+        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (eventId, _options) {
         var _this = this;
@@ -1383,9 +1383,9 @@ var ObservableFollowerApi = (function () {
         this.requestFactory = requestFactory || new FollowerApi_1.FollowerApiRequestFactory(configuration);
         this.responseProcessor = responseProcessor || new FollowerApi_1.FollowerApiResponseProcessor();
     }
-    ObservableFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, search, id, _options) {
+    ObservableFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, id, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, search, id, _options);
+        var requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, id, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_99 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1407,8 +1407,8 @@ var ObservableFollowerApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.followerControllerFindMyFriendsWithHttpInfo(rsp); }));
         }));
     };
-    ObservableFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, search, id, _options) {
-        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, id, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, id, search, _options) {
+        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (followerPayloadDto, _options) {
         var _this = this;

@@ -406,12 +406,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindSearchPlaces(locationPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerGetBookMarkEventListWithHttpInfo = function (page, limit, userId, _options) {
+        var result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
-        var result = this.api.eventControllerGetBookMarkEventList(page, limit, _options);
+    PromiseEventsApi.prototype.eventControllerGetBookMarkEventList = function (page, limit, userId, _options) {
+        var result = this.api.eventControllerGetBookMarkEventList(page, limit, userId, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerGetBookMarkEventStatusWithHttpInfo = function (eventId, _options) {
@@ -438,12 +438,12 @@ var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_6.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, search, id, _options) {
-        var result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, id, _options);
+    PromiseFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (page, limit, id, search, _options) {
+        var result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options);
         return result.toPromise();
     };
-    PromiseFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, search, id, _options) {
-        var result = this.api.followerControllerFindMyFriends(page, limit, search, id, _options);
+    PromiseFollowerApi.prototype.followerControllerFindMyFriends = function (page, limit, id, search, _options) {
+        var result = this.api.followerControllerFindMyFriends(page, limit, id, search, _options);
         return result.toPromise();
     };
     PromiseFollowerApi.prototype.followerControllerFollowWithHttpInfo = function (followerPayloadDto, _options) {

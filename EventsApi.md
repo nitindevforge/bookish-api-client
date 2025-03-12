@@ -593,6 +593,8 @@ const request: EventsApiEventControllerGetBookMarkEventListRequest = {
   page: 3.14,
   
   limit: 3.14,
+  
+  userId: "userId_example",
 };
 
 const data = await apiInstance.eventControllerGetBookMarkEventList(request);
@@ -606,6 +608,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

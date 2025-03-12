@@ -8,6 +8,7 @@ export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
 export * from '../models/Book';
 export * from '../models/BookMarkEventDTO';
+export * from '../models/BookMarkEventListDTO';
 export * from '../models/BookMarkEventListResponseDto';
 export * from '../models/BookMarkEventPayloadDto';
 export * from '../models/BookMarkEventStatusResponseDto';

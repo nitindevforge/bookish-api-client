@@ -1,6 +1,7 @@
 import { Events } from '../models/Events';
 import { UserDetails } from '../models/UserDetails';
 export declare class BookMarkEventListDTO {
+    'id': string;
     'evenId': Events;
     'userId': UserDetails;
     static readonly discriminator: string | undefined;

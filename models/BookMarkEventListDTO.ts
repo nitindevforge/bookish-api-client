@@ -15,6 +15,7 @@ import { UserDetails } from '../models/UserDetails';
 import { HttpFile } from '../http/http';
 
 export class BookMarkEventListDTO {
+    'id': string;
     'evenId': Events;
     'userId': UserDetails;
 
@@ -23,6 +24,12 @@ export class BookMarkEventListDTO {
     static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
+        {
+            "name": "id",
+            "baseName": "_id",
+            "type": "string",
+            "format": ""
+        },
         {
             "name": "evenId",
             "baseName": "evenId",

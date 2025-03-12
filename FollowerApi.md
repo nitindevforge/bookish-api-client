@@ -29,9 +29,9 @@ const request: FollowerApiFollowerControllerFindMyFriendsRequest = {
   
   limit: 3.14,
   
-  search: "search_example",
-  
   id: "id_example",
+  
+  search: "search_example",
 };
 
 const data = await apiInstance.followerControllerFindMyFriends(request);
@@ -45,8 +45,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
- **search** | [**string**] |  | (optional) defaults to undefined
  **id** | [**string**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

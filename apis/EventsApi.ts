@@ -477,14 +477,16 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param page 
      * @param limit 
+     * @param userId 
      */
-    public async eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
             throw new RequiredError("EventsApi", "eventControllerGetBookMarkEventList", "page");
         }
+
 
 
 
@@ -503,6 +505,11 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
         }
 
 

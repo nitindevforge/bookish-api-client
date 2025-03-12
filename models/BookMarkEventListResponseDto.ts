@@ -10,11 +10,11 @@
  * Do not edit the class manually.
  */
 
-import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { HttpFile } from '../http/http';
 
 export class BookMarkEventListResponseDto {
-    'data': Array<BookMarkEventDTO>;
+    'data': Array<BookMarkEventListDTO>;
     'isSuccess': boolean;
 
     static readonly discriminator: string | undefined = undefined;
@@ -25,7 +25,7 @@ export class BookMarkEventListResponseDto {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<BookMarkEventDTO>",
+            "type": "Array<BookMarkEventListDTO>",
             "format": ""
         },
         {

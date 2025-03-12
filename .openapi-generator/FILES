@@ -40,6 +40,7 @@ models/AuthorResponseDto.ts
 models/BillingDetails.ts
 models/Book.ts
 models/BookMarkEventDTO.ts
+models/BookMarkEventListDTO.ts
 models/BookMarkEventListResponseDto.ts
 models/BookMarkEventPayloadDto.ts
 models/BookMarkEventStatusResponseDto.ts

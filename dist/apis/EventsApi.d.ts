@@ -25,7 +25,7 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
+    eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerUpdateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }

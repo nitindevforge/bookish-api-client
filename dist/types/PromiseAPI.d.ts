@@ -171,8 +171,8 @@ export declare class PromiseEventsApi {
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<MyEventsResponseDto>;
     eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<LocationPlacesResponseDto>;
-    eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
-    eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<BookMarkEventListResponseDto>;
+    eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>>;
+    eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerGetBookMarkEventStatusWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>>;
     eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Promise<BookMarkEventStatusResponseDto>;
     eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
@@ -182,8 +182,8 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis
 export declare class PromiseFollowerApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
-    followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto>;
+    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Promise<HttpInfo<FollowerResponseDto>>;

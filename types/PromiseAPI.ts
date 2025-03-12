@@ -11,6 +11,7 @@ import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
@@ -981,18 +982,20 @@ export class PromiseEventsApi {
     /**
      * @param page
      * @param [limit]
+     * @param [userId]
      */
-    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
-        const result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options);
+    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+        const result = this.api.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options);
         return result.toPromise();
     }
 
     /**
      * @param page
      * @param [limit]
+     * @param [userId]
      */
-    public eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Promise<BookMarkEventListResponseDto> {
-        const result = this.api.eventControllerGetBookMarkEventList(page, limit, _options);
+    public eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto> {
+        const result = this.api.eventControllerGetBookMarkEventList(page, limit, userId, _options);
         return result.toPromise();
     }
 
@@ -1050,22 +1053,22 @@ export class PromiseFollowerApi {
     /**
      * @param page
      * @param limit
-     * @param [search]
      * @param [id]
+     * @param [search]
      */
-    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
-        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, id, _options);
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+        const result = this.api.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options);
         return result.toPromise();
     }
 
     /**
      * @param page
      * @param limit
-     * @param [search]
      * @param [id]
+     * @param [search]
      */
-    public followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
-        const result = this.api.followerControllerFindMyFriends(page, limit, search, id, _options);
+    public followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Promise<MyAllFriendsResponseDto> {
+        const result = this.api.followerControllerFindMyFriends(page, limit, id, search, _options);
         return result.toPromise();
     }
 

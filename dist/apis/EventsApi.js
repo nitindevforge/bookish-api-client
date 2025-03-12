@@ -434,7 +434,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerGetBookMarkEventList = function (page, limit, _options) {
+    EventsApiRequestFactory.prototype.eventControllerGetBookMarkEventList = function (page, limit, userId, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -453,6 +453,9 @@ var EventsApiRequestFactory = (function (_super) {
                         }
                         if (limit !== undefined) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
+                        if (userId !== undefined) {
+                            requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

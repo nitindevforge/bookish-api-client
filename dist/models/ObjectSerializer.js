@@ -25,6 +25,7 @@ __exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
 __exportStar(require("../models/BookMarkEventDTO"), exports);
+__exportStar(require("../models/BookMarkEventListDTO"), exports);
 __exportStar(require("../models/BookMarkEventListResponseDto"), exports);
 __exportStar(require("../models/BookMarkEventPayloadDto"), exports);
 __exportStar(require("../models/BookMarkEventStatusResponseDto"), exports);
@@ -120,6 +121,7 @@ var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
 var BookMarkEventDTO_1 = require("../models/BookMarkEventDTO");
+var BookMarkEventListDTO_1 = require("../models/BookMarkEventListDTO");
 var BookMarkEventListResponseDto_1 = require("../models/BookMarkEventListResponseDto");
 var BookMarkEventPayloadDto_1 = require("../models/BookMarkEventPayloadDto");
 var BookMarkEventStatusResponseDto_1 = require("../models/BookMarkEventStatusResponseDto");
@@ -229,6 +231,7 @@ var typeMap = {
     "BillingDetails": BillingDetails_1.BillingDetails,
     "Book": Book_1.Book,
     "BookMarkEventDTO": BookMarkEventDTO_1.BookMarkEventDTO,
+    "BookMarkEventListDTO": BookMarkEventListDTO_1.BookMarkEventListDTO,
     "BookMarkEventListResponseDto": BookMarkEventListResponseDto_1.BookMarkEventListResponseDto,
     "BookMarkEventPayloadDto": BookMarkEventPayloadDto_1.BookMarkEventPayloadDto,
     "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto_1.BookMarkEventStatusResponseDto,

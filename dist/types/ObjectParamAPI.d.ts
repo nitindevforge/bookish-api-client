@@ -317,6 +317,7 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
 export interface EventsApiEventControllerGetBookMarkEventListRequest {
     page: number;
     limit?: number;
+    userId?: string;
 }
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
     eventId: string;
@@ -358,8 +359,8 @@ import { FollowerApiRequestFactory, FollowerApiResponseProcessor } from "../apis
 export interface FollowerApiFollowerControllerFindMyFriendsRequest {
     page: number;
     limit: number;
-    search?: string;
     id?: string;
+    search?: string;
 }
 export interface FollowerApiFollowerControllerFollowRequest {
     followerPayloadDto: FollowerPayloadDto;

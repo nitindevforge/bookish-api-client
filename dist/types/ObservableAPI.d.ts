@@ -182,8 +182,8 @@ export declare class ObservableEventsApi {
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Observable<MyEventsResponseDto>;
     eventControllerFindSearchPlacesWithHttpInfo(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Observable<LocationPlacesResponseDto>;
-    eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>>;
-    eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Observable<BookMarkEventListResponseDto>;
+    eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>>;
+    eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Observable<BookMarkEventListResponseDto>;
     eventControllerGetBookMarkEventStatusWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<BookMarkEventStatusResponseDto>>;
     eventControllerGetBookMarkEventStatus(eventId: string, _options?: Configuration): Observable<BookMarkEventStatusResponseDto>;
     eventControllerUpdateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
@@ -195,8 +195,8 @@ export declare class ObservableFollowerApi {
     private responseProcessor;
     private configuration;
     constructor(configuration: Configuration, requestFactory?: FollowerApiRequestFactory, responseProcessor?: FollowerApiResponseProcessor);
-    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>>;
-    followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto>;
+    followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>>;
+    followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto>;
     followerControllerFollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;
     followerControllerFollow(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<FollowerResponseDto>;
     followerControllerUnfollowWithHttpInfo(followerPayloadDto: FollowerPayloadDto, _options?: Configuration): Observable<HttpInfo<FollowerResponseDto>>;

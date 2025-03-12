@@ -1,5 +1,4 @@
 export declare class BookMarkEventDTO {
-    'id': string;
     'evenId': string;
     'userId': string;
     static readonly discriminator: string | undefined;

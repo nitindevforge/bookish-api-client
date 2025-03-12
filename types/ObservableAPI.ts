@@ -12,6 +12,7 @@ import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
+import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
@@ -1579,9 +1580,10 @@ export class ObservableEventsApi {
     /**
      * @param page
      * @param [limit]
+     * @param [userId]
      */
-    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, _options);
+    public eventControllerGetBookMarkEventListWithHttpInfo(page: number, limit?: number, userId?: string, _options?: Configuration): Observable<HttpInfo<BookMarkEventListResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerGetBookMarkEventList(page, limit, userId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1602,9 +1604,10 @@ export class ObservableEventsApi {
     /**
      * @param page
      * @param [limit]
+     * @param [userId]
      */
-    public eventControllerGetBookMarkEventList(page: number, limit?: number, _options?: Configuration): Observable<BookMarkEventListResponseDto> {
-        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<BookMarkEventListResponseDto>) => apiResponse.data));
+    public eventControllerGetBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Observable<BookMarkEventListResponseDto> {
+        return this.eventControllerGetBookMarkEventListWithHttpInfo(page, limit, userId, _options).pipe(map((apiResponse: HttpInfo<BookMarkEventListResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1686,11 +1689,11 @@ export class ObservableFollowerApi {
     /**
      * @param page
      * @param limit
-     * @param [search]
      * @param [id]
+     * @param [search]
      */
-    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
-        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, search, id, _options);
+    public followerControllerFindMyFriendsWithHttpInfo(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<HttpInfo<MyAllFriendsResponseDto>> {
+        const requestContextPromise = this.requestFactory.followerControllerFindMyFriends(page, limit, id, search, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1711,11 +1714,11 @@ export class ObservableFollowerApi {
     /**
      * @param page
      * @param limit
-     * @param [search]
      * @param [id]
+     * @param [search]
      */
-    public followerControllerFindMyFriends(page: number, limit: number, search?: string, id?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
-        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, search, id, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
+    public followerControllerFindMyFriends(page: number, limit: number, id?: string, search?: string, _options?: Configuration): Observable<MyAllFriendsResponseDto> {
+        return this.followerControllerFindMyFriendsWithHttpInfo(page, limit, id, search, _options).pipe(map((apiResponse: HttpInfo<MyAllFriendsResponseDto>) => apiResponse.data));
     }
 
     /**
