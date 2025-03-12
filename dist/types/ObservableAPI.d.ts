@@ -91,12 +91,12 @@ export declare class ObservableAuthApi {
     authControllerDeleteStaff(id: string, _options?: Configuration): Observable<UserDeleteResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;
     authControllerGetAllStaff(page: number, limit: number, search?: string, _options?: Configuration): Observable<void>;
-    authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
-    authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Observable<ActivityResponseDto>;
+    authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
+    authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Observable<InterestsResponseDto>;
     authControllerGetPermissionWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;

@@ -86,12 +86,12 @@ export declare class PromiseAuthApi {
     authControllerDeleteStaff(id: string, _options?: Configuration): Promise<UserDeleteResponseDto>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
-    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<void>>;
     authControllerGetAllStaff(page: number, limit: number, search?: string, _options?: Configuration): Promise<void>;
-    authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
-    authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, _options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(_options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(_options?: Configuration): Promise<InterestsResponseDto>;
     authControllerGetPermissionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>>;

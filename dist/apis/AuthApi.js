@@ -357,7 +357,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, _options) {
+    AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -388,6 +388,9 @@ var AuthApiRequestFactory = (function (_super) {
                         }
                         if (global !== undefined) {
                             requestContext.setQueryParam("global", ObjectSerializer_1.ObjectSerializer.serialize(global, "boolean", ""));
+                        }
+                        if (search !== undefined) {
+                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
@@ -451,7 +454,7 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
-    AuthApiRequestFactory.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, _options) {
+    AuthApiRequestFactory.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -482,6 +485,9 @@ var AuthApiRequestFactory = (function (_super) {
                         }
                         if (global !== undefined) {
                             requestContext.setQueryParam("global", ObjectSerializer_1.ObjectSerializer.serialize(global, "boolean", ""));
+                        }
+                        if (search !== undefined) {
+                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

@@ -99,6 +99,7 @@ export interface AuthApiAuthControllerGetActivityRequest {
     longitude?: number;
     latitude?: number;
     global?: boolean;
+    search?: string;
 }
 export interface AuthApiAuthControllerGetAllStaffRequest {
     page: number;
@@ -111,6 +112,7 @@ export interface AuthApiAuthControllerGetEventsActivityRequest {
     longitude?: number;
     latitude?: number;
     global?: boolean;
+    search?: string;
 }
 export interface AuthApiAuthControllerGetInterestsRequest {
 }

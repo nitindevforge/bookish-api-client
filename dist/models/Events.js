@@ -29,8 +29,14 @@ var Events = (function () {
             "format": ""
         },
         {
-            "name": "date",
-            "baseName": "date",
+            "name": "startDate",
+            "baseName": "startDate",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "endDate",
+            "baseName": "endDate",
             "type": "Date",
             "format": "date-time"
         },

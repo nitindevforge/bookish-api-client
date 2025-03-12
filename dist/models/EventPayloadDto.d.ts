@@ -2,7 +2,8 @@ import { Places } from '../models/Places';
 export declare class EventPayloadDto {
     'title': string;
     'image': string;
-    'date': Date;
+    'startDate': Date;
+    'endDate': Date;
     'price': number;
     'noOfTickets': number;
     'description': string;

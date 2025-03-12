@@ -290,9 +290,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerForgetPassword = function (forgetPasswordPayloadDto, _options) {
         return this.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, _options) {
+    ObservableAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, longitude, latitude, global, _options);
+        var requestContextPromise = this.requestFactory.authControllerGetActivity(page, limit, longitude, latitude, global, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_21 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -314,8 +314,8 @@ var ObservableAuthApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerGetActivityWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, _options) {
-        return this.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, global, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, search, _options) {
+        return this.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (page, limit, search, _options) {
         var _this = this;
@@ -344,9 +344,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerGetAllStaff = function (page, limit, search, _options) {
         return this.authControllerGetAllStaffWithHttpInfo(page, limit, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, _options) {
+    ObservableAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
+        var requestContextPromise = this.requestFactory.authControllerGetEventsActivity(page, limit, longitude, latitude, global, search, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_25 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -368,8 +368,8 @@ var ObservableAuthApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerGetEventsActivityWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, _options) {
-        return this.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, search, _options) {
+        return this.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {
         var _this = this;

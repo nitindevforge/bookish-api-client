@@ -1,6 +1,5 @@
 import { ResponseContext, RequestContext, HttpFile, HttpInfo } from '../http/http';
-import { Configuration, ConfigurationOptions } from '../configuration'
-import type { Middleware } from '../middleware';
+import { Configuration} from '../configuration'
 
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
@@ -117,14 +116,14 @@ export class ObjectAnalyticsApi {
     /**
      * @param param the request object
      */
-    public analyticsControllerGetAnalyticsWithHttpInfo(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<AnalyticsResponseDTO>> {
+    public analyticsControllerGetAnalyticsWithHttpInfo(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: Configuration): Promise<HttpInfo<AnalyticsResponseDTO>> {
         return this.api.analyticsControllerGetAnalyticsWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public analyticsControllerGetAnalytics(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: ConfigurationOptions): Promise<AnalyticsResponseDTO> {
+    public analyticsControllerGetAnalytics(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {}, options?: Configuration): Promise<AnalyticsResponseDTO> {
         return this.api.analyticsControllerGetAnalytics( options).toPromise();
     }
 
@@ -471,350 +470,350 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerAccountDeletionWithHttpInfo(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<UserDeleteResponseDto>> {
+    public authControllerAccountDeletionWithHttpInfo(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
         return this.api.authControllerAccountDeletionWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerAccountDeletion(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: ConfigurationOptions): Promise<UserDeleteResponseDto> {
+    public authControllerAccountDeletion(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: Configuration): Promise<UserDeleteResponseDto> {
         return this.api.authControllerAccountDeletion( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerChangePasswordWithHttpInfo(param: AuthApiAuthControllerChangePasswordRequest, options?: ConfigurationOptions): Promise<HttpInfo<PasswordChangeResponseDto>> {
+    public authControllerChangePasswordWithHttpInfo(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>> {
         return this.api.authControllerChangePasswordWithHttpInfo(param.changePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerChangePassword(param: AuthApiAuthControllerChangePasswordRequest, options?: ConfigurationOptions): Promise<PasswordChangeResponseDto> {
+    public authControllerChangePassword(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<PasswordChangeResponseDto> {
         return this.api.authControllerChangePassword(param.changePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateBusinessUserWithHttpInfo(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerCreateBusinessUserWithHttpInfo(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerCreateBusinessUserWithHttpInfo(param.signupPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateBusinessUser(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerCreateBusinessUser(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerCreateBusinessUser(param.signupPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateRolesWithHttpInfo(param: AuthApiAuthControllerCreateRolesRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerCreateRolesWithHttpInfo(param: AuthApiAuthControllerCreateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerCreateRolesWithHttpInfo(param.createRoleDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateRoles(param: AuthApiAuthControllerCreateRolesRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerCreateRoles(param: AuthApiAuthControllerCreateRolesRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerCreateRoles(param.createRoleDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateStaffWithHttpInfo(param: AuthApiAuthControllerCreateStaffRequest, options?: ConfigurationOptions): Promise<HttpInfo<CreateStaffDto>> {
+    public authControllerCreateStaffWithHttpInfo(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<HttpInfo<CreateStaffDto>> {
         return this.api.authControllerCreateStaffWithHttpInfo(param.createStaffDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateStaff(param: AuthApiAuthControllerCreateStaffRequest, options?: ConfigurationOptions): Promise<CreateStaffDto> {
+    public authControllerCreateStaff(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<CreateStaffDto> {
         return this.api.authControllerCreateStaff(param.createStaffDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerCreateUserWithHttpInfo(param.signupPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerCreateUser(param.signupPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerDeleteRoleWithHttpInfo(param: AuthApiAuthControllerDeleteRoleRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerDeleteRoleWithHttpInfo(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerDeleteRoleWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerDeleteRole(param: AuthApiAuthControllerDeleteRoleRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerDeleteRole(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerDeleteRole(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerDeleteStaffWithHttpInfo(param: AuthApiAuthControllerDeleteStaffRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserDeleteResponseDto>> {
+    public authControllerDeleteStaffWithHttpInfo(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>> {
         return this.api.authControllerDeleteStaffWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerDeleteStaff(param: AuthApiAuthControllerDeleteStaffRequest, options?: ConfigurationOptions): Promise<UserDeleteResponseDto> {
+    public authControllerDeleteStaff(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<UserDeleteResponseDto> {
         return this.api.authControllerDeleteStaff(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: ConfigurationOptions): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
+    public authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         return this.api.authControllerForgetPasswordWithHttpInfo(param.forgetPasswordPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: ConfigurationOptions): Promise<ForgetPasswordEntityResponseDto> {
+    public authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: ConfigurationOptions): Promise<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: ConfigurationOptions): Promise<ActivityResponseDto> {
+    public authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
         return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetAllStaffWithHttpInfo(param: AuthApiAuthControllerGetAllStaffRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerGetAllStaffWithHttpInfo(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerGetAllStaff(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: ConfigurationOptions): Promise<HttpInfo<ActivityResponseDto>> {
+    public authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: ConfigurationOptions): Promise<ActivityResponseDto> {
+    public authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<ActivityResponseDto> {
         return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetInterestsWithHttpInfo(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<InterestsResponseDto>> {
+    public authControllerGetInterestsWithHttpInfo(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: Configuration): Promise<HttpInfo<InterestsResponseDto>> {
         return this.api.authControllerGetInterestsWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetInterests(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: ConfigurationOptions): Promise<InterestsResponseDto> {
+    public authControllerGetInterests(param: AuthApiAuthControllerGetInterestsRequest = {}, options?: Configuration): Promise<InterestsResponseDto> {
         return this.api.authControllerGetInterests( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetPermissionWithHttpInfo(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerGetPermissionWithHttpInfo(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerGetPermissionWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetPermission(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: ConfigurationOptions): Promise<void> {
+    public authControllerGetPermission(param: AuthApiAuthControllerGetPermissionRequest = {}, options?: Configuration): Promise<void> {
         return this.api.authControllerGetPermission( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerLogin(param.loginPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUpdateWithHttpInfo(param.storeDetailsPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUpdate(param.storeDetailsPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerUpdateRolesWithHttpInfo(param.id, param.updateRoleDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerUpdateRoles(param.id, param.updateRoleDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerUpdateStaffWithHttpInfo(param.id, param.updateStaffDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUpdateStaff(param: AuthApiAuthControllerUpdateStaffRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerUpdateStaff(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerUpdateStaff(param.id, param.updateStaffDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserWithHttpInfo(param: AuthApiAuthControllerUserRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public authControllerUserWithHttpInfo(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.authControllerUserWithHttpInfo(param.page, param.limit, param.allRoles, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUser(param: AuthApiAuthControllerUserRequest, options?: ConfigurationOptions): Promise<void> {
+    public authControllerUser(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerUser(param.page, param.limit, param.allRoles, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUserByIdWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerUserById(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserById(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserFollowersWithHttpInfo(param: AuthApiAuthControllerUserFollowersRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserFollowerResponseDto>> {
+    public authControllerUserFollowersWithHttpInfo(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<HttpInfo<UserFollowerResponseDto>> {
         return this.api.authControllerUserFollowersWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserFollowers(param: AuthApiAuthControllerUserFollowersRequest, options?: ConfigurationOptions): Promise<UserFollowerResponseDto> {
+    public authControllerUserFollowers(param: AuthApiAuthControllerUserFollowersRequest, options?: Configuration): Promise<UserFollowerResponseDto> {
         return this.api.authControllerUserFollowers(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerUserMeWithHttpInfo(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUserMeWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest = {}, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerUserMe(param: AuthApiAuthControllerUserMeRequest = {}, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserMe( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserRoleUpdateWithHttpInfo(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerUserRoleUpdateWithHttpInfo(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUserRoleUpdateWithHttpInfo(param.userRolePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserRoleUpdate(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerUserRoleUpdate(param: AuthApiAuthControllerUserRoleUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserRoleUpdate(param.userRolePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserUpdateWithHttpInfo(param: AuthApiAuthControllerUserUpdateRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserResponseDto>> {
+    public authControllerUserUpdateWithHttpInfo(param: AuthApiAuthControllerUserUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
         return this.api.authControllerUserUpdateWithHttpInfo(param.userUpdatePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerUserUpdate(param: AuthApiAuthControllerUserUpdateRequest, options?: ConfigurationOptions): Promise<UserResponseDto> {
+    public authControllerUserUpdate(param: AuthApiAuthControllerUserUpdateRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerUserUpdate(param.userUpdatePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerVerifyOtpWithHttpInfo(param: AuthApiAuthControllerVerifyOtpRequest, options?: ConfigurationOptions): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
+    public authControllerVerifyOtpWithHttpInfo(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>> {
         return this.api.authControllerVerifyOtpWithHttpInfo(param.otpEntityPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: ConfigurationOptions): Promise<ForgetPasswordEntityResponseDto> {
+    public authControllerVerifyOtp(param: AuthApiAuthControllerVerifyOtpRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto> {
         return this.api.authControllerVerifyOtp(param.otpEntityPayloadDto,  options).toPromise();
     }
 
@@ -997,126 +996,126 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: ConfigurationOptions): Promise<HttpInfo<BookResponseDto>> {
+    public bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         return this.api.bookControllerAddBookWithHttpInfo(param.bookPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: ConfigurationOptions): Promise<BookResponseDto> {
+    public bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto> {
         return this.api.bookControllerAddBook(param.bookPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: ConfigurationOptions): Promise<HttpInfo<BookResponseDto>> {
+    public bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         return this.api.bookControllerFindBookByIdWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: ConfigurationOptions): Promise<BookResponseDto> {
+    public bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto> {
         return this.api.bookControllerFindBookById(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: ConfigurationOptions): Promise<HttpInfo<BooksReviewResponseDto>> {
+    public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
         return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.userBookStatusQueryDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: ConfigurationOptions): Promise<BooksReviewResponseDto> {
+    public bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
         return this.api.bookControllerFindBookReviewBase(param.userBookStatusQueryDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: ConfigurationOptions): Promise<HttpInfo<BooksResponseDto>> {
+    public bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
         return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: ConfigurationOptions): Promise<BooksResponseDto> {
+    public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
         return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserBookReviewResponseDto>> {
+    public bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.status, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: ConfigurationOptions): Promise<UserBookReviewResponseDto> {
+    public bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookReviewResponseDto> {
         return this.api.bookControllerFindUserBookReview(param.bookId, param.status, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: ConfigurationOptions): Promise<HttpInfo<BookReviewCountResponseDto>> {
+    public bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>> {
         return this.api.bookControllerFindUserBookReviewCountWithHttpInfo(param.bookId, param.status, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: ConfigurationOptions): Promise<BookReviewCountResponseDto> {
+    public bookControllerFindUserBookReviewCount(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<BookReviewCountResponseDto> {
         return this.api.bookControllerFindUserBookReviewCount(param.bookId, param.status, param.rate, param.review,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserBooksResponseDto>> {
+    public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
         return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: ConfigurationOptions): Promise<UserBooksResponseDto> {
+    public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
         return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserWhichReadBookWithHttpInfo(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<UserBooksResponseDto>> {
+    public bookControllerFindUserWhichReadBookWithHttpInfo(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
         return this.api.bookControllerFindUserWhichReadBookWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindUserWhichReadBook(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: ConfigurationOptions): Promise<UserBooksResponseDto> {
+    public bookControllerFindUserWhichReadBook(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: Configuration): Promise<UserBooksResponseDto> {
         return this.api.bookControllerFindUserWhichReadBook( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: ConfigurationOptions): Promise<HttpInfo<UserBookReviewResponseDto>> {
+    public bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: ConfigurationOptions): Promise<UserBookReviewResponseDto> {
+    public bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookReviewResponseDto> {
         return this.api.bookControllerUserBookMark(param.userBookPayloadDto,  options).toPromise();
     }
 
@@ -1138,14 +1137,14 @@ export class ObjectDefaultApi {
     /**
      * @param param the request object
      */
-    public appControllerGetHelloWithHttpInfo(param: DefaultApiAppControllerGetHelloRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public appControllerGetHelloWithHttpInfo(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.appControllerGetHelloWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: ConfigurationOptions): Promise<void> {
+    public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<void> {
         return this.api.appControllerGetHello( options).toPromise();
     }
 
@@ -1332,182 +1331,182 @@ export class ObjectEventsApi {
     /**
      * @param param the request object
      */
-    public eventControllerBookMarkEventWithHttpInfo(param: EventsApiEventControllerBookMarkEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<CreateBookMarkEventResponseDto>> {
+    public eventControllerBookMarkEventWithHttpInfo(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<CreateBookMarkEventResponseDto>> {
         return this.api.eventControllerBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: ConfigurationOptions): Promise<CreateBookMarkEventResponseDto> {
+    public eventControllerBookMarkEvent(param: EventsApiEventControllerBookMarkEventRequest, options?: Configuration): Promise<CreateBookMarkEventResponseDto> {
         return this.api.eventControllerBookMarkEvent(param.bookMarkEventPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerBookMarkEventListWithHttpInfo(param: EventsApiEventControllerBookMarkEventListRequest, options?: ConfigurationOptions): Promise<HttpInfo<BookMarkEventListResponseDto>> {
+    public eventControllerBookMarkEventListWithHttpInfo(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventListResponseDto>> {
         return this.api.eventControllerBookMarkEventListWithHttpInfo(param.page, param.limit, param.userId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerBookMarkEventList(param: EventsApiEventControllerBookMarkEventListRequest, options?: ConfigurationOptions): Promise<BookMarkEventListResponseDto> {
+    public eventControllerBookMarkEventList(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto> {
         return this.api.eventControllerBookMarkEventList(param.page, param.limit, param.userId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<EventResponseDto>> {
+    public eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         return this.api.eventControllerCreateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: ConfigurationOptions): Promise<EventResponseDto> {
+    public eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<DeleteBookMarkEventResponseDto>> {
+    public eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>> {
         return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: ConfigurationOptions): Promise<DeleteBookMarkEventResponseDto> {
+    public eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto> {
         return this.api.eventControllerDeleteBookMarkEvent(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<EventDeleteResponseDto>> {
+    public eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>> {
         return this.api.eventControllerDeleteEventWithHttpInfo(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerDeleteEvent(param: EventsApiEventControllerDeleteEventRequest, options?: ConfigurationOptions): Promise<EventDeleteResponseDto> {
+    public eventControllerDeleteEvent(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<EventDeleteResponseDto> {
         return this.api.eventControllerDeleteEvent(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindCustomerOfEventsWithHttpInfo(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<LocationPlacesResponseDto>> {
+    public eventControllerFindCustomerOfEventsWithHttpInfo(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
         return this.api.eventControllerFindCustomerOfEventsWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindCustomerOfEvents(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: ConfigurationOptions): Promise<LocationPlacesResponseDto> {
+    public eventControllerFindCustomerOfEvents(param: EventsApiEventControllerFindCustomerOfEventsRequest = {}, options?: Configuration): Promise<LocationPlacesResponseDto> {
         return this.api.eventControllerFindCustomerOfEvents( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: ConfigurationOptions): Promise<HttpInfo<EventResponseDto>> {
+    public eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: ConfigurationOptions): Promise<EventResponseDto> {
+    public eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerFindEventById(param.id, param.withBookedEvent,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: ConfigurationOptions): Promise<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
         return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: ConfigurationOptions): Promise<EventsResponseDto> {
+    public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
         return this.api.eventControllerFindEvents(param.page, param.limit,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<MyEventResponseDto>> {
+    public eventControllerFindMyEventWithHttpInfo(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: ConfigurationOptions): Promise<MyEventResponseDto> {
+    public eventControllerFindMyEvent(param: EventsApiEventControllerFindMyEventRequest, options?: Configuration): Promise<MyEventResponseDto> {
         return this.api.eventControllerFindMyEvent(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: ConfigurationOptions): Promise<HttpInfo<MyEventsResponseDto>> {
+    public eventControllerFindMyUpcomingEventsWithHttpInfo(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventsResponseDto>> {
         return this.api.eventControllerFindMyUpcomingEventsWithHttpInfo(param.page, param.limit, param.type,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: ConfigurationOptions): Promise<MyEventsResponseDto> {
+    public eventControllerFindMyUpcomingEvents(param: EventsApiEventControllerFindMyUpcomingEventsRequest, options?: Configuration): Promise<MyEventsResponseDto> {
         return this.api.eventControllerFindMyUpcomingEvents(param.page, param.limit, param.type,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindSearchPlacesWithHttpInfo(param: EventsApiEventControllerFindSearchPlacesRequest, options?: ConfigurationOptions): Promise<HttpInfo<LocationPlacesResponseDto>> {
+    public eventControllerFindSearchPlacesWithHttpInfo(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>> {
         return this.api.eventControllerFindSearchPlacesWithHttpInfo(param.locationPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: ConfigurationOptions): Promise<LocationPlacesResponseDto> {
+    public eventControllerFindSearchPlaces(param: EventsApiEventControllerFindSearchPlacesRequest, options?: Configuration): Promise<LocationPlacesResponseDto> {
         return this.api.eventControllerFindSearchPlaces(param.locationPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerGetBookMarkEventStatusWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: ConfigurationOptions): Promise<HttpInfo<BookMarkEventStatusResponseDto>> {
+    public eventControllerGetBookMarkEventStatusWithHttpInfo(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<HttpInfo<BookMarkEventStatusResponseDto>> {
         return this.api.eventControllerGetBookMarkEventStatusWithHttpInfo(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerGetBookMarkEventStatus(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: ConfigurationOptions): Promise<BookMarkEventStatusResponseDto> {
+    public eventControllerGetBookMarkEventStatus(param: EventsApiEventControllerGetBookMarkEventStatusRequest, options?: Configuration): Promise<BookMarkEventStatusResponseDto> {
         return this.api.eventControllerGetBookMarkEventStatus(param.eventId,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: ConfigurationOptions): Promise<HttpInfo<EventResponseDto>> {
+    public eventControllerUpdateEventWithHttpInfo(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>> {
         return this.api.eventControllerUpdateEventWithHttpInfo(param.eventPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: ConfigurationOptions): Promise<EventResponseDto> {
+    public eventControllerUpdateEvent(param: EventsApiEventControllerUpdateEventRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerUpdateEvent(param.eventPayloadDto,  options).toPromise();
     }
 
@@ -1553,42 +1552,42 @@ export class ObjectFollowerApi {
     /**
      * @param param the request object
      */
-    public followerControllerFindMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: ConfigurationOptions): Promise<HttpInfo<MyAllFriendsResponseDto>> {
+    public followerControllerFindMyFriendsWithHttpInfo(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<HttpInfo<MyAllFriendsResponseDto>> {
         return this.api.followerControllerFindMyFriendsWithHttpInfo(param.myFriendPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerFindMyFriends(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: ConfigurationOptions): Promise<MyAllFriendsResponseDto> {
+    public followerControllerFindMyFriends(param: FollowerApiFollowerControllerFindMyFriendsRequest, options?: Configuration): Promise<MyAllFriendsResponseDto> {
         return this.api.followerControllerFindMyFriends(param.myFriendPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: ConfigurationOptions): Promise<HttpInfo<FollowerResponseDto>> {
+    public followerControllerFollowWithHttpInfo(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
         return this.api.followerControllerFollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: ConfigurationOptions): Promise<FollowerResponseDto> {
+    public followerControllerFollow(param: FollowerApiFollowerControllerFollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
         return this.api.followerControllerFollow(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: ConfigurationOptions): Promise<HttpInfo<FollowerResponseDto>> {
+    public followerControllerUnfollowWithHttpInfo(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<HttpInfo<FollowerResponseDto>> {
         return this.api.followerControllerUnfollowWithHttpInfo(param.followerPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public followerControllerUnfollow(param: FollowerApiFollowerControllerUnfollowRequest, options?: ConfigurationOptions): Promise<FollowerResponseDto> {
+    public followerControllerUnfollow(param: FollowerApiFollowerControllerUnfollowRequest, options?: Configuration): Promise<FollowerResponseDto> {
         return this.api.followerControllerUnfollow(param.followerPayloadDto,  options).toPromise();
     }
 
@@ -1631,14 +1630,14 @@ export class ObjectFriendsApi {
     /**
      * @param param the request object
      */
-    public friendControllerFindFriendsWithHttpInfo(param: FriendsApiFriendControllerFindFriendsRequest, options?: ConfigurationOptions): Promise<HttpInfo<FriendsResponseDto>> {
+    public friendControllerFindFriendsWithHttpInfo(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<HttpInfo<FriendsResponseDto>> {
         return this.api.friendControllerFindFriendsWithHttpInfo(param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: ConfigurationOptions): Promise<FriendsResponseDto> {
+    public friendControllerFindFriends(param: FriendsApiFriendControllerFindFriendsRequest, options?: Configuration): Promise<FriendsResponseDto> {
         return this.api.friendControllerFindFriends(param.page, param.limit, param.search,  options).toPromise();
     }
 
@@ -1686,42 +1685,42 @@ export class ObjectNielsenBooksApi {
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param.id, param.body,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBookById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: ConfigurationOptions): Promise<void> {
+    public nielsenBooksControllerGetNielsenBookById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest, options?: Configuration): Promise<void> {
         return this.api.nielsenBooksControllerGetNielsenBookById(param.id, param.body,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.nielsenBooksControllerGetNielsenBookImageByIdWithHttpInfo(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBookImageById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: ConfigurationOptions): Promise<void> {
+    public nielsenBooksControllerGetNielsenBookImageById(param: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest, options?: Configuration): Promise<void> {
         return this.api.nielsenBooksControllerGetNielsenBookImageById(param.id,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBooksWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<void>> {
+    public nielsenBooksControllerGetNielsenBooksWithHttpInfo(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.nielsenBooksControllerGetNielsenBooksWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public nielsenBooksControllerGetNielsenBooks(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: ConfigurationOptions): Promise<void> {
+    public nielsenBooksControllerGetNielsenBooks(param: NielsenBooksApiNielsenBooksControllerGetNielsenBooksRequest = {}, options?: Configuration): Promise<void> {
         return this.api.nielsenBooksControllerGetNielsenBooks( options).toPromise();
     }
 
@@ -1779,98 +1778,98 @@ export class ObjectPaymentApi {
     /**
      * @param param the request object
      */
-    public paymentControllerConnectAccountWithHttpInfo(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<BusinessConnectedAccount>> {
+    public paymentControllerConnectAccountWithHttpInfo(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
         return this.api.paymentControllerConnectAccountWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerConnectAccount(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: ConfigurationOptions): Promise<BusinessConnectedAccount> {
+    public paymentControllerConnectAccount(param: PaymentApiPaymentControllerConnectAccountRequest = {}, options?: Configuration): Promise<BusinessConnectedAccount> {
         return this.api.paymentControllerConnectAccount( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreateAccountVerificationLinkWithHttpInfo(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<VerificationLinkResponseDTO>> {
+    public paymentControllerCreateAccountVerificationLinkWithHttpInfo(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: Configuration): Promise<HttpInfo<VerificationLinkResponseDTO>> {
         return this.api.paymentControllerCreateAccountVerificationLinkWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreateAccountVerificationLink(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: ConfigurationOptions): Promise<VerificationLinkResponseDTO> {
+    public paymentControllerCreateAccountVerificationLink(param: PaymentApiPaymentControllerCreateAccountVerificationLinkRequest = {}, options?: Configuration): Promise<VerificationLinkResponseDTO> {
         return this.api.paymentControllerCreateAccountVerificationLink( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: ConfigurationOptions): Promise<HttpInfo<PaymentResponseDto>> {
+    public paymentControllerCreatePaymentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<HttpInfo<PaymentResponseDto>> {
         return this.api.paymentControllerCreatePaymentWithHttpInfo(param.stripePaymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: ConfigurationOptions): Promise<PaymentResponseDto> {
+    public paymentControllerCreatePayment(param: PaymentApiPaymentControllerCreatePaymentRequest, options?: Configuration): Promise<PaymentResponseDto> {
         return this.api.paymentControllerCreatePayment(param.stripePaymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: ConfigurationOptions): Promise<HttpInfo<StripeResponseDto>> {
+    public paymentControllerCreatePaymentIntentWithHttpInfo(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<HttpInfo<StripeResponseDto>> {
         return this.api.paymentControllerCreatePaymentIntentWithHttpInfo(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: ConfigurationOptions): Promise<StripeResponseDto> {
+    public paymentControllerCreatePaymentIntent(param: PaymentApiPaymentControllerCreatePaymentIntentRequest, options?: Configuration): Promise<StripeResponseDto> {
         return this.api.paymentControllerCreatePaymentIntent(param.stripePayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: ConfigurationOptions): Promise<HttpInfo<CardListResponseDto>> {
+    public paymentControllerDeleteCardDetailsWithHttpInfo(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
         return this.api.paymentControllerDeleteCardDetailsWithHttpInfo(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: ConfigurationOptions): Promise<CardListResponseDto> {
+    public paymentControllerDeleteCardDetails(param: PaymentApiPaymentControllerDeleteCardDetailsRequest, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerDeleteCardDetails(param.paymentPayloadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerGetCardListWithHttpInfo(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<CardListResponseDto>> {
+    public paymentControllerGetCardListWithHttpInfo(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<HttpInfo<CardListResponseDto>> {
         return this.api.paymentControllerGetCardListWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerGetCardList(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: ConfigurationOptions): Promise<CardListResponseDto> {
+    public paymentControllerGetCardList(param: PaymentApiPaymentControllerGetCardListRequest = {}, options?: Configuration): Promise<CardListResponseDto> {
         return this.api.paymentControllerGetCardList( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerRetrieveConnectedAccountWithHttpInfo(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: ConfigurationOptions): Promise<HttpInfo<BusinessConnectedAccount>> {
+    public paymentControllerRetrieveConnectedAccountWithHttpInfo(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: Configuration): Promise<HttpInfo<BusinessConnectedAccount>> {
         return this.api.paymentControllerRetrieveConnectedAccountWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public paymentControllerRetrieveConnectedAccount(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: ConfigurationOptions): Promise<BusinessConnectedAccount> {
+    public paymentControllerRetrieveConnectedAccount(param: PaymentApiPaymentControllerRetrieveConnectedAccountRequest = {}, options?: Configuration): Promise<BusinessConnectedAccount> {
         return this.api.paymentControllerRetrieveConnectedAccount( options).toPromise();
     }
 
@@ -1898,14 +1897,14 @@ export class ObjectStorageApi {
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: ConfigurationOptions): Promise<HttpInfo<StorageResponseDto>> {
+    public storageControllerGetPreSignedURLWithHttpInfo(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<HttpInfo<StorageResponseDto>> {
         return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: ConfigurationOptions): Promise<StorageResponseDto> {
+    public storageControllerGetPreSignedURL(param: StorageApiStorageControllerGetPreSignedURLRequest, options?: Configuration): Promise<StorageResponseDto> {
         return this.api.storageControllerGetPreSignedURL(param.fileUploadDto,  options).toPromise();
     }
 

@@ -94,12 +94,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, _options) {
-        var result = this.api.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
+    PromiseAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
+        var result = this.api.authControllerGetActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, _options) {
-        var result = this.api.authControllerGetActivity(page, limit, longitude, latitude, global, _options);
+    PromiseAuthApi.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, search, _options) {
+        var result = this.api.authControllerGetActivity(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (page, limit, search, _options) {
@@ -110,12 +110,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerGetAllStaff(page, limit, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, _options) {
-        var result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, _options);
+    PromiseAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
+        var result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, _options) {
-        var result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, _options);
+    PromiseAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, search, _options) {
+        var result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {

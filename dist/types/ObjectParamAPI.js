@@ -79,10 +79,10 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (param, options) {
-        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+        return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetActivity = function (param, options) {
-        return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+        return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (param, options) {
         return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
@@ -91,10 +91,10 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerGetAllStaff(param.page, param.limit, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (param, options) {
-        return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+        return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetEventsActivity = function (param, options) {
-        return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global, options).toPromise();
+        return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
