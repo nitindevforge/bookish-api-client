@@ -328,6 +328,9 @@ var EventsApiRequestFactory = (function (_super) {
                         if (page === null || page === undefined) {
                             throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindEvents", "page");
                         }
+                        if (limit === null || limit === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindEvents", "limit");
+                        }
                         localVarPath = '/v1/events';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");

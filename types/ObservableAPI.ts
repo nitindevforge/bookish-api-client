@@ -1488,11 +1488,11 @@ export class ObservableEventsApi {
 
     /**
      * @param page
-     * @param [limit]
+     * @param limit
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventsWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
         const requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, longitude, latitude, _options);
 
         // build promise chain
@@ -1513,11 +1513,11 @@ export class ObservableEventsApi {
 
     /**
      * @param page
-     * @param [limit]
+     * @param limit
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<EventsResponseDto> {
+    public eventControllerFindEvents(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<EventsResponseDto> {
         return this.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
     }
 

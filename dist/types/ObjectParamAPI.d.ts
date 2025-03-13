@@ -306,7 +306,7 @@ export interface EventsApiEventControllerFindEventByIdRequest {
 }
 export interface EventsApiEventControllerFindEventsRequest {
     page: number;
-    limit?: number;
+    limit: number;
     longitude?: number;
     latitude?: number;
 }

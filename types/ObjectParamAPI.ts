@@ -1256,7 +1256,7 @@ export interface EventsApiEventControllerFindEventsRequest {
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
-    limit?: number
+    limit: number
     /**
      * 
      * Defaults to: undefined
