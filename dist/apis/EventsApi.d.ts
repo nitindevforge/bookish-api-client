@@ -22,7 +22,7 @@ export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerDeleteEvent(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindCustomerOfEvents(_options?: Configuration): Promise<RequestContext>;
     eventControllerFindEventById(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<RequestContext>;
-    eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext>;
+    eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindMyUpcomingEvents(page: number, limit: number, type: 'UPCOMING' | 'VISITED', _options?: Configuration): Promise<RequestContext>;
     eventControllerFindSearchPlaces(locationPayloadDto: LocationPayloadDto, _options?: Configuration): Promise<RequestContext>;

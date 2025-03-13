@@ -1257,6 +1257,20 @@ export interface EventsApiEventControllerFindEventsRequest {
      * @memberof EventsApieventControllerFindEvents
      */
     limit?: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof EventsApieventControllerFindEvents
+     */
+    longitude?: number
+    /**
+     * 
+     * Defaults to: undefined
+     * @type number
+     * @memberof EventsApieventControllerFindEvents
+     */
+    latitude?: number
 }
 
 export interface EventsApiEventControllerFindMyEventRequest {
@@ -1430,14 +1444,14 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit,  options).toPromise();
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
-        return this.api.eventControllerFindEvents(param.page, param.limit,  options).toPromise();
+        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude,  options).toPromise();
     }
 
     /**

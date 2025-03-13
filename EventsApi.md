@@ -430,6 +430,10 @@ const request: EventsApiEventControllerFindEventsRequest = {
   page: 3.14,
   
   limit: 3.14,
+  
+  longitude: 3.14,
+  
+  latitude: 3.14,
 };
 
 const data = await apiInstance.eventControllerFindEvents(request);
@@ -443,6 +447,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | (optional) defaults to undefined
+ **longitude** | [**number**] |  | (optional) defaults to undefined
+ **latitude** | [**number**] |  | (optional) defaults to undefined
 
 
 ### Return type

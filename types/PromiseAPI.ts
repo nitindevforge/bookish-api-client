@@ -930,18 +930,22 @@ export class PromiseEventsApi {
     /**
      * @param page
      * @param [limit]
+     * @param [longitude]
+     * @param [latitude]
      */
-    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        const result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, _options);
+    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+        const result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
 
     /**
      * @param page
      * @param [limit]
+     * @param [longitude]
+     * @param [latitude]
      */
-    public eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<EventsResponseDto> {
-        const result = this.api.eventControllerFindEvents(page, limit, _options);
+    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<EventsResponseDto> {
+        const result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
 

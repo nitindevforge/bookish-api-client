@@ -334,14 +334,18 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param page 
      * @param limit 
+     * @param longitude 
+     * @param latitude 
      */
-    public async eventControllerFindEvents(page: number, limit?: number, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
             throw new RequiredError("EventsApi", "eventControllerFindEvents", "page");
         }
+
+
 
 
 
@@ -360,6 +364,16 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (longitude !== undefined) {
+            requestContext.setQueryParam("longitude", ObjectSerializer.serialize(longitude, "number", ""));
+        }
+
+        // Query Params
+        if (latitude !== undefined) {
+            requestContext.setQueryParam("latitude", ObjectSerializer.serialize(latitude, "number", ""));
         }
 
 
