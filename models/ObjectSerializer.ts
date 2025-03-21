@@ -7,6 +7,7 @@ export * from '../models/AttendeeDTO';
 export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
 export * from '../models/Book';
+export * from '../models/BookByStatusDto';
 export * from '../models/BookMarkEventDTO';
 export * from '../models/BookMarkEventListDTO';
 export * from '../models/BookMarkEventListResponseDto';
@@ -47,6 +48,7 @@ export * from '../models/ForgetPasswordEntityResponseDto';
 export * from '../models/ForgetPasswordPayloadDto';
 export * from '../models/FriendsResponse';
 export * from '../models/FriendsResponseDto';
+export * from '../models/GoodReadsBookPayloadDto';
 export * from '../models/InterestsPayloadDto';
 export * from '../models/InterestsResponseDto';
 export * from '../models/Location';
@@ -106,6 +108,7 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -146,6 +149,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
+import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
@@ -222,6 +226,7 @@ let typeMap: {[index: string]: any} = {
     "AuthorResponseDto": AuthorResponseDto,
     "BillingDetails": BillingDetails,
     "Book": Book,
+    "BookByStatusDto": BookByStatusDto,
     "BookMarkEventDTO": BookMarkEventDTO,
     "BookMarkEventListDTO": BookMarkEventListDTO,
     "BookMarkEventListResponseDto": BookMarkEventListResponseDto,
@@ -262,6 +267,7 @@ let typeMap: {[index: string]: any} = {
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto,
     "FriendsResponse": FriendsResponse,
     "FriendsResponseDto": FriendsResponseDto,
+    "GoodReadsBookPayloadDto": GoodReadsBookPayloadDto,
     "InterestsPayloadDto": InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto,
     "Location": Location,

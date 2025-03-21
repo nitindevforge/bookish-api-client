@@ -446,7 +446,7 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | (optional) defaults to undefined
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
 

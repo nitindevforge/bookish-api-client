@@ -10,6 +10,7 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -50,6 +51,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
+import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
@@ -841,6 +843,15 @@ export interface BooksApiBookControllerFindBookByIdRequest {
     id: string
 }
 
+export interface BooksApiBookControllerFindBookByStatusRequest {
+    /**
+     * 
+     * @type BookByStatusDto
+     * @memberof BooksApibookControllerFindBookByStatus
+     */
+    bookByStatusDto: BookByStatusDto
+}
+
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
     /**
      * 
@@ -879,6 +890,15 @@ export interface BooksApiBookControllerFindBooksRequest {
      * @memberof BooksApibookControllerFindBooks
      */
     search?: string
+}
+
+export interface BooksApiBookControllerFindGoodReadsRequest {
+    /**
+     * 
+     * @type GoodReadsBookPayloadDto
+     * @memberof BooksApibookControllerFindGoodReads
+     */
+    goodReadsBookPayloadDto: GoodReadsBookPayloadDto
 }
 
 export interface BooksApiBookControllerFindUserBookReviewRequest {
@@ -1024,6 +1044,20 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
+    public bookControllerFindBookByStatusWithHttpInfo(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        return this.api.bookControllerFindBookByStatusWithHttpInfo(param.bookByStatusDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindBookByStatus(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
+        return this.api.bookControllerFindBookByStatus(param.bookByStatusDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
         return this.api.bookControllerFindBookReviewBaseWithHttpInfo(param.userBookStatusQueryDto,  options).toPromise();
     }
@@ -1047,6 +1081,20 @@ export class ObjectBooksApi {
      */
     public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
         return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindGoodReadsWithHttpInfo(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        return this.api.bookControllerFindGoodReadsWithHttpInfo(param.goodReadsBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
+        return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto,  options).toPromise();
     }
 
     /**
@@ -1256,7 +1304,7 @@ export interface EventsApiEventControllerFindEventsRequest {
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
-    limit: number
+    limit?: number
     /**
      * 
      * Defaults to: undefined

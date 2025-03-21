@@ -24,6 +24,7 @@ __exportStar(require("../models/AttendeeDTO"), exports);
 __exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
 __exportStar(require("../models/Book"), exports);
+__exportStar(require("../models/BookByStatusDto"), exports);
 __exportStar(require("../models/BookMarkEventDTO"), exports);
 __exportStar(require("../models/BookMarkEventListDTO"), exports);
 __exportStar(require("../models/BookMarkEventListResponseDto"), exports);
@@ -64,6 +65,7 @@ __exportStar(require("../models/ForgetPasswordEntityResponseDto"), exports);
 __exportStar(require("../models/ForgetPasswordPayloadDto"), exports);
 __exportStar(require("../models/FriendsResponse"), exports);
 __exportStar(require("../models/FriendsResponseDto"), exports);
+__exportStar(require("../models/GoodReadsBookPayloadDto"), exports);
 __exportStar(require("../models/InterestsPayloadDto"), exports);
 __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/Location"), exports);
@@ -122,6 +124,7 @@ var AttendeeDTO_1 = require("../models/AttendeeDTO");
 var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
 var Book_1 = require("../models/Book");
+var BookByStatusDto_1 = require("../models/BookByStatusDto");
 var BookMarkEventDTO_1 = require("../models/BookMarkEventDTO");
 var BookMarkEventListDTO_1 = require("../models/BookMarkEventListDTO");
 var BookMarkEventListResponseDto_1 = require("../models/BookMarkEventListResponseDto");
@@ -162,6 +165,7 @@ var ForgetPasswordEntityResponseDto_1 = require("../models/ForgetPasswordEntityR
 var ForgetPasswordPayloadDto_1 = require("../models/ForgetPasswordPayloadDto");
 var FriendsResponse_1 = require("../models/FriendsResponse");
 var FriendsResponseDto_1 = require("../models/FriendsResponseDto");
+var GoodReadsBookPayloadDto_1 = require("../models/GoodReadsBookPayloadDto");
 var InterestsPayloadDto_1 = require("../models/InterestsPayloadDto");
 var InterestsResponseDto_1 = require("../models/InterestsResponseDto");
 var Location_1 = require("../models/Location");
@@ -234,6 +238,7 @@ var typeMap = {
     "AuthorResponseDto": AuthorResponseDto_1.AuthorResponseDto,
     "BillingDetails": BillingDetails_1.BillingDetails,
     "Book": Book_1.Book,
+    "BookByStatusDto": BookByStatusDto_1.BookByStatusDto,
     "BookMarkEventDTO": BookMarkEventDTO_1.BookMarkEventDTO,
     "BookMarkEventListDTO": BookMarkEventListDTO_1.BookMarkEventListDTO,
     "BookMarkEventListResponseDto": BookMarkEventListResponseDto_1.BookMarkEventListResponseDto,
@@ -274,6 +279,7 @@ var typeMap = {
     "ForgetPasswordPayloadDto": ForgetPasswordPayloadDto_1.ForgetPasswordPayloadDto,
     "FriendsResponse": FriendsResponse_1.FriendsResponse,
     "FriendsResponseDto": FriendsResponseDto_1.FriendsResponseDto,
+    "GoodReadsBookPayloadDto": GoodReadsBookPayloadDto_1.GoodReadsBookPayloadDto,
     "InterestsPayloadDto": InterestsPayloadDto_1.InterestsPayloadDto,
     "InterestsResponseDto": InterestsResponseDto_1.InterestsResponseDto,
     "Location": Location_1.Location,

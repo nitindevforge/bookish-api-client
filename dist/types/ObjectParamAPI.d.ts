@@ -2,6 +2,7 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
@@ -27,6 +28,7 @@ import { FollowerResponseDto } from '../models/FollowerResponseDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
+import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
@@ -216,6 +218,9 @@ export interface BooksApiBookControllerAddBookRequest {
 export interface BooksApiBookControllerFindBookByIdRequest {
     id: string;
 }
+export interface BooksApiBookControllerFindBookByStatusRequest {
+    bookByStatusDto: BookByStatusDto;
+}
 export interface BooksApiBookControllerFindBookReviewBaseRequest {
     userBookStatusQueryDto: UserBookStatusQueryDto;
 }
@@ -224,6 +229,9 @@ export interface BooksApiBookControllerFindBooksRequest {
     page: number;
     limit: number;
     search?: string;
+}
+export interface BooksApiBookControllerFindGoodReadsRequest {
+    goodReadsBookPayloadDto: GoodReadsBookPayloadDto;
 }
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
@@ -255,10 +263,14 @@ export declare class ObjectBooksApi {
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
+    bookControllerFindBookByStatusWithHttpInfo(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindBookByStatus(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindBookReviewBaseWithHttpInfo(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBase(param: BooksApiBookControllerFindBookReviewBaseRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindGoodReadsWithHttpInfo(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;
@@ -306,7 +318,7 @@ export interface EventsApiEventControllerFindEventByIdRequest {
 }
 export interface EventsApiEventControllerFindEventsRequest {
     page: number;
-    limit: number;
+    limit?: number;
     longitude?: number;
     latitude?: number;
 }

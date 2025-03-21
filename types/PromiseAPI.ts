@@ -10,6 +10,7 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -50,6 +51,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
+import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
@@ -624,6 +626,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param bookByStatusDto
+     */
+    public bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookByStatusDto
+     */
+    public bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindBookByStatus(bookByStatusDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param userBookStatusQueryDto
      */
     public bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
@@ -658,6 +676,22 @@ export class PromiseBooksApi {
      */
     public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksResponseDto> {
         const result = this.api.bookControllerFindBooks(rate, page, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param goodReadsBookPayloadDto
+     */
+    public bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param goodReadsBookPayloadDto
+     */
+    public bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -929,22 +963,22 @@ export class PromiseEventsApi {
 
     /**
      * @param page
-     * @param limit
+     * @param [limit]
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEventsWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
         const result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }
 
     /**
      * @param page
-     * @param limit
+     * @param [limit]
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEvents(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<EventsResponseDto> {
+    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<EventsResponseDto> {
         const result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, _options);
         return result.toPromise();
     }

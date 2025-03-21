@@ -11,6 +11,7 @@ import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
 import { Book } from '../models/Book';
+import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventDTO } from '../models/BookMarkEventDTO';
 import { BookMarkEventListDTO } from '../models/BookMarkEventListDTO';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -51,6 +52,7 @@ import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityR
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { FriendsResponse } from '../models/FriendsResponse';
 import { FriendsResponseDto } from '../models/FriendsResponseDto';
+import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsPayloadDto } from '../models/InterestsPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
@@ -990,6 +992,35 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param bookByStatusDto
+     */
+    public bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindBookByStatus(bookByStatusDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindBookByStatusWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param bookByStatusDto
+     */
+    public bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param userBookStatusQueryDto
      */
     public bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
@@ -1051,6 +1082,35 @@ export class ObservableBooksApi {
      */
     public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksResponseDto> {
         return this.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param goodReadsBookPayloadDto
+     */
+    public bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindGoodReadsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param goodReadsBookPayloadDto
+     */
+    public bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1488,11 +1548,11 @@ export class ObservableEventsApi {
 
     /**
      * @param page
-     * @param limit
+     * @param [limit]
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEventsWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
         const requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, longitude, latitude, _options);
 
         // build promise chain
@@ -1513,11 +1573,11 @@ export class ObservableEventsApi {
 
     /**
      * @param page
-     * @param limit
+     * @param [limit]
      * @param [longitude]
      * @param [latitude]
      */
-    public eventControllerFindEvents(page: number, limit: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<EventsResponseDto> {
+    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<EventsResponseDto> {
         return this.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
     }
 

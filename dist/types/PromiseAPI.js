@@ -246,6 +246,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBookById(id, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerFindBookByStatusWithHttpInfo = function (bookByStatusDto, _options) {
+        var result = this.api.bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindBookByStatus = function (bookByStatusDto, _options) {
+        var result = this.api.bookControllerFindBookByStatus(bookByStatusDto, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBookReviewBaseWithHttpInfo = function (userBookStatusQueryDto, _options) {
         var result = this.api.bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto, _options);
         return result.toPromise();
@@ -260,6 +268,14 @@ var PromiseBooksApi = (function () {
     };
     PromiseBooksApi.prototype.bookControllerFindBooks = function (rate, page, limit, search, _options) {
         var result = this.api.bookControllerFindBooks(rate, page, limit, search, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindGoodReadsWithHttpInfo = function (goodReadsBookPayloadDto, _options) {
+        var result = this.api.bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindGoodReads = function (goodReadsBookPayloadDto, _options) {
+        var result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {

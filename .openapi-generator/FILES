@@ -39,6 +39,7 @@ models/AttendeeDTO.ts
 models/AuthorResponseDto.ts
 models/BillingDetails.ts
 models/Book.ts
+models/BookByStatusDto.ts
 models/BookMarkEventDTO.ts
 models/BookMarkEventListDTO.ts
 models/BookMarkEventListResponseDto.ts
@@ -79,6 +80,7 @@ models/ForgetPasswordEntityResponseDto.ts
 models/ForgetPasswordPayloadDto.ts
 models/FriendsResponse.ts
 models/FriendsResponseDto.ts
+models/GoodReadsBookPayloadDto.ts
 models/InterestsPayloadDto.ts
 models/InterestsResponseDto.ts
 models/Location.ts

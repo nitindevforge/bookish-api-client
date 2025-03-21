@@ -6,8 +6,10 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
+[**bookControllerFindBookByStatus**](BooksApi.md#bookControllerFindBookByStatus) | **POST** /v1/books/by-status | 
 [**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
 [**bookControllerFindBooks**](BooksApi.md#bookControllerFindBooks) | **GET** /v1/books | 
+[**bookControllerFindGoodReads**](BooksApi.md#bookControllerFindGoodReads) | **POST** /v1/books/goodreads | 
 [**bookControllerFindUserBookReview**](BooksApi.md#bookControllerFindUserBookReview) | **GET** /v1/user/book/review | 
 [**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/book/review/count | 
 [**bookControllerFindUserBookReviews**](BooksApi.md#bookControllerFindUserBookReviews) | **GET** /v1/book/review | 
@@ -118,6 +120,64 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerFindBookByStatus**
+> BooksReviewResponseDto bookControllerFindBookByStatus(bookByStatusDto)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, BooksApi } from '';
+import type { BooksApiBookControllerFindBookByStatusRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new BooksApi(configuration);
+
+const request: BooksApiBookControllerFindBookByStatusRequest = {
+  
+  bookByStatusDto: {
+    search: "search_example",
+    status: "status_example",
+    page: 3.14,
+    limit: 3.14,
+  },
+};
+
+const data = await apiInstance.bookControllerFindBookByStatus(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookByStatusDto** | **BookByStatusDto**|  |
+
+
+### Return type
+
+**BooksReviewResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
@@ -240,6 +300,63 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerFindGoodReads**
+> BooksReviewResponseDto bookControllerFindGoodReads(goodReadsBookPayloadDto)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, BooksApi } from '';
+import type { BooksApiBookControllerFindGoodReadsRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new BooksApi(configuration);
+
+const request: BooksApiBookControllerFindGoodReadsRequest = {
+  
+  goodReadsBookPayloadDto: {
+    books: [
+      "books_example",
+    ],
+  },
+};
+
+const data = await apiInstance.bookControllerFindGoodReads(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **goodReadsBookPayloadDto** | **GoodReadsBookPayloadDto**|  |
+
+
+### Return type
+
+**BooksReviewResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
