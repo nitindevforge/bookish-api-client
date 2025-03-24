@@ -834,11 +834,11 @@ export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto
 }
 
-export interface BooksApiBookControllerAddGoodReadsBooksRequest {
+export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     /**
      * 
      * @type Array&lt;string&gt;
-     * @memberof BooksApibookControllerAddGoodReadsBooks
+     * @memberof BooksApibookControllerAddMyGoodReadsBooks
      */
     requestBody: Array<string>
 }
@@ -1040,15 +1040,15 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerAddGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
-        return this.api.bookControllerAddGoodReadsBooksWithHttpInfo(param.requestBody,  options).toPromise();
+    public bookControllerAddMyGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
+        return this.api.bookControllerAddMyGoodReadsBooksWithHttpInfo(param.requestBody,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerAddGoodReadsBooks(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto> {
-        return this.api.bookControllerAddGoodReadsBooks(param.requestBody,  options).toPromise();
+    public bookControllerAddMyGoodReadsBooks(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto> {
+        return this.api.bookControllerAddMyGoodReadsBooks(param.requestBody,  options).toPromise();
     }
 
     /**

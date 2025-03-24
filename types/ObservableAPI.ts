@@ -966,8 +966,8 @@ export class ObservableBooksApi {
     /**
      * @param requestBody
      */
-    public bookControllerAddGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Observable<HttpInfo<BooksStatusResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerAddGoodReadsBooks(requestBody, _options);
+    public bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Observable<HttpInfo<BooksStatusResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerAddMyGoodReadsBooks(requestBody, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -981,15 +981,15 @@ export class ObservableBooksApi {
                 for (const middleware of this.configuration.middleware) {
                     middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
                 }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddGoodReadsBooksWithHttpInfo(rsp)));
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddMyGoodReadsBooksWithHttpInfo(rsp)));
             }));
     }
 
     /**
      * @param requestBody
      */
-    public bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Observable<BooksStatusResponseDto> {
-        return this.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options).pipe(map((apiResponse: HttpInfo<BooksStatusResponseDto>) => apiResponse.data));
+    public bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Observable<BooksStatusResponseDto> {
+        return this.bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody, _options).pipe(map((apiResponse: HttpInfo<BooksStatusResponseDto>) => apiResponse.data));
     }
 
     /**

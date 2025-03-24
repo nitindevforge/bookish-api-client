@@ -613,16 +613,16 @@ export class PromiseBooksApi {
     /**
      * @param requestBody
      */
-    public bookControllerAddGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
-        const result = this.api.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options);
+    public bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
+        const result = this.api.bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody, _options);
         return result.toPromise();
     }
 
     /**
      * @param requestBody
      */
-    public bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto> {
-        const result = this.api.bookControllerAddGoodReadsBooks(requestBody, _options);
+    public bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto> {
+        const result = this.api.bookControllerAddMyGoodReadsBooks(requestBody, _options);
         return result.toPromise();
     }
 

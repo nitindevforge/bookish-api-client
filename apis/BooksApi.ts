@@ -75,12 +75,12 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * @param requestBody 
      */
-    public async bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'requestBody' is not null or undefined
         if (requestBody === null || requestBody === undefined) {
-            throw new RequiredError("BooksApi", "bookControllerAddGoodReadsBooks", "requestBody");
+            throw new RequiredError("BooksApi", "bookControllerAddMyGoodReadsBooks", "requestBody");
         }
 
 
@@ -677,10 +677,10 @@ export class BooksApiResponseProcessor {
      * Unwraps the actual response sent by the server from the response context and deserializes the response content
      * to the expected objects
      *
-     * @params response Response returned by the server for a request to bookControllerAddGoodReadsBooks
+     * @params response Response returned by the server for a request to bookControllerAddMyGoodReadsBooks
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async bookControllerAddGoodReadsBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksStatusResponseDto >> {
+     public async bookControllerAddMyGoodReadsBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksStatusResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: BooksStatusResponseDto = ObjectSerializer.deserialize(

@@ -5,7 +5,7 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
-[**bookControllerAddGoodReadsBooks**](BooksApi.md#bookControllerAddGoodReadsBooks) | **POST** /v1/books/add-goodreads | 
+[**bookControllerAddMyGoodReadsBooks**](BooksApi.md#bookControllerAddMyGoodReadsBooks) | **POST** /v1/books/add-goodreads | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
 [**bookControllerFindBookByStatus**](BooksApi.md#bookControllerFindBookByStatus) | **POST** /v1/books/by-status | 
 [**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
@@ -79,8 +79,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **bookControllerAddGoodReadsBooks**
-> BooksStatusResponseDto bookControllerAddGoodReadsBooks(requestBody)
+# **bookControllerAddMyGoodReadsBooks**
+> BooksStatusResponseDto bookControllerAddMyGoodReadsBooks(requestBody)
 
 
 ### Example
@@ -88,19 +88,19 @@ Name | Type | Description  | Notes
 
 ```typescript
 import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerAddGoodReadsBooksRequest } from '';
+import type { BooksApiBookControllerAddMyGoodReadsBooksRequest } from '';
 
 const configuration = createConfiguration();
 const apiInstance = new BooksApi(configuration);
 
-const request: BooksApiBookControllerAddGoodReadsBooksRequest = {
+const request: BooksApiBookControllerAddMyGoodReadsBooksRequest = {
   
   requestBody: [
     "requestBody_example",
   ],
 };
 
-const data = await apiInstance.bookControllerAddGoodReadsBooks(request);
+const data = await apiInstance.bookControllerAddMyGoodReadsBooks(request);
 console.log('API called successfully. Returned data:', data);
 ```
 
