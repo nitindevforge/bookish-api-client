@@ -15,7 +15,7 @@ import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
 import { UserBooksResponseDto } from '../models/UserBooksResponseDto';
 export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<RequestContext>;
+    bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext>;
@@ -29,7 +29,7 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
 }
 export declare class BooksApiResponseProcessor {
     bookControllerAddBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
-    bookControllerAddGoodReadsBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksStatusResponseDto>>;
+    bookControllerAddMyGoodReadsBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerFindBookByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookByStatusWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBaseWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;

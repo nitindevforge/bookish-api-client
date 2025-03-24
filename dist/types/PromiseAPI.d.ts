@@ -128,8 +128,8 @@ export declare class PromiseBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
-    bookControllerAddGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
-    bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
+    bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;

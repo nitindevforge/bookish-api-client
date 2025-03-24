@@ -100,7 +100,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerAddGoodReadsBooks = function (requestBody, _options) {
+    BooksApiRequestFactory.prototype.bookControllerAddMyGoodReadsBooks = function (requestBody, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
@@ -109,7 +109,7 @@ var BooksApiRequestFactory = (function (_super) {
                     case 0:
                         _config = _options || this.configuration;
                         if (requestBody === null || requestBody === undefined) {
-                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerAddGoodReadsBooks", "requestBody");
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerAddMyGoodReadsBooks", "requestBody");
                         }
                         localVarPath = '/v1/books/add-goodreads';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
@@ -588,7 +588,7 @@ var BooksApiResponseProcessor = (function () {
             });
         });
     };
-    BooksApiResponseProcessor.prototype.bookControllerAddGoodReadsBooksWithHttpInfo = function (response) {
+    BooksApiResponseProcessor.prototype.bookControllerAddMyGoodReadsBooksWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
             return __generator(this, function (_l) {

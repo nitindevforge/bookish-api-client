@@ -216,7 +216,7 @@ import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/Books
 export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto;
 }
-export interface BooksApiBookControllerAddGoodReadsBooksRequest {
+export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     requestBody: Array<string>;
 }
 export interface BooksApiBookControllerFindBookByIdRequest {
@@ -265,8 +265,8 @@ export declare class ObjectBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
-    bookControllerAddGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
-    bookControllerAddGoodReadsBooks(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddMyGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
+    bookControllerAddMyGoodReadsBooks(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;

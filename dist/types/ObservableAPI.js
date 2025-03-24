@@ -759,9 +759,9 @@ var ObservableBooksApi = (function () {
     ObservableBooksApi.prototype.bookControllerAddBook = function (bookPayloadDto, _options) {
         return this.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerAddGoodReadsBooksWithHttpInfo = function (requestBody, _options) {
+    ObservableBooksApi.prototype.bookControllerAddMyGoodReadsBooksWithHttpInfo = function (requestBody, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerAddGoodReadsBooks(requestBody, _options);
+        var requestContextPromise = this.requestFactory.bookControllerAddMyGoodReadsBooks(requestBody, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_55 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -780,11 +780,11 @@ var ObservableBooksApi = (function () {
                 var middleware = _a[_i];
                 _loop_56(middleware);
             }
-            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerAddGoodReadsBooksWithHttpInfo(rsp); }));
+            return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerAddMyGoodReadsBooksWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerAddGoodReadsBooks = function (requestBody, _options) {
-        return this.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerAddMyGoodReadsBooks = function (requestBody, _options) {
+        return this.bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
         var _this = this;
