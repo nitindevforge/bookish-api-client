@@ -11,6 +11,7 @@ import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BooksStatusResponseDto } from '../models/BooksStatusResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
@@ -215,6 +216,9 @@ import { BooksApiRequestFactory, BooksApiResponseProcessor } from "../apis/Books
 export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto;
 }
+export interface BooksApiBookControllerAddGoodReadsBooksRequest {
+    requestBody: Array<string>;
+}
 export interface BooksApiBookControllerFindBookByIdRequest {
     id: string;
 }
@@ -261,6 +265,8 @@ export declare class ObjectBooksApi {
     constructor(configuration: Configuration, requestFactory?: BooksApiRequestFactory, responseProcessor?: BooksApiResponseProcessor);
     bookControllerAddBookWithHttpInfo(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
+    bookControllerAddGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
+    bookControllerAddGoodReadsBooks(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;

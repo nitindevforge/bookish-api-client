@@ -17,6 +17,7 @@ export class Book {
     'id': string;
     'title': string;
     'cover': string;
+    'iSBN13': string;
     'genre': string;
     'description': string;
     'author': AuthorResponseDto;
@@ -45,6 +46,12 @@ export class Book {
         {
             "name": "cover",
             "baseName": "cover",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "iSBN13",
+            "baseName": "ISBN13",
             "type": "string",
             "format": ""
         },

@@ -35,6 +35,7 @@ __exportStar(require("../models/BookReviewCountResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/BooksReviewResponseDto"), exports);
+__exportStar(require("../models/BooksStatusResponseDto"), exports);
 __exportStar(require("../models/BusinessConnectedAccount"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);

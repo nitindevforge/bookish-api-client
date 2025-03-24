@@ -23,6 +23,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BooksStatusResponseDto } from '../models/BooksStatusResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
@@ -960,6 +961,35 @@ export class ObservableBooksApi {
      */
     public bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<BookResponseDto> {
         return this.bookControllerAddBookWithHttpInfo(bookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<BookResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param requestBody
+     */
+    public bookControllerAddGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Observable<HttpInfo<BooksStatusResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerAddGoodReadsBooks(requestBody, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddGoodReadsBooksWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param requestBody
+     */
+    public bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Observable<BooksStatusResponseDto> {
+        return this.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options).pipe(map((apiResponse: HttpInfo<BooksStatusResponseDto>) => apiResponse.data));
     }
 
     /**

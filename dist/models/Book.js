@@ -29,6 +29,12 @@ var Book = (function () {
             "format": ""
         },
         {
+            "name": "iSBN13",
+            "baseName": "ISBN13",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "genre",
             "baseName": "genre",
             "type": "string",

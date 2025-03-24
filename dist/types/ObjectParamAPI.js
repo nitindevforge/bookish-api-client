@@ -194,6 +194,12 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerAddBook = function (param, options) {
         return this.api.bookControllerAddBook(param.bookPayloadDto, options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerAddGoodReadsBooksWithHttpInfo = function (param, options) {
+        return this.api.bookControllerAddGoodReadsBooksWithHttpInfo(param.requestBody, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerAddGoodReadsBooks = function (param, options) {
+        return this.api.bookControllerAddGoodReadsBooks(param.requestBody, options).toPromise();
+    };
     ObjectBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindBookByIdWithHttpInfo(param.id, options).toPromise();
     };

@@ -5,6 +5,7 @@ All URIs are relative to *https://localhost:3000*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
+[**bookControllerAddGoodReadsBooks**](BooksApi.md#bookControllerAddGoodReadsBooks) | **POST** /v1/books/add-goodreads | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
 [**bookControllerFindBookByStatus**](BooksApi.md#bookControllerFindBookByStatus) | **POST** /v1/books/by-status | 
 [**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
@@ -59,6 +60,61 @@ Name | Type | Description  | Notes
 ### Return type
 
 **BookResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerAddGoodReadsBooks**
+> BooksStatusResponseDto bookControllerAddGoodReadsBooks(requestBody)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, BooksApi } from '';
+import type { BooksApiBookControllerAddGoodReadsBooksRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new BooksApi(configuration);
+
+const request: BooksApiBookControllerAddGoodReadsBooksRequest = {
+  
+  requestBody: [
+    "requestBody_example",
+  ],
+};
+
+const data = await apiInstance.bookControllerAddGoodReadsBooks(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **requestBody** | **Array<string>**|  |
+
+
+### Return type
+
+**BooksStatusResponseDto**
 
 ### Authorization
 
@@ -331,6 +387,7 @@ const request: BooksApiBookControllerFindGoodReadsRequest = {
     books: [
       "books_example",
     ],
+    add: true,
   },
 };
 

@@ -36,6 +36,7 @@ __exportStar(require("../models/BookReviewCountResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
 __exportStar(require("../models/BooksResponseDto"), exports);
 __exportStar(require("../models/BooksReviewResponseDto"), exports);
+__exportStar(require("../models/BooksStatusResponseDto"), exports);
 __exportStar(require("../models/BusinessConnectedAccount"), exports);
 __exportStar(require("../models/Card"), exports);
 __exportStar(require("../models/CardChecks"), exports);
@@ -136,6 +137,7 @@ var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto
 var Books_1 = require("../models/Books");
 var BooksResponseDto_1 = require("../models/BooksResponseDto");
 var BooksReviewResponseDto_1 = require("../models/BooksReviewResponseDto");
+var BooksStatusResponseDto_1 = require("../models/BooksStatusResponseDto");
 var BusinessConnectedAccount_1 = require("../models/BusinessConnectedAccount");
 var Card_1 = require("../models/Card");
 var CardChecks_1 = require("../models/CardChecks");
@@ -250,6 +252,7 @@ var typeMap = {
     "Books": Books_1.Books,
     "BooksResponseDto": BooksResponseDto_1.BooksResponseDto,
     "BooksReviewResponseDto": BooksReviewResponseDto_1.BooksReviewResponseDto,
+    "BooksStatusResponseDto": BooksStatusResponseDto_1.BooksStatusResponseDto,
     "BusinessConnectedAccount": BusinessConnectedAccount_1.BusinessConnectedAccount,
     "Card": Card_1.Card,
     "CardChecks": CardChecks_1.CardChecks,

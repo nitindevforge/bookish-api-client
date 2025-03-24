@@ -22,6 +22,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BooksStatusResponseDto } from '../models/BooksStatusResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
@@ -833,6 +834,15 @@ export interface BooksApiBookControllerAddBookRequest {
     bookPayloadDto: BookPayloadDto
 }
 
+export interface BooksApiBookControllerAddGoodReadsBooksRequest {
+    /**
+     * 
+     * @type Array&lt;string&gt;
+     * @memberof BooksApibookControllerAddGoodReadsBooks
+     */
+    requestBody: Array<string>
+}
+
 export interface BooksApiBookControllerFindBookByIdRequest {
     /**
      * 
@@ -1025,6 +1035,20 @@ export class ObjectBooksApi {
      */
     public bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto> {
         return this.api.bookControllerAddBook(param.bookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
+        return this.api.bookControllerAddGoodReadsBooksWithHttpInfo(param.requestBody,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddGoodReadsBooks(param: BooksApiBookControllerAddGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto> {
+        return this.api.bookControllerAddGoodReadsBooks(param.requestBody,  options).toPromise();
     }
 
     /**

@@ -51,6 +51,7 @@ models/BookReviewCountResponseDto.ts
 models/Books.ts
 models/BooksResponseDto.ts
 models/BooksReviewResponseDto.ts
+models/BooksStatusResponseDto.ts
 models/BusinessConnectedAccount.ts
 models/Card.ts
 models/CardChecks.ts

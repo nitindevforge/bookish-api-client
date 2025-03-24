@@ -1,6 +1,6 @@
-export declare class GoodReadsBookPayloadDto {
-    'books': Array<string>;
-    'add'?: boolean;
+export declare class BooksStatusResponseDto {
+    'data': Array<any>;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

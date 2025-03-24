@@ -3,6 +3,7 @@ export declare class Book {
     'id': string;
     'title': string;
     'cover': string;
+    'iSBN13': string;
     'genre': string;
     'description': string;
     'author': AuthorResponseDto;

@@ -15,6 +15,12 @@ var GoodReadsBookPayloadDto = (function () {
             "baseName": "books",
             "type": "Array<string>",
             "format": ""
+        },
+        {
+            "name": "add",
+            "baseName": "add",
+            "type": "boolean",
+            "format": ""
         }
     ];
     return GoodReadsBookPayloadDto;

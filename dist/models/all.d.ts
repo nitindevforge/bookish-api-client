@@ -19,6 +19,7 @@ export * from '../models/BookReviewCountResponseDto';
 export * from '../models/Books';
 export * from '../models/BooksResponseDto';
 export * from '../models/BooksReviewResponseDto';
+export * from '../models/BooksStatusResponseDto';
 export * from '../models/BusinessConnectedAccount';
 export * from '../models/Card';
 export * from '../models/CardChecks';

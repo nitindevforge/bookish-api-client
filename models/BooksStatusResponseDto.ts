@@ -12,9 +12,9 @@
 
 import { HttpFile } from '../http/http';
 
-export class GoodReadsBookPayloadDto {
-    'books': Array<string>;
-    'add'?: boolean;
+export class BooksStatusResponseDto {
+    'data': Array<any>;
+    'isSuccess': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -22,20 +22,20 @@ export class GoodReadsBookPayloadDto {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "books",
-            "baseName": "books",
-            "type": "Array<string>",
+            "name": "data",
+            "baseName": "data",
+            "type": "Array<any>",
             "format": ""
         },
         {
-            "name": "add",
-            "baseName": "add",
+            "name": "isSuccess",
+            "baseName": "isSuccess",
             "type": "boolean",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return GoodReadsBookPayloadDto.attributeTypeMap;
+        return BooksStatusResponseDto.attributeTypeMap;
     }
 
     public constructor() {

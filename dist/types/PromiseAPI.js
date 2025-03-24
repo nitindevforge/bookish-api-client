@@ -238,6 +238,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerAddBook(bookPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerAddGoodReadsBooksWithHttpInfo = function (requestBody, _options) {
+        var result = this.api.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerAddGoodReadsBooks = function (requestBody, _options) {
+        var result = this.api.bookControllerAddGoodReadsBooks(requestBody, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
         var result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
         return result.toPromise();

@@ -22,6 +22,7 @@ import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto
 import { Books } from '../models/Books';
 import { BooksResponseDto } from '../models/BooksResponseDto';
 import { BooksReviewResponseDto } from '../models/BooksReviewResponseDto';
+import { BooksStatusResponseDto } from '../models/BooksStatusResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { Card } from '../models/Card';
 import { CardChecks } from '../models/CardChecks';
@@ -606,6 +607,22 @@ export class PromiseBooksApi {
      */
     public bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto> {
         const result = this.api.bookControllerAddBook(bookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param requestBody
+     */
+    public bookControllerAddGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>> {
+        const result = this.api.bookControllerAddGoodReadsBooksWithHttpInfo(requestBody, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param requestBody
+     */
+    public bookControllerAddGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto> {
+        const result = this.api.bookControllerAddGoodReadsBooks(requestBody, _options);
         return result.toPromise();
     }
 
