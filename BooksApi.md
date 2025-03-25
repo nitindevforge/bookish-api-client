@@ -208,6 +208,7 @@ const request: BooksApiBookControllerFindBookByStatusRequest = {
     status: "status_example",
     page: 3.14,
     limit: 3.14,
+    userId: "userId_example",
   },
 };
 

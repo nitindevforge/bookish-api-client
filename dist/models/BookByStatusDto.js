@@ -33,6 +33,12 @@ var BookByStatusDto = (function () {
             "baseName": "limit",
             "type": "number",
             "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "userId",
+            "type": "string",
+            "format": ""
         }
     ];
     return BookByStatusDto;

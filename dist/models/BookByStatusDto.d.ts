@@ -3,6 +3,7 @@ export declare class BookByStatusDto {
     'status'?: string;
     'page': number;
     'limit': number;
+    'userId'?: string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

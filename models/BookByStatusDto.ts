@@ -17,6 +17,7 @@ export class BookByStatusDto {
     'status'?: string;
     'page': number;
     'limit': number;
+    'userId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -45,6 +46,12 @@ export class BookByStatusDto {
             "name": "limit",
             "baseName": "limit",
             "type": "number",
+            "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "userId",
+            "type": "string",
             "format": ""
         }    ];
 
