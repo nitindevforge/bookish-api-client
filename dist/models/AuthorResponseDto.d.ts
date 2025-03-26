@@ -1,6 +1,6 @@
 export declare class AuthorResponseDto {
     'id': string;
-    'author': string;
+    'name': string;
     'createAt': Date;
     'updateAt': Date;
     static readonly discriminator: string | undefined;

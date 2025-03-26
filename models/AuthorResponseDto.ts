@@ -14,7 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class AuthorResponseDto {
     'id': string;
-    'author': string;
+    'name': string;
     'createAt': Date;
     'updateAt': Date;
 
@@ -30,8 +30,8 @@ export class AuthorResponseDto {
             "format": ""
         },
         {
-            "name": "author",
-            "baseName": "author",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },

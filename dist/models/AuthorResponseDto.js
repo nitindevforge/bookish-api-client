@@ -17,8 +17,8 @@ var AuthorResponseDto = (function () {
             "format": ""
         },
         {
-            "name": "author",
-            "baseName": "author",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
             "format": ""
         },
