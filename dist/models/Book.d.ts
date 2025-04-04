@@ -11,6 +11,7 @@ export declare class Book {
     'pages': number;
     'createAt': Date;
     'updateAt': Date;
+    'date': Date;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

@@ -1,9 +1,7 @@
-export declare class CreateStaffDto {
-    'firstName': string;
-    'lastName'?: string;
-    'email': string;
-    'roles'?: Array<string>;
-    'owner': string;
+import { EventCustomer } from '../models/EventCustomer';
+export declare class EventCustomerResponseDto {
+    'data': Array<EventCustomer>;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

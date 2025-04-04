@@ -12,27 +12,23 @@
 
 import { HttpFile } from '../http/http';
 
-export class CreateStaffDto {
+export class UpdateStaffRoleDto {
     /**
-    * First name of the staff
+    * Updated name of the role
     */
-    'firstName': string;
+    'name'?: string;
     /**
-    * Last name of the staff (optional)
-    */
-    'lastName'?: string;
-    /**
-    * Email address of the staff
-    */
-    'email': string;
-    /**
-    * Roles assigned to the staff as an array of ObjectIds
-    */
-    'roles'?: Array<string>;
-    /**
-    * OwnerId of the staff
+    * OwnerId of the role
     */
     'owner': string;
+    /**
+    * Updated description of the role
+    */
+    'description'?: string;
+    /**
+    * Updated list of permission IDs associated with this role
+    */
+    'permissions'?: Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -40,27 +36,9 @@ export class CreateStaffDto {
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "firstName",
-            "baseName": "firstName",
+            "name": "name",
+            "baseName": "name",
             "type": "string",
-            "format": ""
-        },
-        {
-            "name": "lastName",
-            "baseName": "lastName",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "email",
-            "baseName": "email",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "roles",
-            "baseName": "roles",
-            "type": "Array<string>",
             "format": ""
         },
         {
@@ -68,10 +46,22 @@ export class CreateStaffDto {
             "baseName": "owner",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "description",
+            "baseName": "description",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "permissions",
+            "baseName": "permissions",
+            "type": "Array<string>",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return CreateStaffDto.attributeTypeMap;
+        return UpdateStaffRoleDto.attributeTypeMap;
     }
 
     public constructor() {

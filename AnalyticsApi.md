@@ -16,11 +16,15 @@ Method | HTTP request | Description
 
 ```typescript
 import { createConfiguration, AnalyticsApi } from '';
+import type { AnalyticsApiAnalyticsControllerGetAnalyticsRequest } from '';
 
 const configuration = createConfiguration();
 const apiInstance = new AnalyticsApi(configuration);
 
-const request = {};
+const request: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {
+  
+  userId: "userId_example",
+};
 
 const data = await apiInstance.analyticsControllerGetAnalytics(request);
 console.log('API called successfully. Returned data:', data);
@@ -28,7 +32,10 @@ console.log('API called successfully. Returned data:', data);
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**string**] |  | defaults to undefined
 
 
 ### Return type

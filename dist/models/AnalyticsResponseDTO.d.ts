@@ -1,8 +1,8 @@
-import { EventDTO } from '../models/EventDTO';
+import { AttendeeDTO } from '../models/AttendeeDTO';
 export declare class AnalyticsResponseDTO {
     'totalTicketsSold': number;
     'totalSales': number;
-    'attendeesList': Array<EventDTO>;
+    'attendeesList': Array<AttendeeDTO>;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

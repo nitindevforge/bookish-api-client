@@ -2,6 +2,9 @@ export declare class AttendeeDTO {
     'firstName': string;
     'lastName': string;
     'email': string;
+    'userName': string;
+    'eventId': string;
+    'eventTitle': string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

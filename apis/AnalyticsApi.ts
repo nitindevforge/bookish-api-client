@@ -16,9 +16,16 @@ import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 export class AnalyticsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
+     * @param userId 
      */
-    public async analyticsControllerGetAnalytics(_options?: Configuration): Promise<RequestContext> {
+    public async analyticsControllerGetAnalytics(userId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("AnalyticsApi", "analyticsControllerGetAnalytics", "userId");
+        }
+
 
         // Path Params
         const localVarPath = '/v1/analytics';
@@ -26,6 +33,11 @@ export class AnalyticsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
+        }
 
 
         let authMethod: SecurityAuthentication | undefined;

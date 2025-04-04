@@ -62,7 +62,7 @@ var AnalyticsApiRequestFactory = (function (_super) {
     function AnalyticsApiRequestFactory() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    AnalyticsApiRequestFactory.prototype.analyticsControllerGetAnalytics = function (_options) {
+    AnalyticsApiRequestFactory.prototype.analyticsControllerGetAnalytics = function (userId, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -70,9 +70,15 @@ var AnalyticsApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (userId === null || userId === undefined) {
+                            throw new baseapi_1.RequiredError("AnalyticsApi", "analyticsControllerGetAnalytics", "userId");
+                        }
                         localVarPath = '/v1/analytics';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        if (userId !== undefined) {
+                            requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
+                        }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];

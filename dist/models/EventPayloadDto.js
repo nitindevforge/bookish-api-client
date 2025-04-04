@@ -69,6 +69,12 @@ var EventPayloadDto = (function () {
             "baseName": "book",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "owner",
+            "baseName": "owner",
+            "type": "string",
+            "format": ""
         }
     ];
     return EventPayloadDto;

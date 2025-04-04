@@ -9,19 +9,26 @@ Method | HTTP request | Description
 [**authControllerCreateBusinessUser**](AuthApi.md#authControllerCreateBusinessUser) | **POST** /v1/auth/register-business | 
 [**authControllerCreateRoles**](AuthApi.md#authControllerCreateRoles) | **POST** /v1/auth/role | 
 [**authControllerCreateStaff**](AuthApi.md#authControllerCreateStaff) | **POST** /v1/auth/staff | 
+[**authControllerCreateStaffRole**](AuthApi.md#authControllerCreateStaffRole) | **POST** /v1/auth/staff-role | 
 [**authControllerCreateUser**](AuthApi.md#authControllerCreateUser) | **POST** /v1/auth/signup | 
 [**authControllerDeleteRole**](AuthApi.md#authControllerDeleteRole) | **DELETE** /v1/auth/role/{id} | 
 [**authControllerDeleteStaff**](AuthApi.md#authControllerDeleteStaff) | **DELETE** /v1/auth/staff/{id} | 
+[**authControllerDeleteStaffRole**](AuthApi.md#authControllerDeleteStaffRole) | **DELETE** /v1/auth/staff-role/{id} | 
 [**authControllerForgetPassword**](AuthApi.md#authControllerForgetPassword) | **PUT** /v1/auth/forget-password | 
 [**authControllerGetActivity**](AuthApi.md#authControllerGetActivity) | **GET** /v1/auth/activities | 
 [**authControllerGetAllStaff**](AuthApi.md#authControllerGetAllStaff) | **GET** /v1/auth/staff | 
 [**authControllerGetEventsActivity**](AuthApi.md#authControllerGetEventsActivity) | **GET** /v1/auth/events/activities | 
+[**authControllerGetEventsActivityByType**](AuthApi.md#authControllerGetEventsActivityByType) | **GET** /v1/auth/type-activities | 
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
 [**authControllerGetPermission**](AuthApi.md#authControllerGetPermission) | **GET** /v1/auth/permissions | 
+[**authControllerGetStaff**](AuthApi.md#authControllerGetStaff) | **GET** /v1/auth/staff/{email} | 
+[**authControllerGetStaffRole**](AuthApi.md#authControllerGetStaffRole) | **GET** /v1/auth/staff-role/{id} | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
+[**authControllerStaffRoles**](AuthApi.md#authControllerStaffRoles) | **GET** /v1/auth/staff-roles | 
 [**authControllerUpdate**](AuthApi.md#authControllerUpdate) | **PUT** /v1/auth/store | 
 [**authControllerUpdateRoles**](AuthApi.md#authControllerUpdateRoles) | **PUT** /v1/auth/update/role/{id} | 
 [**authControllerUpdateStaff**](AuthApi.md#authControllerUpdateStaff) | **PUT** /v1/auth/staff/{id} | 
+[**authControllerUpdateStaffRoles**](AuthApi.md#authControllerUpdateStaffRoles) | **PUT** /v1/auth/staff-role/{id} | 
 [**authControllerUser**](AuthApi.md#authControllerUser) | **GET** /v1/auth/roles | 
 [**authControllerUserById**](AuthApi.md#authControllerUserById) | **GET** /v1/auth/user | 
 [**authControllerUserFollowers**](AuthApi.md#authControllerUserFollowers) | **GET** /v1/auth/follower | 
@@ -152,6 +159,7 @@ const request: AuthApiAuthControllerCreateBusinessUserRequest = {
     userName: "userName_example",
     email: "email_example",
     password: "password_example",
+    role: "role_example",
   },
 };
 
@@ -265,6 +273,7 @@ const request: AuthApiAuthControllerCreateStaffRequest = {
     lastName: "Doe",
     email: "john.doe@example.com",
     roles: ["60d0fe4f5311236168a109ca","60d0fe4f5311236168a109cb"],
+    owner: "60d0fe4f5311236168a109ca",
   },
 };
 
@@ -301,6 +310,63 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **authControllerCreateStaffRole**
+> authControllerCreateStaffRole(createStaffRoleDto)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerCreateStaffRoleRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerCreateStaffRoleRequest = {
+    // Payload to create a new role
+  createStaffRoleDto: {
+    name: "Admin",
+    owner: "64c9abefc347e1234567890a",
+    description: "This role provides administrative access to the system.",
+    permissions: ["64c9abefc347e1234567890a","64c9abefc347e1234567890b"],
+  },
+};
+
+const data = await apiInstance.authControllerCreateStaffRole(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **createStaffRoleDto** | **CreateStaffRoleDto**| Payload to create a new role |
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **authControllerCreateUser**
 > UserResponseDto authControllerCreateUser(signupPayloadDto)
 
@@ -321,6 +387,7 @@ const request: AuthApiAuthControllerCreateUserRequest = {
     userName: "userName_example",
     email: "email_example",
     password: "password_example",
+    role: "role_example",
   },
 };
 
@@ -458,6 +525,58 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Staff deleted successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerDeleteStaffRole**
+> authControllerDeleteStaffRole()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerDeleteStaffRoleRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerDeleteStaffRoleRequest = {
+  
+  id: "id_example",
+};
+
+const data = await apiInstance.authControllerDeleteStaffRole(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -601,6 +720,8 @@ const request: AuthApiAuthControllerGetAllStaffRequest = {
   
   page: 3.14,
   
+  ownerId: "ownerId_example",
+  
   limit: 3.14,
   
   search: "search_example",
@@ -616,6 +737,7 @@ console.log('API called successfully. Returned data:', data);
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | [**number**] |  | defaults to undefined
+ **ownerId** | [**string**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
 
@@ -684,6 +806,71 @@ Name | Type | Description  | Notes
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
  **global** | [**boolean**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**ActivityResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerGetEventsActivityByType**
+> ActivityResponseDto authControllerGetEventsActivityByType()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerGetEventsActivityByTypeRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerGetEventsActivityByTypeRequest = {
+  
+  page: 3.14,
+  
+  limit: 3.14,
+  
+  type: "type_example",
+  
+  userId: "userId_example",
+  
+  search: "search_example",
+};
+
+const data = await apiInstance.authControllerGetEventsActivityByType(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **type** | [**string**] |  | defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -800,6 +987,110 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
+# **authControllerGetStaff**
+> void authControllerGetStaff()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerGetStaffRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerGetStaffRequest = {
+  
+  email: "email_example",
+};
+
+const data = await apiInstance.authControllerGetStaff(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **email** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+**void**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | staff retrieved successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerGetStaffRole**
+> authControllerGetStaffRole()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerGetStaffRoleRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerGetStaffRoleRequest = {
+  
+  id: "id_example",
+};
+
+const data = await apiInstance.authControllerGetStaffRole(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
 # **authControllerLogin**
 > UserResponseDto authControllerLogin(loginPayloadDto)
 
@@ -852,6 +1143,70 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerStaffRoles**
+> authControllerStaffRoles()
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerStaffRolesRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerStaffRolesRequest = {
+  
+  page: 3.14,
+  
+  limit: 3.14,
+  
+  allRoles: true,
+  
+  ownerId: "ownerId_example",
+  
+  search: "search_example",
+};
+
+const data = await apiInstance.authControllerStaffRoles(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **allRoles** | [**boolean**] |  | (optional) defaults to undefined
+ **ownerId** | [**string**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
@@ -1027,6 +1382,66 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Staff updated successfully |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerUpdateStaffRoles**
+> authControllerUpdateStaffRoles(updateStaffRoleDto)
+
+
+### Example
+
+
+```typescript
+import { createConfiguration, AuthApi } from '';
+import type { AuthApiAuthControllerUpdateStaffRolesRequest } from '';
+
+const configuration = createConfiguration();
+const apiInstance = new AuthApi(configuration);
+
+const request: AuthApiAuthControllerUpdateStaffRolesRequest = {
+  
+  id: "id_example",
+  
+  updateStaffRoleDto: {
+    name: "Moderator",
+    owner: "64c9abefc347e1234567890a",
+    description: "This role provides moderation capabilities in the system.",
+    permissions: ["64c9abefc347e1234567890b","64c9abefc347e1234567890c"],
+  },
+};
+
+const data = await apiInstance.authControllerUpdateStaffRoles(request);
+console.log('API called successfully. Returned data:', data);
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **updateStaffRoleDto** | **UpdateStaffRoleDto**|  |
+ **id** | [**string**] |  | defaults to undefined
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

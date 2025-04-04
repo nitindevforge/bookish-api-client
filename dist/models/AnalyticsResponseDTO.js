@@ -25,7 +25,7 @@ var AnalyticsResponseDTO = (function () {
         {
             "name": "attendeesList",
             "baseName": "attendeesList",
-            "type": "Array<EventDTO>",
+            "type": "Array<AttendeeDTO>",
             "format": ""
         }
     ];

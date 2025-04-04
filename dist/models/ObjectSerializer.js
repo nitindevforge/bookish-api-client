@@ -48,8 +48,10 @@ __exportStar(require("../models/ChangePayloadDto"), exports);
 __exportStar(require("../models/CreateBookMarkEventResponseDto"), exports);
 __exportStar(require("../models/CreateRoleDto"), exports);
 __exportStar(require("../models/CreateStaffDto"), exports);
+__exportStar(require("../models/CreateStaffRoleDto"), exports);
 __exportStar(require("../models/DeleteBookMarkEventResponseDto"), exports);
-__exportStar(require("../models/EventDTO"), exports);
+__exportStar(require("../models/EventCustomer"), exports);
+__exportStar(require("../models/EventCustomerResponseDto"), exports);
 __exportStar(require("../models/EventDeleteResponseDto"), exports);
 __exportStar(require("../models/EventPayloadDto"), exports);
 __exportStar(require("../models/EventResponseDto"), exports);
@@ -101,6 +103,7 @@ __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
+__exportStar(require("../models/UpdateStaffRoleDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBookStatusQueryDto"), exports);
@@ -149,8 +152,10 @@ var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
 var CreateBookMarkEventResponseDto_1 = require("../models/CreateBookMarkEventResponseDto");
 var CreateRoleDto_1 = require("../models/CreateRoleDto");
 var CreateStaffDto_1 = require("../models/CreateStaffDto");
+var CreateStaffRoleDto_1 = require("../models/CreateStaffRoleDto");
 var DeleteBookMarkEventResponseDto_1 = require("../models/DeleteBookMarkEventResponseDto");
-var EventDTO_1 = require("../models/EventDTO");
+var EventCustomer_1 = require("../models/EventCustomer");
+var EventCustomerResponseDto_1 = require("../models/EventCustomerResponseDto");
 var EventDeleteResponseDto_1 = require("../models/EventDeleteResponseDto");
 var EventPayloadDto_1 = require("../models/EventPayloadDto");
 var EventResponseDto_1 = require("../models/EventResponseDto");
@@ -202,6 +207,7 @@ var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
 var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
 var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
+var UpdateStaffRoleDto_1 = require("../models/UpdateStaffRoleDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
 var UserBookStatusQueryDto_1 = require("../models/UserBookStatusQueryDto");
@@ -264,8 +270,10 @@ var typeMap = {
     "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto_1.CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto_1.CreateRoleDto,
     "CreateStaffDto": CreateStaffDto_1.CreateStaffDto,
+    "CreateStaffRoleDto": CreateStaffRoleDto_1.CreateStaffRoleDto,
     "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto_1.DeleteBookMarkEventResponseDto,
-    "EventDTO": EventDTO_1.EventDTO,
+    "EventCustomer": EventCustomer_1.EventCustomer,
+    "EventCustomerResponseDto": EventCustomerResponseDto_1.EventCustomerResponseDto,
     "EventDeleteResponseDto": EventDeleteResponseDto_1.EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto_1.EventPayloadDto,
     "EventResponseDto": EventResponseDto_1.EventResponseDto,
@@ -317,6 +325,7 @@ var typeMap = {
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
     "UpdateRoleDto": UpdateRoleDto_1.UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
+    "UpdateStaffRoleDto": UpdateStaffRoleDto_1.UpdateStaffRoleDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto_1.UserBookStatusQueryDto,

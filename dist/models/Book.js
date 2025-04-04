@@ -75,6 +75,12 @@ var Book = (function () {
             "baseName": "updateAt",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "date",
+            "baseName": "date",
+            "type": "Date",
+            "format": "date-time"
         }
     ];
     return Book;

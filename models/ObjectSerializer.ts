@@ -31,8 +31,10 @@ export * from '../models/ChangePayloadDto';
 export * from '../models/CreateBookMarkEventResponseDto';
 export * from '../models/CreateRoleDto';
 export * from '../models/CreateStaffDto';
+export * from '../models/CreateStaffRoleDto';
 export * from '../models/DeleteBookMarkEventResponseDto';
-export * from '../models/EventDTO';
+export * from '../models/EventCustomer';
+export * from '../models/EventCustomerResponseDto';
 export * from '../models/EventDeleteResponseDto';
 export * from '../models/EventPayloadDto';
 export * from '../models/EventResponseDto';
@@ -84,6 +86,7 @@ export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
+export * from '../models/UpdateStaffRoleDto';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBookStatusQueryDto';
@@ -133,8 +136,10 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
-import { EventDTO } from '../models/EventDTO';
+import { EventCustomer } from '../models/EventCustomer';
+import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -186,6 +191,7 @@ import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
+import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -252,8 +258,10 @@ let typeMap: {[index: string]: any} = {
     "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto,
     "CreateStaffDto": CreateStaffDto,
+    "CreateStaffRoleDto": CreateStaffRoleDto,
     "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto,
-    "EventDTO": EventDTO,
+    "EventCustomer": EventCustomer,
+    "EventCustomerResponseDto": EventCustomerResponseDto,
     "EventDeleteResponseDto": EventDeleteResponseDto,
     "EventPayloadDto": EventPayloadDto,
     "EventResponseDto": EventResponseDto,
@@ -305,6 +313,7 @@ let typeMap: {[index: string]: any} = {
     "StripeResponseDto": StripeResponseDto,
     "UpdateRoleDto": UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto,
+    "UpdateStaffRoleDto": UpdateStaffRoleDto,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto,

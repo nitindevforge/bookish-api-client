@@ -1,15 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AttendeeDTO = void 0;
-var AttendeeDTO = (function () {
-    function AttendeeDTO() {
+exports.EventCustomer = void 0;
+var EventCustomer = (function () {
+    function EventCustomer() {
     }
-    AttendeeDTO.getAttributeTypeMap = function () {
-        return AttendeeDTO.attributeTypeMap;
+    EventCustomer.getAttributeTypeMap = function () {
+        return EventCustomer.attributeTypeMap;
     };
-    AttendeeDTO.discriminator = undefined;
-    AttendeeDTO.mapping = undefined;
-    AttendeeDTO.attributeTypeMap = [
+    EventCustomer.discriminator = undefined;
+    EventCustomer.mapping = undefined;
+    EventCustomer.attributeTypeMap = [
         {
             "name": "firstName",
             "baseName": "firstName",
@@ -35,19 +35,13 @@ var AttendeeDTO = (function () {
             "format": ""
         },
         {
-            "name": "eventId",
-            "baseName": "eventId",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "eventTitle",
-            "baseName": "eventTitle",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         }
     ];
-    return AttendeeDTO;
+    return EventCustomer;
 }());
-exports.AttendeeDTO = AttendeeDTO;
-//# sourceMappingURL=AttendeeDTO.js.map
+exports.EventCustomer = EventCustomer;
+//# sourceMappingURL=EventCustomer.js.map

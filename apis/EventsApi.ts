@@ -13,6 +13,7 @@ import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -257,9 +258,16 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param userId 
      */
-    public async eventControllerFindCustomerOfEvents(_options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindCustomerOfEvents(userId: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'userId' is not null or undefined
+        if (userId === null || userId === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerFindCustomerOfEvents", "userId");
+        }
+
 
         // Path Params
         const localVarPath = '/v1/event-customers';
@@ -267,6 +275,11 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
+        }
 
 
         let authMethod: SecurityAuthentication | undefined;
@@ -336,14 +349,16 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
      * @param limit 
      * @param longitude 
      * @param latitude 
+     * @param userId 
      */
-    public async eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Promise<RequestContext> {
+    public async eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, userId?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'page' is not null or undefined
         if (page === null || page === undefined) {
             throw new RequiredError("EventsApi", "eventControllerFindEvents", "page");
         }
+
 
 
 
@@ -374,6 +389,11 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (latitude !== undefined) {
             requestContext.setQueryParam("latitude", ObjectSerializer.serialize(latitude, "number", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
         }
 
 
@@ -795,13 +815,13 @@ export class EventsApiResponseProcessor {
      * @params response Response returned by the server for a request to eventControllerFindCustomerOfEvents
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async eventControllerFindCustomerOfEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LocationPlacesResponseDto >> {
+     public async eventControllerFindCustomerOfEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventCustomerResponseDto >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
         if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: LocationPlacesResponseDto = ObjectSerializer.deserialize(
+            const body: EventCustomerResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "LocationPlacesResponseDto", ""
-            ) as LocationPlacesResponseDto;
+                "EventCustomerResponseDto", ""
+            ) as EventCustomerResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
         if (isCodeInRange("401", response.httpStatusCode)) {
@@ -810,10 +830,10 @@ export class EventsApiResponseProcessor {
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: LocationPlacesResponseDto = ObjectSerializer.deserialize(
+            const body: EventCustomerResponseDto = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
-                "LocationPlacesResponseDto", ""
-            ) as LocationPlacesResponseDto;
+                "EventCustomerResponseDto", ""
+            ) as EventCustomerResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

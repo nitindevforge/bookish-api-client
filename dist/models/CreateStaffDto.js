@@ -33,6 +33,12 @@ var CreateStaffDto = (function () {
             "baseName": "roles",
             "type": "Array<string>",
             "format": ""
+        },
+        {
+            "name": "owner",
+            "baseName": "owner",
+            "type": "string",
+            "format": ""
         }
     ];
     return CreateStaffDto;

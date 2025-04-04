@@ -25,6 +25,7 @@ export class Book {
     'pages': number;
     'createAt': Date;
     'updateAt': Date;
+    'date': Date;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -94,6 +95,12 @@ export class Book {
         {
             "name": "updateAt",
             "baseName": "updateAt",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "date",
+            "baseName": "date",
             "type": "Date",
             "format": "date-time"
         }    ];

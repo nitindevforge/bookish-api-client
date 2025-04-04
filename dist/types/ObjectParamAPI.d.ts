@@ -18,7 +18,9 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -50,6 +52,7 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
+import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -62,12 +65,13 @@ import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor } from "../apis/AnalyticsApi";
 export interface AnalyticsApiAnalyticsControllerGetAnalyticsRequest {
+    userId: string;
 }
 export declare class ObjectAnalyticsApi {
     private api;
     constructor(configuration: Configuration, requestFactory?: AnalyticsApiRequestFactory, responseProcessor?: AnalyticsApiResponseProcessor);
-    analyticsControllerGetAnalyticsWithHttpInfo(param?: AnalyticsApiAnalyticsControllerGetAnalyticsRequest, options?: Configuration): Promise<HttpInfo<AnalyticsResponseDTO>>;
-    analyticsControllerGetAnalytics(param?: AnalyticsApiAnalyticsControllerGetAnalyticsRequest, options?: Configuration): Promise<AnalyticsResponseDTO>;
+    analyticsControllerGetAnalyticsWithHttpInfo(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest, options?: Configuration): Promise<HttpInfo<AnalyticsResponseDTO>>;
+    analyticsControllerGetAnalytics(param: AnalyticsApiAnalyticsControllerGetAnalyticsRequest, options?: Configuration): Promise<AnalyticsResponseDTO>;
 }
 import { AuthApiRequestFactory, AuthApiResponseProcessor } from "../apis/AuthApi";
 export interface AuthApiAuthControllerAccountDeletionRequest {
@@ -84,6 +88,9 @@ export interface AuthApiAuthControllerCreateRolesRequest {
 export interface AuthApiAuthControllerCreateStaffRequest {
     createStaffDto: CreateStaffDto;
 }
+export interface AuthApiAuthControllerCreateStaffRoleRequest {
+    createStaffRoleDto: CreateStaffRoleDto;
+}
 export interface AuthApiAuthControllerCreateUserRequest {
     signupPayloadDto: SignupPayloadDto;
 }
@@ -91,6 +98,9 @@ export interface AuthApiAuthControllerDeleteRoleRequest {
     id: string;
 }
 export interface AuthApiAuthControllerDeleteStaffRequest {
+    id: string;
+}
+export interface AuthApiAuthControllerDeleteStaffRoleRequest {
     id: string;
 }
 export interface AuthApiAuthControllerForgetPasswordRequest {
@@ -106,6 +116,7 @@ export interface AuthApiAuthControllerGetActivityRequest {
 }
 export interface AuthApiAuthControllerGetAllStaffRequest {
     page: number;
+    ownerId: string;
     limit: number;
     search?: string;
 }
@@ -117,12 +128,32 @@ export interface AuthApiAuthControllerGetEventsActivityRequest {
     global?: boolean;
     search?: string;
 }
+export interface AuthApiAuthControllerGetEventsActivityByTypeRequest {
+    page: number;
+    limit: number;
+    type: string;
+    userId?: string;
+    search?: string;
+}
 export interface AuthApiAuthControllerGetInterestsRequest {
 }
 export interface AuthApiAuthControllerGetPermissionRequest {
 }
+export interface AuthApiAuthControllerGetStaffRequest {
+    email: string;
+}
+export interface AuthApiAuthControllerGetStaffRoleRequest {
+    id: string;
+}
 export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
+}
+export interface AuthApiAuthControllerStaffRolesRequest {
+    page: number;
+    limit: number;
+    allRoles?: boolean;
+    ownerId?: string;
+    search?: string;
 }
 export interface AuthApiAuthControllerUpdateRequest {
     storeDetailsPayloadDto: StoreDetailsPayloadDto;
@@ -134,6 +165,10 @@ export interface AuthApiAuthControllerUpdateRolesRequest {
 export interface AuthApiAuthControllerUpdateStaffRequest {
     id: string;
     updateStaffDto: UpdateStaffDto;
+}
+export interface AuthApiAuthControllerUpdateStaffRolesRequest {
+    id: string;
+    updateStaffRoleDto: UpdateStaffRoleDto;
 }
 export interface AuthApiAuthControllerUserRequest {
     page: number;
@@ -171,12 +206,16 @@ export declare class ObjectAuthApi {
     authControllerCreateRoles(param: AuthApiAuthControllerCreateRolesRequest, options?: Configuration): Promise<void>;
     authControllerCreateStaffWithHttpInfo(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<HttpInfo<CreateStaffDto>>;
     authControllerCreateStaff(param: AuthApiAuthControllerCreateStaffRequest, options?: Configuration): Promise<CreateStaffDto>;
+    authControllerCreateStaffRoleWithHttpInfo(param: AuthApiAuthControllerCreateStaffRoleRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerCreateStaffRole(param: AuthApiAuthControllerCreateStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerCreateUserWithHttpInfo(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerCreateUser(param: AuthApiAuthControllerCreateUserRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerDeleteRoleWithHttpInfo(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerDeleteRole(param: AuthApiAuthControllerDeleteRoleRequest, options?: Configuration): Promise<void>;
     authControllerDeleteStaffWithHttpInfo(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>>;
     authControllerDeleteStaff(param: AuthApiAuthControllerDeleteStaffRequest, options?: Configuration): Promise<UserDeleteResponseDto>;
+    authControllerDeleteStaffRoleWithHttpInfo(param: AuthApiAuthControllerDeleteStaffRoleRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerDeleteStaffRole(param: AuthApiAuthControllerDeleteStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
     authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
@@ -185,18 +224,28 @@ export declare class ObjectAuthApi {
     authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<void>;
     authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
+    authControllerGetEventsActivityByTypeWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityByTypeRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
+    authControllerGetEventsActivityByType(param: AuthApiAuthControllerGetEventsActivityByTypeRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetInterestsWithHttpInfo(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<HttpInfo<InterestsResponseDto>>;
     authControllerGetInterests(param?: AuthApiAuthControllerGetInterestsRequest, options?: Configuration): Promise<InterestsResponseDto>;
     authControllerGetPermissionWithHttpInfo(param?: AuthApiAuthControllerGetPermissionRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerGetPermission(param?: AuthApiAuthControllerGetPermissionRequest, options?: Configuration): Promise<void>;
+    authControllerGetStaffWithHttpInfo(param: AuthApiAuthControllerGetStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerGetStaff(param: AuthApiAuthControllerGetStaffRequest, options?: Configuration): Promise<void>;
+    authControllerGetStaffRoleWithHttpInfo(param: AuthApiAuthControllerGetStaffRoleRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerGetStaffRole(param: AuthApiAuthControllerGetStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
+    authControllerStaffRolesWithHttpInfo(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void>;
     authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUpdateRoles(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<void>;
     authControllerUpdateStaffWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUpdateStaff(param: AuthApiAuthControllerUpdateStaffRequest, options?: Configuration): Promise<void>;
+    authControllerUpdateStaffRolesWithHttpInfo(param: AuthApiAuthControllerUpdateStaffRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerUpdateStaffRoles(param: AuthApiAuthControllerUpdateStaffRolesRequest, options?: Configuration): Promise<void>;
     authControllerUserWithHttpInfo(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerUser(param: AuthApiAuthControllerUserRequest, options?: Configuration): Promise<void>;
     authControllerUserByIdWithHttpInfo(param: AuthApiAuthControllerUserByIdRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -317,6 +366,7 @@ export interface EventsApiEventControllerDeleteEventRequest {
     withBookedEvent?: boolean;
 }
 export interface EventsApiEventControllerFindCustomerOfEventsRequest {
+    userId: string;
 }
 export interface EventsApiEventControllerFindEventByIdRequest {
     id: string;
@@ -327,6 +377,7 @@ export interface EventsApiEventControllerFindEventsRequest {
     limit?: number;
     longitude?: number;
     latitude?: number;
+    userId?: string;
 }
 export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;
@@ -358,8 +409,8 @@ export declare class ObjectEventsApi {
     eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto>;
     eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>>;
     eventControllerDeleteEvent(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<EventDeleteResponseDto>;
-    eventControllerFindCustomerOfEventsWithHttpInfo(param?: EventsApiEventControllerFindCustomerOfEventsRequest, options?: Configuration): Promise<HttpInfo<LocationPlacesResponseDto>>;
-    eventControllerFindCustomerOfEvents(param?: EventsApiEventControllerFindCustomerOfEventsRequest, options?: Configuration): Promise<LocationPlacesResponseDto>;
+    eventControllerFindCustomerOfEventsWithHttpInfo(param: EventsApiEventControllerFindCustomerOfEventsRequest, options?: Configuration): Promise<HttpInfo<EventCustomerResponseDto>>;
+    eventControllerFindCustomerOfEvents(param: EventsApiEventControllerFindCustomerOfEventsRequest, options?: Configuration): Promise<EventCustomerResponseDto>;
     eventControllerFindEventByIdWithHttpInfo(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerFindEventById(param: EventsApiEventControllerFindEventByIdRequest, options?: Configuration): Promise<EventResponseDto>;
     eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>>;

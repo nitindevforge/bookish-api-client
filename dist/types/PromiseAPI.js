@@ -6,12 +6,12 @@ var PromiseAnalyticsApi = (function () {
     function PromiseAnalyticsApi(configuration, requestFactory, responseProcessor) {
         this.api = new ObservableAPI_1.ObservableAnalyticsApi(configuration, requestFactory, responseProcessor);
     }
-    PromiseAnalyticsApi.prototype.analyticsControllerGetAnalyticsWithHttpInfo = function (_options) {
-        var result = this.api.analyticsControllerGetAnalyticsWithHttpInfo(_options);
+    PromiseAnalyticsApi.prototype.analyticsControllerGetAnalyticsWithHttpInfo = function (userId, _options) {
+        var result = this.api.analyticsControllerGetAnalyticsWithHttpInfo(userId, _options);
         return result.toPromise();
     };
-    PromiseAnalyticsApi.prototype.analyticsControllerGetAnalytics = function (_options) {
-        var result = this.api.analyticsControllerGetAnalytics(_options);
+    PromiseAnalyticsApi.prototype.analyticsControllerGetAnalytics = function (userId, _options) {
+        var result = this.api.analyticsControllerGetAnalytics(userId, _options);
         return result.toPromise();
     };
     return PromiseAnalyticsApi;
@@ -62,6 +62,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerCreateStaff(createStaffDto, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerCreateStaffRoleWithHttpInfo = function (createStaffRoleDto, _options) {
+        var result = this.api.authControllerCreateStaffRoleWithHttpInfo(createStaffRoleDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerCreateStaffRole = function (createStaffRoleDto, _options) {
+        var result = this.api.authControllerCreateStaffRole(createStaffRoleDto, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerCreateUserWithHttpInfo = function (signupPayloadDto, _options) {
         var result = this.api.authControllerCreateUserWithHttpInfo(signupPayloadDto, _options);
         return result.toPromise();
@@ -86,6 +94,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerDeleteStaff(id, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerDeleteStaffRoleWithHttpInfo = function (id, _options) {
+        var result = this.api.authControllerDeleteStaffRoleWithHttpInfo(id, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerDeleteStaffRole = function (id, _options) {
+        var result = this.api.authControllerDeleteStaffRole(id, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (forgetPasswordPayloadDto, _options) {
         var result = this.api.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options);
         return result.toPromise();
@@ -102,12 +118,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerGetActivity(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (page, limit, search, _options) {
-        var result = this.api.authControllerGetAllStaffWithHttpInfo(page, limit, search, _options);
+    PromiseAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (page, ownerId, limit, search, _options) {
+        var result = this.api.authControllerGetAllStaffWithHttpInfo(page, ownerId, limit, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetAllStaff = function (page, limit, search, _options) {
-        var result = this.api.authControllerGetAllStaff(page, limit, search, _options);
+    PromiseAuthApi.prototype.authControllerGetAllStaff = function (page, ownerId, limit, search, _options) {
+        var result = this.api.authControllerGetAllStaff(page, ownerId, limit, search, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
@@ -116,6 +132,14 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerGetEventsActivity = function (page, limit, longitude, latitude, global, search, _options) {
         var result = this.api.authControllerGetEventsActivity(page, limit, longitude, latitude, global, search, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetEventsActivityByTypeWithHttpInfo = function (page, limit, type, userId, search, _options) {
+        var result = this.api.authControllerGetEventsActivityByTypeWithHttpInfo(page, limit, type, userId, search, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetEventsActivityByType = function (page, limit, type, userId, search, _options) {
+        var result = this.api.authControllerGetEventsActivityByType(page, limit, type, userId, search, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (_options) {
@@ -134,12 +158,36 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerGetPermission(_options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerGetStaffWithHttpInfo = function (email, _options) {
+        var result = this.api.authControllerGetStaffWithHttpInfo(email, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetStaff = function (email, _options) {
+        var result = this.api.authControllerGetStaff(email, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetStaffRoleWithHttpInfo = function (id, _options) {
+        var result = this.api.authControllerGetStaffRoleWithHttpInfo(id, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerGetStaffRole = function (id, _options) {
+        var result = this.api.authControllerGetStaffRole(id, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerLoginWithHttpInfo = function (loginPayloadDto, _options) {
         var result = this.api.authControllerLoginWithHttpInfo(loginPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerLogin = function (loginPayloadDto, _options) {
         var result = this.api.authControllerLogin(loginPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerStaffRolesWithHttpInfo = function (page, limit, allRoles, ownerId, search, _options) {
+        var result = this.api.authControllerStaffRolesWithHttpInfo(page, limit, allRoles, ownerId, search, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerStaffRoles = function (page, limit, allRoles, ownerId, search, _options) {
+        var result = this.api.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerUpdateWithHttpInfo = function (storeDetailsPayloadDto, _options) {
@@ -164,6 +212,14 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerUpdateStaff = function (id, updateStaffDto, _options) {
         var result = this.api.authControllerUpdateStaff(id, updateStaffDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUpdateStaffRolesWithHttpInfo = function (id, updateStaffRoleDto, _options) {
+        var result = this.api.authControllerUpdateStaffRolesWithHttpInfo(id, updateStaffRoleDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerUpdateStaffRoles = function (id, updateStaffRoleDto, _options) {
+        var result = this.api.authControllerUpdateStaffRoles(id, updateStaffRoleDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerUserWithHttpInfo = function (page, limit, allRoles, search, _options) {
@@ -390,12 +446,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerDeleteEvent(id, withBookedEvent, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (_options) {
-        var result = this.api.eventControllerFindCustomerOfEventsWithHttpInfo(_options);
+    PromiseEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (userId, _options) {
+        var result = this.api.eventControllerFindCustomerOfEventsWithHttpInfo(userId, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindCustomerOfEvents = function (_options) {
-        var result = this.api.eventControllerFindCustomerOfEvents(_options);
+    PromiseEventsApi.prototype.eventControllerFindCustomerOfEvents = function (userId, _options) {
+        var result = this.api.eventControllerFindCustomerOfEvents(userId, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (id, withBookedEvent, _options) {
@@ -406,12 +462,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindEventById(id, withBookedEvent, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, longitude, latitude, _options) {
-        var result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options);
+    PromiseEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, longitude, latitude, userId, _options) {
+        var result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, userId, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, _options) {
-        var result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, _options);
+    PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, _options) {
+        var result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, userId, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {

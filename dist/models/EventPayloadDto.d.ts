@@ -10,6 +10,7 @@ export declare class EventPayloadDto {
     'place': Places;
     'id'?: string;
     'book'?: string;
+    'owner'?: string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

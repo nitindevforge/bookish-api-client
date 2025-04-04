@@ -163,6 +163,7 @@ const request: EventsApiEventControllerCreateEventRequest = {
     },
     id: "id_example",
     book: "book_example",
+    owner: "owner_example",
   },
 };
 
@@ -310,7 +311,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **eventControllerFindCustomerOfEvents**
-> LocationPlacesResponseDto eventControllerFindCustomerOfEvents()
+> EventCustomerResponseDto eventControllerFindCustomerOfEvents()
 
 
 ### Example
@@ -318,11 +319,15 @@ Name | Type | Description  | Notes
 
 ```typescript
 import { createConfiguration, EventsApi } from '';
+import type { EventsApiEventControllerFindCustomerOfEventsRequest } from '';
 
 const configuration = createConfiguration();
 const apiInstance = new EventsApi(configuration);
 
-const request = {};
+const request: EventsApiEventControllerFindCustomerOfEventsRequest = {
+  
+  userId: "userId_example",
+};
 
 const data = await apiInstance.eventControllerFindCustomerOfEvents(request);
 console.log('API called successfully. Returned data:', data);
@@ -330,12 +335,15 @@ console.log('API called successfully. Returned data:', data);
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userId** | [**string**] |  | defaults to undefined
 
 
 ### Return type
 
-**LocationPlacesResponseDto**
+**EventCustomerResponseDto**
 
 ### Authorization
 
@@ -434,6 +442,8 @@ const request: EventsApiEventControllerFindEventsRequest = {
   longitude: 3.14,
   
   latitude: 3.14,
+  
+  userId: "userId_example",
 };
 
 const data = await apiInstance.eventControllerFindEvents(request);
@@ -449,6 +459,7 @@ Name | Type | Description  | Notes
  **limit** | [**number**] |  | (optional) defaults to undefined
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -723,6 +734,7 @@ const request: EventsApiEventControllerUpdateEventRequest = {
     },
     id: "id_example",
     book: "book_example",
+    owner: "owner_example",
   },
 };
 

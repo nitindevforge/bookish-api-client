@@ -1,9 +1,8 @@
-export declare class CreateStaffDto {
-    'firstName': string;
-    'lastName'?: string;
-    'email': string;
-    'roles'?: Array<string>;
+export declare class UpdateStaffRoleDto {
+    'name'?: string;
     'owner': string;
+    'description'?: string;
+    'permissions'?: Array<string>;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

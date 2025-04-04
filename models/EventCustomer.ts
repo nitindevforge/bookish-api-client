@@ -12,31 +12,12 @@
 
 import { HttpFile } from '../http/http';
 
-export class AttendeeDTO {
-    /**
-    * First name of the attendee
-    */
+export class EventCustomer {
     'firstName': string;
-    /**
-    * Last name of the attendee
-    */
     'lastName': string;
-    /**
-    * Email of the attendee
-    */
     'email': string;
-    /**
-    * user Name of the attendee
-    */
     'userName': string;
-    /**
-    * ID of the event
-    */
-    'eventId': string;
-    /**
-    * Name of the event
-    */
-    'eventTitle': string;
+    'id': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -68,20 +49,14 @@ export class AttendeeDTO {
             "format": ""
         },
         {
-            "name": "eventId",
-            "baseName": "eventId",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "eventTitle",
-            "baseName": "eventTitle",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return AttendeeDTO.attributeTypeMap;
+        return EventCustomer.attributeTypeMap;
     }
 
     public constructor() {

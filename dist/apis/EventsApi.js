@@ -250,7 +250,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindCustomerOfEvents = function (_options) {
+    EventsApiRequestFactory.prototype.eventControllerFindCustomerOfEvents = function (userId, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -258,9 +258,15 @@ var EventsApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (userId === null || userId === undefined) {
+                            throw new baseapi_1.RequiredError("EventsApi", "eventControllerFindCustomerOfEvents", "userId");
+                        }
                         localVarPath = '/v1/event-customers';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        if (userId !== undefined) {
+                            requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
+                        }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
@@ -317,7 +323,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -342,6 +348,9 @@ var EventsApiRequestFactory = (function (_super) {
                         }
                         if (latitude !== undefined) {
                             requestContext.setQueryParam("latitude", ObjectSerializer_1.ObjectSerializer.serialize(latitude, "number", ""));
+                        }
+                        if (userId !== undefined) {
+                            requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
@@ -751,7 +760,7 @@ var EventsApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 1:
                         body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
-                            "LocationPlacesResponseDto", ""]);
+                            "EventCustomerResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 2:
                         if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
@@ -763,7 +772,7 @@ var EventsApiResponseProcessor = (function () {
                         return [4, response.body.text()];
                     case 3:
                         body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
-                            "LocationPlacesResponseDto", ""]);
+                            "EventCustomerResponseDto", ""]);
                         return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
                     case 4:
                         _j = exception_1.ApiException.bind;

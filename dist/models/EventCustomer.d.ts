@@ -1,9 +1,9 @@
-export declare class CreateStaffDto {
+export declare class EventCustomer {
     'firstName': string;
-    'lastName'?: string;
+    'lastName': string;
     'email': string;
-    'roles'?: Array<string>;
-    'owner': string;
+    'userName': string;
+    'id': string;
     static readonly discriminator: string | undefined;
     static readonly mapping: {
         [index: string]: string;

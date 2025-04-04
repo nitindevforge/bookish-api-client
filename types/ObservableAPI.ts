@@ -35,8 +35,10 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
+import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
-import { EventDTO } from '../models/EventDTO';
+import { EventCustomer } from '../models/EventCustomer';
+import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
@@ -88,6 +90,7 @@ import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
+import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -121,9 +124,10 @@ export class ObservableAnalyticsApi {
     }
 
     /**
+     * @param userId
      */
-    public analyticsControllerGetAnalyticsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<AnalyticsResponseDTO>> {
-        const requestContextPromise = this.requestFactory.analyticsControllerGetAnalytics(_options);
+    public analyticsControllerGetAnalyticsWithHttpInfo(userId: string, _options?: Configuration): Observable<HttpInfo<AnalyticsResponseDTO>> {
+        const requestContextPromise = this.requestFactory.analyticsControllerGetAnalytics(userId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -142,9 +146,10 @@ export class ObservableAnalyticsApi {
     }
 
     /**
+     * @param userId
      */
-    public analyticsControllerGetAnalytics(_options?: Configuration): Observable<AnalyticsResponseDTO> {
-        return this.analyticsControllerGetAnalyticsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<AnalyticsResponseDTO>) => apiResponse.data));
+    public analyticsControllerGetAnalytics(userId: string, _options?: Configuration): Observable<AnalyticsResponseDTO> {
+        return this.analyticsControllerGetAnalyticsWithHttpInfo(userId, _options).pipe(map((apiResponse: HttpInfo<AnalyticsResponseDTO>) => apiResponse.data));
     }
 
 }
@@ -309,6 +314,35 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param createStaffRoleDto Payload to create a new role
+     */
+    public authControllerCreateStaffRoleWithHttpInfo(createStaffRoleDto: CreateStaffRoleDto, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerCreateStaffRole(createStaffRoleDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerCreateStaffRoleWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param createStaffRoleDto Payload to create a new role
+     */
+    public authControllerCreateStaffRole(createStaffRoleDto: CreateStaffRoleDto, _options?: Configuration): Observable<void> {
+        return this.authControllerCreateStaffRoleWithHttpInfo(createStaffRoleDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
      * @param signupPayloadDto
      */
     public authControllerCreateUserWithHttpInfo(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
@@ -396,6 +430,35 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param id
+     */
+    public authControllerDeleteStaffRoleWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerDeleteStaffRole(id, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerDeleteStaffRoleWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerDeleteStaffRole(id: string, _options?: Configuration): Observable<void> {
+        return this.authControllerDeleteStaffRoleWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
      * @param forgetPasswordPayloadDto
      */
     public authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>> {
@@ -465,11 +528,12 @@ export class ObservableAuthApi {
 
     /**
      * @param page
+     * @param ownerId
      * @param limit
      * @param [search]
      */
-    public authControllerGetAllStaffWithHttpInfo(page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<void>> {
-        const requestContextPromise = this.requestFactory.authControllerGetAllStaff(page, limit, search, _options);
+    public authControllerGetAllStaffWithHttpInfo(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerGetAllStaff(page, ownerId, limit, search, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -489,11 +553,12 @@ export class ObservableAuthApi {
 
     /**
      * @param page
+     * @param ownerId
      * @param limit
      * @param [search]
      */
-    public authControllerGetAllStaff(page: number, limit: number, search?: string, _options?: Configuration): Observable<void> {
-        return this.authControllerGetAllStaffWithHttpInfo(page, limit, search, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Observable<void> {
+        return this.authControllerGetAllStaffWithHttpInfo(page, ownerId, limit, search, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
@@ -533,6 +598,43 @@ export class ObservableAuthApi {
      */
     public authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto> {
         return this.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param type
+     * @param [userId]
+     * @param [search]
+     */
+    public authControllerGetEventsActivityByTypeWithHttpInfo(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerGetEventsActivityByType(page, limit, type, userId, search, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerGetEventsActivityByTypeWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param type
+     * @param [userId]
+     * @param [search]
+     */
+    public authControllerGetEventsActivityByType(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Observable<ActivityResponseDto> {
+        return this.authControllerGetEventsActivityByTypeWithHttpInfo(page, limit, type, userId, search, _options).pipe(map((apiResponse: HttpInfo<ActivityResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -590,6 +692,64 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param email
+     */
+    public authControllerGetStaffWithHttpInfo(email: string, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerGetStaff(email, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerGetStaffWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param email
+     */
+    public authControllerGetStaff(email: string, _options?: Configuration): Observable<void> {
+        return this.authControllerGetStaffWithHttpInfo(email, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerGetStaffRoleWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerGetStaffRole(id, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerGetStaffRoleWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param id
+     */
+    public authControllerGetStaffRole(id: string, _options?: Configuration): Observable<void> {
+        return this.authControllerGetStaffRoleWithHttpInfo(id, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
      * @param loginPayloadDto
      */
     public authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>> {
@@ -616,6 +776,43 @@ export class ObservableAuthApi {
      */
     public authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto> {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [allRoles]
+     * @param [ownerId]
+     * @param [search]
+     */
+    public authControllerStaffRolesWithHttpInfo(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerStaffRolesWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page
+     * @param limit
+     * @param [allRoles]
+     * @param [ownerId]
+     * @param [search]
+     */
+    public authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<void> {
+        return this.authControllerStaffRolesWithHttpInfo(page, limit, allRoles, ownerId, search, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
@@ -707,6 +904,37 @@ export class ObservableAuthApi {
      */
     public authControllerUpdateStaff(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Observable<void> {
         return this.authControllerUpdateStaffWithHttpInfo(id, updateStaffDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
+     * @param id
+     * @param updateStaffRoleDto
+     */
+    public authControllerUpdateStaffRolesWithHttpInfo(id: string, updateStaffRoleDto: UpdateStaffRoleDto, _options?: Configuration): Observable<HttpInfo<void>> {
+        const requestContextPromise = this.requestFactory.authControllerUpdateStaffRoles(id, updateStaffRoleDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (const middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (const middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerUpdateStaffRolesWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param id
+     * @param updateStaffRoleDto
+     */
+    public authControllerUpdateStaffRoles(id: string, updateStaffRoleDto: UpdateStaffRoleDto, _options?: Configuration): Observable<void> {
+        return this.authControllerUpdateStaffRolesWithHttpInfo(id, updateStaffRoleDto, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
@@ -1519,9 +1747,10 @@ export class ObservableEventsApi {
     }
 
     /**
+     * @param userId
      */
-    public eventControllerFindCustomerOfEventsWithHttpInfo(_options?: Configuration): Observable<HttpInfo<LocationPlacesResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindCustomerOfEvents(_options);
+    public eventControllerFindCustomerOfEventsWithHttpInfo(userId: string, _options?: Configuration): Observable<HttpInfo<EventCustomerResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindCustomerOfEvents(userId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1540,9 +1769,10 @@ export class ObservableEventsApi {
     }
 
     /**
+     * @param userId
      */
-    public eventControllerFindCustomerOfEvents(_options?: Configuration): Observable<LocationPlacesResponseDto> {
-        return this.eventControllerFindCustomerOfEventsWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<LocationPlacesResponseDto>) => apiResponse.data));
+    public eventControllerFindCustomerOfEvents(userId: string, _options?: Configuration): Observable<EventCustomerResponseDto> {
+        return this.eventControllerFindCustomerOfEventsWithHttpInfo(userId, _options).pipe(map((apiResponse: HttpInfo<EventCustomerResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1581,9 +1811,10 @@ export class ObservableEventsApi {
      * @param [limit]
      * @param [longitude]
      * @param [latitude]
+     * @param [userId]
      */
-    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
-        const requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, longitude, latitude, _options);
+    public eventControllerFindEventsWithHttpInfo(page: number, limit?: number, longitude?: number, latitude?: number, userId?: string, _options?: Configuration): Observable<HttpInfo<EventsResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerFindEvents(page, limit, longitude, latitude, userId, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1606,9 +1837,10 @@ export class ObservableEventsApi {
      * @param [limit]
      * @param [longitude]
      * @param [latitude]
+     * @param [userId]
      */
-    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, _options?: Configuration): Observable<EventsResponseDto> {
-        return this.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
+    public eventControllerFindEvents(page: number, limit?: number, longitude?: number, latitude?: number, userId?: string, _options?: Configuration): Observable<EventsResponseDto> {
+        return this.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, userId, _options).pipe(map((apiResponse: HttpInfo<EventsResponseDto>) => apiResponse.data));
     }
 
     /**

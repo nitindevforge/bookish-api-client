@@ -7,12 +7,10 @@ var ObjectAnalyticsApi = (function () {
         this.api = new ObservableAPI_1.ObservableAnalyticsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectAnalyticsApi.prototype.analyticsControllerGetAnalyticsWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.analyticsControllerGetAnalyticsWithHttpInfo(options).toPromise();
+        return this.api.analyticsControllerGetAnalyticsWithHttpInfo(param.userId, options).toPromise();
     };
     ObjectAnalyticsApi.prototype.analyticsControllerGetAnalytics = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.analyticsControllerGetAnalytics(options).toPromise();
+        return this.api.analyticsControllerGetAnalytics(param.userId, options).toPromise();
     };
     return ObjectAnalyticsApi;
 }());
@@ -54,6 +52,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerCreateStaff = function (param, options) {
         return this.api.authControllerCreateStaff(param.createStaffDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerCreateStaffRoleWithHttpInfo = function (param, options) {
+        return this.api.authControllerCreateStaffRoleWithHttpInfo(param.createStaffRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerCreateStaffRole = function (param, options) {
+        return this.api.authControllerCreateStaffRole(param.createStaffRoleDto, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerCreateUserWithHttpInfo = function (param, options) {
         return this.api.authControllerCreateUserWithHttpInfo(param.signupPayloadDto, options).toPromise();
     };
@@ -72,6 +76,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerDeleteStaff = function (param, options) {
         return this.api.authControllerDeleteStaff(param.id, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerDeleteStaffRoleWithHttpInfo = function (param, options) {
+        return this.api.authControllerDeleteStaffRoleWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerDeleteStaffRole = function (param, options) {
+        return this.api.authControllerDeleteStaffRole(param.id, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerForgetPasswordWithHttpInfo = function (param, options) {
         return this.api.authControllerForgetPasswordWithHttpInfo(param.forgetPasswordPayloadDto, options).toPromise();
     };
@@ -85,16 +95,22 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerGetActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetAllStaffWithHttpInfo = function (param, options) {
-        return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
+        return this.api.authControllerGetAllStaffWithHttpInfo(param.page, param.ownerId, param.limit, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetAllStaff = function (param, options) {
-        return this.api.authControllerGetAllStaff(param.page, param.limit, param.search, options).toPromise();
+        return this.api.authControllerGetAllStaff(param.page, param.ownerId, param.limit, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (param, options) {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetEventsActivity = function (param, options) {
         return this.api.authControllerGetEventsActivity(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetEventsActivityByTypeWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetEventsActivityByTypeWithHttpInfo(param.page, param.limit, param.type, param.userId, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetEventsActivityByType = function (param, options) {
+        return this.api.authControllerGetEventsActivityByType(param.page, param.limit, param.type, param.userId, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetInterestsWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
@@ -112,11 +128,29 @@ var ObjectAuthApi = (function () {
         if (param === void 0) { param = {}; }
         return this.api.authControllerGetPermission(options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetStaffWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetStaffWithHttpInfo(param.email, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetStaff = function (param, options) {
+        return this.api.authControllerGetStaff(param.email, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetStaffRoleWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetStaffRoleWithHttpInfo(param.id, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetStaffRole = function (param, options) {
+        return this.api.authControllerGetStaffRole(param.id, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerLoginWithHttpInfo = function (param, options) {
         return this.api.authControllerLoginWithHttpInfo(param.loginPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerLogin = function (param, options) {
         return this.api.authControllerLogin(param.loginPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerStaffRolesWithHttpInfo = function (param, options) {
+        return this.api.authControllerStaffRolesWithHttpInfo(param.page, param.limit, param.allRoles, param.ownerId, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerStaffRoles = function (param, options) {
+        return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUpdateWithHttpInfo = function (param, options) {
         return this.api.authControllerUpdateWithHttpInfo(param.storeDetailsPayloadDto, options).toPromise();
@@ -135,6 +169,12 @@ var ObjectAuthApi = (function () {
     };
     ObjectAuthApi.prototype.authControllerUpdateStaff = function (param, options) {
         return this.api.authControllerUpdateStaff(param.id, param.updateStaffDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateStaffRolesWithHttpInfo = function (param, options) {
+        return this.api.authControllerUpdateStaffRolesWithHttpInfo(param.id, param.updateStaffRoleDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerUpdateStaffRoles = function (param, options) {
+        return this.api.authControllerUpdateStaffRoles(param.id, param.updateStaffRoleDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUserWithHttpInfo = function (param, options) {
         return this.api.authControllerUserWithHttpInfo(param.page, param.limit, param.allRoles, param.search, options).toPromise();
@@ -317,12 +357,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerDeleteEvent(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindCustomerOfEventsWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.eventControllerFindCustomerOfEventsWithHttpInfo(options).toPromise();
+        return this.api.eventControllerFindCustomerOfEventsWithHttpInfo(param.userId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindCustomerOfEvents = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.eventControllerFindCustomerOfEvents(options).toPromise();
+        return this.api.eventControllerFindCustomerOfEvents(param.userId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventByIdWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindEventByIdWithHttpInfo(param.id, param.withBookedEvent, options).toPromise();
@@ -331,10 +369,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerFindEventById(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, options).toPromise();
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.userId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEvents = function (param, options) {
-        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, options).toPromise();
+        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, param.userId, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId, options).toPromise();

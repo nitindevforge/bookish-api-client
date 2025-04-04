@@ -10,7 +10,7 @@
  * Do not edit the class manually.
  */
 
-import { EventDTO } from '../models/EventDTO';
+import { AttendeeDTO } from '../models/AttendeeDTO';
 import { HttpFile } from '../http/http';
 
 export class AnalyticsResponseDTO {
@@ -25,7 +25,7 @@ export class AnalyticsResponseDTO {
     /**
     * List of events with attendees information
     */
-    'attendeesList': Array<EventDTO>;
+    'attendeesList': Array<AttendeeDTO>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -47,7 +47,7 @@ export class AnalyticsResponseDTO {
         {
             "name": "attendeesList",
             "baseName": "attendeesList",
-            "type": "Array<EventDTO>",
+            "type": "Array<AttendeeDTO>",
             "format": ""
         }    ];
 
