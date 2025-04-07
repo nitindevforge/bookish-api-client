@@ -84,8 +84,8 @@ var Book = (function () {
         {
             "name": "publicationDate",
             "baseName": "publicationDate",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         }
     ];
     return Book;

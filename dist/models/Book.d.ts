@@ -12,7 +12,7 @@ export declare class Book {
     'createAt': Date;
     'updateAt': Date;
     'date': Date;
-    'publicationDate': Date;
+    'publicationDate': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

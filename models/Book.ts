@@ -26,7 +26,7 @@ export class Book {
     'createAt': Date;
     'updateAt': Date;
     'date': Date;
-    'publicationDate': Date;
+    'publicationDate': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -106,8 +106,8 @@ export class Book {
         {
             "name": "publicationDate",
             "baseName": "publicationDate",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
