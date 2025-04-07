@@ -8,7 +8,6 @@ var EventsList = (function () {
         return EventsList.attributeTypeMap;
     };
     EventsList.discriminator = undefined;
-    EventsList.mapping = undefined;
     EventsList.attributeTypeMap = [
         {
             "name": "data",

@@ -8,7 +8,6 @@ var VerificationLinkResponseDTO = (function () {
         return VerificationLinkResponseDTO.attributeTypeMap;
     };
     VerificationLinkResponseDTO.discriminator = undefined;
-    VerificationLinkResponseDTO.mapping = undefined;
     VerificationLinkResponseDTO.attributeTypeMap = [
         {
             "name": "link",

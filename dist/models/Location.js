@@ -8,7 +8,6 @@ var Location = (function () {
         return Location.attributeTypeMap;
     };
     Location.discriminator = undefined;
-    Location.mapping = undefined;
     Location.attributeTypeMap = [
         {
             "name": "type",

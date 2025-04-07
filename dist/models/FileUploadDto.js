@@ -8,7 +8,6 @@ var FileUploadDto = (function () {
         return FileUploadDto.attributeTypeMap;
     };
     FileUploadDto.discriminator = undefined;
-    FileUploadDto.mapping = undefined;
     FileUploadDto.attributeTypeMap = [
         {
             "name": "fileName",

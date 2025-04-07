@@ -8,7 +8,6 @@ var ActivityResponseDto = (function () {
         return ActivityResponseDto.attributeTypeMap;
     };
     ActivityResponseDto.discriminator = undefined;
-    ActivityResponseDto.mapping = undefined;
     ActivityResponseDto.attributeTypeMap = [
         {
             "name": "data",

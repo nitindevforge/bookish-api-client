@@ -27,21 +27,22 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerBookMarkEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerBookMarkEventRequest = {
-  
+let body:.EventsApiEventControllerBookMarkEventRequest = {
+  // BookMarkEventPayloadDto
   bookMarkEventPayloadDto: {
     eventId: "eventId_example",
   },
 };
 
-const data = await apiInstance.eventControllerBookMarkEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerBookMarkEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -82,23 +83,24 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerBookMarkEventListRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerBookMarkEventListRequest = {
-  
+let body:.EventsApiEventControllerBookMarkEventListRequest = {
+  // number
   page: 3.14,
-  
+  // number (optional)
   limit: 3.14,
-  
+  // string (optional)
   userId: "userId_example",
 };
 
-const data = await apiInstance.eventControllerBookMarkEventList(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerBookMarkEventList(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -141,14 +143,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerCreateEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerCreateEventRequest = {
-  
+let body:.EventsApiEventControllerCreateEventRequest = {
+  // EventPayloadDto
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
@@ -167,8 +169,9 @@ const request: EventsApiEventControllerCreateEventRequest = {
   },
 };
 
-const data = await apiInstance.eventControllerCreateEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerCreateEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -209,19 +212,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerDeleteBookMarkEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerDeleteBookMarkEventRequest = {
-  
+let body:.EventsApiEventControllerDeleteBookMarkEventRequest = {
+  // string
   eventId: "eventId_example",
 };
 
-const data = await apiInstance.eventControllerDeleteBookMarkEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerDeleteBookMarkEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -262,21 +266,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerDeleteEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerDeleteEventRequest = {
-  
+let body:.EventsApiEventControllerDeleteEventRequest = {
+  // string
   id: "id_example",
-  
+  // boolean (optional)
   withBookedEvent: true,
 };
 
-const data = await apiInstance.eventControllerDeleteEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerDeleteEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -318,19 +323,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindCustomerOfEventsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindCustomerOfEventsRequest = {
-  
+let body:.EventsApiEventControllerFindCustomerOfEventsRequest = {
+  // string
   userId: "userId_example",
 };
 
-const data = await apiInstance.eventControllerFindCustomerOfEvents(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindCustomerOfEvents(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -371,21 +377,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindEventByIdRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindEventByIdRequest = {
-  
+let body:.EventsApiEventControllerFindEventByIdRequest = {
+  // string
   id: "id_example",
-  
+  // boolean (optional)
   withBookedEvent: true,
 };
 
-const data = await apiInstance.eventControllerFindEventById(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindEventById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -427,27 +434,30 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindEventsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindEventsRequest = {
-  
+let body:.EventsApiEventControllerFindEventsRequest = {
+  // number
   page: 3.14,
-  
+  // number (optional)
   limit: 3.14,
-  
+  // number (optional)
   longitude: 3.14,
-  
+  // number (optional)
   latitude: 3.14,
-  
+  // string (optional)
   userId: "userId_example",
+  // string (optional)
+  search: "search_example",
 };
 
-const data = await apiInstance.eventControllerFindEvents(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindEvents(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -460,6 +470,7 @@ Name | Type | Description  | Notes
  **longitude** | [**number**] |  | (optional) defaults to undefined
  **latitude** | [**number**] |  | (optional) defaults to undefined
  **userId** | [**string**] |  | (optional) defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -492,19 +503,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindMyEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindMyEventRequest = {
-  
+let body:.EventsApiEventControllerFindMyEventRequest = {
+  // string
   eventId: "eventId_example",
 };
 
-const data = await apiInstance.eventControllerFindMyEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindMyEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -545,23 +557,24 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindMyUpcomingEventsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindMyUpcomingEventsRequest = {
-  
+let body:.EventsApiEventControllerFindMyUpcomingEventsRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // 'UPCOMING' | 'VISITED'
   type: "UPCOMING",
 };
 
-const data = await apiInstance.eventControllerFindMyUpcomingEvents(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindMyUpcomingEvents(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -604,21 +617,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerFindSearchPlacesRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerFindSearchPlacesRequest = {
-  
+let body:.EventsApiEventControllerFindSearchPlacesRequest = {
+  // LocationPayloadDto
   locationPayloadDto: {
     place: "place_example",
   },
 };
 
-const data = await apiInstance.eventControllerFindSearchPlaces(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerFindSearchPlaces(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -659,19 +673,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerGetBookMarkEventStatusRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerGetBookMarkEventStatusRequest = {
-  
+let body:.EventsApiEventControllerGetBookMarkEventStatusRequest = {
+  // string
   eventId: "eventId_example",
 };
 
-const data = await apiInstance.eventControllerGetBookMarkEventStatus(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerGetBookMarkEventStatus(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -712,14 +727,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, EventsApi } from '';
-import type { EventsApiEventControllerUpdateEventRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new EventsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
 
-const request: EventsApiEventControllerUpdateEventRequest = {
-  
+let body:.EventsApiEventControllerUpdateEventRequest = {
+  // EventPayloadDto
   eventPayloadDto: {
     title: "title_example",
     image: "image_example",
@@ -738,8 +753,9 @@ const request: EventsApiEventControllerUpdateEventRequest = {
   },
 };
 
-const data = await apiInstance.eventControllerUpdateEvent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.eventControllerUpdateEvent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

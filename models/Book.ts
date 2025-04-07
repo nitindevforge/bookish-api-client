@@ -26,10 +26,9 @@ export class Book {
     'createAt': Date;
     'updateAt': Date;
     'date': Date;
+    'publicationDate': Date;
 
     static readonly discriminator: string | undefined = undefined;
-
-    static readonly mapping: {[index: string]: string} | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
@@ -103,6 +102,12 @@ export class Book {
             "baseName": "date",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "publicationDate",
+            "baseName": "publicationDate",
+            "type": "Date",
+            "format": "date-time"
         }    ];
 
     static getAttributeTypeMap() {
@@ -112,3 +117,4 @@ export class Book {
     public constructor() {
     }
 }
+

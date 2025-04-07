@@ -8,7 +8,6 @@ var DeleteBookMarkEventResponseDto = (function () {
         return DeleteBookMarkEventResponseDto.attributeTypeMap;
     };
     DeleteBookMarkEventResponseDto.discriminator = undefined;
-    DeleteBookMarkEventResponseDto.mapping = undefined;
     DeleteBookMarkEventResponseDto.attributeTypeMap = [
         {
             "name": "data",

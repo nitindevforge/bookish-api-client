@@ -6,9 +6,6 @@ export declare class Review {
     'averageRate': number;
     'rating': Array<Rating>;
     static readonly discriminator: string | undefined;
-    static readonly mapping: {
-        [index: string]: string;
-    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

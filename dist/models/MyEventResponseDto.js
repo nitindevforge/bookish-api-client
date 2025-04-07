@@ -8,7 +8,6 @@ var MyEventResponseDto = (function () {
         return MyEventResponseDto.attributeTypeMap;
     };
     MyEventResponseDto.discriminator = undefined;
-    MyEventResponseDto.mapping = undefined;
     MyEventResponseDto.attributeTypeMap = [
         {
             "name": "data",

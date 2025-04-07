@@ -428,7 +428,7 @@ var BooksApiRequestFactory = (function (_super) {
     BooksApiRequestFactory.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, rate, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
-            var _config, localVarPath, requestContext, serializedParams, _i, serializedParams_1, serializedParam, authMethod, defaultAuth;
+            var _config, localVarPath, requestContext, authMethod, defaultAuth;
             return __generator(this, function (_d) {
                 switch (_d.label) {
                     case 0:
@@ -455,11 +455,7 @@ var BooksApiRequestFactory = (function (_super) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
                         }
                         if (rate !== undefined) {
-                            serializedParams = ObjectSerializer_1.ObjectSerializer.serialize(rate, "Array<number>", "");
-                            for (_i = 0, serializedParams_1 = serializedParams; _i < serializedParams_1.length; _i++) {
-                                serializedParam = serializedParams_1[_i];
-                                requestContext.appendQueryParam("rate", serializedParam);
-                            }
+                            requestContext.setQueryParam("rate", ObjectSerializer_1.ObjectSerializer.serialize(rate, "Array<number>", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

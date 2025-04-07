@@ -323,7 +323,7 @@ var EventsApiRequestFactory = (function (_super) {
             });
         });
     };
-    EventsApiRequestFactory.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, _options) {
+    EventsApiRequestFactory.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -351,6 +351,9 @@ var EventsApiRequestFactory = (function (_super) {
                         }
                         if (userId !== undefined) {
                             requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
+                        }
+                        if (search !== undefined) {
+                            requestContext.setQueryParam("search", ObjectSerializer_1.ObjectSerializer.serialize(search, "string", ""));
                         }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];

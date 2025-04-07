@@ -21,15 +21,17 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.paymentControllerConnectAccount(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerConnectAccount(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -66,15 +68,17 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.paymentControllerCreateAccountVerificationLink(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerCreateAccountVerificationLink(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -111,22 +115,23 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
-import type { PaymentApiPaymentControllerCreatePaymentRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request: PaymentApiPaymentControllerCreatePaymentRequest = {
-  
+let body:.PaymentApiPaymentControllerCreatePaymentRequest = {
+  // StripePaymentPayloadDto
   stripePaymentPayloadDto: {
     paymentId: "paymentId_example",
     eventId: "eventId_example",
   },
 };
 
-const data = await apiInstance.paymentControllerCreatePayment(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerCreatePayment(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -167,22 +172,23 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
-import type { PaymentApiPaymentControllerCreatePaymentIntentRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request: PaymentApiPaymentControllerCreatePaymentIntentRequest = {
-  
+let body:.PaymentApiPaymentControllerCreatePaymentIntentRequest = {
+  // StripePayloadDto
   stripePayloadDto: {
     amount: 3.14,
     event: "event_example",
   },
 };
 
-const data = await apiInstance.paymentControllerCreatePaymentIntent(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerCreatePaymentIntent(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -223,21 +229,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
-import type { PaymentApiPaymentControllerDeleteCardDetailsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request: PaymentApiPaymentControllerDeleteCardDetailsRequest = {
-  
+let body:.PaymentApiPaymentControllerDeleteCardDetailsRequest = {
+  // PaymentPayloadDto
   paymentPayloadDto: {
     id: "id_example",
   },
 };
 
-const data = await apiInstance.paymentControllerDeleteCardDetails(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerDeleteCardDetails(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -278,15 +285,17 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.paymentControllerGetCardList(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerGetCardList(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -324,15 +333,17 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, PaymentApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new PaymentApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .PaymentApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.paymentControllerRetrieveConnectedAccount(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.paymentControllerRetrieveConnectedAccount(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

@@ -8,7 +8,6 @@ var EventDeleteResponseDto = (function () {
         return EventDeleteResponseDto.attributeTypeMap;
     };
     EventDeleteResponseDto.discriminator = undefined;
-    EventDeleteResponseDto.mapping = undefined;
     EventDeleteResponseDto.attributeTypeMap = [
         {
             "name": "data",

@@ -8,7 +8,6 @@ var UserRolePayloadDto = (function () {
         return UserRolePayloadDto.attributeTypeMap;
     };
     UserRolePayloadDto.discriminator = undefined;
-    UserRolePayloadDto.mapping = undefined;
     UserRolePayloadDto.attributeTypeMap = [
         {
             "name": "role",

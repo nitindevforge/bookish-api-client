@@ -8,7 +8,6 @@ var AttendeeDTO = (function () {
         return AttendeeDTO.attributeTypeMap;
     };
     AttendeeDTO.discriminator = undefined;
-    AttendeeDTO.mapping = undefined;
     AttendeeDTO.attributeTypeMap = [
         {
             "name": "firstName",

@@ -8,7 +8,6 @@ var BookMarkEventStatusResponseDto = (function () {
         return BookMarkEventStatusResponseDto.attributeTypeMap;
     };
     BookMarkEventStatusResponseDto.discriminator = undefined;
-    BookMarkEventStatusResponseDto.mapping = undefined;
     BookMarkEventStatusResponseDto.attributeTypeMap = [
         {
             "name": "data",

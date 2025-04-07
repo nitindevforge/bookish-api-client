@@ -8,7 +8,6 @@ var BookPayloadDto = (function () {
         return BookPayloadDto.attributeTypeMap;
     };
     BookPayloadDto.discriminator = undefined;
-    BookPayloadDto.mapping = undefined;
     BookPayloadDto.attributeTypeMap = [
         {
             "name": "title",

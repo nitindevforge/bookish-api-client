@@ -15,19 +15,20 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, AnalyticsApi } from '';
-import type { AnalyticsApiAnalyticsControllerGetAnalyticsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AnalyticsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AnalyticsApi(configuration);
 
-const request: AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {
-  
+let body:.AnalyticsApiAnalyticsControllerGetAnalyticsRequest = {
+  // string
   userId: "userId_example",
 };
 
-const data = await apiInstance.analyticsControllerGetAnalytics(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.analyticsControllerGetAnalytics(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

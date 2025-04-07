@@ -46,15 +46,17 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.authControllerAccountDeletion(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerAccountDeletion(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -91,14 +93,14 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerChangePasswordRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerChangePasswordRequest = {
-  
+let body:.AuthApiAuthControllerChangePasswordRequest = {
+  // ChangePayloadDto
   changePayloadDto: {
     email: "email_example",
     confirmPassword: "confirmPassword_example",
@@ -106,8 +108,9 @@ const request: AuthApiAuthControllerChangePasswordRequest = {
   },
 };
 
-const data = await apiInstance.authControllerChangePassword(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerChangePassword(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -147,14 +150,14 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerCreateBusinessUserRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerCreateBusinessUserRequest = {
-  
+let body:.AuthApiAuthControllerCreateBusinessUserRequest = {
+  // SignupPayloadDto
   signupPayloadDto: {
     userName: "userName_example",
     email: "email_example",
@@ -163,8 +166,9 @@ const request: AuthApiAuthControllerCreateBusinessUserRequest = {
   },
 };
 
-const data = await apiInstance.authControllerCreateBusinessUser(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerCreateBusinessUser(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -204,14 +208,14 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerCreateRolesRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerCreateRolesRequest = {
-    // Payload to create a new role
+let body:.AuthApiAuthControllerCreateRolesRequest = {
+  // CreateRoleDto | Payload to create a new role
   createRoleDto: {
     name: "Admin",
     description: "This role provides administrative access to the system.",
@@ -219,8 +223,9 @@ const request: AuthApiAuthControllerCreateRolesRequest = {
   },
 };
 
-const data = await apiInstance.authControllerCreateRoles(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerCreateRoles(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -260,14 +265,14 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerCreateStaffRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerCreateStaffRequest = {
-  
+let body:.AuthApiAuthControllerCreateStaffRequest = {
+  // CreateStaffDto
   createStaffDto: {
     firstName: "John",
     lastName: "Doe",
@@ -277,8 +282,9 @@ const request: AuthApiAuthControllerCreateStaffRequest = {
   },
 };
 
-const data = await apiInstance.authControllerCreateStaff(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerCreateStaff(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -318,14 +324,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerCreateStaffRoleRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerCreateStaffRoleRequest = {
-    // Payload to create a new role
+let body:.AuthApiAuthControllerCreateStaffRoleRequest = {
+  // CreateStaffRoleDto | Payload to create a new role
   createStaffRoleDto: {
     name: "Admin",
     owner: "64c9abefc347e1234567890a",
@@ -334,8 +340,9 @@ const request: AuthApiAuthControllerCreateStaffRoleRequest = {
   },
 };
 
-const data = await apiInstance.authControllerCreateStaffRole(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerCreateStaffRole(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -375,14 +382,14 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerCreateUserRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerCreateUserRequest = {
-  
+let body:.AuthApiAuthControllerCreateUserRequest = {
+  // SignupPayloadDto
   signupPayloadDto: {
     userName: "userName_example",
     email: "email_example",
@@ -391,8 +398,9 @@ const request: AuthApiAuthControllerCreateUserRequest = {
   },
 };
 
-const data = await apiInstance.authControllerCreateUser(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerCreateUser(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -432,19 +440,20 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerDeleteRoleRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerDeleteRoleRequest = {
-  
+let body:.AuthApiAuthControllerDeleteRoleRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerDeleteRole(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerDeleteRole(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -484,19 +493,20 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerDeleteStaffRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerDeleteStaffRequest = {
-  
+let body:.AuthApiAuthControllerDeleteStaffRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerDeleteStaff(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerDeleteStaff(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -536,19 +546,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerDeleteStaffRoleRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerDeleteStaffRoleRequest = {
-  
+let body:.AuthApiAuthControllerDeleteStaffRoleRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerDeleteStaffRole(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerDeleteStaffRole(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -588,21 +599,22 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerForgetPasswordRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerForgetPasswordRequest = {
-  
+let body:.AuthApiAuthControllerForgetPasswordRequest = {
+  // ForgetPasswordPayloadDto
   forgetPasswordPayloadDto: {
     email: "email_example",
   },
 };
 
-const data = await apiInstance.authControllerForgetPassword(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerForgetPassword(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -642,29 +654,30 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetActivityRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetActivityRequest = {
-  
+let body:.AuthApiAuthControllerGetActivityRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // number (optional)
   longitude: 3.14,
-  
+  // number (optional)
   latitude: 3.14,
-  
+  // boolean (optional)
   global: true,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerGetActivity(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetActivity(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -710,25 +723,26 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetAllStaffRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetAllStaffRequest = {
-  
+let body:.AuthApiAuthControllerGetAllStaffRequest = {
+  // number
   page: 3.14,
-  
+  // string
   ownerId: "ownerId_example",
-  
+  // number
   limit: 3.14,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerGetAllStaff(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetAllStaff(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -771,29 +785,30 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetEventsActivityRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetEventsActivityRequest = {
-  
+let body:.AuthApiAuthControllerGetEventsActivityRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // number (optional)
   longitude: 3.14,
-  
+  // number (optional)
   latitude: 3.14,
-  
+  // boolean (optional)
   global: true,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerGetEventsActivity(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetEventsActivity(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -839,27 +854,28 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetEventsActivityByTypeRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetEventsActivityByTypeRequest = {
-  
+let body:.AuthApiAuthControllerGetEventsActivityByTypeRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // string
   type: "type_example",
-  
+  // string (optional)
   userId: "userId_example",
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerGetEventsActivityByType(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetEventsActivityByType(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -904,15 +920,17 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.authControllerGetInterests(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetInterests(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -950,15 +968,17 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.authControllerGetPermission(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetPermission(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -995,19 +1015,20 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetStaffRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetStaffRequest = {
-  
+let body:.AuthApiAuthControllerGetStaffRequest = {
+  // string
   email: "email_example",
 };
 
-const data = await apiInstance.authControllerGetStaff(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetStaff(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1047,19 +1068,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerGetStaffRoleRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerGetStaffRoleRequest = {
-  
+let body:.AuthApiAuthControllerGetStaffRoleRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerGetStaffRole(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerGetStaffRole(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1099,22 +1121,23 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerLoginRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerLoginRequest = {
-  
+let body:.AuthApiAuthControllerLoginRequest = {
+  // LoginPayloadDto
   loginPayloadDto: {
     email: "email_example",
     password: "password_example",
   },
 };
 
-const data = await apiInstance.authControllerLogin(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerLogin(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1154,27 +1177,28 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerStaffRolesRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerStaffRolesRequest = {
-  
+let body:.AuthApiAuthControllerStaffRolesRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // boolean (optional)
   allRoles: true,
-  
+  // string (optional)
   ownerId: "ownerId_example",
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerStaffRoles(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerStaffRoles(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1218,22 +1242,23 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUpdateRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUpdateRequest = {
-  
+let body:.AuthApiAuthControllerUpdateRequest = {
+  // StoreDetailsPayloadDto
   storeDetailsPayloadDto: {
     storeName: "storeName_example",
     storeLogo: "storeLogo_example",
   },
 };
 
-const data = await apiInstance.authControllerUpdate(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUpdate(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1274,16 +1299,16 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUpdateRolesRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUpdateRolesRequest = {
-  
+let body:.AuthApiAuthControllerUpdateRolesRequest = {
+  // string
   id: "id_example",
-  
+  // UpdateRoleDto
   updateRoleDto: {
     name: "Moderator",
     description: "This role provides moderation capabilities in the system.",
@@ -1291,8 +1316,9 @@ const request: AuthApiAuthControllerUpdateRolesRequest = {
   },
 };
 
-const data = await apiInstance.authControllerUpdateRoles(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUpdateRoles(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1333,16 +1359,16 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUpdateStaffRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUpdateStaffRequest = {
-  
+let body:.AuthApiAuthControllerUpdateStaffRequest = {
+  // string
   id: "id_example",
-  
+  // UpdateStaffDto
   updateStaffDto: {
     firstName: "John",
     lastName: "Doe",
@@ -1351,8 +1377,9 @@ const request: AuthApiAuthControllerUpdateStaffRequest = {
   },
 };
 
-const data = await apiInstance.authControllerUpdateStaff(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUpdateStaff(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1393,16 +1420,16 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUpdateStaffRolesRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUpdateStaffRolesRequest = {
-  
+let body:.AuthApiAuthControllerUpdateStaffRolesRequest = {
+  // string
   id: "id_example",
-  
+  // UpdateStaffRoleDto
   updateStaffRoleDto: {
     name: "Moderator",
     owner: "64c9abefc347e1234567890a",
@@ -1411,8 +1438,9 @@ const request: AuthApiAuthControllerUpdateStaffRolesRequest = {
   },
 };
 
-const data = await apiInstance.authControllerUpdateStaffRoles(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUpdateStaffRoles(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1453,25 +1481,26 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUserRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUserRequest = {
-  
+let body:.AuthApiAuthControllerUserRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // boolean (optional)
   allRoles: true,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.authControllerUser(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUser(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1514,19 +1543,20 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUserByIdRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUserByIdRequest = {
-  
+let body:.AuthApiAuthControllerUserByIdRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerUserById(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUserById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1566,19 +1596,20 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUserFollowersRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUserFollowersRequest = {
-  
+let body:.AuthApiAuthControllerUserFollowersRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.authControllerUserFollowers(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUserFollowers(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1619,15 +1650,17 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.authControllerUserMe(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUserMe(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1665,21 +1698,22 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUserRoleUpdateRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUserRoleUpdateRequest = {
-  
+let body:.AuthApiAuthControllerUserRoleUpdateRequest = {
+  // UserRolePayloadDto
   userRolePayloadDto: {
     role: "role_example",
   },
 };
 
-const data = await apiInstance.authControllerUserRoleUpdate(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUserRoleUpdate(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1720,14 +1754,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerUserUpdateRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerUserUpdateRequest = {
-  
+let body:.AuthApiAuthControllerUserUpdateRequest = {
+  // UserUpdatePayloadDto
   userUpdatePayloadDto: {
     firstName: "firstName_example",
     lastName: "lastName_example",
@@ -1742,8 +1776,9 @@ const request: AuthApiAuthControllerUserUpdateRequest = {
   },
 };
 
-const data = await apiInstance.authControllerUserUpdate(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerUserUpdate(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -1784,22 +1819,23 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, AuthApi } from '';
-import type { AuthApiAuthControllerVerifyOtpRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new AuthApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
 
-const request: AuthApiAuthControllerVerifyOtpRequest = {
-  
+let body:.AuthApiAuthControllerVerifyOtpRequest = {
+  // OtpEntityPayloadDto
   otpEntityPayloadDto: {
     otp: "otp_example",
     email: "email_example",
   },
 };
 
-const data = await apiInstance.authControllerVerifyOtp(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.authControllerVerifyOtp(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

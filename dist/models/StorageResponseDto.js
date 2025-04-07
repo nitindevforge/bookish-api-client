@@ -8,7 +8,6 @@ var StorageResponseDto = (function () {
         return StorageResponseDto.attributeTypeMap;
     };
     StorageResponseDto.discriminator = undefined;
-    StorageResponseDto.mapping = undefined;
     StorageResponseDto.attributeTypeMap = [
         {
             "name": "data",

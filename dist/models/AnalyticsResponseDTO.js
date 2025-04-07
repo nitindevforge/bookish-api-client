@@ -8,7 +8,6 @@ var AnalyticsResponseDTO = (function () {
         return AnalyticsResponseDTO.attributeTypeMap;
     };
     AnalyticsResponseDTO.discriminator = undefined;
-    AnalyticsResponseDTO.mapping = undefined;
     AnalyticsResponseDTO.attributeTypeMap = [
         {
             "name": "totalTicketsSold",

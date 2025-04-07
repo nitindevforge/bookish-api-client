@@ -8,7 +8,6 @@ var Book = (function () {
         return Book.attributeTypeMap;
     };
     Book.discriminator = undefined;
-    Book.mapping = undefined;
     Book.attributeTypeMap = [
         {
             "name": "id",
@@ -79,6 +78,12 @@ var Book = (function () {
         {
             "name": "date",
             "baseName": "date",
+            "type": "Date",
+            "format": "date-time"
+        },
+        {
+            "name": "publicationDate",
+            "baseName": "publicationDate",
             "type": "Date",
             "format": "date-time"
         }

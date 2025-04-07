@@ -8,7 +8,6 @@ var EventCustomer = (function () {
         return EventCustomer.attributeTypeMap;
     };
     EventCustomer.discriminator = undefined;
-    EventCustomer.mapping = undefined;
     EventCustomer.attributeTypeMap = [
         {
             "name": "firstName",

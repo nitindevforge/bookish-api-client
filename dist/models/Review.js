@@ -8,7 +8,6 @@ var Review = (function () {
         return Review.attributeTypeMap;
     };
     Review.discriminator = undefined;
-    Review.mapping = undefined;
     Review.attributeTypeMap = [
         {
             "name": "id",

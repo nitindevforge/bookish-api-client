@@ -26,14 +26,14 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerAddBookRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerAddBookRequest = {
-  
+let body:.BooksApiBookControllerAddBookRequest = {
+  // BookPayloadDto
   bookPayloadDto: {
     title: "title_example",
     cover: "cover_example",
@@ -45,8 +45,9 @@ const request: BooksApiBookControllerAddBookRequest = {
   },
 };
 
-const data = await apiInstance.bookControllerAddBook(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerAddBook(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -87,21 +88,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerAddMyGoodReadsBooksRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerAddMyGoodReadsBooksRequest = {
-  
+let body:.BooksApiBookControllerAddMyGoodReadsBooksRequest = {
+  // Array<string>
   requestBody: [
     "requestBody_example",
   ],
 };
 
-const data = await apiInstance.bookControllerAddMyGoodReadsBooks(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerAddMyGoodReadsBooks(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -142,19 +144,20 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindBookByIdRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindBookByIdRequest = {
-  
+let body:.BooksApiBookControllerFindBookByIdRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.bookControllerFindBookById(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindBookById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -195,14 +198,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindBookByStatusRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindBookByStatusRequest = {
-  
+let body:.BooksApiBookControllerFindBookByStatusRequest = {
+  // BookByStatusDto
   bookByStatusDto: {
     search: "search_example",
     status: "status_example",
@@ -212,8 +215,9 @@ const request: BooksApiBookControllerFindBookByStatusRequest = {
   },
 };
 
-const data = await apiInstance.bookControllerFindBookByStatus(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindBookByStatus(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -254,14 +258,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindBookReviewBaseRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindBookReviewBaseRequest = {
-  
+let body:.BooksApiBookControllerFindBookReviewBaseRequest = {
+  // UserBookStatusQueryDto
   userBookStatusQueryDto: {
     type: "type_example",
     rate: 3.14,
@@ -272,8 +276,9 @@ const request: BooksApiBookControllerFindBookReviewBaseRequest = {
   },
 };
 
-const data = await apiInstance.bookControllerFindBookReviewBase(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindBookReviewBase(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -314,25 +319,26 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindBooksRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindBooksRequest = {
-  
+let body:.BooksApiBookControllerFindBooksRequest = {
+  // number
   rate: 3.14,
-  
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.bookControllerFindBooks(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindBooks(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -376,14 +382,14 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindGoodReadsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindGoodReadsRequest = {
-  
+let body:.BooksApiBookControllerFindGoodReadsRequest = {
+  // GoodReadsBookPayloadDto
   goodReadsBookPayloadDto: {
     books: [
       "books_example",
@@ -392,8 +398,9 @@ const request: BooksApiBookControllerFindGoodReadsRequest = {
   },
 };
 
-const data = await apiInstance.bookControllerFindGoodReads(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindGoodReads(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -434,25 +441,26 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindUserBookReviewRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindUserBookReviewRequest = {
-  
+let body:.BooksApiBookControllerFindUserBookReviewRequest = {
+  // string
   bookId: "bookId_example",
-  
+  // string (optional)
   status: "status_example",
-  
+  // number (optional)
   rate: 3.14,
-  
+  // string (optional)
   review: "review_example",
 };
 
-const data = await apiInstance.bookControllerFindUserBookReview(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindUserBookReview(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -496,25 +504,26 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindUserBookReviewCountRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindUserBookReviewCountRequest = {
-  
+let body:.BooksApiBookControllerFindUserBookReviewCountRequest = {
+  // string
   bookId: "bookId_example",
-  
+  // string (optional)
   status: "status_example",
-  
+  // number (optional)
   rate: 3.14,
-  
+  // string (optional)
   review: "review_example",
 };
 
-const data = await apiInstance.bookControllerFindUserBookReviewCount(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindUserBookReviewCount(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -558,25 +567,26 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerFindUserBookReviewsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerFindUserBookReviewsRequest = {
-  
+let body:.BooksApiBookControllerFindUserBookReviewsRequest = {
+  // string
   bookId: "bookId_example",
-  
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // Array<number> (optional)
   rate: [],
 };
 
-const data = await apiInstance.bookControllerFindUserBookReviews(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindUserBookReviews(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -620,15 +630,17 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.bookControllerFindUserWhichReadBook(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerFindUserWhichReadBook(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -666,14 +678,14 @@ This endpoint does not need any parameter.
 
 
 ```typescript
-import { createConfiguration, BooksApi } from '';
-import type { BooksApiBookControllerUserBookMarkRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new BooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
 
-const request: BooksApiBookControllerUserBookMarkRequest = {
-  
+let body:.BooksApiBookControllerUserBookMarkRequest = {
+  // UserBookPayloadDto
   userBookPayloadDto: {
     bookId: "bookId_example",
     status: "status_example",
@@ -682,8 +694,9 @@ const request: BooksApiBookControllerUserBookMarkRequest = {
   },
 };
 
-const data = await apiInstance.bookControllerUserBookMark(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.bookControllerUserBookMark(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

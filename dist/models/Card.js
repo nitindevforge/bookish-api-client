@@ -8,7 +8,6 @@ var Card = (function () {
         return Card.attributeTypeMap;
     };
     Card.discriminator = undefined;
-    Card.mapping = undefined;
     Card.attributeTypeMap = [
         {
             "name": "brand",

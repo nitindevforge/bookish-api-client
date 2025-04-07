@@ -8,7 +8,6 @@ var RoleResponseDto = (function () {
         return RoleResponseDto.attributeTypeMap;
     };
     RoleResponseDto.discriminator = undefined;
-    RoleResponseDto.mapping = undefined;
     RoleResponseDto.attributeTypeMap = [
         {
             "name": "id",

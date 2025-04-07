@@ -8,7 +8,6 @@ var GoodReadsBookPayloadDto = (function () {
         return GoodReadsBookPayloadDto.attributeTypeMap;
     };
     GoodReadsBookPayloadDto.discriminator = undefined;
-    GoodReadsBookPayloadDto.mapping = undefined;
     GoodReadsBookPayloadDto.attributeTypeMap = [
         {
             "name": "books",

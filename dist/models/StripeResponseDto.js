@@ -8,7 +8,6 @@ var StripeResponseDto = (function () {
         return StripeResponseDto.attributeTypeMap;
     };
     StripeResponseDto.discriminator = undefined;
-    StripeResponseDto.mapping = undefined;
     StripeResponseDto.attributeTypeMap = [
         {
             "name": "data",

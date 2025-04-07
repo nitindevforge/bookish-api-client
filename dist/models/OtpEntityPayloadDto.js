@@ -8,7 +8,6 @@ var OtpEntityPayloadDto = (function () {
         return OtpEntityPayloadDto.attributeTypeMap;
     };
     OtpEntityPayloadDto.discriminator = undefined;
-    OtpEntityPayloadDto.mapping = undefined;
     OtpEntityPayloadDto.attributeTypeMap = [
         {
             "name": "otp",

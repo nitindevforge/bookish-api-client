@@ -15,21 +15,22 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, StorageApi } from '';
-import type { StorageApiStorageControllerGetPreSignedURLRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new StorageApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .StorageApi(configuration);
 
-const request: StorageApiStorageControllerGetPreSignedURLRequest = {
-  
+let body:.StorageApiStorageControllerGetPreSignedURLRequest = {
+  // FileUploadDto
   fileUploadDto: {
     fileName: "fileName_example",
   },
 };
 
-const data = await apiInstance.storageControllerGetPreSignedURL(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.storageControllerGetPreSignedURL(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

@@ -17,14 +17,14 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, FollowerApi } from '';
-import type { FollowerApiFollowerControllerFindMyFriendsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new FollowerApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .FollowerApi(configuration);
 
-const request: FollowerApiFollowerControllerFindMyFriendsRequest = {
-  
+let body:.FollowerApiFollowerControllerFindMyFriendsRequest = {
+  // MyFriendPayloadDto
   myFriendPayloadDto: {
     id: "id_example",
     page: 3.14,
@@ -33,8 +33,9 @@ const request: FollowerApiFollowerControllerFindMyFriendsRequest = {
   },
 };
 
-const data = await apiInstance.followerControllerFindMyFriends(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.followerControllerFindMyFriends(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -75,21 +76,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, FollowerApi } from '';
-import type { FollowerApiFollowerControllerFollowRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new FollowerApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .FollowerApi(configuration);
 
-const request: FollowerApiFollowerControllerFollowRequest = {
-  
+let body:.FollowerApiFollowerControllerFollowRequest = {
+  // FollowerPayloadDto
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-const data = await apiInstance.followerControllerFollow(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.followerControllerFollow(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -130,21 +132,22 @@ Name | Type | Description  | Notes
 
 
 ```typescript
-import { createConfiguration, FollowerApi } from '';
-import type { FollowerApiFollowerControllerUnfollowRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new FollowerApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .FollowerApi(configuration);
 
-const request: FollowerApiFollowerControllerUnfollowRequest = {
-  
+let body:.FollowerApiFollowerControllerUnfollowRequest = {
+  // FollowerPayloadDto
   followerPayloadDto: {
     follower: "follower_example",
   },
 };
 
-const data = await apiInstance.followerControllerUnfollow(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.followerControllerUnfollow(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

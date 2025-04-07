@@ -8,7 +8,6 @@ var Address = (function () {
         return Address.attributeTypeMap;
     };
     Address.discriminator = undefined;
-    Address.mapping = undefined;
     Address.attributeTypeMap = [
         {
             "name": "city",

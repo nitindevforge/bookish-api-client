@@ -8,7 +8,6 @@ var ChangePayloadDto = (function () {
         return ChangePayloadDto.attributeTypeMap;
     };
     ChangePayloadDto.discriminator = undefined;
-    ChangePayloadDto.mapping = undefined;
     ChangePayloadDto.attributeTypeMap = [
         {
             "name": "email",

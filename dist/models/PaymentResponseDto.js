@@ -8,7 +8,6 @@ var PaymentResponseDto = (function () {
         return PaymentResponseDto.attributeTypeMap;
     };
     PaymentResponseDto.discriminator = undefined;
-    PaymentResponseDto.mapping = undefined;
     PaymentResponseDto.attributeTypeMap = [
         {
             "name": "data",

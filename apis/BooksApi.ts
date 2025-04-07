@@ -541,10 +541,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (rate !== undefined) {
-            const serializedParams = ObjectSerializer.serialize(rate, "Array<number>", "");
-            for (const serializedParam of serializedParams) {
-                requestContext.appendQueryParam("rate", serializedParam);
-            }
+            requestContext.setQueryParam("rate", ObjectSerializer.serialize(rate, "Array<number>", ""));
         }
 
 

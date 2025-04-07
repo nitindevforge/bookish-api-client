@@ -462,12 +462,12 @@ var PromiseEventsApi = (function () {
         var result = this.api.eventControllerFindEventById(id, withBookedEvent, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, longitude, latitude, userId, _options) {
-        var result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, userId, _options);
+    PromiseEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (page, limit, longitude, latitude, userId, search, _options) {
+        var result = this.api.eventControllerFindEventsWithHttpInfo(page, limit, longitude, latitude, userId, search, _options);
         return result.toPromise();
     };
-    PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, _options) {
-        var result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, userId, _options);
+    PromiseEventsApi.prototype.eventControllerFindEvents = function (page, limit, longitude, latitude, userId, search, _options) {
+        var result = this.api.eventControllerFindEvents(page, limit, longitude, latitude, userId, search, _options);
         return result.toPromise();
     };
     PromiseEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (eventId, _options) {

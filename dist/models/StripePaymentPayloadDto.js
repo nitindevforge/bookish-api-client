@@ -8,7 +8,6 @@ var StripePaymentPayloadDto = (function () {
         return StripePaymentPayloadDto.attributeTypeMap;
     };
     StripePaymentPayloadDto.discriminator = undefined;
-    StripePaymentPayloadDto.mapping = undefined;
     StripePaymentPayloadDto.attributeTypeMap = [
         {
             "name": "paymentId",

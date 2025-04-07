@@ -8,7 +8,6 @@ var MyFriendsResponse = (function () {
         return MyFriendsResponse.attributeTypeMap;
     };
     MyFriendsResponse.discriminator = undefined;
-    MyFriendsResponse.mapping = undefined;
     MyFriendsResponse.attributeTypeMap = [
         {
             "name": "users",

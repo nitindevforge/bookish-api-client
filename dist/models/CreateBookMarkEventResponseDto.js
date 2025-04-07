@@ -8,7 +8,6 @@ var CreateBookMarkEventResponseDto = (function () {
         return CreateBookMarkEventResponseDto.attributeTypeMap;
     };
     CreateBookMarkEventResponseDto.discriminator = undefined;
-    CreateBookMarkEventResponseDto.mapping = undefined;
     CreateBookMarkEventResponseDto.attributeTypeMap = [
         {
             "name": "data",

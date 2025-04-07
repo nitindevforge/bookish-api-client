@@ -8,7 +8,6 @@ var CardSecure = (function () {
         return CardSecure.attributeTypeMap;
     };
     CardSecure.discriminator = undefined;
-    CardSecure.mapping = undefined;
     CardSecure.attributeTypeMap = [
         {
             "name": "supported",

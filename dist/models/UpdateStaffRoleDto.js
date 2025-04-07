@@ -8,7 +8,6 @@ var UpdateStaffRoleDto = (function () {
         return UpdateStaffRoleDto.attributeTypeMap;
     };
     UpdateStaffRoleDto.discriminator = undefined;
-    UpdateStaffRoleDto.mapping = undefined;
     UpdateStaffRoleDto.attributeTypeMap = [
         {
             "name": "name",

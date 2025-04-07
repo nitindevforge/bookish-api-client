@@ -8,7 +8,6 @@ var CardListResponseDto = (function () {
         return CardListResponseDto.attributeTypeMap;
     };
     CardListResponseDto.discriminator = undefined;
-    CardListResponseDto.mapping = undefined;
     CardListResponseDto.attributeTypeMap = [
         {
             "name": "data",

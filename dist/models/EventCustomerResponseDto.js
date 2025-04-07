@@ -8,7 +8,6 @@ var EventCustomerResponseDto = (function () {
         return EventCustomerResponseDto.attributeTypeMap;
     };
     EventCustomerResponseDto.discriminator = undefined;
-    EventCustomerResponseDto.mapping = undefined;
     EventCustomerResponseDto.attributeTypeMap = [
         {
             "name": "data",

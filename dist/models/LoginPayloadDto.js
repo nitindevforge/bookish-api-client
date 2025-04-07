@@ -8,7 +8,6 @@ var LoginPayloadDto = (function () {
         return LoginPayloadDto.attributeTypeMap;
     };
     LoginPayloadDto.discriminator = undefined;
-    LoginPayloadDto.mapping = undefined;
     LoginPayloadDto.attributeTypeMap = [
         {
             "name": "email",

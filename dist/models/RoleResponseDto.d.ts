@@ -5,9 +5,6 @@ export declare class RoleResponseDto {
     'description': string;
     'permissions': Array<PermissionResponseDto>;
     static readonly discriminator: string | undefined;
-    static readonly mapping: {
-        [index: string]: string;
-    } | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
         baseName: string;

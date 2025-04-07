@@ -15,23 +15,24 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, FriendsApi } from '';
-import type { FriendsApiFriendControllerFindFriendsRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new FriendsApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .FriendsApi(configuration);
 
-const request: FriendsApiFriendControllerFindFriendsRequest = {
-  
+let body:.FriendsApiFriendControllerFindFriendsRequest = {
+  // number
   page: 3.14,
-  
+  // number
   limit: 3.14,
-  
+  // string (optional)
   search: "search_example",
 };
 
-const data = await apiInstance.friendControllerFindFriends(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.friendControllerFindFriends(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

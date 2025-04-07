@@ -8,7 +8,6 @@ var BusinessConnectedAccount = (function () {
         return BusinessConnectedAccount.attributeTypeMap;
     };
     BusinessConnectedAccount.discriminator = undefined;
-    BusinessConnectedAccount.mapping = undefined;
     BusinessConnectedAccount.attributeTypeMap = [
         {
             "name": "id",

@@ -378,6 +378,7 @@ export interface EventsApiEventControllerFindEventsRequest {
     longitude?: number;
     latitude?: number;
     userId?: string;
+    search?: string;
 }
 export interface EventsApiEventControllerFindMyEventRequest {
     eventId: string;

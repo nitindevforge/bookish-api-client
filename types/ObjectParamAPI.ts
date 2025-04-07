@@ -112,7 +112,6 @@ import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor} from "../api
 export interface AnalyticsApiAnalyticsControllerGetAnalyticsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AnalyticsApianalyticsControllerGetAnalytics
      */
@@ -205,7 +204,6 @@ export interface AuthApiAuthControllerCreateUserRequest {
 export interface AuthApiAuthControllerDeleteRoleRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerDeleteRole
      */
@@ -215,7 +213,6 @@ export interface AuthApiAuthControllerDeleteRoleRequest {
 export interface AuthApiAuthControllerDeleteStaffRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerDeleteStaff
      */
@@ -225,7 +222,6 @@ export interface AuthApiAuthControllerDeleteStaffRequest {
 export interface AuthApiAuthControllerDeleteStaffRoleRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerDeleteStaffRole
      */
@@ -244,42 +240,36 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
 export interface AuthApiAuthControllerGetActivityRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     longitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetActivity
      */
     latitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerGetActivity
      */
     global?: boolean
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetActivity
      */
@@ -289,28 +279,24 @@ export interface AuthApiAuthControllerGetActivityRequest {
 export interface AuthApiAuthControllerGetAllStaffRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetAllStaff
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetAllStaff
      */
     ownerId: string
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetAllStaff
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetAllStaff
      */
@@ -320,42 +306,36 @@ export interface AuthApiAuthControllerGetAllStaffRequest {
 export interface AuthApiAuthControllerGetEventsActivityRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     longitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     latitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerGetEventsActivity
      */
     global?: boolean
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetEventsActivity
      */
@@ -365,35 +345,30 @@ export interface AuthApiAuthControllerGetEventsActivityRequest {
 export interface AuthApiAuthControllerGetEventsActivityByTypeRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivityByType
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerGetEventsActivityByType
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetEventsActivityByType
      */
     type: string
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetEventsActivityByType
      */
     userId?: string
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetEventsActivityByType
      */
@@ -409,7 +384,6 @@ export interface AuthApiAuthControllerGetPermissionRequest {
 export interface AuthApiAuthControllerGetStaffRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetStaff
      */
@@ -419,7 +393,6 @@ export interface AuthApiAuthControllerGetStaffRequest {
 export interface AuthApiAuthControllerGetStaffRoleRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerGetStaffRole
      */
@@ -438,35 +411,30 @@ export interface AuthApiAuthControllerLoginRequest {
 export interface AuthApiAuthControllerStaffRolesRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerStaffRoles
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerStaffRoles
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerStaffRoles
      */
     allRoles?: boolean
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerStaffRoles
      */
     ownerId?: string
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerStaffRoles
      */
@@ -485,7 +453,6 @@ export interface AuthApiAuthControllerUpdateRequest {
 export interface AuthApiAuthControllerUpdateRolesRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUpdateRoles
      */
@@ -501,7 +468,6 @@ export interface AuthApiAuthControllerUpdateRolesRequest {
 export interface AuthApiAuthControllerUpdateStaffRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUpdateStaff
      */
@@ -517,7 +483,6 @@ export interface AuthApiAuthControllerUpdateStaffRequest {
 export interface AuthApiAuthControllerUpdateStaffRolesRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUpdateStaffRoles
      */
@@ -533,28 +498,24 @@ export interface AuthApiAuthControllerUpdateStaffRolesRequest {
 export interface AuthApiAuthControllerUserRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerUser
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof AuthApiauthControllerUser
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof AuthApiauthControllerUser
      */
     allRoles?: boolean
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUser
      */
@@ -564,7 +525,6 @@ export interface AuthApiAuthControllerUserRequest {
 export interface AuthApiAuthControllerUserByIdRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUserById
      */
@@ -574,7 +534,6 @@ export interface AuthApiAuthControllerUserByIdRequest {
 export interface AuthApiAuthControllerUserFollowersRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof AuthApiauthControllerUserFollowers
      */
@@ -1092,7 +1051,6 @@ export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
 export interface BooksApiBookControllerFindBookByIdRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBookById
      */
@@ -1120,28 +1078,24 @@ export interface BooksApiBookControllerFindBookReviewBaseRequest {
 export interface BooksApiBookControllerFindBooksRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     rate: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindBooks
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindBooks
      */
@@ -1160,28 +1114,24 @@ export interface BooksApiBookControllerFindGoodReadsRequest {
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
     bookId: string
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
     status?: string
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReview
      */
     rate?: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReview
      */
@@ -1191,28 +1141,24 @@ export interface BooksApiBookControllerFindUserBookReviewRequest {
 export interface BooksApiBookControllerFindUserBookReviewCountRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     bookId: string
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     status?: string
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
     rate?: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviewCount
      */
@@ -1222,28 +1168,24 @@ export interface BooksApiBookControllerFindUserBookReviewCountRequest {
 export interface BooksApiBookControllerFindUserBookReviewsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     bookId: string
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof BooksApibookControllerFindUserBookReviews
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type Array&lt;number&gt;
      * @memberof BooksApibookControllerFindUserBookReviews
      */
@@ -1483,21 +1425,18 @@ export interface EventsApiEventControllerBookMarkEventRequest {
 export interface EventsApiEventControllerBookMarkEventListRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerBookMarkEventList
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerBookMarkEventList
      */
     limit?: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerBookMarkEventList
      */
@@ -1516,7 +1455,6 @@ export interface EventsApiEventControllerCreateEventRequest {
 export interface EventsApiEventControllerDeleteBookMarkEventRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerDeleteBookMarkEvent
      */
@@ -1526,14 +1464,12 @@ export interface EventsApiEventControllerDeleteBookMarkEventRequest {
 export interface EventsApiEventControllerDeleteEventRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerDeleteEvent
      */
     id: string
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof EventsApieventControllerDeleteEvent
      */
@@ -1543,7 +1479,6 @@ export interface EventsApiEventControllerDeleteEventRequest {
 export interface EventsApiEventControllerFindCustomerOfEventsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindCustomerOfEvents
      */
@@ -1553,14 +1488,12 @@ export interface EventsApiEventControllerFindCustomerOfEventsRequest {
 export interface EventsApiEventControllerFindEventByIdRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindEventById
      */
     id: string
     /**
      * 
-     * Defaults to: undefined
      * @type boolean
      * @memberof EventsApieventControllerFindEventById
      */
@@ -1570,45 +1503,45 @@ export interface EventsApiEventControllerFindEventByIdRequest {
 export interface EventsApiEventControllerFindEventsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
     limit?: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
     longitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindEvents
      */
     latitude?: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindEvents
      */
     userId?: string
+    /**
+     * 
+     * @type string
+     * @memberof EventsApieventControllerFindEvents
+     */
+    search?: string
 }
 
 export interface EventsApiEventControllerFindMyEventRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerFindMyEvent
      */
@@ -1618,21 +1551,18 @@ export interface EventsApiEventControllerFindMyEventRequest {
 export interface EventsApiEventControllerFindMyUpcomingEventsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
     limit: number
     /**
      * 
-     * Defaults to: &#39;UPCOMING&#39;
      * @type &#39;UPCOMING&#39; | &#39;VISITED&#39;
      * @memberof EventsApieventControllerFindMyUpcomingEvents
      */
@@ -1651,7 +1581,6 @@ export interface EventsApiEventControllerFindSearchPlacesRequest {
 export interface EventsApiEventControllerGetBookMarkEventStatusRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof EventsApieventControllerGetBookMarkEventStatus
      */
@@ -1776,14 +1705,14 @@ export class ObjectEventsApi {
      * @param param the request object
      */
     public eventControllerFindEventsWithHttpInfo(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<HttpInfo<EventsResponseDto>> {
-        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.userId,  options).toPromise();
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.userId, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public eventControllerFindEvents(param: EventsApiEventControllerFindEventsRequest, options?: Configuration): Promise<EventsResponseDto> {
-        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, param.userId,  options).toPromise();
+        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, param.userId, param.search,  options).toPromise();
     }
 
     /**
@@ -1945,21 +1874,18 @@ import { FriendsApiRequestFactory, FriendsApiResponseProcessor} from "../apis/Fr
 export interface FriendsApiFriendControllerFindFriendsRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof FriendsApifriendControllerFindFriends
      */
     page: number
     /**
      * 
-     * Defaults to: undefined
      * @type number
      * @memberof FriendsApifriendControllerFindFriends
      */
     limit: number
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof FriendsApifriendControllerFindFriends
      */
@@ -1995,7 +1921,6 @@ import { NielsenBooksApiRequestFactory, NielsenBooksApiResponseProcessor} from "
 export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof NielsenBooksApinielsenBooksControllerGetNielsenBookById
      */
@@ -2011,7 +1936,6 @@ export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest 
 export interface NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest {
     /**
      * 
-     * Defaults to: undefined
      * @type string
      * @memberof NielsenBooksApinielsenBooksControllerGetNielsenBookImageById
      */

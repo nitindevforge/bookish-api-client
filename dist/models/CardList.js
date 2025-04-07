@@ -8,7 +8,6 @@ var CardList = (function () {
         return CardList.attributeTypeMap;
     };
     CardList.discriminator = undefined;
-    CardList.mapping = undefined;
     CardList.attributeTypeMap = [
         {
             "name": "id",

@@ -17,21 +17,22 @@ Method | HTTP request | Description
 
 
 ```typescript
-import { createConfiguration, NielsenBooksApi } from '';
-import type { NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new NielsenBooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .NielsenBooksApi(configuration);
 
-const request: NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest = {
-  
+let body:.NielsenBooksApiNielsenBooksControllerGetNielsenBookByIdRequest = {
+  // string
   id: "id_example",
-  
+  // any
   body: {},
 };
 
-const data = await apiInstance.nielsenBooksControllerGetNielsenBookById(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.nielsenBooksControllerGetNielsenBookById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -72,19 +73,20 @@ void (empty response body)
 
 
 ```typescript
-import { createConfiguration, NielsenBooksApi } from '';
-import type { NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new NielsenBooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .NielsenBooksApi(configuration);
 
-const request: NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest = {
-  
+let body:.NielsenBooksApiNielsenBooksControllerGetNielsenBookImageByIdRequest = {
+  // string
   id: "id_example",
 };
 
-const data = await apiInstance.nielsenBooksControllerGetNielsenBookImageById(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.nielsenBooksControllerGetNielsenBookImageById(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 
@@ -124,15 +126,17 @@ No authorization required
 
 
 ```typescript
-import { createConfiguration, NielsenBooksApi } from '';
+import {  } from '';
+import * as fs from 'fs';
 
-const configuration = createConfiguration();
-const apiInstance = new NielsenBooksApi(configuration);
+const configuration = .createConfiguration();
+const apiInstance = new .NielsenBooksApi(configuration);
 
-const request = {};
+let body:any = {};
 
-const data = await apiInstance.nielsenBooksControllerGetNielsenBooks(request);
-console.log('API called successfully. Returned data:', data);
+apiInstance.nielsenBooksControllerGetNielsenBooks(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
 ```
 
 

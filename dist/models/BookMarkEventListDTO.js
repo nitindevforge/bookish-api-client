@@ -8,7 +8,6 @@ var BookMarkEventListDTO = (function () {
         return BookMarkEventListDTO.attributeTypeMap;
     };
     BookMarkEventListDTO.discriminator = undefined;
-    BookMarkEventListDTO.mapping = undefined;
     BookMarkEventListDTO.attributeTypeMap = [
         {
             "name": "id",

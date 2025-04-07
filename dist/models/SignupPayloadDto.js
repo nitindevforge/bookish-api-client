@@ -8,7 +8,6 @@ var SignupPayloadDto = (function () {
         return SignupPayloadDto.attributeTypeMap;
     };
     SignupPayloadDto.discriminator = undefined;
-    SignupPayloadDto.mapping = undefined;
     SignupPayloadDto.attributeTypeMap = [
         {
             "name": "userName",

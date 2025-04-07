@@ -8,7 +8,6 @@ var UserBooks = (function () {
         return UserBooks.attributeTypeMap;
     };
     UserBooks.discriminator = undefined;
-    UserBooks.mapping = undefined;
     UserBooks.attributeTypeMap = [
         {
             "name": "id",

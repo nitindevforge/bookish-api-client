@@ -369,10 +369,10 @@ var ObjectEventsApi = (function () {
         return this.api.eventControllerFindEventById(param.id, param.withBookedEvent, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEventsWithHttpInfo = function (param, options) {
-        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.userId, options).toPromise();
+        return this.api.eventControllerFindEventsWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.userId, param.search, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindEvents = function (param, options) {
-        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, param.userId, options).toPromise();
+        return this.api.eventControllerFindEvents(param.page, param.limit, param.longitude, param.latitude, param.userId, param.search, options).toPromise();
     };
     ObjectEventsApi.prototype.eventControllerFindMyEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerFindMyEventWithHttpInfo(param.eventId, options).toPromise();

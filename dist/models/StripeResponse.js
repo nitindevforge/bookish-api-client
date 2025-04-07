@@ -8,7 +8,6 @@ var StripeResponse = (function () {
         return StripeResponse.attributeTypeMap;
     };
     StripeResponse.discriminator = undefined;
-    StripeResponse.mapping = undefined;
     StripeResponse.attributeTypeMap = [
         {
             "name": "paymentId",

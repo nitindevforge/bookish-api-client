@@ -8,7 +8,6 @@ var UpdateStaffDto = (function () {
         return UpdateStaffDto.attributeTypeMap;
     };
     UpdateStaffDto.discriminator = undefined;
-    UpdateStaffDto.mapping = undefined;
     UpdateStaffDto.attributeTypeMap = [
         {
             "name": "firstName",

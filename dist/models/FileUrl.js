@@ -8,7 +8,6 @@ var FileUrl = (function () {
         return FileUrl.attributeTypeMap;
     };
     FileUrl.discriminator = undefined;
-    FileUrl.mapping = undefined;
     FileUrl.attributeTypeMap = [
         {
             "name": "file",

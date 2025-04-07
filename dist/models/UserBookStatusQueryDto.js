@@ -8,7 +8,6 @@ var UserBookStatusQueryDto = (function () {
         return UserBookStatusQueryDto.attributeTypeMap;
     };
     UserBookStatusQueryDto.discriminator = undefined;
-    UserBookStatusQueryDto.mapping = undefined;
     UserBookStatusQueryDto.attributeTypeMap = [
         {
             "name": "type",

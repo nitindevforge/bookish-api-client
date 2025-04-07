@@ -8,7 +8,6 @@ var ForgetPasswordEntityResponse = (function () {
         return ForgetPasswordEntityResponse.attributeTypeMap;
     };
     ForgetPasswordEntityResponse.discriminator = undefined;
-    ForgetPasswordEntityResponse.mapping = undefined;
     ForgetPasswordEntityResponse.attributeTypeMap = [
         {
             "name": "email",

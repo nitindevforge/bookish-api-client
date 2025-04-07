@@ -8,7 +8,6 @@ var PermissionResponseDto = (function () {
         return PermissionResponseDto.attributeTypeMap;
     };
     PermissionResponseDto.discriminator = undefined;
-    PermissionResponseDto.mapping = undefined;
     PermissionResponseDto.attributeTypeMap = [
         {
             "name": "id",

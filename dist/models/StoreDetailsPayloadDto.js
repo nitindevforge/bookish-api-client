@@ -8,7 +8,6 @@ var StoreDetailsPayloadDto = (function () {
         return StoreDetailsPayloadDto.attributeTypeMap;
     };
     StoreDetailsPayloadDto.discriminator = undefined;
-    StoreDetailsPayloadDto.mapping = undefined;
     StoreDetailsPayloadDto.attributeTypeMap = [
         {
             "name": "storeName",

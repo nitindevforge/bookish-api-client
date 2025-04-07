@@ -8,7 +8,6 @@ var MyFriendPayloadDto = (function () {
         return MyFriendPayloadDto.attributeTypeMap;
     };
     MyFriendPayloadDto.discriminator = undefined;
-    MyFriendPayloadDto.mapping = undefined;
     MyFriendPayloadDto.attributeTypeMap = [
         {
             "name": "id",

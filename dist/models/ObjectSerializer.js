@@ -343,7 +343,7 @@ var typeMap = {
     "VerificationLinkResponseDTO": VerificationLinkResponseDTO_1.VerificationLinkResponseDTO,
 };
 var parseMimeType = function (mimeType) {
-    var _a = mimeType.split('/'), _b = _a[0], type = _b === void 0 ? '' : _b, _c = _a[1], subtype = _c === void 0 ? '' : _c;
+    var _a = mimeType.split('/'), type = _a[0], subtype = _a[1];
     return {
         type: type,
         subtype: subtype,
@@ -370,12 +370,6 @@ var supportedMimeTypePredicatesWithPriority = [
     isOctetStreamMimeType,
     isFormUrlencodedMimeType,
 ];
-var nullableSuffix = " | null";
-var optionalSuffix = " | undefined";
-var arrayPrefix = "Array<";
-var arraySuffix = ">";
-var mapPrefix = "{ [key: string]: ";
-var mapSuffix = "; }";
 var ObjectSerializer = (function () {
     function ObjectSerializer() {
     }
@@ -403,11 +397,7 @@ var ObjectSerializer = (function () {
             else {
                 if (data[discriminatorProperty]) {
                     var discriminatorType = data[discriminatorProperty];
-                    var mapping = typeMap[expectedType].mapping;
-                    if (mapping != undefined && mapping[discriminatorType]) {
-                        return mapping[discriminatorType];
-                    }
-                    else if (typeMap[discriminatorType]) {
+                    if (typeMap[discriminatorType]) {
                         return discriminatorType;
                     }
                     else {
@@ -427,28 +417,13 @@ var ObjectSerializer = (function () {
         else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         }
-        else if (type.endsWith(nullableSuffix)) {
-            var subType = type.slice(0, -nullableSuffix.length);
-            return ObjectSerializer.serialize(data, subType, format);
-        }
-        else if (type.endsWith(optionalSuffix)) {
-            var subType = type.slice(0, -optionalSuffix.length);
-            return ObjectSerializer.serialize(data, subType, format);
-        }
-        else if (type.startsWith(arrayPrefix)) {
-            var subType = type.slice(arrayPrefix.length, -arraySuffix.length);
+        else if (type.lastIndexOf("Array<", 0) === 0) {
+            var subType = type.replace("Array<", "");
+            subType = subType.substring(0, subType.length - 1);
             var transformedData = [];
             for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
                 var date = data_1[_i];
                 transformedData.push(ObjectSerializer.serialize(date, subType, format));
-            }
-            return transformedData;
-        }
-        else if (type.startsWith(mapPrefix)) {
-            var subType = type.slice(mapPrefix.length, -mapSuffix.length);
-            var transformedData = {};
-            for (var key in data) {
-                transformedData[key] = ObjectSerializer.serialize(data[key], subType, format);
             }
             return transformedData;
         }
@@ -489,28 +464,13 @@ var ObjectSerializer = (function () {
         else if (primitives.indexOf(type.toLowerCase()) !== -1) {
             return data;
         }
-        else if (type.endsWith(nullableSuffix)) {
-            var subType = type.slice(0, -nullableSuffix.length);
-            return ObjectSerializer.deserialize(data, subType, format);
-        }
-        else if (type.endsWith(optionalSuffix)) {
-            var subType = type.slice(0, -optionalSuffix.length);
-            return ObjectSerializer.deserialize(data, subType, format);
-        }
-        else if (type.startsWith(arrayPrefix)) {
-            var subType = type.slice(arrayPrefix.length, -arraySuffix.length);
+        else if (type.lastIndexOf("Array<", 0) === 0) {
+            var subType = type.replace("Array<", "");
+            subType = subType.substring(0, subType.length - 1);
             var transformedData = [];
             for (var _i = 0, data_2 = data; _i < data_2.length; _i++) {
                 var date = data_2[_i];
                 transformedData.push(ObjectSerializer.deserialize(date, subType, format));
-            }
-            return transformedData;
-        }
-        else if (type.startsWith(mapPrefix)) {
-            var subType = type.slice(mapPrefix.length, -mapSuffix.length);
-            var transformedData = {};
-            for (var key in data) {
-                transformedData[key] = ObjectSerializer.deserialize(data[key], subType, format);
             }
             return transformedData;
         }
@@ -537,11 +497,10 @@ var ObjectSerializer = (function () {
         }
     };
     ObjectSerializer.normalizeMediaType = function (mediaType) {
-        var _a;
         if (mediaType === undefined) {
             return undefined;
         }
-        return ((_a = mediaType.split(";")[0]) !== null && _a !== void 0 ? _a : '').trim().toLowerCase();
+        return mediaType.split(";")[0].trim().toLowerCase();
     };
     ObjectSerializer.getPreferredMediaType = function (mediaTypes) {
         if (mediaTypes.length === 0) {
