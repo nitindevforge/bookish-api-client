@@ -10,6 +10,7 @@
  * Do not edit the class manually.
  */
 
+import { Book } from '../models/Book';
 import { Location } from '../models/Location';
 import { Places } from '../models/Places';
 import { UserDetails } from '../models/UserDetails';
@@ -29,6 +30,7 @@ export class Events {
     'owner': UserDetails;
     'createdAt': Date;
     'updatedAt': Date;
+    'book': Book;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -110,6 +112,12 @@ export class Events {
             "baseName": "updatedAt",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "book",
+            "baseName": "book",
+            "type": "Book",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {

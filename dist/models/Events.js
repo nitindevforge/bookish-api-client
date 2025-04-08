@@ -86,6 +86,12 @@ var Events = (function () {
             "baseName": "updatedAt",
             "type": "Date",
             "format": "date-time"
+        },
+        {
+            "name": "book",
+            "baseName": "book",
+            "type": "Book",
+            "format": ""
         }
     ];
     return Events;

@@ -1,3 +1,4 @@
+import { Book } from '../models/Book';
 import { Location } from '../models/Location';
 import { Places } from '../models/Places';
 import { UserDetails } from '../models/UserDetails';
@@ -15,6 +16,7 @@ export declare class Events {
     'owner': UserDetails;
     'createdAt': Date;
     'updatedAt': Date;
+    'book': Book;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;
