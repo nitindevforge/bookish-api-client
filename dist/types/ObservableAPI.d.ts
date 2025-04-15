@@ -2,6 +2,7 @@ import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { Observable } from '../rxjsStub';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -21,6 +22,7 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -62,6 +64,8 @@ import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor } from "../apis/AnalyticsApi";
@@ -121,6 +125,8 @@ export declare class ObservableAuthApi {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerStaffRolesWithHttpInfo(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<void>;
+    authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<HttpInfo<UserSyncResponseDto>>;
+    authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<UserSyncResponseDto>;
     authControllerUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Observable<HttpInfo<void>>;
@@ -183,6 +189,15 @@ export declare class ObservableDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>>;
     appControllerGetHello(_options?: Configuration): Observable<void>;
+}
+import { DeviceApiRequestFactory, DeviceApiResponseProcessor } from "../apis/DeviceApi";
+export declare class ObservableDeviceApi {
+    private requestFactory;
+    private responseProcessor;
+    private configuration;
+    constructor(configuration: Configuration, requestFactory?: DeviceApiRequestFactory, responseProcessor?: DeviceApiResponseProcessor);
+    deviceControllerAddDeviceWithHttpInfo(addDevicePayload: AddDevicePayload, _options?: Configuration): Observable<HttpInfo<DeviceAddResponse>>;
+    deviceControllerAddDevice(addDevicePayload: AddDevicePayload, _options?: Configuration): Observable<DeviceAddResponse>;
 }
 import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/EventsApi";
 export declare class ObservableEventsApi {

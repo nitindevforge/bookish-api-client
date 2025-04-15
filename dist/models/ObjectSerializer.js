@@ -18,6 +18,7 @@ exports.ObjectSerializer = void 0;
 __exportStar(require("../models/Activity"), exports);
 __exportStar(require("../models/ActivityResponse"), exports);
 __exportStar(require("../models/ActivityResponseDto"), exports);
+__exportStar(require("../models/AddDevicePayload"), exports);
 __exportStar(require("../models/Address"), exports);
 __exportStar(require("../models/AnalyticsResponseDTO"), exports);
 __exportStar(require("../models/AttendeeDTO"), exports);
@@ -50,6 +51,8 @@ __exportStar(require("../models/CreateRoleDto"), exports);
 __exportStar(require("../models/CreateStaffDto"), exports);
 __exportStar(require("../models/CreateStaffRoleDto"), exports);
 __exportStar(require("../models/DeleteBookMarkEventResponseDto"), exports);
+__exportStar(require("../models/DeviceAddResponse"), exports);
+__exportStar(require("../models/DeviceEntity"), exports);
 __exportStar(require("../models/EventCustomer"), exports);
 __exportStar(require("../models/EventCustomerResponseDto"), exports);
 __exportStar(require("../models/EventDeleteResponseDto"), exports);
@@ -117,11 +120,14 @@ __exportStar(require("../models/UserFollowers"), exports);
 __exportStar(require("../models/UserResponse"), exports);
 __exportStar(require("../models/UserResponseDto"), exports);
 __exportStar(require("../models/UserRolePayloadDto"), exports);
+__exportStar(require("../models/UserSyncDTO"), exports);
+__exportStar(require("../models/UserSyncResponseDto"), exports);
 __exportStar(require("../models/UserUpdatePayloadDto"), exports);
 __exportStar(require("../models/VerificationLinkResponseDTO"), exports);
 var Activity_1 = require("../models/Activity");
 var ActivityResponse_1 = require("../models/ActivityResponse");
 var ActivityResponseDto_1 = require("../models/ActivityResponseDto");
+var AddDevicePayload_1 = require("../models/AddDevicePayload");
 var Address_1 = require("../models/Address");
 var AnalyticsResponseDTO_1 = require("../models/AnalyticsResponseDTO");
 var AttendeeDTO_1 = require("../models/AttendeeDTO");
@@ -154,6 +160,8 @@ var CreateRoleDto_1 = require("../models/CreateRoleDto");
 var CreateStaffDto_1 = require("../models/CreateStaffDto");
 var CreateStaffRoleDto_1 = require("../models/CreateStaffRoleDto");
 var DeleteBookMarkEventResponseDto_1 = require("../models/DeleteBookMarkEventResponseDto");
+var DeviceAddResponse_1 = require("../models/DeviceAddResponse");
+var DeviceEntity_1 = require("../models/DeviceEntity");
 var EventCustomer_1 = require("../models/EventCustomer");
 var EventCustomerResponseDto_1 = require("../models/EventCustomerResponseDto");
 var EventDeleteResponseDto_1 = require("../models/EventDeleteResponseDto");
@@ -221,6 +229,8 @@ var UserFollowers_1 = require("../models/UserFollowers");
 var UserResponse_1 = require("../models/UserResponse");
 var UserResponseDto_1 = require("../models/UserResponseDto");
 var UserRolePayloadDto_1 = require("../models/UserRolePayloadDto");
+var UserSyncDTO_1 = require("../models/UserSyncDTO");
+var UserSyncResponseDto_1 = require("../models/UserSyncResponseDto");
 var UserUpdatePayloadDto_1 = require("../models/UserUpdatePayloadDto");
 var VerificationLinkResponseDTO_1 = require("../models/VerificationLinkResponseDTO");
 var primitives = [
@@ -240,6 +250,7 @@ var typeMap = {
     "Activity": Activity_1.Activity,
     "ActivityResponse": ActivityResponse_1.ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto_1.ActivityResponseDto,
+    "AddDevicePayload": AddDevicePayload_1.AddDevicePayload,
     "Address": Address_1.Address,
     "AnalyticsResponseDTO": AnalyticsResponseDTO_1.AnalyticsResponseDTO,
     "AttendeeDTO": AttendeeDTO_1.AttendeeDTO,
@@ -272,6 +283,8 @@ var typeMap = {
     "CreateStaffDto": CreateStaffDto_1.CreateStaffDto,
     "CreateStaffRoleDto": CreateStaffRoleDto_1.CreateStaffRoleDto,
     "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto_1.DeleteBookMarkEventResponseDto,
+    "DeviceAddResponse": DeviceAddResponse_1.DeviceAddResponse,
+    "DeviceEntity": DeviceEntity_1.DeviceEntity,
     "EventCustomer": EventCustomer_1.EventCustomer,
     "EventCustomerResponseDto": EventCustomerResponseDto_1.EventCustomerResponseDto,
     "EventDeleteResponseDto": EventDeleteResponseDto_1.EventDeleteResponseDto,
@@ -339,6 +352,8 @@ var typeMap = {
     "UserResponse": UserResponse_1.UserResponse,
     "UserResponseDto": UserResponseDto_1.UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto_1.UserRolePayloadDto,
+    "UserSyncDTO": UserSyncDTO_1.UserSyncDTO,
+    "UserSyncResponseDto": UserSyncResponseDto_1.UserSyncResponseDto,
     "UserUpdatePayloadDto": UserUpdatePayloadDto_1.UserUpdatePayloadDto,
     "VerificationLinkResponseDTO": VerificationLinkResponseDTO_1.VerificationLinkResponseDTO,
 };

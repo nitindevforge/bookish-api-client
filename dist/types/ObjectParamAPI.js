@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectNielsenBooksApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = exports.ObjectAnalyticsApi = void 0;
+exports.ObjectStorageApi = exports.ObjectPaymentApi = exports.ObjectNielsenBooksApi = exports.ObjectFriendsApi = exports.ObjectFollowerApi = exports.ObjectEventsApi = exports.ObjectDeviceApi = exports.ObjectDefaultApi = exports.ObjectBooksApi = exports.ObjectAuthApi = exports.ObjectAnalyticsApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var ObjectAnalyticsApi = (function () {
     function ObjectAnalyticsApi(configuration, requestFactory, responseProcessor) {
@@ -151,6 +151,12 @@ var ObjectAuthApi = (function () {
     };
     ObjectAuthApi.prototype.authControllerStaffRoles = function (param, options) {
         return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerSyncUserInfoWithHttpInfo = function (param, options) {
+        return this.api.authControllerSyncUserInfoWithHttpInfo(param.userSyncDTO, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerSyncUserInfo = function (param, options) {
+        return this.api.authControllerSyncUserInfo(param.userSyncDTO, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerUpdateWithHttpInfo = function (param, options) {
         return this.api.authControllerUpdateWithHttpInfo(param.storeDetailsPayloadDto, options).toPromise();
@@ -322,9 +328,23 @@ var ObjectDefaultApi = (function () {
 }());
 exports.ObjectDefaultApi = ObjectDefaultApi;
 var ObservableAPI_5 = require("./ObservableAPI");
+var ObjectDeviceApi = (function () {
+    function ObjectDeviceApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_5.ObservableDeviceApi(configuration, requestFactory, responseProcessor);
+    }
+    ObjectDeviceApi.prototype.deviceControllerAddDeviceWithHttpInfo = function (param, options) {
+        return this.api.deviceControllerAddDeviceWithHttpInfo(param.addDevicePayload, options).toPromise();
+    };
+    ObjectDeviceApi.prototype.deviceControllerAddDevice = function (param, options) {
+        return this.api.deviceControllerAddDevice(param.addDevicePayload, options).toPromise();
+    };
+    return ObjectDeviceApi;
+}());
+exports.ObjectDeviceApi = ObjectDeviceApi;
+var ObservableAPI_6 = require("./ObservableAPI");
 var ObjectEventsApi = (function () {
     function ObjectEventsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableEventsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectEventsApi.prototype.eventControllerBookMarkEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerBookMarkEventWithHttpInfo(param.bookMarkEventPayloadDto, options).toPromise();
@@ -407,10 +427,10 @@ var ObjectEventsApi = (function () {
     return ObjectEventsApi;
 }());
 exports.ObjectEventsApi = ObjectEventsApi;
-var ObservableAPI_6 = require("./ObservableAPI");
+var ObservableAPI_7 = require("./ObservableAPI");
 var ObjectFollowerApi = (function () {
     function ObjectFollowerApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (param, options) {
         return this.api.followerControllerFindMyFriendsWithHttpInfo(param.myFriendPayloadDto, options).toPromise();
@@ -433,10 +453,10 @@ var ObjectFollowerApi = (function () {
     return ObjectFollowerApi;
 }());
 exports.ObjectFollowerApi = ObjectFollowerApi;
-var ObservableAPI_7 = require("./ObservableAPI");
+var ObservableAPI_8 = require("./ObservableAPI");
 var ObjectFriendsApi = (function () {
     function ObjectFriendsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
     ObjectFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (param, options) {
         return this.api.friendControllerFindFriendsWithHttpInfo(param.page, param.limit, param.search, options).toPromise();
@@ -447,10 +467,10 @@ var ObjectFriendsApi = (function () {
     return ObjectFriendsApi;
 }());
 exports.ObjectFriendsApi = ObjectFriendsApi;
-var ObservableAPI_8 = require("./ObservableAPI");
+var ObservableAPI_9 = require("./ObservableAPI");
 var ObjectNielsenBooksApi = (function () {
     function ObjectNielsenBooksApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
     }
     ObjectNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo = function (param, options) {
         return this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(param.id, param.body, options).toPromise();
@@ -475,10 +495,10 @@ var ObjectNielsenBooksApi = (function () {
     return ObjectNielsenBooksApi;
 }());
 exports.ObjectNielsenBooksApi = ObjectNielsenBooksApi;
-var ObservableAPI_9 = require("./ObservableAPI");
+var ObservableAPI_10 = require("./ObservableAPI");
 var ObjectPaymentApi = (function () {
     function ObjectPaymentApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
     ObjectPaymentApi.prototype.paymentControllerConnectAccountWithHttpInfo = function (param, options) {
         if (param === void 0) { param = {}; }
@@ -533,10 +553,10 @@ var ObjectPaymentApi = (function () {
     return ObjectPaymentApi;
 }());
 exports.ObjectPaymentApi = ObjectPaymentApi;
-var ObservableAPI_10 = require("./ObservableAPI");
+var ObservableAPI_11 = require("./ObservableAPI");
 var ObjectStorageApi = (function () {
     function ObjectStorageApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservableStorageApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
     ObjectStorageApi.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (param, options) {
         return this.api.storageControllerGetPreSignedURLWithHttpInfo(param.fileUploadDto, options).toPromise();

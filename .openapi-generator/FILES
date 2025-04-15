@@ -3,6 +3,7 @@ AnalyticsApi.md
 AuthApi.md
 BooksApi.md
 DefaultApi.md
+DeviceApi.md
 EventsApi.md
 FollowerApi.md
 FriendsApi.md
@@ -14,6 +15,7 @@ apis/AnalyticsApi.ts
 apis/AuthApi.ts
 apis/BooksApi.ts
 apis/DefaultApi.ts
+apis/DeviceApi.ts
 apis/EventsApi.ts
 apis/FollowerApi.ts
 apis/FriendsApi.ts
@@ -32,6 +34,7 @@ middleware.ts
 models/Activity.ts
 models/ActivityResponse.ts
 models/ActivityResponseDto.ts
+models/AddDevicePayload.ts
 models/Address.ts
 models/AnalyticsResponseDTO.ts
 models/AttendeeDTO.ts
@@ -64,6 +67,8 @@ models/CreateRoleDto.ts
 models/CreateStaffDto.ts
 models/CreateStaffRoleDto.ts
 models/DeleteBookMarkEventResponseDto.ts
+models/DeviceAddResponse.ts
+models/DeviceEntity.ts
 models/EventCustomer.ts
 models/EventCustomerResponseDto.ts
 models/EventDeleteResponseDto.ts
@@ -132,6 +137,8 @@ models/UserFollowers.ts
 models/UserResponse.ts
 models/UserResponseDto.ts
 models/UserRolePayloadDto.ts
+models/UserSyncDTO.ts
+models/UserSyncResponseDto.ts
 models/UserUpdatePayloadDto.ts
 models/VerificationLinkResponseDTO.ts
 models/all.ts

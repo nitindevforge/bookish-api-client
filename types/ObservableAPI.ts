@@ -5,6 +5,7 @@ import {mergeMap, map} from  '../rxjsStub';
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { AttendeeDTO } from '../models/AttendeeDTO';
@@ -37,6 +38,8 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
+import { DeviceEntity } from '../models/DeviceEntity';
 import { EventCustomer } from '../models/EventCustomer';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -104,6 +107,8 @@ import { UserFollowers } from '../models/UserFollowers';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 
@@ -813,6 +818,35 @@ export class ObservableAuthApi {
      */
     public authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<void> {
         return this.authControllerStaffRolesWithHttpInfo(page, limit, allRoles, ownerId, search, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+    /**
+     * @param userSyncDTO 
+     */
+    public authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<HttpInfo<UserSyncResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerSyncUserInfo(userSyncDTO, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerSyncUserInfoWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param userSyncDTO 
+     */
+    public authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<UserSyncResponseDto> {
+        return this.authControllerSyncUserInfoWithHttpInfo(userSyncDTO, _options).pipe(map((apiResponse: HttpInfo<UserSyncResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1575,6 +1609,53 @@ export class ObservableDefaultApi {
      */
     public appControllerGetHello(_options?: Configuration): Observable<void> {
         return this.appControllerGetHelloWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    }
+
+}
+
+import { DeviceApiRequestFactory, DeviceApiResponseProcessor} from "../apis/DeviceApi";
+export class ObservableDeviceApi {
+    private requestFactory: DeviceApiRequestFactory;
+    private responseProcessor: DeviceApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DeviceApiRequestFactory,
+        responseProcessor?: DeviceApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new DeviceApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new DeviceApiResponseProcessor();
+    }
+
+    /**
+     * @param addDevicePayload 
+     */
+    public deviceControllerAddDeviceWithHttpInfo(addDevicePayload: AddDevicePayload, _options?: Configuration): Observable<HttpInfo<DeviceAddResponse>> {
+        const requestContextPromise = this.requestFactory.deviceControllerAddDevice(addDevicePayload, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.deviceControllerAddDeviceWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param addDevicePayload 
+     */
+    public deviceControllerAddDevice(addDevicePayload: AddDevicePayload, _options?: Configuration): Observable<DeviceAddResponse> {
+        return this.deviceControllerAddDeviceWithHttpInfo(addDevicePayload, _options).pipe(map((apiResponse: HttpInfo<DeviceAddResponse>) => apiResponse.data));
     }
 
 }

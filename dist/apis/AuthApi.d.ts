@@ -21,6 +21,8 @@ import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerAccountDeletion(_options?: Configuration): Promise<RequestContext>;
@@ -44,6 +46,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerGetStaffRole(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateStaff(id: string, updateStaffDto: UpdateStaffDto, _options?: Configuration): Promise<RequestContext>;
@@ -78,6 +81,7 @@ export declare class AuthApiResponseProcessor {
     authControllerGetStaffRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerStaffRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerSyncUserInfoWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdateRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerUpdateStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;

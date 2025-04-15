@@ -25,6 +25,7 @@ Method | HTTP request | Description
 [**authControllerGetStaffRole**](AuthApi.md#authControllerGetStaffRole) | **GET** /v1/auth/staff-role/{id} | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
 [**authControllerStaffRoles**](AuthApi.md#authControllerStaffRoles) | **GET** /v1/auth/staff-roles | 
+[**authControllerSyncUserInfo**](AuthApi.md#authControllerSyncUserInfo) | **POST** /v1/auth/sync-info | 
 [**authControllerUpdate**](AuthApi.md#authControllerUpdate) | **PUT** /v1/auth/store | 
 [**authControllerUpdateRoles**](AuthApi.md#authControllerUpdateRoles) | **PUT** /v1/auth/update/role/{id} | 
 [**authControllerUpdateStaff**](AuthApi.md#authControllerUpdateStaff) | **PUT** /v1/auth/staff/{id} | 
@@ -1231,6 +1232,61 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerSyncUserInfo**
+> UserSyncResponseDto authControllerSyncUserInfo(userSyncDTO)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
+
+let body:.AuthApiAuthControllerSyncUserInfoRequest = {
+  // UserSyncDTO
+  userSyncDTO: {
+    location: [0,1],
+  },
+};
+
+apiInstance.authControllerSyncUserInfo(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userSyncDTO** | **UserSyncDTO**|  |
+
+
+### Return type
+
+**UserSyncResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

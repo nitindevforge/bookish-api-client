@@ -1,6 +1,7 @@
 import { HttpInfo } from '../http/http';
 import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
@@ -20,6 +21,7 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
@@ -61,6 +63,8 @@ import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 import { AnalyticsApiRequestFactory, AnalyticsApiResponseProcessor } from "../apis/AnalyticsApi";
@@ -155,6 +159,9 @@ export interface AuthApiAuthControllerStaffRolesRequest {
     ownerId?: string;
     search?: string;
 }
+export interface AuthApiAuthControllerSyncUserInfoRequest {
+    userSyncDTO: UserSyncDTO;
+}
 export interface AuthApiAuthControllerUpdateRequest {
     storeDetailsPayloadDto: StoreDetailsPayloadDto;
 }
@@ -238,6 +245,8 @@ export declare class ObjectAuthApi {
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerStaffRolesWithHttpInfo(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void>;
+    authControllerSyncUserInfoWithHttpInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>>;
+    authControllerSyncUserInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<UserSyncResponseDto>;
     authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdate(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerUpdateRolesWithHttpInfo(param: AuthApiAuthControllerUpdateRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
@@ -345,6 +354,16 @@ export declare class ObjectDefaultApi {
     constructor(configuration: Configuration, requestFactory?: DefaultApiRequestFactory, responseProcessor?: DefaultApiResponseProcessor);
     appControllerGetHelloWithHttpInfo(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<HttpInfo<void>>;
     appControllerGetHello(param?: DefaultApiAppControllerGetHelloRequest, options?: Configuration): Promise<void>;
+}
+import { DeviceApiRequestFactory, DeviceApiResponseProcessor } from "../apis/DeviceApi";
+export interface DeviceApiDeviceControllerAddDeviceRequest {
+    addDevicePayload: AddDevicePayload;
+}
+export declare class ObjectDeviceApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: DeviceApiRequestFactory, responseProcessor?: DeviceApiResponseProcessor);
+    deviceControllerAddDeviceWithHttpInfo(param: DeviceApiDeviceControllerAddDeviceRequest, options?: Configuration): Promise<HttpInfo<DeviceAddResponse>>;
+    deviceControllerAddDevice(param: DeviceApiDeviceControllerAddDeviceRequest, options?: Configuration): Promise<DeviceAddResponse>;
 }
 import { EventsApiRequestFactory, EventsApiResponseProcessor } from "../apis/EventsApi";
 export interface EventsApiEventControllerBookMarkEventRequest {

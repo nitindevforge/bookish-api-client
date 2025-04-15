@@ -31,6 +31,7 @@ export class UserDetails {
     'updatedAt': Date;
     'storeName': string;
     'storeLogo': string;
+    'location': Array<string>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -129,6 +130,12 @@ export class UserDetails {
             "name": "storeLogo",
             "baseName": "storeLogo",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "location",
+            "baseName": "location",
+            "type": "Array<string>",
             "format": ""
         }    ];
 

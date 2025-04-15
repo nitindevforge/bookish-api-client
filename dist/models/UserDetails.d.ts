@@ -17,6 +17,7 @@ export declare class UserDetails {
     'updatedAt': Date;
     'storeName': string;
     'storeLogo': string;
+    'location': Array<string>;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -4,6 +4,7 @@ import { Configuration} from '../configuration'
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { AttendeeDTO } from '../models/AttendeeDTO';
@@ -36,6 +37,8 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
+import { DeviceEntity } from '../models/DeviceEntity';
 import { EventCustomer } from '../models/EventCustomer';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -103,6 +106,8 @@ import { UserFollowers } from '../models/UserFollowers';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 import { ObservableAnalyticsApi } from './ObservableAPI';
@@ -523,6 +528,22 @@ export class PromiseAuthApi {
      */
     public authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<void> {
         const result = this.api.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userSyncDTO 
+     */
+    public authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>> {
+        const result = this.api.authControllerSyncUserInfoWithHttpInfo(userSyncDTO, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userSyncDTO 
+     */
+    public authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<UserSyncResponseDto> {
+        const result = this.api.authControllerSyncUserInfo(userSyncDTO, _options);
         return result.toPromise();
     }
 
@@ -975,6 +996,41 @@ export class PromiseDefaultApi {
      */
     public appControllerGetHello(_options?: Configuration): Promise<void> {
         const result = this.api.appControllerGetHello(_options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableDeviceApi } from './ObservableAPI';
+
+import { DeviceApiRequestFactory, DeviceApiResponseProcessor} from "../apis/DeviceApi";
+export class PromiseDeviceApi {
+    private api: ObservableDeviceApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: DeviceApiRequestFactory,
+        responseProcessor?: DeviceApiResponseProcessor
+    ) {
+        this.api = new ObservableDeviceApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param addDevicePayload 
+     */
+    public deviceControllerAddDeviceWithHttpInfo(addDevicePayload: AddDevicePayload, _options?: Configuration): Promise<HttpInfo<DeviceAddResponse>> {
+        const result = this.api.deviceControllerAddDeviceWithHttpInfo(addDevicePayload, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param addDevicePayload 
+     */
+    public deviceControllerAddDevice(addDevicePayload: AddDevicePayload, _options?: Configuration): Promise<DeviceAddResponse> {
+        const result = this.api.deviceControllerAddDevice(addDevicePayload, _options);
         return result.toPromise();
     }
 

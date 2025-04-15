@@ -104,6 +104,12 @@ var UserDetails = (function () {
             "baseName": "storeLogo",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "location",
+            "baseName": "location",
+            "type": "Array<string>",
+            "format": ""
         }
     ];
     return UserDetails;

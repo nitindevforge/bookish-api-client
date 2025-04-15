@@ -1,6 +1,7 @@
 export * from '../models/Activity';
 export * from '../models/ActivityResponse';
 export * from '../models/ActivityResponseDto';
+export * from '../models/AddDevicePayload';
 export * from '../models/Address';
 export * from '../models/AnalyticsResponseDTO';
 export * from '../models/AttendeeDTO';
@@ -33,6 +34,8 @@ export * from '../models/CreateRoleDto';
 export * from '../models/CreateStaffDto';
 export * from '../models/CreateStaffRoleDto';
 export * from '../models/DeleteBookMarkEventResponseDto';
+export * from '../models/DeviceAddResponse';
+export * from '../models/DeviceEntity';
 export * from '../models/EventCustomer';
 export * from '../models/EventCustomerResponseDto';
 export * from '../models/EventDeleteResponseDto';
@@ -100,12 +103,15 @@ export * from '../models/UserFollowers';
 export * from '../models/UserResponse';
 export * from '../models/UserResponseDto';
 export * from '../models/UserRolePayloadDto';
+export * from '../models/UserSyncDTO';
+export * from '../models/UserSyncResponseDto';
 export * from '../models/UserUpdatePayloadDto';
 export * from '../models/VerificationLinkResponseDTO';
 
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { AttendeeDTO } from '../models/AttendeeDTO';
@@ -138,6 +144,8 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
+import { DeviceEntity } from '../models/DeviceEntity';
 import { EventCustomer } from '../models/EventCustomer';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -205,6 +213,8 @@ import { UserFollowers } from '../models/UserFollowers';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 
@@ -228,6 +238,7 @@ let typeMap: {[index: string]: any} = {
     "Activity": Activity,
     "ActivityResponse": ActivityResponse,
     "ActivityResponseDto": ActivityResponseDto,
+    "AddDevicePayload": AddDevicePayload,
     "Address": Address,
     "AnalyticsResponseDTO": AnalyticsResponseDTO,
     "AttendeeDTO": AttendeeDTO,
@@ -260,6 +271,8 @@ let typeMap: {[index: string]: any} = {
     "CreateStaffDto": CreateStaffDto,
     "CreateStaffRoleDto": CreateStaffRoleDto,
     "DeleteBookMarkEventResponseDto": DeleteBookMarkEventResponseDto,
+    "DeviceAddResponse": DeviceAddResponse,
+    "DeviceEntity": DeviceEntity,
     "EventCustomer": EventCustomer,
     "EventCustomerResponseDto": EventCustomerResponseDto,
     "EventDeleteResponseDto": EventDeleteResponseDto,
@@ -327,6 +340,8 @@ let typeMap: {[index: string]: any} = {
     "UserResponse": UserResponse,
     "UserResponseDto": UserResponseDto,
     "UserRolePayloadDto": UserRolePayloadDto,
+    "UserSyncDTO": UserSyncDTO,
+    "UserSyncResponseDto": UserSyncResponseDto,
     "UserUpdatePayloadDto": UserUpdatePayloadDto,
     "VerificationLinkResponseDTO": VerificationLinkResponseDTO,
 }

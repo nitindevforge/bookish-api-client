@@ -4,6 +4,7 @@ import { Configuration} from '../configuration'
 import { Activity } from '../models/Activity';
 import { ActivityResponse } from '../models/ActivityResponse';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
 import { AttendeeDTO } from '../models/AttendeeDTO';
@@ -36,6 +37,8 @@ import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { DeleteBookMarkEventResponseDto } from '../models/DeleteBookMarkEventResponseDto';
+import { DeviceAddResponse } from '../models/DeviceAddResponse';
+import { DeviceEntity } from '../models/DeviceEntity';
 import { EventCustomer } from '../models/EventCustomer';
 import { EventCustomerResponseDto } from '../models/EventCustomerResponseDto';
 import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
@@ -103,6 +106,8 @@ import { UserFollowers } from '../models/UserFollowers';
 import { UserResponse } from '../models/UserResponse';
 import { UserResponseDto } from '../models/UserResponseDto';
 import { UserRolePayloadDto } from '../models/UserRolePayloadDto';
+import { UserSyncDTO } from '../models/UserSyncDTO';
+import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 import { VerificationLinkResponseDTO } from '../models/VerificationLinkResponseDTO';
 
@@ -439,6 +444,15 @@ export interface AuthApiAuthControllerStaffRolesRequest {
      * @memberof AuthApiauthControllerStaffRoles
      */
     search?: string
+}
+
+export interface AuthApiAuthControllerSyncUserInfoRequest {
+    /**
+     * 
+     * @type UserSyncDTO
+     * @memberof AuthApiauthControllerSyncUserInfo
+     */
+    userSyncDTO: UserSyncDTO
 }
 
 export interface AuthApiAuthControllerUpdateRequest {
@@ -869,6 +883,20 @@ export class ObjectAuthApi {
      */
     public authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSyncUserInfoWithHttpInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>> {
+        return this.api.authControllerSyncUserInfoWithHttpInfo(param.userSyncDTO,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSyncUserInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<UserSyncResponseDto> {
+        return this.api.authControllerSyncUserInfo(param.userSyncDTO,  options).toPromise();
     }
 
     /**
@@ -1406,6 +1434,41 @@ export class ObjectDefaultApi {
      */
     public appControllerGetHello(param: DefaultApiAppControllerGetHelloRequest = {}, options?: Configuration): Promise<void> {
         return this.api.appControllerGetHello( options).toPromise();
+    }
+
+}
+
+import { ObservableDeviceApi } from "./ObservableAPI";
+import { DeviceApiRequestFactory, DeviceApiResponseProcessor} from "../apis/DeviceApi";
+
+export interface DeviceApiDeviceControllerAddDeviceRequest {
+    /**
+     * 
+     * @type AddDevicePayload
+     * @memberof DeviceApideviceControllerAddDevice
+     */
+    addDevicePayload: AddDevicePayload
+}
+
+export class ObjectDeviceApi {
+    private api: ObservableDeviceApi
+
+    public constructor(configuration: Configuration, requestFactory?: DeviceApiRequestFactory, responseProcessor?: DeviceApiResponseProcessor) {
+        this.api = new ObservableDeviceApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public deviceControllerAddDeviceWithHttpInfo(param: DeviceApiDeviceControllerAddDeviceRequest, options?: Configuration): Promise<HttpInfo<DeviceAddResponse>> {
+        return this.api.deviceControllerAddDeviceWithHttpInfo(param.addDevicePayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public deviceControllerAddDevice(param: DeviceApiDeviceControllerAddDeviceRequest, options?: Configuration): Promise<DeviceAddResponse> {
+        return this.api.deviceControllerAddDevice(param.addDevicePayload,  options).toPromise();
     }
 
 }
