@@ -63,6 +63,8 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -504,6 +506,22 @@ export class PromiseAuthApi {
      */
     public authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
         const result = this.api.authControllerLogin(loginPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param loggedOutPayloadDTO 
+     */
+    public authControllerSignOutWithHttpInfo(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<HttpInfo<LoggedOutResponse>> {
+        const result = this.api.authControllerSignOutWithHttpInfo(loggedOutPayloadDTO, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param loggedOutPayloadDTO 
+     */
+    public authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<LoggedOutResponse> {
+        const result = this.api.authControllerSignOut(loggedOutPayloadDTO, _options);
         return result.toPromise();
     }
 

@@ -37,6 +37,8 @@ import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
@@ -152,6 +154,9 @@ export interface AuthApiAuthControllerGetStaffRoleRequest {
 export interface AuthApiAuthControllerLoginRequest {
     loginPayloadDto: LoginPayloadDto;
 }
+export interface AuthApiAuthControllerSignOutRequest {
+    loggedOutPayloadDTO: LoggedOutPayloadDTO;
+}
 export interface AuthApiAuthControllerStaffRolesRequest {
     page: number;
     limit: number;
@@ -243,6 +248,8 @@ export declare class ObjectAuthApi {
     authControllerGetStaffRole(param: AuthApiAuthControllerGetStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerLoginWithHttpInfo(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
     authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto>;
+    authControllerSignOutWithHttpInfo(param: AuthApiAuthControllerSignOutRequest, options?: Configuration): Promise<HttpInfo<LoggedOutResponse>>;
+    authControllerSignOut(param: AuthApiAuthControllerSignOutRequest, options?: Configuration): Promise<LoggedOutResponse>;
     authControllerStaffRolesWithHttpInfo(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void>;
     authControllerSyncUserInfoWithHttpInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>>;

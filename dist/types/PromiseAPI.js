@@ -182,6 +182,14 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerLogin(loginPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseAuthApi.prototype.authControllerSignOutWithHttpInfo = function (loggedOutPayloadDTO, _options) {
+        var result = this.api.authControllerSignOutWithHttpInfo(loggedOutPayloadDTO, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerSignOut = function (loggedOutPayloadDTO, _options) {
+        var result = this.api.authControllerSignOut(loggedOutPayloadDTO, _options);
+        return result.toPromise();
+    };
     PromiseAuthApi.prototype.authControllerStaffRolesWithHttpInfo = function (page, limit, allRoles, ownerId, search, _options) {
         var result = this.api.authControllerStaffRolesWithHttpInfo(page, limit, allRoles, ownerId, search, _options);
         return result.toPromise();

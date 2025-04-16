@@ -60,6 +60,8 @@ export * from '../models/InterestsResponseDto';
 export * from '../models/Location';
 export * from '../models/LocationPayloadDto';
 export * from '../models/LocationPlacesResponseDto';
+export * from '../models/LoggedOutPayloadDTO';
+export * from '../models/LoggedOutResponse';
 export * from '../models/LoginPayloadDto';
 export * from '../models/MetaResponse';
 export * from '../models/MyAllFriendsResponseDto';
@@ -170,6 +172,8 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -297,6 +301,8 @@ let typeMap: {[index: string]: any} = {
     "Location": Location,
     "LocationPayloadDto": LocationPayloadDto,
     "LocationPlacesResponseDto": LocationPlacesResponseDto,
+    "LoggedOutPayloadDTO": LoggedOutPayloadDTO,
+    "LoggedOutResponse": LoggedOutResponse,
     "LoginPayloadDto": LoginPayloadDto,
     "MetaResponse": MetaResponse,
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto,

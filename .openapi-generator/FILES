@@ -93,6 +93,8 @@ models/InterestsResponseDto.ts
 models/Location.ts
 models/LocationPayloadDto.ts
 models/LocationPlacesResponseDto.ts
+models/LoggedOutPayloadDTO.ts
+models/LoggedOutResponse.ts
 models/LoginPayloadDto.ts
 models/MetaResponse.ts
 models/MyAllFriendsResponseDto.ts

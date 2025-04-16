@@ -9,6 +9,8 @@ import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
@@ -45,6 +47,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerGetStaff(email: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetStaffRole(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
@@ -80,6 +83,7 @@ export declare class AuthApiResponseProcessor {
     authControllerGetStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerGetStaffRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
+    authControllerSignOutWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LoggedOutResponse>>;
     authControllerStaffRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerSyncUserInfoWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;

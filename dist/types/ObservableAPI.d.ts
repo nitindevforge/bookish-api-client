@@ -38,6 +38,8 @@ import { GoodReadsBookPayloadDto } from '../models/GoodReadsBookPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
@@ -123,6 +125,8 @@ export declare class ObservableAuthApi {
     authControllerGetStaffRole(id: string, _options?: Configuration): Observable<void>;
     authControllerLoginWithHttpInfo(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
+    authControllerSignOutWithHttpInfo(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Observable<HttpInfo<LoggedOutResponse>>;
+    authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Observable<LoggedOutResponse>;
     authControllerStaffRolesWithHttpInfo(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<void>;
     authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<HttpInfo<UserSyncResponseDto>>;

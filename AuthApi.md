@@ -24,6 +24,7 @@ Method | HTTP request | Description
 [**authControllerGetStaff**](AuthApi.md#authControllerGetStaff) | **GET** /v1/auth/staff/{email} | 
 [**authControllerGetStaffRole**](AuthApi.md#authControllerGetStaffRole) | **GET** /v1/auth/staff-role/{id} | 
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
+[**authControllerSignOut**](AuthApi.md#authControllerSignOut) | **POST** /v1/auth/user-logout | 
 [**authControllerStaffRoles**](AuthApi.md#authControllerStaffRoles) | **GET** /v1/auth/staff-roles | 
 [**authControllerSyncUserInfo**](AuthApi.md#authControllerSyncUserInfo) | **POST** /v1/auth/sync-info | 
 [**authControllerUpdate**](AuthApi.md#authControllerUpdate) | **PUT** /v1/auth/store | 
@@ -1156,6 +1157,61 @@ Name | Type | Description  | Notes
 ### Authorization
 
 No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **authControllerSignOut**
+> LoggedOutResponse authControllerSignOut(loggedOutPayloadDTO)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .AuthApi(configuration);
+
+let body:.AuthApiAuthControllerSignOutRequest = {
+  // LoggedOutPayloadDTO
+  loggedOutPayloadDTO: {
+    identifier: "device-001",
+  },
+};
+
+apiInstance.authControllerSignOut(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **loggedOutPayloadDTO** | **LoggedOutPayloadDTO**|  |
+
+
+### Return type
+
+**LoggedOutResponse**
+
+### Authorization
+
+[bearer](README.md#bearer)
 
 ### HTTP request headers
 

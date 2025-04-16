@@ -76,6 +76,8 @@ __exportStar(require("../models/InterestsResponseDto"), exports);
 __exportStar(require("../models/Location"), exports);
 __exportStar(require("../models/LocationPayloadDto"), exports);
 __exportStar(require("../models/LocationPlacesResponseDto"), exports);
+__exportStar(require("../models/LoggedOutPayloadDTO"), exports);
+__exportStar(require("../models/LoggedOutResponse"), exports);
 __exportStar(require("../models/LoginPayloadDto"), exports);
 __exportStar(require("../models/MetaResponse"), exports);
 __exportStar(require("../models/MyAllFriendsResponseDto"), exports);

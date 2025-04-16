@@ -63,6 +63,8 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -411,6 +413,15 @@ export interface AuthApiAuthControllerLoginRequest {
      * @memberof AuthApiauthControllerLogin
      */
     loginPayloadDto: LoginPayloadDto
+}
+
+export interface AuthApiAuthControllerSignOutRequest {
+    /**
+     * 
+     * @type LoggedOutPayloadDTO
+     * @memberof AuthApiauthControllerSignOut
+     */
+    loggedOutPayloadDTO: LoggedOutPayloadDTO
 }
 
 export interface AuthApiAuthControllerStaffRolesRequest {
@@ -869,6 +880,20 @@ export class ObjectAuthApi {
      */
     public authControllerLogin(param: AuthApiAuthControllerLoginRequest, options?: Configuration): Promise<UserResponseDto> {
         return this.api.authControllerLogin(param.loginPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSignOutWithHttpInfo(param: AuthApiAuthControllerSignOutRequest, options?: Configuration): Promise<HttpInfo<LoggedOutResponse>> {
+        return this.api.authControllerSignOutWithHttpInfo(param.loggedOutPayloadDTO,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSignOut(param: AuthApiAuthControllerSignOutRequest, options?: Configuration): Promise<LoggedOutResponse> {
+        return this.api.authControllerSignOut(param.loggedOutPayloadDTO,  options).toPromise();
     }
 
     /**

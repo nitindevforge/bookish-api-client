@@ -64,6 +64,8 @@ import { InterestsResponseDto } from '../models/InterestsResponseDto';
 import { Location } from '../models/Location';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
+import { LoggedOutPayloadDTO } from '../models/LoggedOutPayloadDTO';
+import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
@@ -781,6 +783,35 @@ export class ObservableAuthApi {
      */
     public authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Observable<UserResponseDto> {
         return this.authControllerLoginWithHttpInfo(loginPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param loggedOutPayloadDTO 
+     */
+    public authControllerSignOutWithHttpInfo(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Observable<HttpInfo<LoggedOutResponse>> {
+        const requestContextPromise = this.requestFactory.authControllerSignOut(loggedOutPayloadDTO, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerSignOutWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param loggedOutPayloadDTO 
+     */
+    public authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Observable<LoggedOutResponse> {
+        return this.authControllerSignOutWithHttpInfo(loggedOutPayloadDTO, _options).pipe(map((apiResponse: HttpInfo<LoggedOutResponse>) => apiResponse.data));
     }
 
     /**

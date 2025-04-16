@@ -146,6 +146,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerLogin = function (param, options) {
         return this.api.authControllerLogin(param.loginPayloadDto, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerSignOutWithHttpInfo = function (param, options) {
+        return this.api.authControllerSignOutWithHttpInfo(param.loggedOutPayloadDTO, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerSignOut = function (param, options) {
+        return this.api.authControllerSignOut(param.loggedOutPayloadDTO, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerStaffRolesWithHttpInfo = function (param, options) {
         return this.api.authControllerStaffRolesWithHttpInfo(param.page, param.limit, param.allRoles, param.ownerId, param.search, options).toPromise();
     };
