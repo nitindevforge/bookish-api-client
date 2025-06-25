@@ -17,6 +17,7 @@ export class SignupPayloadDto {
     'email': string;
     'password': string;
     'role'?: string;
+    'currency'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -42,6 +43,12 @@ export class SignupPayloadDto {
         {
             "name": "role",
             "baseName": "role",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
             "type": "string",
             "format": ""
         }    ];

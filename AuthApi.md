@@ -165,6 +165,7 @@ let body:.AuthApiAuthControllerCreateBusinessUserRequest = {
     email: "email_example",
     password: "password_example",
     role: "role_example",
+    currency: "currency_example",
   },
 };
 
@@ -397,6 +398,7 @@ let body:.AuthApiAuthControllerCreateUserRequest = {
     email: "email_example",
     password: "password_example",
     role: "role_example",
+    currency: "currency_example",
   },
 };
 

@@ -100,6 +100,12 @@ var UserDetails = (function () {
             "format": ""
         },
         {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "storeLogo",
             "baseName": "storeLogo",
             "type": "string",

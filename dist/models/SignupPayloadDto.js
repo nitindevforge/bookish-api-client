@@ -32,6 +32,12 @@ var SignupPayloadDto = (function () {
             "baseName": "role",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
+            "type": "string",
+            "format": ""
         }
     ];
     return SignupPayloadDto;

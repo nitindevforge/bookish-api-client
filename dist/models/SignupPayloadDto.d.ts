@@ -3,6 +3,7 @@ export declare class SignupPayloadDto {
     'email': string;
     'password': string;
     'role'?: string;
+    'currency'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

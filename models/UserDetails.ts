@@ -30,6 +30,7 @@ export class UserDetails {
     'createdAt': Date;
     'updatedAt': Date;
     'storeName': string;
+    'currency': string;
     'storeLogo': string;
     'location': Array<string>;
 
@@ -123,6 +124,12 @@ export class UserDetails {
         {
             "name": "storeName",
             "baseName": "storeName",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "currency",
+            "baseName": "currency",
             "type": "string",
             "format": ""
         },
