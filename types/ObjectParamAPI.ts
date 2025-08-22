@@ -92,6 +92,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -310,6 +311,21 @@ export interface AuthApiAuthControllerGetAllStaffRequest {
     search?: string
 }
 
+export interface AuthApiAuthControllerGetAllusersRequest {
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetAllusers
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetAllusers
+     */
+    limit: number
+}
+
 export interface AuthApiAuthControllerGetEventsActivityRequest {
     /**
      * 
@@ -455,6 +471,15 @@ export interface AuthApiAuthControllerStaffRolesRequest {
      * @memberof AuthApiauthControllerStaffRoles
      */
     search?: string
+}
+
+export interface AuthApiAuthControllerSuperAdminLoginloginRequest {
+    /**
+     * 
+     * @type SuperAdminLoginPayloadDto
+     * @memberof AuthApiauthControllerSuperAdminLoginlogin
+     */
+    superAdminLoginPayloadDto: SuperAdminLoginPayloadDto
 }
 
 export interface AuthApiAuthControllerSyncUserInfoRequest {
@@ -787,6 +812,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerGetAllusersWithHttpInfo(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetAllusersWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetAllusers(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetAllusers(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
@@ -908,6 +947,20 @@ export class ObjectAuthApi {
      */
     public authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSuperAdminLoginloginWithHttpInfo(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerSuperAdminLoginloginWithHttpInfo(param.superAdminLoginPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSuperAdminLoginlogin(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerSuperAdminLoginlogin(param.superAdminLoginPayloadDto,  options).toPromise();
     }
 
     /**

@@ -100,6 +100,12 @@ var ObjectAuthApi = (function () {
     ObjectAuthApi.prototype.authControllerGetAllStaff = function (param, options) {
         return this.api.authControllerGetAllStaff(param.page, param.ownerId, param.limit, param.search, options).toPromise();
     };
+    ObjectAuthApi.prototype.authControllerGetAllusersWithHttpInfo = function (param, options) {
+        return this.api.authControllerGetAllusersWithHttpInfo(param.page, param.limit, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerGetAllusers = function (param, options) {
+        return this.api.authControllerGetAllusers(param.page, param.limit, options).toPromise();
+    };
     ObjectAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (param, options) {
         return this.api.authControllerGetEventsActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();
     };
@@ -157,6 +163,12 @@ var ObjectAuthApi = (function () {
     };
     ObjectAuthApi.prototype.authControllerStaffRoles = function (param, options) {
         return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerSuperAdminLoginloginWithHttpInfo = function (param, options) {
+        return this.api.authControllerSuperAdminLoginloginWithHttpInfo(param.superAdminLoginPayloadDto, options).toPromise();
+    };
+    ObjectAuthApi.prototype.authControllerSuperAdminLoginlogin = function (param, options) {
+        return this.api.authControllerSuperAdminLoginlogin(param.superAdminLoginPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerSyncUserInfoWithHttpInfo = function (param, options) {
         return this.api.authControllerSyncUserInfoWithHttpInfo(param.userSyncDTO, options).toPromise();

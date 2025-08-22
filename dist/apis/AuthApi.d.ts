@@ -16,6 +16,7 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -40,6 +41,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<RequestContext>;
     authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetEventsActivityByType(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
@@ -49,6 +51,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<RequestContext>;
@@ -76,6 +79,7 @@ export declare class AuthApiResponseProcessor {
     authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerGetActivityWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetAllStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerGetAllusersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerGetEventsActivityWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivityByTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetInterestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InterestsResponseDto>>;
@@ -85,6 +89,7 @@ export declare class AuthApiResponseProcessor {
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerSignOutWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LoggedOutResponse>>;
     authControllerStaffRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerSuperAdminLoginloginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerSyncUserInfoWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdateRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;

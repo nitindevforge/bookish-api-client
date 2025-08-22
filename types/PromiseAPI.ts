@@ -92,6 +92,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -386,6 +387,24 @@ export class PromiseAuthApi {
     /**
      * @param page 
      * @param limit 
+     */
+    public authControllerGetAllusersWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetAllusersWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetAllusers(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
      * @param longitude 
      * @param latitude 
      * @param global 
@@ -546,6 +565,22 @@ export class PromiseAuthApi {
      */
     public authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<void> {
         const result = this.api.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param superAdminLoginPayloadDto 
+     */
+    public authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param superAdminLoginPayloadDto 
+     */
+    public authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto, _options);
         return result.toPromise();
     }
 

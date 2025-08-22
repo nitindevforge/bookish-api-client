@@ -89,6 +89,7 @@ export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
+export * from '../models/SuperAdminLoginPayloadDto';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';
@@ -201,6 +202,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -330,6 +332,7 @@ let typeMap: {[index: string]: any} = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
+    "SuperAdminLoginPayloadDto": SuperAdminLoginPayloadDto,
     "UpdateRoleDto": UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto,
