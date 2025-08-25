@@ -54,7 +54,6 @@ import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -107,8 +106,6 @@ export declare class PromiseAuthApi {
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<void>>;
     authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<void>;
-    authControllerGetAllusersWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<void>>;
-    authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<void>;
     authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetEventsActivityByTypeWithHttpInfo(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
@@ -127,8 +124,6 @@ export declare class PromiseAuthApi {
     authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<LoggedOutResponse>;
     authControllerStaffRolesWithHttpInfo(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<HttpInfo<void>>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<void>;
-    authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
-    authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<UserResponseDto>;
     authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<UserSyncResponseDto>;
     authControllerUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

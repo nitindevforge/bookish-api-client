@@ -17,7 +17,6 @@ Method | HTTP request | Description
 [**authControllerForgetPassword**](AuthApi.md#authControllerForgetPassword) | **PUT** /v1/auth/forget-password | 
 [**authControllerGetActivity**](AuthApi.md#authControllerGetActivity) | **GET** /v1/auth/activities | 
 [**authControllerGetAllStaff**](AuthApi.md#authControllerGetAllStaff) | **GET** /v1/auth/staff | 
-[**authControllerGetAllusers**](AuthApi.md#authControllerGetAllusers) | **GET** /v1/auth/all_users | 
 [**authControllerGetEventsActivity**](AuthApi.md#authControllerGetEventsActivity) | **GET** /v1/auth/events/activities | 
 [**authControllerGetEventsActivityByType**](AuthApi.md#authControllerGetEventsActivityByType) | **GET** /v1/auth/type-activities | 
 [**authControllerGetInterests**](AuthApi.md#authControllerGetInterests) | **GET** /v1/auth/interests | 
@@ -27,7 +26,6 @@ Method | HTTP request | Description
 [**authControllerLogin**](AuthApi.md#authControllerLogin) | **POST** /v1/auth/login | 
 [**authControllerSignOut**](AuthApi.md#authControllerSignOut) | **POST** /v1/auth/user-logout | 
 [**authControllerStaffRoles**](AuthApi.md#authControllerStaffRoles) | **GET** /v1/auth/staff-roles | 
-[**authControllerSuperAdminLoginlogin**](AuthApi.md#authControllerSuperAdminLoginlogin) | **POST** /v1/auth/super_admin_login | 
 [**authControllerSyncUserInfo**](AuthApi.md#authControllerSyncUserInfo) | **POST** /v1/auth/sync-info | 
 [**authControllerUpdate**](AuthApi.md#authControllerUpdate) | **PUT** /v1/auth/store | 
 [**authControllerUpdateRoles**](AuthApi.md#authControllerUpdateRoles) | **PUT** /v1/auth/update/role/{id} | 
@@ -783,62 +781,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
-# **authControllerGetAllusers**
-> void authControllerGetAllusers()
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .AuthApi(configuration);
-
-let body:.AuthApiAuthControllerGetAllusersRequest = {
-  // number
-  page: 3.14,
-  // number
-  limit: 3.14,
-};
-
-apiInstance.authControllerGetAllusers(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **page** | [**number**] |  | defaults to undefined
- **limit** | [**number**] |  | defaults to undefined
-
-
-### Return type
-
-**void**
-
-### Authorization
-
-[bearer](README.md#bearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | All users retrieved successfully |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
 # **authControllerGetEventsActivity**
 > ActivityResponseDto authControllerGetEventsActivity()
 
@@ -1194,6 +1136,7 @@ let body:.AuthApiAuthControllerLoginRequest = {
   loginPayloadDto: {
     email: "email_example",
     password: "password_example",
+    role: "role_example",
   },
 };
 
@@ -1348,61 +1291,6 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** | Unauthorized |  -  |
-
-[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
-
-# **authControllerSuperAdminLoginlogin**
-> UserResponseDto authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto)
-
-
-### Example
-
-
-```typescript
-import {  } from '';
-import * as fs from 'fs';
-
-const configuration = .createConfiguration();
-const apiInstance = new .AuthApi(configuration);
-
-let body:.AuthApiAuthControllerSuperAdminLoginloginRequest = {
-  // SuperAdminLoginPayloadDto
-  superAdminLoginPayloadDto: {
-    userId: "userId_example",
-  },
-};
-
-apiInstance.authControllerSuperAdminLoginlogin(body).then((data:any) => {
-  console.log('API called successfully. Returned data: ' + data);
-}).catch((error:any) => console.error(error));
-```
-
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **superAdminLoginPayloadDto** | **SuperAdminLoginPayloadDto**|  |
-
-
-### Return type
-
-**UserResponseDto**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

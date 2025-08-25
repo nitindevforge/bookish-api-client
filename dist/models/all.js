@@ -105,7 +105,6 @@ __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
-__exportStar(require("../models/SuperAdminLoginPayloadDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);

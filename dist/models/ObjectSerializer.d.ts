@@ -89,7 +89,6 @@ export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
-export * from '../models/SuperAdminLoginPayloadDto';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';

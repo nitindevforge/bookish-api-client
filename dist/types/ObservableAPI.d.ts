@@ -55,7 +55,6 @@ import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
-import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -112,8 +111,6 @@ export declare class ObservableAuthApi {
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;
     authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Observable<void>;
-    authControllerGetAllusersWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<void>>;
-    authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Observable<void>;
     authControllerGetEventsActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetEventsActivityByTypeWithHttpInfo(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
@@ -132,8 +129,6 @@ export declare class ObservableAuthApi {
     authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Observable<LoggedOutResponse>;
     authControllerStaffRolesWithHttpInfo(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Observable<void>;
-    authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;
-    authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Observable<UserResponseDto>;
     authControllerSyncUserInfoWithHttpInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<HttpInfo<UserSyncResponseDto>>;
     authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Observable<UserSyncResponseDto>;
     authControllerUpdateWithHttpInfo(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Observable<HttpInfo<UserResponseDto>>;

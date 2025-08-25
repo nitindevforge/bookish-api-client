@@ -106,7 +106,6 @@ __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
-__exportStar(require("../models/SuperAdminLoginPayloadDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);
@@ -218,7 +217,6 @@ var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
-var SuperAdminLoginPayloadDto_1 = require("../models/SuperAdminLoginPayloadDto");
 var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
 var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UpdateStaffRoleDto_1 = require("../models/UpdateStaffRoleDto");
@@ -344,7 +342,6 @@ var typeMap = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
-    "SuperAdminLoginPayloadDto": SuperAdminLoginPayloadDto_1.SuperAdminLoginPayloadDto,
     "UpdateRoleDto": UpdateRoleDto_1.UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto_1.UpdateStaffRoleDto,

@@ -126,14 +126,6 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerGetAllStaff(page, ownerId, limit, search, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetAllusersWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.authControllerGetAllusersWithHttpInfo(page, limit, _options);
-        return result.toPromise();
-    };
-    PromiseAuthApi.prototype.authControllerGetAllusers = function (page, limit, _options) {
-        var result = this.api.authControllerGetAllusers(page, limit, _options);
-        return result.toPromise();
-    };
     PromiseAuthApi.prototype.authControllerGetEventsActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
         var result = this.api.authControllerGetEventsActivityWithHttpInfo(page, limit, longitude, latitude, global, search, _options);
         return result.toPromise();
@@ -204,14 +196,6 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerStaffRoles = function (page, limit, allRoles, ownerId, search, _options) {
         var result = this.api.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
-        return result.toPromise();
-    };
-    PromiseAuthApi.prototype.authControllerSuperAdminLoginloginWithHttpInfo = function (superAdminLoginPayloadDto, _options) {
-        var result = this.api.authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto, _options);
-        return result.toPromise();
-    };
-    PromiseAuthApi.prototype.authControllerSuperAdminLoginlogin = function (superAdminLoginPayloadDto, _options) {
-        var result = this.api.authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerSyncUserInfoWithHttpInfo = function (userSyncDTO, _options) {
