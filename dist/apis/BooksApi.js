@@ -425,7 +425,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, rate, _options) {
+    BooksApiRequestFactory.prototype.bookControllerFindUserBookReviews = function (bookId, page, limit, userId, rate, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -447,6 +447,9 @@ var BooksApiRequestFactory = (function (_super) {
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
                         if (bookId !== undefined) {
                             requestContext.setQueryParam("bookId", ObjectSerializer_1.ObjectSerializer.serialize(bookId, "string", ""));
+                        }
+                        if (userId !== undefined) {
+                            requestContext.setQueryParam("userId", ObjectSerializer_1.ObjectSerializer.serialize(userId, "string", ""));
                         }
                         if (page !== undefined) {
                             requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));

@@ -1,7 +1,6 @@
 export declare class LoginPayloadDto {
     'email': string;
     'password': string;
-    'role': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

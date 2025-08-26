@@ -936,10 +936,11 @@ export class PromiseBooksApi {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param userId 
      * @param rate 
      */
-    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, rate, _options);
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
+        const result = this.api.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, userId, rate, _options);
         return result.toPromise();
     }
 
@@ -947,10 +948,11 @@ export class PromiseBooksApi {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param userId 
      * @param rate 
      */
-    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<UserBooksResponseDto> {
-        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, rate, _options);
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<UserBooksResponseDto> {
+        const result = this.api.bookControllerFindUserBookReviews(bookId, page, limit, userId, rate, _options);
         return result.toPromise();
     }
 

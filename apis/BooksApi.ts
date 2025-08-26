@@ -493,9 +493,10 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param userId 
      * @param rate 
      */
-    public async bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'bookId' is not null or undefined
@@ -517,6 +518,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
 
 
 
+
         // Path Params
         const localVarPath = '/v1/book/review';
 
@@ -527,6 +529,11 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (bookId !== undefined) {
             requestContext.setQueryParam("bookId", ObjectSerializer.serialize(bookId, "string", ""));
+        }
+
+        // Query Params
+        if (userId !== undefined) {
+            requestContext.setQueryParam("userId", ObjectSerializer.serialize(userId, "string", ""));
         }
 
         // Query Params

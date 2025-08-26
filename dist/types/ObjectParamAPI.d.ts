@@ -318,6 +318,7 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
     bookId: string;
     page: number;
     limit: number;
+    userId?: string;
     rate?: Array<number>;
 }
 export interface BooksApiBookControllerFindUserWhichReadBookRequest {

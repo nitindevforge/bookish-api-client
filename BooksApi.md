@@ -580,6 +580,8 @@ let body:.BooksApiBookControllerFindUserBookReviewsRequest = {
   page: 3.14,
   // number
   limit: 3.14,
+  // string (optional)
+  userId: "userId_example",
   // Array<number> (optional)
   rate: [],
 };
@@ -597,6 +599,7 @@ Name | Type | Description  | Notes
  **bookId** | [**string**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
+ **userId** | [**string**] |  | (optional) defaults to undefined
  **rate** | **Array&lt;number&gt;** |  | (optional) defaults to undefined
 
 

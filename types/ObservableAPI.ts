@@ -1510,10 +1510,11 @@ export class ObservableBooksApi {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param userId 
      * @param rate 
      */
-    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindUserBookReviews(bookId, page, limit, rate, _options);
+    public bookControllerFindUserBookReviewsWithHttpInfo(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindUserBookReviews(bookId, page, limit, userId, rate, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1535,10 +1536,11 @@ export class ObservableBooksApi {
      * @param bookId 
      * @param page 
      * @param limit 
+     * @param userId 
      * @param rate 
      */
-    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, rate?: Array<number>, _options?: Configuration): Observable<UserBooksResponseDto> {
-        return this.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, rate, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
+    public bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Observable<UserBooksResponseDto> {
+        return this.bookControllerFindUserBookReviewsWithHttpInfo(bookId, page, limit, userId, rate, _options).pipe(map((apiResponse: HttpInfo<UserBooksResponseDto>) => apiResponse.data));
     }
 
     /**

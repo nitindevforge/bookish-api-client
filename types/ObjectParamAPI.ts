@@ -1239,6 +1239,12 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
     limit: number
     /**
      * 
+     * @type string
+     * @memberof BooksApibookControllerFindUserBookReviews
+     */
+    userId?: string
+    /**
+     * 
      * @type Array&lt;number&gt;
      * @memberof BooksApibookControllerFindUserBookReviews
      */
@@ -1394,14 +1400,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindUserBookReviewsWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>> {
-        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
+        return this.api.bookControllerFindUserBookReviewsWithHttpInfo(param.bookId, param.page, param.limit, param.userId, param.rate,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto> {
-        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, param.rate,  options).toPromise();
+        return this.api.bookControllerFindUserBookReviews(param.bookId, param.page, param.limit, param.userId, param.rate,  options).toPromise();
     }
 
     /**

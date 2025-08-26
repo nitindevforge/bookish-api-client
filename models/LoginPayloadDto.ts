@@ -15,7 +15,6 @@ import { HttpFile } from '../http/http';
 export class LoginPayloadDto {
     'email': string;
     'password': string;
-    'role': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -29,12 +28,6 @@ export class LoginPayloadDto {
         {
             "name": "password",
             "baseName": "password",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "role",
-            "baseName": "role",
             "type": "string",
             "format": ""
         }    ];
