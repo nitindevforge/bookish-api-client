@@ -1136,6 +1136,7 @@ let body:.AuthApiAuthControllerLoginRequest = {
   loginPayloadDto: {
     email: "email_example",
     password: "password_example",
+    role: "role_example",
   },
 };
 

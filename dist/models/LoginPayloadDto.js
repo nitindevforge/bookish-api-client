@@ -20,6 +20,12 @@ var LoginPayloadDto = (function () {
             "baseName": "password",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "role",
+            "baseName": "role",
+            "type": "string",
+            "format": ""
         }
     ];
     return LoginPayloadDto;
