@@ -7,6 +7,8 @@ import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AppfeepercentageResponseDto } from '../models/AppfeepercentageResponseDto';
+import { AppfeepercentageUpdatePayloadDto } from '../models/AppfeepercentageUpdatePayloadDto';
 import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
@@ -92,6 +94,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -152,6 +155,15 @@ import { ObservableAuthApi } from "./ObservableAPI";
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
 
 export interface AuthApiAuthControllerAccountDeletionRequest {
+}
+
+export interface AuthApiAuthControllerAppfeepercentageUpdateRequest {
+    /**
+     * 
+     * @type AppfeepercentageUpdatePayloadDto
+     * @memberof AuthApiauthControllerAppfeepercentageUpdate
+     */
+    appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto
 }
 
 export interface AuthApiAuthControllerChangePasswordRequest {
@@ -244,6 +256,9 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto
 }
 
+export interface AuthApiAuthControllerGetAchievementRequest {
+}
+
 export interface AuthApiAuthControllerGetActivityRequest {
     /**
      * 
@@ -308,6 +323,21 @@ export interface AuthApiAuthControllerGetAllStaffRequest {
      * @memberof AuthApiauthControllerGetAllStaff
      */
     search?: string
+}
+
+export interface AuthApiAuthControllerGetAllusersRequest {
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetAllusers
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof AuthApiauthControllerGetAllusers
+     */
+    limit: number
 }
 
 export interface AuthApiAuthControllerGetEventsActivityRequest {
@@ -455,6 +485,15 @@ export interface AuthApiAuthControllerStaffRolesRequest {
      * @memberof AuthApiauthControllerStaffRoles
      */
     search?: string
+}
+
+export interface AuthApiAuthControllerSuperAdminLoginloginRequest {
+    /**
+     * 
+     * @type SuperAdminLoginPayloadDto
+     * @memberof AuthApiauthControllerSuperAdminLoginlogin
+     */
+    superAdminLoginPayloadDto: SuperAdminLoginPayloadDto
 }
 
 export interface AuthApiAuthControllerSyncUserInfoRequest {
@@ -619,6 +658,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerAppfeepercentageUpdateWithHttpInfo(param: AuthApiAuthControllerAppfeepercentageUpdateRequest, options?: Configuration): Promise<HttpInfo<AppfeepercentageResponseDto>> {
+        return this.api.authControllerAppfeepercentageUpdateWithHttpInfo(param.appfeepercentageUpdatePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerAppfeepercentageUpdate(param: AuthApiAuthControllerAppfeepercentageUpdateRequest, options?: Configuration): Promise<AppfeepercentageResponseDto> {
+        return this.api.authControllerAppfeepercentageUpdate(param.appfeepercentageUpdatePayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerChangePasswordWithHttpInfo(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>> {
         return this.api.authControllerChangePasswordWithHttpInfo(param.changePayloadDto,  options).toPromise();
     }
@@ -759,6 +812,20 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
+    public authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetAchievementWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetAchievement( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>> {
         return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search,  options).toPromise();
     }
@@ -782,6 +849,20 @@ export class ObjectAuthApi {
      */
     public authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerGetAllStaff(param.page, param.ownerId, param.limit, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetAllusersWithHttpInfo(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<HttpInfo<void>> {
+        return this.api.authControllerGetAllusersWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerGetAllusers(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<void> {
+        return this.api.authControllerGetAllusers(param.page, param.limit,  options).toPromise();
     }
 
     /**
@@ -908,6 +989,20 @@ export class ObjectAuthApi {
      */
     public authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void> {
         return this.api.authControllerStaffRoles(param.page, param.limit, param.allRoles, param.ownerId, param.search,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSuperAdminLoginloginWithHttpInfo(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        return this.api.authControllerSuperAdminLoginloginWithHttpInfo(param.superAdminLoginPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerSuperAdminLoginlogin(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<UserResponseDto> {
+        return this.api.authControllerSuperAdminLoginlogin(param.superAdminLoginPayloadDto,  options).toPromise();
     }
 
     /**

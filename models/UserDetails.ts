@@ -33,6 +33,7 @@ export class UserDetails {
     'currency': string;
     'storeLogo': string;
     'location': Array<string>;
+    'appfeepercentage'?: number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -143,6 +144,12 @@ export class UserDetails {
             "name": "location",
             "baseName": "location",
             "type": "Array<string>",
+            "format": ""
+        },
+        {
+            "name": "appfeepercentage",
+            "baseName": "appfeepercentage",
+            "type": "number",
             "format": ""
         }    ];
 

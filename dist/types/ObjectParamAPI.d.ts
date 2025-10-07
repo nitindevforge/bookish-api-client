@@ -3,6 +3,8 @@ import { Configuration } from '../configuration';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AddDevicePayload } from '../models/AddDevicePayload';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AppfeepercentageResponseDto } from '../models/AppfeepercentageResponseDto';
+import { AppfeepercentageUpdatePayloadDto } from '../models/AppfeepercentageUpdatePayloadDto';
 import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookMarkEventListResponseDto } from '../models/BookMarkEventListResponseDto';
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
@@ -54,6 +56,7 @@ import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
 import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -81,6 +84,9 @@ export declare class ObjectAnalyticsApi {
 }
 import { AuthApiRequestFactory, AuthApiResponseProcessor } from "../apis/AuthApi";
 export interface AuthApiAuthControllerAccountDeletionRequest {
+}
+export interface AuthApiAuthControllerAppfeepercentageUpdateRequest {
+    appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto;
 }
 export interface AuthApiAuthControllerChangePasswordRequest {
     changePayloadDto: ChangePayloadDto;
@@ -112,6 +118,8 @@ export interface AuthApiAuthControllerDeleteStaffRoleRequest {
 export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto;
 }
+export interface AuthApiAuthControllerGetAchievementRequest {
+}
 export interface AuthApiAuthControllerGetActivityRequest {
     page: number;
     limit: number;
@@ -125,6 +133,10 @@ export interface AuthApiAuthControllerGetAllStaffRequest {
     ownerId: string;
     limit: number;
     search?: string;
+}
+export interface AuthApiAuthControllerGetAllusersRequest {
+    page: number;
+    limit: number;
 }
 export interface AuthApiAuthControllerGetEventsActivityRequest {
     page: number;
@@ -163,6 +175,9 @@ export interface AuthApiAuthControllerStaffRolesRequest {
     allRoles?: boolean;
     ownerId?: string;
     search?: string;
+}
+export interface AuthApiAuthControllerSuperAdminLoginloginRequest {
+    superAdminLoginPayloadDto: SuperAdminLoginPayloadDto;
 }
 export interface AuthApiAuthControllerSyncUserInfoRequest {
     userSyncDTO: UserSyncDTO;
@@ -210,6 +225,8 @@ export declare class ObjectAuthApi {
     constructor(configuration: Configuration, requestFactory?: AuthApiRequestFactory, responseProcessor?: AuthApiResponseProcessor);
     authControllerAccountDeletionWithHttpInfo(param?: AuthApiAuthControllerAccountDeletionRequest, options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>>;
     authControllerAccountDeletion(param?: AuthApiAuthControllerAccountDeletionRequest, options?: Configuration): Promise<UserDeleteResponseDto>;
+    authControllerAppfeepercentageUpdateWithHttpInfo(param: AuthApiAuthControllerAppfeepercentageUpdateRequest, options?: Configuration): Promise<HttpInfo<AppfeepercentageResponseDto>>;
+    authControllerAppfeepercentageUpdate(param: AuthApiAuthControllerAppfeepercentageUpdateRequest, options?: Configuration): Promise<AppfeepercentageResponseDto>;
     authControllerChangePasswordWithHttpInfo(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>>;
     authControllerChangePassword(param: AuthApiAuthControllerChangePasswordRequest, options?: Configuration): Promise<PasswordChangeResponseDto>;
     authControllerCreateBusinessUserWithHttpInfo(param: AuthApiAuthControllerCreateBusinessUserRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
@@ -230,10 +247,14 @@ export declare class ObjectAuthApi {
     authControllerDeleteStaffRole(param: AuthApiAuthControllerDeleteStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
+    authControllerGetAchievementWithHttpInfo(param?: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerGetAchievement(param?: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<void>;
     authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerGetAllStaff(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<void>;
+    authControllerGetAllusersWithHttpInfo(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    authControllerGetAllusers(param: AuthApiAuthControllerGetAllusersRequest, options?: Configuration): Promise<void>;
     authControllerGetEventsActivityWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivity(param: AuthApiAuthControllerGetEventsActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetEventsActivityByTypeWithHttpInfo(param: AuthApiAuthControllerGetEventsActivityByTypeRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
@@ -252,6 +273,8 @@ export declare class ObjectAuthApi {
     authControllerSignOut(param: AuthApiAuthControllerSignOutRequest, options?: Configuration): Promise<LoggedOutResponse>;
     authControllerStaffRolesWithHttpInfo(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<HttpInfo<void>>;
     authControllerStaffRoles(param: AuthApiAuthControllerStaffRolesRequest, options?: Configuration): Promise<void>;
+    authControllerSuperAdminLoginloginWithHttpInfo(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;
+    authControllerSuperAdminLoginlogin(param: AuthApiAuthControllerSuperAdminLoginloginRequest, options?: Configuration): Promise<UserResponseDto>;
     authControllerSyncUserInfoWithHttpInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerSyncUserInfo(param: AuthApiAuthControllerSyncUserInfoRequest, options?: Configuration): Promise<UserSyncResponseDto>;
     authControllerUpdateWithHttpInfo(param: AuthApiAuthControllerUpdateRequest, options?: Configuration): Promise<HttpInfo<UserResponseDto>>;

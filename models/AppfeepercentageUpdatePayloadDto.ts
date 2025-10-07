@@ -12,35 +12,28 @@
 
 import { HttpFile } from '../http/http';
 
-export class LoginPayloadDto {
-    'email': string;
-    'password': string;
-    'role'?: string;
+export class AppfeepercentageUpdatePayloadDto {
+    'id': string;
+    'appfeepercentage': number;
 
     static readonly discriminator: string | undefined = undefined;
 
     static readonly attributeTypeMap: Array<{name: string, baseName: string, type: string, format: string}> = [
         {
-            "name": "email",
-            "baseName": "email",
+            "name": "id",
+            "baseName": "id",
             "type": "string",
             "format": ""
         },
         {
-            "name": "password",
-            "baseName": "password",
-            "type": "string",
-            "format": ""
-        },
-        {
-            "name": "role",
-            "baseName": "role",
-            "type": "string",
+            "name": "appfeepercentage",
+            "baseName": "appfeepercentage",
+            "type": "number",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return LoginPayloadDto.attributeTypeMap;
+        return AppfeepercentageUpdatePayloadDto.attributeTypeMap;
     }
 
     public constructor() {

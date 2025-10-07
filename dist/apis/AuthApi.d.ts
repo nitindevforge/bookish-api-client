@@ -2,6 +2,8 @@ import { BaseAPIRequestFactory } from './baseapi';
 import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext, HttpInfo } from '../http/http';
 import { ActivityResponseDto } from '../models/ActivityResponseDto';
+import { AppfeepercentageResponseDto } from '../models/AppfeepercentageResponseDto';
+import { AppfeepercentageUpdatePayloadDto } from '../models/AppfeepercentageUpdatePayloadDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -16,6 +18,7 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -28,6 +31,7 @@ import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerAccountDeletion(_options?: Configuration): Promise<RequestContext>;
+    authControllerAppfeepercentageUpdate(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerChangePassword(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerCreateBusinessUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerCreateRoles(createRoleDto: CreateRoleDto, _options?: Configuration): Promise<RequestContext>;
@@ -38,8 +42,10 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerDeleteStaff(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerDeleteStaffRole(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    authControllerGetAchievement(_options?: Configuration): Promise<RequestContext>;
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<RequestContext>;
     authControllerGetEventsActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetEventsActivityByType(page: number, limit: number, type: string, userId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetInterests(_options?: Configuration): Promise<RequestContext>;
@@ -49,6 +55,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerLogin(loginPayloadDto: LoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerSignOut(loggedOutPayloadDTO: LoggedOutPayloadDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<RequestContext>;
+    authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerSyncUserInfo(userSyncDTO: UserSyncDTO, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdate(storeDetailsPayloadDto: StoreDetailsPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerUpdateRoles(id: string, updateRoleDto: UpdateRoleDto, _options?: Configuration): Promise<RequestContext>;
@@ -64,6 +71,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
 }
 export declare class AuthApiResponseProcessor {
     authControllerAccountDeletionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserDeleteResponseDto>>;
+    authControllerAppfeepercentageUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AppfeepercentageResponseDto>>;
     authControllerChangePasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PasswordChangeResponseDto>>;
     authControllerCreateBusinessUserWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerCreateRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
@@ -74,8 +82,10 @@ export declare class AuthApiResponseProcessor {
     authControllerDeleteStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserDeleteResponseDto>>;
     authControllerDeleteStaffRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
+    authControllerGetAchievementWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerGetActivityWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetAllStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerGetAllusersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerGetEventsActivityWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetEventsActivityByTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetInterestsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<InterestsResponseDto>>;
@@ -85,6 +95,7 @@ export declare class AuthApiResponseProcessor {
     authControllerLoginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerSignOutWithHttpInfo(response: ResponseContext): Promise<HttpInfo<LoggedOutResponse>>;
     authControllerStaffRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerSuperAdminLoginloginWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerSyncUserInfoWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserSyncResponseDto>>;
     authControllerUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;
     authControllerUpdateRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;

@@ -4,6 +4,8 @@ export * from '../models/ActivityResponseDto';
 export * from '../models/AddDevicePayload';
 export * from '../models/Address';
 export * from '../models/AnalyticsResponseDTO';
+export * from '../models/AppfeepercentageResponseDto';
+export * from '../models/AppfeepercentageUpdatePayloadDto';
 export * from '../models/AttendeeDTO';
 export * from '../models/AuthorResponseDto';
 export * from '../models/BillingDetails';
@@ -89,6 +91,7 @@ export * from '../models/StripePayloadDto';
 export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
+export * from '../models/SuperAdminLoginPayloadDto';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';
@@ -116,6 +119,8 @@ import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AppfeepercentageResponseDto } from '../models/AppfeepercentageResponseDto';
+import { AppfeepercentageUpdatePayloadDto } from '../models/AppfeepercentageUpdatePayloadDto';
 import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
@@ -201,6 +206,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -245,6 +251,8 @@ let typeMap: {[index: string]: any} = {
     "AddDevicePayload": AddDevicePayload,
     "Address": Address,
     "AnalyticsResponseDTO": AnalyticsResponseDTO,
+    "AppfeepercentageResponseDto": AppfeepercentageResponseDto,
+    "AppfeepercentageUpdatePayloadDto": AppfeepercentageUpdatePayloadDto,
     "AttendeeDTO": AttendeeDTO,
     "AuthorResponseDto": AuthorResponseDto,
     "BillingDetails": BillingDetails,
@@ -330,6 +338,7 @@ let typeMap: {[index: string]: any} = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto,
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
+    "SuperAdminLoginPayloadDto": SuperAdminLoginPayloadDto,
     "UpdateRoleDto": UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto,

@@ -37,6 +37,8 @@ models/ActivityResponseDto.ts
 models/AddDevicePayload.ts
 models/Address.ts
 models/AnalyticsResponseDTO.ts
+models/AppfeepercentageResponseDto.ts
+models/AppfeepercentageUpdatePayloadDto.ts
 models/AttendeeDTO.ts
 models/AuthorResponseDto.ts
 models/BillingDetails.ts
@@ -123,6 +125,7 @@ models/StripePayloadDto.ts
 models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts
+models/SuperAdminLoginPayloadDto.ts
 models/UpdateRoleDto.ts
 models/UpdateStaffDto.ts
 models/UpdateStaffRoleDto.ts

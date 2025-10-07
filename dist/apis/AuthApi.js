@@ -91,6 +91,44 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
+    AuthApiRequestFactory.prototype.authControllerAppfeepercentageUpdate = function (appfeepercentageUpdatePayloadDto, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, contentType, serializedBody, authMethod, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        if (appfeepercentageUpdatePayloadDto === null || appfeepercentageUpdatePayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerAppfeepercentageUpdate", "appfeepercentageUpdatePayloadDto");
+                        }
+                        localVarPath = '/v1/auth/appfee_percentage';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.PUT);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(appfeepercentageUpdatePayloadDto, "AppfeepercentageUpdatePayloadDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
+                        authMethod = _config.authMethods["bearer"];
+                        if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
+                        return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2:
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 4];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 3:
+                        _d.sent();
+                        _d.label = 4;
+                    case 4: return [2, requestContext];
+                }
+            });
+        });
+    };
     AuthApiRequestFactory.prototype.authControllerChangePassword = function (changePayloadDto, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
@@ -428,6 +466,35 @@ var AuthApiRequestFactory = (function (_super) {
             });
         });
     };
+    AuthApiRequestFactory.prototype.authControllerGetAchievement = function (_options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        localVarPath = '/v1/auth/achievement';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        authMethod = _config.authMethods["bearer"];
+                        if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
+                        return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2:
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 4];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 3:
+                        _d.sent();
+                        _d.label = 4;
+                    case 4: return [2, requestContext];
+                }
+            });
+        });
+    };
     AuthApiRequestFactory.prototype.authControllerGetActivity = function (page, limit, longitude, latitude, global, search, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
@@ -509,6 +576,47 @@ var AuthApiRequestFactory = (function (_super) {
                         }
                         if (ownerId !== undefined) {
                             requestContext.setQueryParam("ownerId", ObjectSerializer_1.ObjectSerializer.serialize(ownerId, "string", ""));
+                        }
+                        if (limit !== undefined) {
+                            requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
+                        }
+                        authMethod = _config.authMethods["bearer"];
+                        if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
+                        return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2:
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 4];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 3:
+                        _d.sent();
+                        _d.label = 4;
+                    case 4: return [2, requestContext];
+                }
+            });
+        });
+    };
+    AuthApiRequestFactory.prototype.authControllerGetAllusers = function (page, limit, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, authMethod, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        if (page === null || page === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetAllusers", "page");
+                        }
+                        if (limit === null || limit === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerGetAllusers", "limit");
+                        }
+                        localVarPath = '/v1/auth/all_users';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        if (page !== undefined) {
+                            requestContext.setQueryParam("page", ObjectSerializer_1.ObjectSerializer.serialize(page, "number", ""));
                         }
                         if (limit !== undefined) {
                             requestContext.setQueryParam("limit", ObjectSerializer_1.ObjectSerializer.serialize(limit, "number", ""));
@@ -876,6 +984,37 @@ var AuthApiRequestFactory = (function (_super) {
                         _d.sent();
                         _d.label = 4;
                     case 4: return [2, requestContext];
+                }
+            });
+        });
+    };
+    AuthApiRequestFactory.prototype.authControllerSuperAdminLoginlogin = function (superAdminLoginPayloadDto, _options) {
+        var _a, _b, _c;
+        return __awaiter(this, void 0, void 0, function () {
+            var _config, localVarPath, requestContext, contentType, serializedBody, defaultAuth;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _config = _options || this.configuration;
+                        if (superAdminLoginPayloadDto === null || superAdminLoginPayloadDto === undefined) {
+                            throw new baseapi_1.RequiredError("AuthApi", "authControllerSuperAdminLoginlogin", "superAdminLoginPayloadDto");
+                        }
+                        localVarPath = '/v1/auth/super_admin_login';
+                        requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.POST);
+                        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        contentType = ObjectSerializer_1.ObjectSerializer.getPreferredMediaType([
+                            "application/json"
+                        ]);
+                        requestContext.setHeaderParam("Content-Type", contentType);
+                        serializedBody = ObjectSerializer_1.ObjectSerializer.stringify(ObjectSerializer_1.ObjectSerializer.serialize(superAdminLoginPayloadDto, "SuperAdminLoginPayloadDto", ""), contentType);
+                        requestContext.setBody(serializedBody);
+                        defaultAuth = ((_a = _options === null || _options === void 0 ? void 0 : _options.authMethods) === null || _a === void 0 ? void 0 : _a.default) || ((_c = (_b = this.configuration) === null || _b === void 0 ? void 0 : _b.authMethods) === null || _c === void 0 ? void 0 : _c.default);
+                        if (!(defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication)) return [3, 2];
+                        return [4, (defaultAuth === null || defaultAuth === void 0 ? void 0 : defaultAuth.applySecurityAuthentication(requestContext))];
+                    case 1:
+                        _d.sent();
+                        _d.label = 2;
+                    case 2: return [2, requestContext];
                 }
             });
         });
@@ -1367,6 +1506,42 @@ var AuthApiResponseProcessor = (function () {
             });
         });
     };
+    AuthApiResponseProcessor.prototype.authControllerAppfeepercentageUpdateWithHttpInfo = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
+            return __generator(this, function (_l) {
+                switch (_l.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
+                        _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 1:
+                        body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
+                            "AppfeepercentageResponseDto", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 2:
+                        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+                            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+                        }
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
+                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 3:
+                        body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
+                            "AppfeepercentageResponseDto", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 4:
+                        _j = exception_1.ApiException.bind;
+                        _k = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 5: throw new (_j.apply(exception_1.ApiException, _k.concat([_l.sent(), response.headers])))();
+                }
+            });
+        });
+    };
     AuthApiResponseProcessor.prototype.authControllerChangePasswordWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
@@ -1649,6 +1824,27 @@ var AuthApiResponseProcessor = (function () {
             });
         });
     };
+    AuthApiResponseProcessor.prototype.authControllerGetAchievementWithHttpInfo = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, _a, _b;
+            return __generator(this, function (_c) {
+                switch (_c.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if ((0, util_1.isCodeInRange)("401", response.httpStatusCode)) {
+                            throw new exception_1.ApiException(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+                        }
+                        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+                            return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, undefined)];
+                        }
+                        _a = exception_1.ApiException.bind;
+                        _b = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 1: throw new (_a.apply(exception_1.ApiException, _b.concat([_c.sent(), response.headers])))();
+                }
+            });
+        });
+    };
     AuthApiResponseProcessor.prototype.authControllerGetActivityWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
@@ -1686,6 +1882,33 @@ var AuthApiResponseProcessor = (function () {
         });
     };
     AuthApiResponseProcessor.prototype.authControllerGetAllStaffWithHttpInfo = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, body, _a, _b, _c, _d, _e, _f;
+            return __generator(this, function (_g) {
+                switch (_g.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if ((0, util_1.isCodeInRange)("200", response.httpStatusCode)) {
+                            return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, undefined)];
+                        }
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 2];
+                        _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 1:
+                        body = _b.apply(_a, [_d.apply(_c, [_g.sent(), contentType]),
+                            "void", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 2:
+                        _e = exception_1.ApiException.bind;
+                        _f = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 3: throw new (_e.apply(exception_1.ApiException, _f.concat([_g.sent(), response.headers])))();
+                }
+            });
+        });
+    };
+    AuthApiResponseProcessor.prototype.authControllerGetAllusersWithHttpInfo = function (response) {
         return __awaiter(this, void 0, void 0, function () {
             var contentType, body, _a, _b, _c, _d, _e, _f;
             return __generator(this, function (_g) {
@@ -1972,6 +2195,39 @@ var AuthApiResponseProcessor = (function () {
                         _b = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
                         return [4, response.getBodyAsAny()];
                     case 1: throw new (_a.apply(exception_1.ApiException, _b.concat([_c.sent(), response.headers])))();
+                }
+            });
+        });
+    };
+    AuthApiResponseProcessor.prototype.authControllerSuperAdminLoginloginWithHttpInfo = function (response) {
+        return __awaiter(this, void 0, void 0, function () {
+            var contentType, body, _a, _b, _c, _d, body, _e, _f, _g, _h, _j, _k;
+            return __generator(this, function (_l) {
+                switch (_l.label) {
+                    case 0:
+                        contentType = ObjectSerializer_1.ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+                        if (!(0, util_1.isCodeInRange)("200", response.httpStatusCode)) return [3, 2];
+                        _b = (_a = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _d = (_c = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 1:
+                        body = _b.apply(_a, [_d.apply(_c, [_l.sent(), contentType]),
+                            "UserResponseDto", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 2:
+                        if (!(response.httpStatusCode >= 200 && response.httpStatusCode <= 299)) return [3, 4];
+                        _f = (_e = ObjectSerializer_1.ObjectSerializer).deserialize;
+                        _h = (_g = ObjectSerializer_1.ObjectSerializer).parse;
+                        return [4, response.body.text()];
+                    case 3:
+                        body = _f.apply(_e, [_h.apply(_g, [_l.sent(), contentType]),
+                            "UserResponseDto", ""]);
+                        return [2, new http_1.HttpInfo(response.httpStatusCode, response.headers, response.body, body)];
+                    case 4:
+                        _j = exception_1.ApiException.bind;
+                        _k = [void 0, response.httpStatusCode, "Unknown API Status Code!"];
+                        return [4, response.getBodyAsAny()];
+                    case 5: throw new (_j.apply(exception_1.ApiException, _k.concat([_l.sent(), response.headers])))();
                 }
             });
         });

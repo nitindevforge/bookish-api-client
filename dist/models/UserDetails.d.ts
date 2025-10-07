@@ -19,6 +19,7 @@ export declare class UserDetails {
     'currency': string;
     'storeLogo': string;
     'location': Array<string>;
+    'appfeepercentage'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

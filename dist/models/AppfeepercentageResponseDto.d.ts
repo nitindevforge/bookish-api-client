@@ -1,7 +1,6 @@
-export declare class LoginPayloadDto {
-    'email': string;
-    'password': string;
-    'role'?: string;
+export declare class AppfeepercentageResponseDto {
+    'message': string;
+    'isSuccess': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

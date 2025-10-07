@@ -7,6 +7,8 @@ import { ActivityResponseDto } from '../models/ActivityResponseDto';
 import { AddDevicePayload } from '../models/AddDevicePayload';
 import { Address } from '../models/Address';
 import { AnalyticsResponseDTO } from '../models/AnalyticsResponseDTO';
+import { AppfeepercentageResponseDto } from '../models/AppfeepercentageResponseDto';
+import { AppfeepercentageUpdatePayloadDto } from '../models/AppfeepercentageUpdatePayloadDto';
 import { AttendeeDTO } from '../models/AttendeeDTO';
 import { AuthorResponseDto } from '../models/AuthorResponseDto';
 import { BillingDetails } from '../models/BillingDetails';
@@ -92,6 +94,7 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
+import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -172,6 +175,22 @@ export class PromiseAuthApi {
      */
     public authControllerAccountDeletion(_options?: Configuration): Promise<UserDeleteResponseDto> {
         const result = this.api.authControllerAccountDeletion(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param appfeepercentageUpdatePayloadDto 
+     */
+    public authControllerAppfeepercentageUpdateWithHttpInfo(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<HttpInfo<AppfeepercentageResponseDto>> {
+        const result = this.api.authControllerAppfeepercentageUpdateWithHttpInfo(appfeepercentageUpdatePayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param appfeepercentageUpdatePayloadDto 
+     */
+    public authControllerAppfeepercentageUpdate(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<AppfeepercentageResponseDto> {
+        const result = this.api.authControllerAppfeepercentageUpdate(appfeepercentageUpdatePayloadDto, _options);
         return result.toPromise();
     }
 
@@ -336,6 +355,20 @@ export class PromiseAuthApi {
     }
 
     /**
+     */
+    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetAchievementWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public authControllerGetAchievement(_options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetAchievement(_options);
+        return result.toPromise();
+    }
+
+    /**
      * @param page 
      * @param limit 
      * @param longitude 
@@ -380,6 +413,24 @@ export class PromiseAuthApi {
      */
     public authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<void> {
         const result = this.api.authControllerGetAllStaff(page, ownerId, limit, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public authControllerGetAllusersWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<void>> {
+        const result = this.api.authControllerGetAllusersWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<void> {
+        const result = this.api.authControllerGetAllusers(page, limit, _options);
         return result.toPromise();
     }
 
@@ -546,6 +597,22 @@ export class PromiseAuthApi {
      */
     public authControllerStaffRoles(page: number, limit: number, allRoles?: boolean, ownerId?: string, search?: string, _options?: Configuration): Promise<void> {
         const result = this.api.authControllerStaffRoles(page, limit, allRoles, ownerId, search, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param superAdminLoginPayloadDto 
+     */
+    public authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<HttpInfo<UserResponseDto>> {
+        const result = this.api.authControllerSuperAdminLoginloginWithHttpInfo(superAdminLoginPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param superAdminLoginPayloadDto 
+     */
+    public authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto: SuperAdminLoginPayloadDto, _options?: Configuration): Promise<UserResponseDto> {
+        const result = this.api.authControllerSuperAdminLoginlogin(superAdminLoginPayloadDto, _options);
         return result.toPromise();
     }
 

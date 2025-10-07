@@ -116,6 +116,12 @@ var UserDetails = (function () {
             "baseName": "location",
             "type": "Array<string>",
             "format": ""
+        },
+        {
+            "name": "appfeepercentage",
+            "baseName": "appfeepercentage",
+            "type": "number",
+            "format": ""
         }
     ];
     return UserDetails;

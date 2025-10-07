@@ -21,6 +21,8 @@ __exportStar(require("../models/ActivityResponseDto"), exports);
 __exportStar(require("../models/AddDevicePayload"), exports);
 __exportStar(require("../models/Address"), exports);
 __exportStar(require("../models/AnalyticsResponseDTO"), exports);
+__exportStar(require("../models/AppfeepercentageResponseDto"), exports);
+__exportStar(require("../models/AppfeepercentageUpdatePayloadDto"), exports);
 __exportStar(require("../models/AttendeeDTO"), exports);
 __exportStar(require("../models/AuthorResponseDto"), exports);
 __exportStar(require("../models/BillingDetails"), exports);
@@ -106,6 +108,7 @@ __exportStar(require("../models/StripePayloadDto"), exports);
 __exportStar(require("../models/StripePaymentPayloadDto"), exports);
 __exportStar(require("../models/StripeResponse"), exports);
 __exportStar(require("../models/StripeResponseDto"), exports);
+__exportStar(require("../models/SuperAdminLoginPayloadDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);
@@ -132,6 +135,8 @@ var ActivityResponseDto_1 = require("../models/ActivityResponseDto");
 var AddDevicePayload_1 = require("../models/AddDevicePayload");
 var Address_1 = require("../models/Address");
 var AnalyticsResponseDTO_1 = require("../models/AnalyticsResponseDTO");
+var AppfeepercentageResponseDto_1 = require("../models/AppfeepercentageResponseDto");
+var AppfeepercentageUpdatePayloadDto_1 = require("../models/AppfeepercentageUpdatePayloadDto");
 var AttendeeDTO_1 = require("../models/AttendeeDTO");
 var AuthorResponseDto_1 = require("../models/AuthorResponseDto");
 var BillingDetails_1 = require("../models/BillingDetails");
@@ -217,6 +222,7 @@ var StripePayloadDto_1 = require("../models/StripePayloadDto");
 var StripePaymentPayloadDto_1 = require("../models/StripePaymentPayloadDto");
 var StripeResponse_1 = require("../models/StripeResponse");
 var StripeResponseDto_1 = require("../models/StripeResponseDto");
+var SuperAdminLoginPayloadDto_1 = require("../models/SuperAdminLoginPayloadDto");
 var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
 var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UpdateStaffRoleDto_1 = require("../models/UpdateStaffRoleDto");
@@ -257,6 +263,8 @@ var typeMap = {
     "AddDevicePayload": AddDevicePayload_1.AddDevicePayload,
     "Address": Address_1.Address,
     "AnalyticsResponseDTO": AnalyticsResponseDTO_1.AnalyticsResponseDTO,
+    "AppfeepercentageResponseDto": AppfeepercentageResponseDto_1.AppfeepercentageResponseDto,
+    "AppfeepercentageUpdatePayloadDto": AppfeepercentageUpdatePayloadDto_1.AppfeepercentageUpdatePayloadDto,
     "AttendeeDTO": AttendeeDTO_1.AttendeeDTO,
     "AuthorResponseDto": AuthorResponseDto_1.AuthorResponseDto,
     "BillingDetails": BillingDetails_1.BillingDetails,
@@ -342,6 +350,7 @@ var typeMap = {
     "StripePaymentPayloadDto": StripePaymentPayloadDto_1.StripePaymentPayloadDto,
     "StripeResponse": StripeResponse_1.StripeResponse,
     "StripeResponseDto": StripeResponseDto_1.StripeResponseDto,
+    "SuperAdminLoginPayloadDto": SuperAdminLoginPayloadDto_1.SuperAdminLoginPayloadDto,
     "UpdateRoleDto": UpdateRoleDto_1.UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto_1.UpdateStaffRoleDto,
