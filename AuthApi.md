@@ -712,7 +712,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 
 # **authControllerGetAchievement**
-> authControllerGetAchievement()
+> UserAchievementResponseDTO authControllerGetAchievement()
 
 
 ### Example
@@ -739,7 +739,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-void (empty response body)
+**UserAchievementResponseDTO**
 
 ### Authorization
 
@@ -748,12 +748,13 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** |  |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

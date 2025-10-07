@@ -22,6 +22,7 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -82,7 +83,7 @@ export declare class AuthApiResponseProcessor {
     authControllerDeleteStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserDeleteResponseDto>>;
     authControllerDeleteStaffRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerForgetPasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
-    authControllerGetAchievementWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    authControllerGetAchievementWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserAchievementResponseDTO>>;
     authControllerGetActivityWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetAllStaffWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     authControllerGetAllusersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;

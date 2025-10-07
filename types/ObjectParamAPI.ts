@@ -98,6 +98,8 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponse } from '../models/UserAchievementResponse';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -812,14 +814,14 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<HttpInfo<void>> {
+    public authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
         return this.api.authControllerGetAchievementWithHttpInfo( options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<void> {
+    public authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<UserAchievementResponseDTO> {
         return this.api.authControllerGetAchievement( options).toPromise();
     }
 

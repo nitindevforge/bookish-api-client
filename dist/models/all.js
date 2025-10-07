@@ -111,6 +111,8 @@ __exportStar(require("../models/SuperAdminLoginPayloadDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);
+__exportStar(require("../models/UserAchievementResponse"), exports);
+__exportStar(require("../models/UserAchievementResponseDTO"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBookStatusQueryDto"), exports);

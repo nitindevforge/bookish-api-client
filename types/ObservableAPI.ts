@@ -99,6 +99,8 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponse } from '../models/UserAchievementResponse';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -528,7 +530,7 @@ export class ObservableAuthApi {
 
     /**
      */
-    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Observable<HttpInfo<void>> {
+    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserAchievementResponseDTO>> {
         const requestContextPromise = this.requestFactory.authControllerGetAchievement(_options);
 
         // build promise chain
@@ -549,8 +551,8 @@ export class ObservableAuthApi {
 
     /**
      */
-    public authControllerGetAchievement(_options?: Configuration): Observable<void> {
-        return this.authControllerGetAchievementWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
+    public authControllerGetAchievement(_options?: Configuration): Observable<UserAchievementResponseDTO> {
+        return this.authControllerGetAchievementWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<UserAchievementResponseDTO>) => apiResponse.data));
     }
 
     /**

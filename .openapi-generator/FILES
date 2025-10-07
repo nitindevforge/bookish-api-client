@@ -129,6 +129,8 @@ models/SuperAdminLoginPayloadDto.ts
 models/UpdateRoleDto.ts
 models/UpdateStaffDto.ts
 models/UpdateStaffRoleDto.ts
+models/UserAchievementResponse.ts
+models/UserAchievementResponseDTO.ts
 models/UserBookPayloadDto.ts
 models/UserBookReviewResponseDto.ts
 models/UserBookStatusQueryDto.ts

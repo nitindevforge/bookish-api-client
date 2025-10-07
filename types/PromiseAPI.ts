@@ -98,6 +98,8 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponse } from '../models/UserAchievementResponse';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -356,14 +358,14 @@ export class PromiseAuthApi {
 
     /**
      */
-    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Promise<HttpInfo<void>> {
+    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
         const result = this.api.authControllerGetAchievementWithHttpInfo(_options);
         return result.toPromise();
     }
 
     /**
      */
-    public authControllerGetAchievement(_options?: Configuration): Promise<void> {
+    public authControllerGetAchievement(_options?: Configuration): Promise<UserAchievementResponseDTO> {
         const result = this.api.authControllerGetAchievement(_options);
         return result.toPromise();
     }

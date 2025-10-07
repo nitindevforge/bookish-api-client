@@ -29,6 +29,7 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserDeleteResponseDto } from '../models/UserDeleteResponseDto';
 import { UserFollowerResponseDto } from '../models/UserFollowerResponseDto';
 import { UserResponseDto } from '../models/UserResponseDto';
@@ -2122,15 +2123,26 @@ export class AuthApiResponseProcessor {
      * @params response Response returned by the server for a request to authControllerGetAchievement
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async authControllerGetAchievementWithHttpInfo(response: ResponseContext): Promise<HttpInfo< void>> {
+     public async authControllerGetAchievementWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserAchievementResponseDTO >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: UserAchievementResponseDTO = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserAchievementResponseDTO", ""
+            ) as UserAchievementResponseDTO;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, undefined);
+            const body: UserAchievementResponseDTO = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "UserAchievementResponseDTO", ""
+            ) as UserAchievementResponseDTO;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 
         throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);

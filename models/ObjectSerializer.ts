@@ -95,6 +95,8 @@ export * from '../models/SuperAdminLoginPayloadDto';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';
+export * from '../models/UserAchievementResponse';
+export * from '../models/UserAchievementResponseDTO';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBookStatusQueryDto';
@@ -210,6 +212,8 @@ import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
+import { UserAchievementResponse } from '../models/UserAchievementResponse';
+import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -342,6 +346,8 @@ let typeMap: {[index: string]: any} = {
     "UpdateRoleDto": UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto,
+    "UserAchievementResponse": UserAchievementResponse,
+    "UserAchievementResponseDTO": UserAchievementResponseDTO,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto,

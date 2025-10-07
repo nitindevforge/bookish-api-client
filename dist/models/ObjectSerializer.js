@@ -112,6 +112,8 @@ __exportStar(require("../models/SuperAdminLoginPayloadDto"), exports);
 __exportStar(require("../models/UpdateRoleDto"), exports);
 __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);
+__exportStar(require("../models/UserAchievementResponse"), exports);
+__exportStar(require("../models/UserAchievementResponseDTO"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBookStatusQueryDto"), exports);
@@ -226,6 +228,8 @@ var SuperAdminLoginPayloadDto_1 = require("../models/SuperAdminLoginPayloadDto")
 var UpdateRoleDto_1 = require("../models/UpdateRoleDto");
 var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UpdateStaffRoleDto_1 = require("../models/UpdateStaffRoleDto");
+var UserAchievementResponse_1 = require("../models/UserAchievementResponse");
+var UserAchievementResponseDTO_1 = require("../models/UserAchievementResponseDTO");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
 var UserBookStatusQueryDto_1 = require("../models/UserBookStatusQueryDto");
@@ -354,6 +358,8 @@ var typeMap = {
     "UpdateRoleDto": UpdateRoleDto_1.UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto_1.UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto_1.UpdateStaffRoleDto,
+    "UserAchievementResponse": UserAchievementResponse_1.UserAchievementResponse,
+    "UserAchievementResponseDTO": UserAchievementResponseDTO_1.UserAchievementResponseDTO,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto_1.UserBookStatusQueryDto,
