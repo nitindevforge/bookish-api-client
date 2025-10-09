@@ -390,6 +390,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (page, limit, _options) {
+        var result = this.api.bookControllerFindTopBooksWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerFindTopBooks = function (page, limit, _options) {
+        var result = this.api.bookControllerFindTopBooks(page, limit, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {
         var result = this.api.bookControllerFindUserBookReviewWithHttpInfo(bookId, status, rate, review, _options);
         return result.toPromise();

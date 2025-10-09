@@ -1261,6 +1261,21 @@ export interface BooksApiBookControllerFindGoodReadsRequest {
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto
 }
 
+export interface BooksApiBookControllerFindTopBooksRequest {
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopBooks
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopBooks
+     */
+    limit: number
+}
+
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     /**
      * 
@@ -1463,6 +1478,20 @@ export class ObjectBooksApi {
      */
     public bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
         return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.page, param.limit,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
+        return this.api.bookControllerFindTopBooks(param.page, param.limit,  options).toPromise();
     }
 
     /**

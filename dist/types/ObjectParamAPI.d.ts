@@ -326,6 +326,10 @@ export interface BooksApiBookControllerFindBooksRequest {
 export interface BooksApiBookControllerFindGoodReadsRequest {
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto;
 }
+export interface BooksApiBookControllerFindTopBooksRequest {
+    page: number;
+    limit: number;
+}
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
     status?: string;
@@ -367,6 +371,8 @@ export declare class ObjectBooksApi {
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;

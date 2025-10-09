@@ -958,6 +958,24 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindTopBooksWithHttpInfo(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindTopBooks(page, limit, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param bookId 
      * @param status 
      * @param rate 

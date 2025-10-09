@@ -1558,6 +1558,37 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindTopBooks(page, limit, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindTopBooksWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param page 
+     * @param limit 
+     */
+    public bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindTopBooksWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param bookId 
      * @param status 
      * @param rate 
