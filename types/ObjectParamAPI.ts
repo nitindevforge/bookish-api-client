@@ -95,6 +95,9 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponse } from '../models/TopBooksResponse';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -1198,6 +1201,15 @@ export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     requestBody: Array<string>
 }
 
+export interface BooksApiBookControllerAddTopBookRequest {
+    /**
+     * 
+     * @type TopBookPayload
+     * @memberof BooksApibookControllerAddTopBook
+     */
+    topBookPayload: TopBookPayload
+}
+
 export interface BooksApiBookControllerFindBookByIdRequest {
     /**
      * 
@@ -1267,6 +1279,12 @@ export interface BooksApiBookControllerFindTopBooksRequest {
      * @type number
      * @memberof BooksApibookControllerFindTopBooks
      */
+    rate: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopBooks
+     */
     page: number
     /**
      * 
@@ -1274,6 +1292,12 @@ export interface BooksApiBookControllerFindTopBooksRequest {
      * @memberof BooksApibookControllerFindTopBooks
      */
     limit: number
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindTopBooks
+     */
+    search?: string
 }
 
 export interface BooksApiBookControllerFindUserBookReviewRequest {
@@ -1413,6 +1437,20 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
+    public bookControllerAddTopBookWithHttpInfo(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+        return this.api.bookControllerAddTopBookWithHttpInfo(param.topBookPayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddTopBook(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO> {
+        return this.api.bookControllerAddTopBook(param.topBookPayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         return this.api.bookControllerFindBookByIdWithHttpInfo(param.id,  options).toPromise();
     }
@@ -1484,14 +1522,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        return this.api.bookControllerFindTopBooksWithHttpInfo(param.page, param.limit,  options).toPromise();
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
-        return this.api.bookControllerFindTopBooks(param.page, param.limit,  options).toPromise();
+        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search,  options).toPromise();
     }
 
     /**

@@ -6,6 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bookControllerAddBook**](BooksApi.md#bookControllerAddBook) | **POST** /v1/book | 
 [**bookControllerAddMyGoodReadsBooks**](BooksApi.md#bookControllerAddMyGoodReadsBooks) | **POST** /v1/books/add-goodreads | 
+[**bookControllerAddTopBook**](BooksApi.md#bookControllerAddTopBook) | **POST** /v1/add/top/books | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
 [**bookControllerFindBookByStatus**](BooksApi.md#bookControllerFindBookByStatus) | **POST** /v1/books/by-status | 
 [**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
@@ -118,6 +119,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 **BooksStatusResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerAddTopBook**
+> TopBooksResponseDTO bookControllerAddTopBook(topBookPayload)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerAddTopBookRequest = {
+  // TopBookPayload
+  topBookPayload: {
+    bookId: "bookId_example",
+  },
+};
+
+apiInstance.bookControllerAddTopBook(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **topBookPayload** | **TopBookPayload**|  |
+
+
+### Return type
+
+**TopBooksResponseDTO**
 
 ### Authorization
 
@@ -450,9 +507,13 @@ const apiInstance = new .BooksApi(configuration);
 
 let body:.BooksApiBookControllerFindTopBooksRequest = {
   // number
+  rate: 3.14,
+  // number
   page: 3.14,
   // number
   limit: 3.14,
+  // string (optional)
+  search: "search_example",
 };
 
 apiInstance.bookControllerFindTopBooks(body).then((data:any) => {
@@ -465,8 +526,10 @@ apiInstance.bookControllerFindTopBooks(body).then((data:any) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **rate** | [**number**] |  | defaults to undefined
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type

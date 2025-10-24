@@ -96,6 +96,9 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponse } from '../models/TopBooksResponse';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -1407,6 +1410,35 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param topBookPayload 
+     */
+    public bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>> {
+        const requestContextPromise = this.requestFactory.bookControllerAddTopBook(topBookPayload, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddTopBookWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param topBookPayload 
+     */
+    public bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<TopBooksResponseDTO> {
+        return this.bookControllerAddTopBookWithHttpInfo(topBookPayload, _options).pipe(map((apiResponse: HttpInfo<TopBooksResponseDTO>) => apiResponse.data));
+    }
+
+    /**
      * @param id 
      */
     public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<BookResponseDto>> {
@@ -1558,11 +1590,13 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param rate 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindTopBooks(page, limit, _options);
+    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindTopBooks(rate, page, limit, search, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1581,11 +1615,13 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param rate 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Observable<BooksReviewResponseDto> {
-        return this.bookControllerFindTopBooksWithHttpInfo(page, limit, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
     }
 
     /**

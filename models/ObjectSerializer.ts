@@ -92,6 +92,9 @@ export * from '../models/StripePaymentPayloadDto';
 export * from '../models/StripeResponse';
 export * from '../models/StripeResponseDto';
 export * from '../models/SuperAdminLoginPayloadDto';
+export * from '../models/TopBookPayload';
+export * from '../models/TopBooksResponse';
+export * from '../models/TopBooksResponseDTO';
 export * from '../models/UpdateRoleDto';
 export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';
@@ -209,6 +212,9 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponse } from '../models/TopBooksResponse';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -343,6 +349,9 @@ let typeMap: {[index: string]: any} = {
     "StripeResponse": StripeResponse,
     "StripeResponseDto": StripeResponseDto,
     "SuperAdminLoginPayloadDto": SuperAdminLoginPayloadDto,
+    "TopBookPayload": TopBookPayload,
+    "TopBooksResponse": TopBooksResponse,
+    "TopBooksResponseDTO": TopBooksResponseDTO,
     "UpdateRoleDto": UpdateRoleDto,
     "UpdateStaffDto": UpdateStaffDto,
     "UpdateStaffRoleDto": UpdateStaffRoleDto,

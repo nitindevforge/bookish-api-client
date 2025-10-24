@@ -95,6 +95,9 @@ import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponse } from '../models/StripeResponse';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponse } from '../models/TopBooksResponse';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -872,6 +875,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param topBookPayload 
+     */
+    public bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+        const result = this.api.bookControllerAddTopBookWithHttpInfo(topBookPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param topBookPayload 
+     */
+    public bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO> {
+        const result = this.api.bookControllerAddTopBook(topBookPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param id 
      */
     public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
@@ -958,20 +977,24 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param rate 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        const result = this.api.bookControllerFindTopBooksWithHttpInfo(page, limit, _options);
+    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, _options);
         return result.toPromise();
     }
 
     /**
+     * @param rate 
      * @param page 
      * @param limit 
+     * @param search 
      */
-    public bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Promise<BooksReviewResponseDto> {
-        const result = this.api.bookControllerFindTopBooks(page, limit, _options);
+    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindTopBooks(rate, page, limit, search, _options);
         return result.toPromise();
     }
 

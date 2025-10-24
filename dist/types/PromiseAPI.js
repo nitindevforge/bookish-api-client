@@ -350,6 +350,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerAddMyGoodReadsBooks(requestBody, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerAddTopBookWithHttpInfo = function (topBookPayload, _options) {
+        var result = this.api.bookControllerAddTopBookWithHttpInfo(topBookPayload, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerAddTopBook = function (topBookPayload, _options) {
+        var result = this.api.bookControllerAddTopBook(topBookPayload, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
         var result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
         return result.toPromise();
@@ -390,12 +398,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (page, limit, _options) {
-        var result = this.api.bookControllerFindTopBooksWithHttpInfo(page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (rate, page, limit, search, _options) {
+        var result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindTopBooks = function (page, limit, _options) {
-        var result = this.api.bookControllerFindTopBooks(page, limit, _options);
+    PromiseBooksApi.prototype.bookControllerFindTopBooks = function (rate, page, limit, search, _options) {
+        var result = this.api.bookControllerFindTopBooks(rate, page, limit, search, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {

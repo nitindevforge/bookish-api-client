@@ -57,6 +57,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -169,6 +171,8 @@ export declare class PromiseBooksApi {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
@@ -179,8 +183,8 @@ export declare class PromiseBooksApi {
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
-    bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;

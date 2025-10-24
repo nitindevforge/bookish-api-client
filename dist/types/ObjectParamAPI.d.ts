@@ -57,6 +57,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -308,6 +310,9 @@ export interface BooksApiBookControllerAddBookRequest {
 export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     requestBody: Array<string>;
 }
+export interface BooksApiBookControllerAddTopBookRequest {
+    topBookPayload: TopBookPayload;
+}
 export interface BooksApiBookControllerFindBookByIdRequest {
     id: string;
 }
@@ -327,8 +332,10 @@ export interface BooksApiBookControllerFindGoodReadsRequest {
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto;
 }
 export interface BooksApiBookControllerFindTopBooksRequest {
+    rate: number;
     page: number;
     limit: number;
+    search?: string;
 }
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
@@ -361,6 +368,8 @@ export declare class ObjectBooksApi {
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerAddMyGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddMyGoodReadsBooks(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddTopBookWithHttpInfo(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerAddTopBook(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(param: BooksApiBookControllerFindBookByStatusRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;

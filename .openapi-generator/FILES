@@ -126,6 +126,9 @@ models/StripePaymentPayloadDto.ts
 models/StripeResponse.ts
 models/StripeResponseDto.ts
 models/SuperAdminLoginPayloadDto.ts
+models/TopBookPayload.ts
+models/TopBooksResponse.ts
+models/TopBooksResponseDTO.ts
 models/UpdateRoleDto.ts
 models/UpdateStaffDto.ts
 models/UpdateStaffRoleDto.ts

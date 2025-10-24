@@ -278,6 +278,12 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerAddMyGoodReadsBooks = function (param, options) {
         return this.api.bookControllerAddMyGoodReadsBooks(param.requestBody, options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerAddTopBookWithHttpInfo = function (param, options) {
+        return this.api.bookControllerAddTopBookWithHttpInfo(param.topBookPayload, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerAddTopBook = function (param, options) {
+        return this.api.bookControllerAddTopBook(param.topBookPayload, options).toPromise();
+    };
     ObjectBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindBookByIdWithHttpInfo(param.id, options).toPromise();
     };
@@ -309,10 +315,10 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindTopBooksWithHttpInfo(param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooks = function (param, options) {
-        return this.api.bookControllerFindTopBooks(param.page, param.limit, options).toPromise();
+        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.status, param.rate, param.review, options).toPromise();

@@ -58,6 +58,8 @@ import { StripePayloadDto } from '../models/StripePayloadDto';
 import { StripePaymentPayloadDto } from '../models/StripePaymentPayloadDto';
 import { StripeResponseDto } from '../models/StripeResponseDto';
 import { SuperAdminLoginPayloadDto } from '../models/SuperAdminLoginPayloadDto';
+import { TopBookPayload } from '../models/TopBookPayload';
+import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
 import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
@@ -176,6 +178,8 @@ export declare class ObservableBooksApi {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Observable<BookResponseDto>;
     bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Observable<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Observable<BooksStatusResponseDto>;
+    bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<TopBooksResponseDTO>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Observable<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
@@ -186,8 +190,8 @@ export declare class ObservableBooksApi {
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<BooksReviewResponseDto>;
-    bookControllerFindTopBooksWithHttpInfo(page: number, limit: number, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopBooks(page: number, limit: number, _options?: Configuration): Observable<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<BookReviewCountResponseDto>>;
