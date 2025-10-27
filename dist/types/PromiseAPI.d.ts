@@ -50,6 +50,8 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
 import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
@@ -171,6 +173,8 @@ export declare class PromiseBooksApi {
     bookControllerAddBook(bookPayloadDto: BookPayloadDto, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerAddMyGoodReadsBooksWithHttpInfo(requestBody: Array<string>, _options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddReadingGoalWithHttpInfo(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
+    bookControllerAddReadingGoal(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
     bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
@@ -183,6 +187,8 @@ export declare class PromiseBooksApi {
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
+    bookControllerFindReadingGoal(_options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;

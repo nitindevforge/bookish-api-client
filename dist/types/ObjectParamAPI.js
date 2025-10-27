@@ -278,6 +278,12 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerAddMyGoodReadsBooks = function (param, options) {
         return this.api.bookControllerAddMyGoodReadsBooks(param.requestBody, options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerAddReadingGoalWithHttpInfo = function (param, options) {
+        return this.api.bookControllerAddReadingGoalWithHttpInfo(param.readingGoalPayload, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerAddReadingGoal = function (param, options) {
+        return this.api.bookControllerAddReadingGoal(param.readingGoalPayload, options).toPromise();
+    };
     ObjectBooksApi.prototype.bookControllerAddTopBookWithHttpInfo = function (param, options) {
         return this.api.bookControllerAddTopBookWithHttpInfo(param.topBookPayload, options).toPromise();
     };
@@ -313,6 +319,14 @@ var ObjectBooksApi = (function () {
     };
     ObjectBooksApi.prototype.bookControllerFindGoodReads = function (param, options) {
         return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.bookControllerFindReadingGoalWithHttpInfo(options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerFindReadingGoal = function (param, options) {
+        if (param === void 0) { param = {}; }
+        return this.api.bookControllerFindReadingGoal(options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();

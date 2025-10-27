@@ -50,6 +50,8 @@ import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
 import { PasswordChangeResponseDto } from '../models/PasswordChangeResponseDto';
 import { PaymentPayloadDto } from '../models/PaymentPayloadDto';
 import { PaymentResponseDto } from '../models/PaymentResponseDto';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
 import { StorageResponseDto } from '../models/StorageResponseDto';
 import { StoreDetailsPayloadDto } from '../models/StoreDetailsPayloadDto';
@@ -310,6 +312,9 @@ export interface BooksApiBookControllerAddBookRequest {
 export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     requestBody: Array<string>;
 }
+export interface BooksApiBookControllerAddReadingGoalRequest {
+    readingGoalPayload: ReadingGoalPayload;
+}
 export interface BooksApiBookControllerAddTopBookRequest {
     topBookPayload: TopBookPayload;
 }
@@ -330,6 +335,8 @@ export interface BooksApiBookControllerFindBooksRequest {
 }
 export interface BooksApiBookControllerFindGoodReadsRequest {
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto;
+}
+export interface BooksApiBookControllerFindReadingGoalRequest {
 }
 export interface BooksApiBookControllerFindTopBooksRequest {
     rate: number;
@@ -368,6 +375,8 @@ export declare class ObjectBooksApi {
     bookControllerAddBook(param: BooksApiBookControllerAddBookRequest, options?: Configuration): Promise<BookResponseDto>;
     bookControllerAddMyGoodReadsBooksWithHttpInfo(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddMyGoodReadsBooks(param: BooksApiBookControllerAddMyGoodReadsBooksRequest, options?: Configuration): Promise<BooksStatusResponseDto>;
+    bookControllerAddReadingGoalWithHttpInfo(param: BooksApiBookControllerAddReadingGoalRequest, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
+    bookControllerAddReadingGoal(param: BooksApiBookControllerAddReadingGoalRequest, options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerAddTopBookWithHttpInfo(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
     bookControllerAddTopBook(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO>;
     bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
@@ -380,6 +389,8 @@ export declare class ObjectBooksApi {
     bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindReadingGoalWithHttpInfo(param?: BooksApiBookControllerFindReadingGoalRequest, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
+    bookControllerFindReadingGoal(param?: BooksApiBookControllerFindReadingGoalRequest, options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;

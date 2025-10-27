@@ -99,6 +99,9 @@ __exportStar(require("../models/PaymentResponseDto"), exports);
 __exportStar(require("../models/PermissionResponseDto"), exports);
 __exportStar(require("../models/Places"), exports);
 __exportStar(require("../models/Rating"), exports);
+__exportStar(require("../models/ReadingGoalPayload"), exports);
+__exportStar(require("../models/ReadingGoalResponse"), exports);
+__exportStar(require("../models/ReadingGoalResponseDTO"), exports);
 __exportStar(require("../models/Review"), exports);
 __exportStar(require("../models/RoleResponseDto"), exports);
 __exportStar(require("../models/SignupPayloadDto"), exports);
@@ -218,6 +221,9 @@ var PaymentResponseDto_1 = require("../models/PaymentResponseDto");
 var PermissionResponseDto_1 = require("../models/PermissionResponseDto");
 var Places_1 = require("../models/Places");
 var Rating_1 = require("../models/Rating");
+var ReadingGoalPayload_1 = require("../models/ReadingGoalPayload");
+var ReadingGoalResponse_1 = require("../models/ReadingGoalResponse");
+var ReadingGoalResponseDTO_1 = require("../models/ReadingGoalResponseDTO");
 var Review_1 = require("../models/Review");
 var RoleResponseDto_1 = require("../models/RoleResponseDto");
 var SignupPayloadDto_1 = require("../models/SignupPayloadDto");
@@ -351,6 +357,9 @@ var typeMap = {
     "PermissionResponseDto": PermissionResponseDto_1.PermissionResponseDto,
     "Places": Places_1.Places,
     "Rating": Rating_1.Rating,
+    "ReadingGoalPayload": ReadingGoalPayload_1.ReadingGoalPayload,
+    "ReadingGoalResponse": ReadingGoalResponse_1.ReadingGoalResponse,
+    "ReadingGoalResponseDTO": ReadingGoalResponseDTO_1.ReadingGoalResponseDTO,
     "Review": Review_1.Review,
     "RoleResponseDto": RoleResponseDto_1.RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto_1.SignupPayloadDto,

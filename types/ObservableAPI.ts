@@ -86,6 +86,9 @@ import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { Places } from '../models/Places';
 import { Rating } from '../models/Rating';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponse } from '../models/ReadingGoalResponse';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -1410,6 +1413,35 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param readingGoalPayload 
+     */
+    public bookControllerAddReadingGoalWithHttpInfo(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>> {
+        const requestContextPromise = this.requestFactory.bookControllerAddReadingGoal(readingGoalPayload, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerAddReadingGoalWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param readingGoalPayload 
+     */
+    public bookControllerAddReadingGoal(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Observable<ReadingGoalResponseDTO> {
+        return this.bookControllerAddReadingGoalWithHttpInfo(readingGoalPayload, _options).pipe(map((apiResponse: HttpInfo<ReadingGoalResponseDTO>) => apiResponse.data));
+    }
+
+    /**
      * @param topBookPayload 
      */
     public bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>> {
@@ -1587,6 +1619,33 @@ export class ObservableBooksApi {
      */
     public bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<BooksReviewResponseDto> {
         return this.bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     */
+    public bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindReadingGoal(_options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindReadingGoalWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     */
+    public bookControllerFindReadingGoal(_options?: Configuration): Observable<ReadingGoalResponseDTO> {
+        return this.bookControllerFindReadingGoalWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<ReadingGoalResponseDTO>) => apiResponse.data));
     }
 
     /**

@@ -82,6 +82,9 @@ export * from '../models/PaymentResponseDto';
 export * from '../models/PermissionResponseDto';
 export * from '../models/Places';
 export * from '../models/Rating';
+export * from '../models/ReadingGoalPayload';
+export * from '../models/ReadingGoalResponse';
+export * from '../models/ReadingGoalResponseDTO';
 export * from '../models/Review';
 export * from '../models/RoleResponseDto';
 export * from '../models/SignupPayloadDto';
@@ -202,6 +205,9 @@ import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { Places } from '../models/Places';
 import { Rating } from '../models/Rating';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponse } from '../models/ReadingGoalResponse';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -339,6 +345,9 @@ let typeMap: {[index: string]: any} = {
     "PermissionResponseDto": PermissionResponseDto,
     "Places": Places,
     "Rating": Rating,
+    "ReadingGoalPayload": ReadingGoalPayload,
+    "ReadingGoalResponse": ReadingGoalResponse,
+    "ReadingGoalResponseDTO": ReadingGoalResponseDTO,
     "Review": Review,
     "RoleResponseDto": RoleResponseDto,
     "SignupPayloadDto": SignupPayloadDto,

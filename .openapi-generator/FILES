@@ -116,6 +116,9 @@ models/PaymentResponseDto.ts
 models/PermissionResponseDto.ts
 models/Places.ts
 models/Rating.ts
+models/ReadingGoalPayload.ts
+models/ReadingGoalResponse.ts
+models/ReadingGoalResponseDTO.ts
 models/Review.ts
 models/RoleResponseDto.ts
 models/SignupPayloadDto.ts

@@ -85,6 +85,9 @@ import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { Places } from '../models/Places';
 import { Rating } from '../models/Rating';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponse } from '../models/ReadingGoalResponse';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -1201,6 +1204,15 @@ export interface BooksApiBookControllerAddMyGoodReadsBooksRequest {
     requestBody: Array<string>
 }
 
+export interface BooksApiBookControllerAddReadingGoalRequest {
+    /**
+     * 
+     * @type ReadingGoalPayload
+     * @memberof BooksApibookControllerAddReadingGoal
+     */
+    readingGoalPayload: ReadingGoalPayload
+}
+
 export interface BooksApiBookControllerAddTopBookRequest {
     /**
      * 
@@ -1271,6 +1283,9 @@ export interface BooksApiBookControllerFindGoodReadsRequest {
      * @memberof BooksApibookControllerFindGoodReads
      */
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto
+}
+
+export interface BooksApiBookControllerFindReadingGoalRequest {
 }
 
 export interface BooksApiBookControllerFindTopBooksRequest {
@@ -1437,6 +1452,20 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
+    public bookControllerAddReadingGoalWithHttpInfo(param: BooksApiBookControllerAddReadingGoalRequest, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        return this.api.bookControllerAddReadingGoalWithHttpInfo(param.readingGoalPayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerAddReadingGoal(param: BooksApiBookControllerAddReadingGoalRequest, options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        return this.api.bookControllerAddReadingGoal(param.readingGoalPayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public bookControllerAddTopBookWithHttpInfo(param: BooksApiBookControllerAddTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
         return this.api.bookControllerAddTopBookWithHttpInfo(param.topBookPayload,  options).toPromise();
     }
@@ -1516,6 +1545,20 @@ export class ObjectBooksApi {
      */
     public bookControllerFindGoodReads(param: BooksApiBookControllerFindGoodReadsRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
         return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindReadingGoalWithHttpInfo(param: BooksApiBookControllerFindReadingGoalRequest = {}, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        return this.api.bookControllerFindReadingGoalWithHttpInfo( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindReadingGoal(param: BooksApiBookControllerFindReadingGoalRequest = {}, options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        return this.api.bookControllerFindReadingGoal( options).toPromise();
     }
 
     /**

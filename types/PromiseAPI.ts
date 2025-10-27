@@ -85,6 +85,9 @@ import { PaymentResponseDto } from '../models/PaymentResponseDto';
 import { PermissionResponseDto } from '../models/PermissionResponseDto';
 import { Places } from '../models/Places';
 import { Rating } from '../models/Rating';
+import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
+import { ReadingGoalResponse } from '../models/ReadingGoalResponse';
+import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { Review } from '../models/Review';
 import { RoleResponseDto } from '../models/RoleResponseDto';
 import { SignupPayloadDto } from '../models/SignupPayloadDto';
@@ -875,6 +878,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param readingGoalPayload 
+     */
+    public bookControllerAddReadingGoalWithHttpInfo(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        const result = this.api.bookControllerAddReadingGoalWithHttpInfo(readingGoalPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param readingGoalPayload 
+     */
+    public bookControllerAddReadingGoal(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        const result = this.api.bookControllerAddReadingGoal(readingGoalPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param topBookPayload 
      */
     public bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
@@ -973,6 +992,20 @@ export class PromiseBooksApi {
      */
     public bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto> {
         const result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        const result = this.api.bookControllerFindReadingGoalWithHttpInfo(_options);
+        return result.toPromise();
+    }
+
+    /**
+     */
+    public bookControllerFindReadingGoal(_options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        const result = this.api.bookControllerFindReadingGoal(_options);
         return result.toPromise();
     }
 
