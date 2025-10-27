@@ -996,16 +996,18 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param user 
      */
-    public bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
-        const result = this.api.bookControllerFindReadingGoalWithHttpInfo(_options);
+    public bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        const result = this.api.bookControllerFindReadingGoalWithHttpInfo(user, _options);
         return result.toPromise();
     }
 
     /**
+     * @param user 
      */
-    public bookControllerFindReadingGoal(_options?: Configuration): Promise<ReadingGoalResponseDTO> {
-        const result = this.api.bookControllerFindReadingGoal(_options);
+    public bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        const result = this.api.bookControllerFindReadingGoal(user, _options);
         return result.toPromise();
     }
 

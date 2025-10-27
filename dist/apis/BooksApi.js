@@ -413,7 +413,7 @@ var BooksApiRequestFactory = (function (_super) {
             });
         });
     };
-    BooksApiRequestFactory.prototype.bookControllerFindReadingGoal = function (_options) {
+    BooksApiRequestFactory.prototype.bookControllerFindReadingGoal = function (user, _options) {
         var _a, _b, _c;
         return __awaiter(this, void 0, void 0, function () {
             var _config, localVarPath, requestContext, authMethod, defaultAuth;
@@ -421,9 +421,15 @@ var BooksApiRequestFactory = (function (_super) {
                 switch (_d.label) {
                     case 0:
                         _config = _options || this.configuration;
+                        if (user === null || user === undefined) {
+                            throw new baseapi_1.RequiredError("BooksApi", "bookControllerFindReadingGoal", "user");
+                        }
                         localVarPath = '/v1/reading/goal';
                         requestContext = _config.baseServer.makeRequestContext(localVarPath, http_1.HttpMethod.GET);
                         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8");
+                        if (user !== undefined) {
+                            requestContext.setQueryParam("user", ObjectSerializer_1.ObjectSerializer.serialize(user, "string", ""));
+                        }
                         authMethod = _config.authMethods["bearer"];
                         if (!(authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication)) return [3, 2];
                         return [4, (authMethod === null || authMethod === void 0 ? void 0 : authMethod.applySecurityAuthentication(requestContext))];

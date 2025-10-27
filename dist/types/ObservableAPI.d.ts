@@ -194,8 +194,8 @@ export declare class ObservableBooksApi {
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<BooksReviewResponseDto>;
-    bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>>;
-    bookControllerFindReadingGoal(_options?: Configuration): Observable<ReadingGoalResponseDTO>;
+    bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>>;
+    bookControllerFindReadingGoal(user: string, _options?: Configuration): Observable<ReadingGoalResponseDTO>;
     bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>>;

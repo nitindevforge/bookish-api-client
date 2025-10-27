@@ -1326,9 +1326,9 @@ var ObservableBooksApi = (function () {
     ObservableBooksApi.prototype.bookControllerFindGoodReads = function (goodReadsBookPayloadDto, _options) {
         return this.bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (_options) {
+    ObservableBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (user, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.bookControllerFindReadingGoal(_options);
+        var requestContextPromise = this.requestFactory.bookControllerFindReadingGoal(user, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_97 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -1350,8 +1350,8 @@ var ObservableBooksApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.bookControllerFindReadingGoalWithHttpInfo(rsp); }));
         }));
     };
-    ObservableBooksApi.prototype.bookControllerFindReadingGoal = function (_options) {
-        return this.bookControllerFindReadingGoalWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableBooksApi.prototype.bookControllerFindReadingGoal = function (user, _options) {
+        return this.bookControllerFindReadingGoalWithHttpInfo(user, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (rate, page, limit, search, _options) {
         var _this = this;

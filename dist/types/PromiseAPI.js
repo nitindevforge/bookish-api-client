@@ -406,12 +406,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindGoodReads(goodReadsBookPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (_options) {
-        var result = this.api.bookControllerFindReadingGoalWithHttpInfo(_options);
+    PromiseBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (user, _options) {
+        var result = this.api.bookControllerFindReadingGoalWithHttpInfo(user, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindReadingGoal = function (_options) {
-        var result = this.api.bookControllerFindReadingGoal(_options);
+    PromiseBooksApi.prototype.bookControllerFindReadingGoal = function (user, _options) {
+        var result = this.api.bookControllerFindReadingGoal(user, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (rate, page, limit, search, _options) {

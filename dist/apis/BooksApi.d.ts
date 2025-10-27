@@ -27,7 +27,7 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindReadingGoal(_options?: Configuration): Promise<RequestContext>;
+    bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;

@@ -464,9 +464,16 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
     }
 
     /**
+     * @param user 
      */
-    public async bookControllerFindReadingGoal(_options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
+
+        // verify required parameter 'user' is not null or undefined
+        if (user === null || user === undefined) {
+            throw new RequiredError("BooksApi", "bookControllerFindReadingGoal", "user");
+        }
+
 
         // Path Params
         const localVarPath = '/v1/reading/goal';
@@ -474,6 +481,11 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         // Make Request Context
         const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.GET);
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+        // Query Params
+        if (user !== undefined) {
+            requestContext.setQueryParam("user", ObjectSerializer.serialize(user, "string", ""));
+        }
 
 
         let authMethod: SecurityAuthentication | undefined;

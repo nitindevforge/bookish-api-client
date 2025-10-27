@@ -565,7 +565,10 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .BooksApi(configuration);
 
-let body:any = {};
+let body:.BooksApiBookControllerFindReadingGoalRequest = {
+  // string
+  user: "user_example",
+};
 
 apiInstance.bookControllerFindReadingGoal(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -574,7 +577,10 @@ apiInstance.bookControllerFindReadingGoal(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | [**string**] |  | defaults to undefined
 
 
 ### Return type

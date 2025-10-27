@@ -1622,9 +1622,10 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param user 
      */
-    public bookControllerFindReadingGoalWithHttpInfo(_options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindReadingGoal(_options);
+    public bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindReadingGoal(user, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1643,9 +1644,10 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param user 
      */
-    public bookControllerFindReadingGoal(_options?: Configuration): Observable<ReadingGoalResponseDTO> {
-        return this.bookControllerFindReadingGoalWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<ReadingGoalResponseDTO>) => apiResponse.data));
+    public bookControllerFindReadingGoal(user: string, _options?: Configuration): Observable<ReadingGoalResponseDTO> {
+        return this.bookControllerFindReadingGoalWithHttpInfo(user, _options).pipe(map((apiResponse: HttpInfo<ReadingGoalResponseDTO>) => apiResponse.data));
     }
 
     /**

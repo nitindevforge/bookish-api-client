@@ -321,12 +321,10 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindGoodReads(param.goodReadsBookPayloadDto, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindReadingGoalWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.bookControllerFindReadingGoalWithHttpInfo(options).toPromise();
+        return this.api.bookControllerFindReadingGoalWithHttpInfo(param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindReadingGoal = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.bookControllerFindReadingGoal(options).toPromise();
+        return this.api.bookControllerFindReadingGoal(param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();

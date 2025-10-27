@@ -1286,6 +1286,12 @@ export interface BooksApiBookControllerFindGoodReadsRequest {
 }
 
 export interface BooksApiBookControllerFindReadingGoalRequest {
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindReadingGoal
+     */
+    user: string
 }
 
 export interface BooksApiBookControllerFindTopBooksRequest {
@@ -1550,15 +1556,15 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerFindReadingGoalWithHttpInfo(param: BooksApiBookControllerFindReadingGoalRequest = {}, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
-        return this.api.bookControllerFindReadingGoalWithHttpInfo( options).toPromise();
+    public bookControllerFindReadingGoalWithHttpInfo(param: BooksApiBookControllerFindReadingGoalRequest, options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>> {
+        return this.api.bookControllerFindReadingGoalWithHttpInfo(param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerFindReadingGoal(param: BooksApiBookControllerFindReadingGoalRequest = {}, options?: Configuration): Promise<ReadingGoalResponseDTO> {
-        return this.api.bookControllerFindReadingGoal( options).toPromise();
+    public bookControllerFindReadingGoal(param: BooksApiBookControllerFindReadingGoalRequest, options?: Configuration): Promise<ReadingGoalResponseDTO> {
+        return this.api.bookControllerFindReadingGoal(param.user,  options).toPromise();
     }
 
     /**
