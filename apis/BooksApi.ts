@@ -351,8 +351,9 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      * @param search 
+     * @param user 
      */
-    public async bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'rate' is not null or undefined
@@ -371,6 +372,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindBooks", "limit");
         }
+
 
 
 
@@ -399,6 +401,11 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (user !== undefined) {
+            requestContext.setQueryParam("user", ObjectSerializer.serialize(user, "string", ""));
         }
 
 
@@ -508,8 +515,9 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
      * @param page 
      * @param limit 
      * @param search 
+     * @param user 
      */
-    public async bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext> {
+    public async bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'rate' is not null or undefined
@@ -528,6 +536,7 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         if (limit === null || limit === undefined) {
             throw new RequiredError("BooksApi", "bookControllerFindTopBooks", "limit");
         }
+
 
 
 
@@ -556,6 +565,11 @@ export class BooksApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (limit !== undefined) {
             requestContext.setQueryParam("limit", ObjectSerializer.serialize(limit, "number", ""));
+        }
+
+        // Query Params
+        if (user !== undefined) {
+            requestContext.setQueryParam("user", ObjectSerializer.serialize(user, "string", ""));
         }
 
 

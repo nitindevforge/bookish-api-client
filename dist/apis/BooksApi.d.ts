@@ -25,10 +25,10 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<RequestContext>;

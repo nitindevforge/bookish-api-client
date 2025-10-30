@@ -183,14 +183,14 @@ export declare class PromiseBooksApi {
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
-    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
-    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<ReadingGoalResponseDTO>;
-    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;

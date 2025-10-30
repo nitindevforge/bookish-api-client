@@ -14,6 +14,7 @@ import { HttpFile } from '../http/http';
 
 export class TopBookPayload {
     'bookId': string;
+    'userId'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -21,6 +22,12 @@ export class TopBookPayload {
         {
             "name": "bookId",
             "baseName": "bookId",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "userId",
             "type": "string",
             "format": ""
         }    ];

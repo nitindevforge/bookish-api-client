@@ -190,14 +190,14 @@ export declare class ObservableBooksApi {
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Observable<BooksReviewResponseDto>;
     bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Observable<BooksReviewResponseDto>;
-    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
-    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Observable<BooksReviewResponseDto>;
     bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Observable<HttpInfo<ReadingGoalResponseDTO>>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Observable<ReadingGoalResponseDTO>;
-    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, _options?: Configuration): Observable<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Observable<HttpInfo<BookReviewCountResponseDto>>;

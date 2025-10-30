@@ -1274,6 +1274,12 @@ export interface BooksApiBookControllerFindBooksRequest {
      * @memberof BooksApibookControllerFindBooks
      */
     search?: string
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindBooks
+     */
+    user?: string
 }
 
 export interface BooksApiBookControllerFindGoodReadsRequest {
@@ -1319,6 +1325,12 @@ export interface BooksApiBookControllerFindTopBooksRequest {
      * @memberof BooksApibookControllerFindTopBooks
      */
     search?: string
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindTopBooks
+     */
+    user?: string
 }
 
 export interface BooksApiBookControllerFindUserBookReviewRequest {
@@ -1538,14 +1550,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
-        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
-        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
     }
 
     /**
@@ -1580,14 +1592,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
-        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search,  options).toPromise();
+        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
     }
 
     /**

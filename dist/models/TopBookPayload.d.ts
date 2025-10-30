@@ -1,5 +1,6 @@
 export declare class TopBookPayload {
     'bookId': string;
+    'userId'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

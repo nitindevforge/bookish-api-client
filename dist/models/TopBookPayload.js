@@ -14,6 +14,12 @@ var TopBookPayload = (function () {
             "baseName": "bookId",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "userId",
+            "baseName": "userId",
+            "type": "string",
+            "format": ""
         }
     ];
     return TopBookPayload;

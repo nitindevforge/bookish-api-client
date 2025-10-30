@@ -309,10 +309,10 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindBookReviewBase(param.userBookStatusQueryDto, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindBooks = function (param, options) {
-        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindGoodReadsWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindGoodReadsWithHttpInfo(param.goodReadsBookPayloadDto, options).toPromise();
@@ -327,10 +327,10 @@ var ObjectBooksApi = (function () {
         return this.api.bookControllerFindReadingGoal(param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindTopBooks = function (param, options) {
-        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, options).toPromise();
+        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
     };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.status, param.rate, param.review, options).toPromise();

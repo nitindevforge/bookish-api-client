@@ -217,6 +217,7 @@ let body:.BooksApiBookControllerAddTopBookRequest = {
   // TopBookPayload
   topBookPayload: {
     bookId: "bookId_example",
+    userId: "userId_example",
   },
 };
 
@@ -453,6 +454,8 @@ let body:.BooksApiBookControllerFindBooksRequest = {
   limit: 3.14,
   // string (optional)
   search: "search_example",
+  // string (optional)
+  user: "user_example",
 };
 
 apiInstance.bookControllerFindBooks(body).then((data:any) => {
@@ -469,6 +472,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
+ **user** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -629,6 +633,8 @@ let body:.BooksApiBookControllerFindTopBooksRequest = {
   limit: 3.14,
   // string (optional)
   search: "search_example",
+  // string (optional)
+  user: "user_example",
 };
 
 apiInstance.bookControllerFindTopBooks(body).then((data:any) => {
@@ -645,6 +651,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
+ **user** | [**string**] |  | (optional) defaults to undefined
 
 
 ### Return type
@@ -927,6 +934,7 @@ let body:.BooksApiBookControllerRemoveTopBookRequest = {
   // TopBookPayload
   topBookPayload: {
     bookId: "bookId_example",
+    userId: "userId_example",
   },
 };
 

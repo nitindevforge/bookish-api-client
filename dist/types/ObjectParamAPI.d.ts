@@ -332,6 +332,7 @@ export interface BooksApiBookControllerFindBooksRequest {
     page: number;
     limit: number;
     search?: string;
+    user?: string;
 }
 export interface BooksApiBookControllerFindGoodReadsRequest {
     goodReadsBookPayloadDto: GoodReadsBookPayloadDto;
@@ -344,6 +345,7 @@ export interface BooksApiBookControllerFindTopBooksRequest {
     page: number;
     limit: number;
     search?: string;
+    user?: string;
 }
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
