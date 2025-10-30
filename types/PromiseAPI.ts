@@ -1116,6 +1116,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param topBookPayload 
+     */
+    public bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+        const result = this.api.bookControllerRemoveTopBookWithHttpInfo(topBookPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param topBookPayload 
+     */
+    public bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO> {
+        const result = this.api.bookControllerRemoveTopBook(topBookPayload, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param userBookPayloadDto 
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {

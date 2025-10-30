@@ -206,6 +206,8 @@ export declare class ObservableBooksApi {
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Observable<UserBooksResponseDto>;
     bookControllerFindUserWhichReadBookWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBook(_options?: Configuration): Observable<UserBooksResponseDto>;
+    bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<TopBooksResponseDTO>;
     bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookReviewResponseDto>;
 }

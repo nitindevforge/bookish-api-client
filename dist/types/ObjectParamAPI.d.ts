@@ -366,6 +366,9 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
 }
 export interface BooksApiBookControllerFindUserWhichReadBookRequest {
 }
+export interface BooksApiBookControllerRemoveTopBookRequest {
+    topBookPayload: TopBookPayload;
+}
 export interface BooksApiBookControllerUserBookMarkRequest {
     userBookPayloadDto: UserBookPayloadDto;
 }
@@ -402,6 +405,8 @@ export declare class ObjectBooksApi {
     bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto>;
     bookControllerFindUserWhichReadBookWithHttpInfo(param?: BooksApiBookControllerFindUserWhichReadBookRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBook(param?: BooksApiBookControllerFindUserWhichReadBookRequest, options?: Configuration): Promise<UserBooksResponseDto>;
+    bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO>;
     bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookReviewResponseDto>;
 }

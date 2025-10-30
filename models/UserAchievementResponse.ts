@@ -16,6 +16,7 @@ export class UserAchievementResponse {
     'friend': boolean;
     'event': boolean;
     'book': boolean;
+    'readingGoal': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -35,6 +36,12 @@ export class UserAchievementResponse {
         {
             "name": "book",
             "baseName": "book",
+            "type": "boolean",
+            "format": ""
+        },
+        {
+            "name": "readingGoal",
+            "baseName": "readingGoal",
             "type": "boolean",
             "format": ""
         }    ];

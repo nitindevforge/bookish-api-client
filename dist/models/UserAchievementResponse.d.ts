@@ -2,6 +2,7 @@ export declare class UserAchievementResponse {
     'friend': boolean;
     'event': boolean;
     'book': boolean;
+    'readingGoal': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -1411,6 +1411,15 @@ export interface BooksApiBookControllerFindUserBookReviewsRequest {
 export interface BooksApiBookControllerFindUserWhichReadBookRequest {
 }
 
+export interface BooksApiBookControllerRemoveTopBookRequest {
+    /**
+     * 
+     * @type TopBookPayload
+     * @memberof BooksApibookControllerRemoveTopBook
+     */
+    topBookPayload: TopBookPayload
+}
+
 export interface BooksApiBookControllerUserBookMarkRequest {
     /**
      * 
@@ -1635,6 +1644,20 @@ export class ObjectBooksApi {
      */
     public bookControllerFindUserWhichReadBook(param: BooksApiBookControllerFindUserWhichReadBookRequest = {}, options?: Configuration): Promise<UserBooksResponseDto> {
         return this.api.bookControllerFindUserWhichReadBook( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+        return this.api.bookControllerRemoveTopBookWithHttpInfo(param.topBookPayload,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO> {
+        return this.api.bookControllerRemoveTopBook(param.topBookPayload,  options).toPromise();
     }
 
     /**

@@ -26,6 +26,12 @@ var UserAchievementResponse = (function () {
             "baseName": "book",
             "type": "boolean",
             "format": ""
+        },
+        {
+            "name": "readingGoal",
+            "baseName": "readingGoal",
+            "type": "boolean",
+            "format": ""
         }
     ];
     return UserAchievementResponse;

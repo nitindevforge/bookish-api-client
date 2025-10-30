@@ -358,6 +358,12 @@ var ObjectBooksApi = (function () {
         if (param === void 0) { param = {}; }
         return this.api.bookControllerFindUserWhichReadBook(options).toPromise();
     };
+    ObjectBooksApi.prototype.bookControllerRemoveTopBookWithHttpInfo = function (param, options) {
+        return this.api.bookControllerRemoveTopBookWithHttpInfo(param.topBookPayload, options).toPromise();
+    };
+    ObjectBooksApi.prototype.bookControllerRemoveTopBook = function (param, options) {
+        return this.api.bookControllerRemoveTopBook(param.topBookPayload, options).toPromise();
+    };
     ObjectBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (param, options) {
         return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto, options).toPromise();
     };
