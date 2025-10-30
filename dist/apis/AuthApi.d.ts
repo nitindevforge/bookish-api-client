@@ -43,7 +43,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerDeleteStaff(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerDeleteStaffRole(id: string, _options?: Configuration): Promise<RequestContext>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<RequestContext>;
-    authControllerGetAchievement(_options?: Configuration): Promise<RequestContext>;
+    authControllerGetAchievement(user: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetAllStaff(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<RequestContext>;
     authControllerGetAllusers(page: number, limit: number, _options?: Configuration): Promise<RequestContext>;

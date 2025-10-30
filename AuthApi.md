@@ -725,7 +725,10 @@ import * as fs from 'fs';
 const configuration = .createConfiguration();
 const apiInstance = new .AuthApi(configuration);
 
-let body:any = {};
+let body:.AuthApiAuthControllerGetAchievementRequest = {
+  // string
+  user: "user_example",
+};
 
 apiInstance.authControllerGetAchievement(body).then((data:any) => {
   console.log('API called successfully. Returned data: ' + data);
@@ -734,7 +737,10 @@ apiInstance.authControllerGetAchievement(body).then((data:any) => {
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **user** | [**string**] |  | defaults to undefined
 
 
 ### Return type

@@ -112,8 +112,8 @@ export declare class PromiseAuthApi {
     authControllerDeleteStaffRole(id: string, _options?: Configuration): Promise<void>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetAchievementWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>>;
-    authControllerGetAchievement(_options?: Configuration): Promise<UserAchievementResponseDTO>;
+    authControllerGetAchievementWithHttpInfo(user: string, _options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>>;
+    authControllerGetAchievement(user: string, _options?: Configuration): Promise<UserAchievementResponseDTO>;
     authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Promise<HttpInfo<void>>;

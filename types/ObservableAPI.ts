@@ -535,9 +535,10 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param user 
      */
-    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserAchievementResponseDTO>> {
-        const requestContextPromise = this.requestFactory.authControllerGetAchievement(_options);
+    public authControllerGetAchievementWithHttpInfo(user: string, _options?: Configuration): Observable<HttpInfo<UserAchievementResponseDTO>> {
+        const requestContextPromise = this.requestFactory.authControllerGetAchievement(user, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -556,9 +557,10 @@ export class ObservableAuthApi {
     }
 
     /**
+     * @param user 
      */
-    public authControllerGetAchievement(_options?: Configuration): Observable<UserAchievementResponseDTO> {
-        return this.authControllerGetAchievementWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<UserAchievementResponseDTO>) => apiResponse.data));
+    public authControllerGetAchievement(user: string, _options?: Configuration): Observable<UserAchievementResponseDTO> {
+        return this.authControllerGetAchievementWithHttpInfo(user, _options).pipe(map((apiResponse: HttpInfo<UserAchievementResponseDTO>) => apiResponse.data));
     }
 
     /**

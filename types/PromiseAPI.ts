@@ -363,16 +363,18 @@ export class PromiseAuthApi {
     }
 
     /**
+     * @param user 
      */
-    public authControllerGetAchievementWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
-        const result = this.api.authControllerGetAchievementWithHttpInfo(_options);
+    public authControllerGetAchievementWithHttpInfo(user: string, _options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
+        const result = this.api.authControllerGetAchievementWithHttpInfo(user, _options);
         return result.toPromise();
     }
 
     /**
+     * @param user 
      */
-    public authControllerGetAchievement(_options?: Configuration): Promise<UserAchievementResponseDTO> {
-        const result = this.api.authControllerGetAchievement(_options);
+    public authControllerGetAchievement(user: string, _options?: Configuration): Promise<UserAchievementResponseDTO> {
+        const result = this.api.authControllerGetAchievement(user, _options);
         return result.toPromise();
     }
 

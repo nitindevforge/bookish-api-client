@@ -371,9 +371,9 @@ var ObservableAuthApi = (function () {
     ObservableAuthApi.prototype.authControllerForgetPassword = function (forgetPasswordPayloadDto, _options) {
         return this.authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
-    ObservableAuthApi.prototype.authControllerGetAchievementWithHttpInfo = function (_options) {
+    ObservableAuthApi.prototype.authControllerGetAchievementWithHttpInfo = function (user, _options) {
         var _this = this;
-        var requestContextPromise = this.requestFactory.authControllerGetAchievement(_options);
+        var requestContextPromise = this.requestFactory.authControllerGetAchievement(user, _options);
         var middlewarePreObservable = (0, rxjsStub_1.from)(requestContextPromise);
         var _loop_27 = function (middleware) {
             middlewarePreObservable = middlewarePreObservable.pipe((0, rxjsStub_2.mergeMap)(function (ctx) { return middleware.pre(ctx); }));
@@ -395,8 +395,8 @@ var ObservableAuthApi = (function () {
             return middlewarePostObservable.pipe((0, rxjsStub_2.map)(function (rsp) { return _this.responseProcessor.authControllerGetAchievementWithHttpInfo(rsp); }));
         }));
     };
-    ObservableAuthApi.prototype.authControllerGetAchievement = function (_options) {
-        return this.authControllerGetAchievementWithHttpInfo(_options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
+    ObservableAuthApi.prototype.authControllerGetAchievement = function (user, _options) {
+        return this.authControllerGetAchievementWithHttpInfo(user, _options).pipe((0, rxjsStub_2.map)(function (apiResponse) { return apiResponse.data; }));
     };
     ObservableAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {
         var _this = this;

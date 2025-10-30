@@ -117,8 +117,8 @@ export declare class ObservableAuthApi {
     authControllerDeleteStaffRole(id: string, _options?: Configuration): Observable<void>;
     authControllerForgetPasswordWithHttpInfo(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(forgetPasswordPayloadDto: ForgetPasswordPayloadDto, _options?: Configuration): Observable<ForgetPasswordEntityResponseDto>;
-    authControllerGetAchievementWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserAchievementResponseDTO>>;
-    authControllerGetAchievement(_options?: Configuration): Observable<UserAchievementResponseDTO>;
+    authControllerGetAchievementWithHttpInfo(user: string, _options?: Configuration): Observable<HttpInfo<UserAchievementResponseDTO>>;
+    authControllerGetAchievement(user: string, _options?: Configuration): Observable<UserAchievementResponseDTO>;
     authControllerGetActivityWithHttpInfo(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<HttpInfo<ActivityResponseDto>>;
     authControllerGetActivity(page: number, limit: number, longitude?: number, latitude?: number, global?: boolean, search?: string, _options?: Configuration): Observable<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(page: number, ownerId: string, limit: number, search?: string, _options?: Configuration): Observable<HttpInfo<void>>;

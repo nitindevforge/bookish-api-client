@@ -118,12 +118,12 @@ var PromiseAuthApi = (function () {
         var result = this.api.authControllerForgetPassword(forgetPasswordPayloadDto, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetAchievementWithHttpInfo = function (_options) {
-        var result = this.api.authControllerGetAchievementWithHttpInfo(_options);
+    PromiseAuthApi.prototype.authControllerGetAchievementWithHttpInfo = function (user, _options) {
+        var result = this.api.authControllerGetAchievementWithHttpInfo(user, _options);
         return result.toPromise();
     };
-    PromiseAuthApi.prototype.authControllerGetAchievement = function (_options) {
-        var result = this.api.authControllerGetAchievement(_options);
+    PromiseAuthApi.prototype.authControllerGetAchievement = function (user, _options) {
+        var result = this.api.authControllerGetAchievement(user, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (page, limit, longitude, latitude, global, search, _options) {

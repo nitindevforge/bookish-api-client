@@ -95,12 +95,10 @@ var ObjectAuthApi = (function () {
         return this.api.authControllerForgetPassword(param.forgetPasswordPayloadDto, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetAchievementWithHttpInfo = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.authControllerGetAchievementWithHttpInfo(options).toPromise();
+        return this.api.authControllerGetAchievementWithHttpInfo(param.user, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetAchievement = function (param, options) {
-        if (param === void 0) { param = {}; }
-        return this.api.authControllerGetAchievement(options).toPromise();
+        return this.api.authControllerGetAchievement(param.user, options).toPromise();
     };
     ObjectAuthApi.prototype.authControllerGetActivityWithHttpInfo = function (param, options) {
         return this.api.authControllerGetActivityWithHttpInfo(param.page, param.limit, param.longitude, param.latitude, param.global, param.search, options).toPromise();

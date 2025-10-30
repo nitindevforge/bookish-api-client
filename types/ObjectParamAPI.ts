@@ -265,6 +265,12 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
 }
 
 export interface AuthApiAuthControllerGetAchievementRequest {
+    /**
+     * 
+     * @type string
+     * @memberof AuthApiauthControllerGetAchievement
+     */
+    user: string
 }
 
 export interface AuthApiAuthControllerGetActivityRequest {
@@ -820,15 +826,15 @@ export class ObjectAuthApi {
     /**
      * @param param the request object
      */
-    public authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
-        return this.api.authControllerGetAchievementWithHttpInfo( options).toPromise();
+    public authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>> {
+        return this.api.authControllerGetAchievementWithHttpInfo(param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest = {}, options?: Configuration): Promise<UserAchievementResponseDTO> {
-        return this.api.authControllerGetAchievement( options).toPromise();
+    public authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<UserAchievementResponseDTO> {
+        return this.api.authControllerGetAchievement(param.user,  options).toPromise();
     }
 
     /**

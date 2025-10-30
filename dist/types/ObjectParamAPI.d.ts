@@ -124,6 +124,7 @@ export interface AuthApiAuthControllerForgetPasswordRequest {
     forgetPasswordPayloadDto: ForgetPasswordPayloadDto;
 }
 export interface AuthApiAuthControllerGetAchievementRequest {
+    user: string;
 }
 export interface AuthApiAuthControllerGetActivityRequest {
     page: number;
@@ -252,8 +253,8 @@ export declare class ObjectAuthApi {
     authControllerDeleteStaffRole(param: AuthApiAuthControllerDeleteStaffRoleRequest, options?: Configuration): Promise<void>;
     authControllerForgetPasswordWithHttpInfo(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<HttpInfo<ForgetPasswordEntityResponseDto>>;
     authControllerForgetPassword(param: AuthApiAuthControllerForgetPasswordRequest, options?: Configuration): Promise<ForgetPasswordEntityResponseDto>;
-    authControllerGetAchievementWithHttpInfo(param?: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>>;
-    authControllerGetAchievement(param?: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<UserAchievementResponseDTO>;
+    authControllerGetAchievementWithHttpInfo(param: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<HttpInfo<UserAchievementResponseDTO>>;
+    authControllerGetAchievement(param: AuthApiAuthControllerGetAchievementRequest, options?: Configuration): Promise<UserAchievementResponseDTO>;
     authControllerGetActivityWithHttpInfo(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<HttpInfo<ActivityResponseDto>>;
     authControllerGetActivity(param: AuthApiAuthControllerGetActivityRequest, options?: Configuration): Promise<ActivityResponseDto>;
     authControllerGetAllStaffWithHttpInfo(param: AuthApiAuthControllerGetAllStaffRequest, options?: Configuration): Promise<HttpInfo<void>>;
