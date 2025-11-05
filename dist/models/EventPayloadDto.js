@@ -74,6 +74,12 @@ var EventPayloadDto = (function () {
             "baseName": "owner",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "link",
+            "baseName": "link",
+            "type": "string",
+            "format": ""
         }
     ];
     return EventPayloadDto;

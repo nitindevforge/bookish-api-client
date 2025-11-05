@@ -92,6 +92,12 @@ var Events = (function () {
             "baseName": "book",
             "type": "Book",
             "format": ""
+        },
+        {
+            "name": "link",
+            "baseName": "link",
+            "type": "string",
+            "format": ""
         }
     ];
     return Events;

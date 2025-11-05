@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**eventControllerBookMarkEvent**](EventsApi.md#eventControllerBookMarkEvent) | **POST** /v1/bookmark-event | 
 [**eventControllerBookMarkEventList**](EventsApi.md#eventControllerBookMarkEventList) | **GET** /v1/bookmark-event-list | 
 [**eventControllerCreateEvent**](EventsApi.md#eventControllerCreateEvent) | **POST** /v1/event | 
+[**eventControllerCreateMyEvents**](EventsApi.md#eventControllerCreateMyEvents) | **POST** /v1/free-event-book | 
 [**eventControllerDeleteBookMarkEvent**](EventsApi.md#eventControllerDeleteBookMarkEvent) | **DELETE** /v1/bookmark-event/{eventId} | 
 [**eventControllerDeleteEvent**](EventsApi.md#eventControllerDeleteEvent) | **DELETE** /v1/event | 
 [**eventControllerFindCustomerOfEvents**](EventsApi.md#eventControllerFindCustomerOfEvents) | **GET** /v1/event-customers | 
@@ -166,6 +167,7 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     id: "id_example",
     book: "book_example",
     owner: "owner_example",
+    link: "link_example",
   },
 };
 
@@ -185,6 +187,62 @@ Name | Type | Description  | Notes
 ### Return type
 
 **EventResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **eventControllerCreateMyEvents**
+> MyEventResponseDto eventControllerCreateMyEvents(myEventsPayloadDTO)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .EventsApi(configuration);
+
+let body:.EventsApiEventControllerCreateMyEventsRequest = {
+  // MyEventsPayloadDTO
+  myEventsPayloadDTO: {
+    eventId: "eventId_example",
+  },
+};
+
+apiInstance.eventControllerCreateMyEvents(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **myEventsPayloadDTO** | **MyEventsPayloadDTO**|  |
+
+
+### Return type
+
+**MyEventResponseDto**
 
 ### Authorization
 
@@ -750,6 +808,7 @@ let body:.EventsApiEventControllerUpdateEventRequest = {
     id: "id_example",
     book: "book_example",
     owner: "owner_example",
+    link: "link_example",
   },
 };
 

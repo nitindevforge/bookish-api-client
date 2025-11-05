@@ -45,6 +45,7 @@ import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -206,8 +207,8 @@ export declare class ObservableBooksApi {
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Observable<UserBooksResponseDto>;
     bookControllerFindUserWhichReadBookWithHttpInfo(_options?: Configuration): Observable<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBook(_options?: Configuration): Observable<UserBooksResponseDto>;
-    bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>>;
-    bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<TopBooksResponseDTO>;
+    bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<void>>;
+    bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<void>;
     bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookReviewResponseDto>;
 }
@@ -241,6 +242,8 @@ export declare class ObservableEventsApi {
     eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Observable<BookMarkEventListResponseDto>;
     eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto>;
+    eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Observable<HttpInfo<MyEventResponseDto>>;
+    eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Observable<MyEventResponseDto>;
     eventControllerDeleteBookMarkEventWithHttpInfo(eventId: string, _options?: Configuration): Observable<HttpInfo<DeleteBookMarkEventResponseDto>>;
     eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Observable<DeleteBookMarkEventResponseDto>;
     eventControllerDeleteEventWithHttpInfo(id: string, withBookedEvent?: boolean, _options?: Configuration): Observable<HttpInfo<EventDeleteResponseDto>>;

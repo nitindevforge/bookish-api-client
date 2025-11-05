@@ -72,6 +72,7 @@ import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
@@ -1124,7 +1125,7 @@ export class PromiseBooksApi {
     /**
      * @param topBookPayload 
      */
-    public bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+    public bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<void>> {
         const result = this.api.bookControllerRemoveTopBookWithHttpInfo(topBookPayload, _options);
         return result.toPromise();
     }
@@ -1132,7 +1133,7 @@ export class PromiseBooksApi {
     /**
      * @param topBookPayload 
      */
-    public bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO> {
+    public bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<void> {
         const result = this.api.bookControllerRemoveTopBook(topBookPayload, _options);
         return result.toPromise();
     }
@@ -1289,6 +1290,22 @@ export class PromiseEventsApi {
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto> {
         const result = this.api.eventControllerCreateEvent(eventPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param myEventsPayloadDTO 
+     */
+    public eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
+        const result = this.api.eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param myEventsPayloadDTO 
+     */
+    public eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<MyEventResponseDto> {
+        const result = this.api.eventControllerCreateMyEvents(myEventsPayloadDTO, _options);
         return result.toPromise();
     }
 

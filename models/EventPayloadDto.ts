@@ -25,6 +25,7 @@ export class EventPayloadDto {
     'id'?: string;
     'book'?: string;
     'owner'?: string;
+    'link'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -92,6 +93,12 @@ export class EventPayloadDto {
         {
             "name": "owner",
             "baseName": "owner",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "link",
+            "baseName": "link",
             "type": "string",
             "format": ""
         }    ];

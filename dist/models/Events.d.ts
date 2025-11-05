@@ -17,6 +17,7 @@ export declare class Events {
     'createdAt': Date;
     'updatedAt': Date;
     'book': Book;
+    'link'?: string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

@@ -424,6 +424,12 @@ var ObjectEventsApi = (function () {
     ObjectEventsApi.prototype.eventControllerCreateEvent = function (param, options) {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto, options).toPromise();
     };
+    ObjectEventsApi.prototype.eventControllerCreateMyEventsWithHttpInfo = function (param, options) {
+        return this.api.eventControllerCreateMyEventsWithHttpInfo(param.myEventsPayloadDTO, options).toPromise();
+    };
+    ObjectEventsApi.prototype.eventControllerCreateMyEvents = function (param, options) {
+        return this.api.eventControllerCreateMyEvents(param.myEventsPayloadDTO, options).toPromise();
+    };
     ObjectEventsApi.prototype.eventControllerDeleteBookMarkEventWithHttpInfo = function (param, options) {
         return this.api.eventControllerDeleteBookMarkEventWithHttpInfo(param.eventId, options).toPromise();
     };

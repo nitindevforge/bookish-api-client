@@ -69,6 +69,7 @@ export * from '../models/MetaResponse';
 export * from '../models/MyAllFriendsResponseDto';
 export * from '../models/MyEventResponseDto';
 export * from '../models/MyEvents';
+export * from '../models/MyEventsPayloadDTO';
 export * from '../models/MyEventsResponse';
 export * from '../models/MyEventsResponseDto';
 export * from '../models/MyFriendPayloadDto';

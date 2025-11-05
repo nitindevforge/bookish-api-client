@@ -44,6 +44,7 @@ import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -408,8 +409,8 @@ export declare class ObjectBooksApi {
     bookControllerFindUserBookReviews(param: BooksApiBookControllerFindUserBookReviewsRequest, options?: Configuration): Promise<UserBooksResponseDto>;
     bookControllerFindUserWhichReadBookWithHttpInfo(param?: BooksApiBookControllerFindUserWhichReadBookRequest, options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBook(param?: BooksApiBookControllerFindUserWhichReadBookRequest, options?: Configuration): Promise<UserBooksResponseDto>;
-    bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
-    bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO>;
+    bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<void>>;
+    bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<void>;
     bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookReviewResponseDto>;
 }
@@ -443,6 +444,9 @@ export interface EventsApiEventControllerBookMarkEventListRequest {
 }
 export interface EventsApiEventControllerCreateEventRequest {
     eventPayloadDto: EventPayloadDto;
+}
+export interface EventsApiEventControllerCreateMyEventsRequest {
+    myEventsPayloadDTO: MyEventsPayloadDTO;
 }
 export interface EventsApiEventControllerDeleteBookMarkEventRequest {
     eventId: string;
@@ -492,6 +496,8 @@ export declare class ObjectEventsApi {
     eventControllerBookMarkEventList(param: EventsApiEventControllerBookMarkEventListRequest, options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerCreateEventWithHttpInfo(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto>;
+    eventControllerCreateMyEventsWithHttpInfo(param: EventsApiEventControllerCreateMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
+    eventControllerCreateMyEvents(param: EventsApiEventControllerCreateMyEventsRequest, options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerDeleteBookMarkEventWithHttpInfo(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
     eventControllerDeleteBookMarkEvent(param: EventsApiEventControllerDeleteBookMarkEventRequest, options?: Configuration): Promise<DeleteBookMarkEventResponseDto>;
     eventControllerDeleteEventWithHttpInfo(param: EventsApiEventControllerDeleteEventRequest, options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>>;

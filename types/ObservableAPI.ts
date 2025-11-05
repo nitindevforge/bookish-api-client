@@ -73,6 +73,7 @@ import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
@@ -1828,7 +1829,7 @@ export class ObservableBooksApi {
     /**
      * @param topBookPayload 
      */
-    public bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<TopBooksResponseDTO>> {
+    public bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Observable<HttpInfo<void>> {
         const requestContextPromise = this.requestFactory.bookControllerRemoveTopBook(topBookPayload, _options);
 
         // build promise chain
@@ -1850,8 +1851,8 @@ export class ObservableBooksApi {
     /**
      * @param topBookPayload 
      */
-    public bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<TopBooksResponseDTO> {
-        return this.bookControllerRemoveTopBookWithHttpInfo(topBookPayload, _options).pipe(map((apiResponse: HttpInfo<TopBooksResponseDTO>) => apiResponse.data));
+    public bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Observable<void> {
+        return this.bookControllerRemoveTopBookWithHttpInfo(topBookPayload, _options).pipe(map((apiResponse: HttpInfo<void>) => apiResponse.data));
     }
 
     /**
@@ -2082,6 +2083,35 @@ export class ObservableEventsApi {
      */
     public eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Observable<EventResponseDto> {
         return this.eventControllerCreateEventWithHttpInfo(eventPayloadDto, _options).pipe(map((apiResponse: HttpInfo<EventResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param myEventsPayloadDTO 
+     */
+    public eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Observable<HttpInfo<MyEventResponseDto>> {
+        const requestContextPromise = this.requestFactory.eventControllerCreateMyEvents(myEventsPayloadDTO, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.eventControllerCreateMyEventsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param myEventsPayloadDTO 
+     */
+    public eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Observable<MyEventResponseDto> {
+        return this.eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO, _options).pipe(map((apiResponse: HttpInfo<MyEventResponseDto>) => apiResponse.data));
     }
 
     /**

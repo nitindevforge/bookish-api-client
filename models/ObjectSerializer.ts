@@ -69,6 +69,7 @@ export * from '../models/MetaResponse';
 export * from '../models/MyAllFriendsResponseDto';
 export * from '../models/MyEventResponseDto';
 export * from '../models/MyEvents';
+export * from '../models/MyEventsPayloadDTO';
 export * from '../models/MyEventsResponse';
 export * from '../models/MyEventsResponseDto';
 export * from '../models/MyFriendPayloadDto';
@@ -192,6 +193,7 @@ import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
@@ -332,6 +334,7 @@ let typeMap: {[index: string]: any} = {
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto,
     "MyEventResponseDto": MyEventResponseDto,
     "MyEvents": MyEvents,
+    "MyEventsPayloadDTO": MyEventsPayloadDTO,
     "MyEventsResponse": MyEventsResponse,
     "MyEventsResponseDto": MyEventsResponseDto,
     "MyFriendPayloadDto": MyFriendPayloadDto,

@@ -72,6 +72,7 @@ import { MetaResponse } from '../models/MetaResponse';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
 import { MyEvents } from '../models/MyEvents';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponse } from '../models/MyEventsResponse';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
@@ -1667,14 +1668,14 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
-    public bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>> {
+    public bookControllerRemoveTopBookWithHttpInfo(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<HttpInfo<void>> {
         return this.api.bookControllerRemoveTopBookWithHttpInfo(param.topBookPayload,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
-    public bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<TopBooksResponseDTO> {
+    public bookControllerRemoveTopBook(param: BooksApiBookControllerRemoveTopBookRequest, options?: Configuration): Promise<void> {
         return this.api.bookControllerRemoveTopBook(param.topBookPayload,  options).toPromise();
     }
 
@@ -1798,6 +1799,15 @@ export interface EventsApiEventControllerCreateEventRequest {
      * @memberof EventsApieventControllerCreateEvent
      */
     eventPayloadDto: EventPayloadDto
+}
+
+export interface EventsApiEventControllerCreateMyEventsRequest {
+    /**
+     * 
+     * @type MyEventsPayloadDTO
+     * @memberof EventsApieventControllerCreateMyEvents
+     */
+    myEventsPayloadDTO: MyEventsPayloadDTO
 }
 
 export interface EventsApiEventControllerDeleteBookMarkEventRequest {
@@ -1991,6 +2001,20 @@ export class ObjectEventsApi {
      */
     public eventControllerCreateEvent(param: EventsApiEventControllerCreateEventRequest, options?: Configuration): Promise<EventResponseDto> {
         return this.api.eventControllerCreateEvent(param.eventPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerCreateMyEventsWithHttpInfo(param: EventsApiEventControllerCreateMyEventsRequest, options?: Configuration): Promise<HttpInfo<MyEventResponseDto>> {
+        return this.api.eventControllerCreateMyEventsWithHttpInfo(param.myEventsPayloadDTO,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public eventControllerCreateMyEvents(param: EventsApiEventControllerCreateMyEventsRequest, options?: Configuration): Promise<MyEventResponseDto> {
+        return this.api.eventControllerCreateMyEvents(param.myEventsPayloadDTO,  options).toPromise();
     }
 
     /**

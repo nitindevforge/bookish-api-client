@@ -86,6 +86,7 @@ __exportStar(require("../models/MetaResponse"), exports);
 __exportStar(require("../models/MyAllFriendsResponseDto"), exports);
 __exportStar(require("../models/MyEventResponseDto"), exports);
 __exportStar(require("../models/MyEvents"), exports);
+__exportStar(require("../models/MyEventsPayloadDTO"), exports);
 __exportStar(require("../models/MyEventsResponse"), exports);
 __exportStar(require("../models/MyEventsResponseDto"), exports);
 __exportStar(require("../models/MyFriendPayloadDto"), exports);
@@ -208,6 +209,7 @@ var MetaResponse_1 = require("../models/MetaResponse");
 var MyAllFriendsResponseDto_1 = require("../models/MyAllFriendsResponseDto");
 var MyEventResponseDto_1 = require("../models/MyEventResponseDto");
 var MyEvents_1 = require("../models/MyEvents");
+var MyEventsPayloadDTO_1 = require("../models/MyEventsPayloadDTO");
 var MyEventsResponse_1 = require("../models/MyEventsResponse");
 var MyEventsResponseDto_1 = require("../models/MyEventsResponseDto");
 var MyFriendPayloadDto_1 = require("../models/MyFriendPayloadDto");
@@ -344,6 +346,7 @@ var typeMap = {
     "MyAllFriendsResponseDto": MyAllFriendsResponseDto_1.MyAllFriendsResponseDto,
     "MyEventResponseDto": MyEventResponseDto_1.MyEventResponseDto,
     "MyEvents": MyEvents_1.MyEvents,
+    "MyEventsPayloadDTO": MyEventsPayloadDTO_1.MyEventsPayloadDTO,
     "MyEventsResponse": MyEventsResponse_1.MyEventsResponse,
     "MyEventsResponseDto": MyEventsResponseDto_1.MyEventsResponseDto,
     "MyFriendPayloadDto": MyFriendPayloadDto_1.MyFriendPayloadDto,

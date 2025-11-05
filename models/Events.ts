@@ -31,6 +31,7 @@ export class Events {
     'createdAt': Date;
     'updatedAt': Date;
     'book': Book;
+    'link'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -117,6 +118,12 @@ export class Events {
             "name": "book",
             "baseName": "book",
             "type": "Book",
+            "format": ""
+        },
+        {
+            "name": "link",
+            "baseName": "link",
+            "type": "string",
             "format": ""
         }    ];
 

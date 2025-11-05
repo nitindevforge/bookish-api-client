@@ -44,6 +44,7 @@ import { LoggedOutResponse } from '../models/LoggedOutResponse';
 import { LoginPayloadDto } from '../models/LoginPayloadDto';
 import { MyAllFriendsResponseDto } from '../models/MyAllFriendsResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 import { MyFriendPayloadDto } from '../models/MyFriendPayloadDto';
 import { OtpEntityPayloadDto } from '../models/OtpEntityPayloadDto';
@@ -199,8 +200,8 @@ export declare class PromiseBooksApi {
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<UserBooksResponseDto>;
     bookControllerFindUserWhichReadBookWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBook(_options?: Configuration): Promise<UserBooksResponseDto>;
-    bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
-    bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO>;
+    bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<void>>;
+    bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<void>;
     bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookReviewResponseDto>;
 }
@@ -228,6 +229,8 @@ export declare class PromiseEventsApi {
     eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<BookMarkEventListResponseDto>;
     eventControllerCreateEventWithHttpInfo(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<HttpInfo<EventResponseDto>>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<EventResponseDto>;
+    eventControllerCreateMyEventsWithHttpInfo(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<HttpInfo<MyEventResponseDto>>;
+    eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<MyEventResponseDto>;
     eventControllerDeleteBookMarkEventWithHttpInfo(eventId: string, _options?: Configuration): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
     eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Promise<DeleteBookMarkEventResponseDto>;
     eventControllerDeleteEventWithHttpInfo(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<HttpInfo<EventDeleteResponseDto>>;

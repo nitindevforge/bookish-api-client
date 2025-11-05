@@ -102,6 +102,7 @@ models/MetaResponse.ts
 models/MyAllFriendsResponseDto.ts
 models/MyEventResponseDto.ts
 models/MyEvents.ts
+models/MyEventsPayloadDTO.ts
 models/MyEventsResponse.ts
 models/MyEventsResponseDto.ts
 models/MyFriendPayloadDto.ts

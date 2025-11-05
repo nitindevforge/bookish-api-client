@@ -85,6 +85,7 @@ __exportStar(require("../models/MetaResponse"), exports);
 __exportStar(require("../models/MyAllFriendsResponseDto"), exports);
 __exportStar(require("../models/MyEventResponseDto"), exports);
 __exportStar(require("../models/MyEvents"), exports);
+__exportStar(require("../models/MyEventsPayloadDTO"), exports);
 __exportStar(require("../models/MyEventsResponse"), exports);
 __exportStar(require("../models/MyEventsResponseDto"), exports);
 __exportStar(require("../models/MyFriendPayloadDto"), exports);

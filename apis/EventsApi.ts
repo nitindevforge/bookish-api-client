@@ -21,6 +21,7 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 
 /**
@@ -155,6 +156,52 @@ export class EventsApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Content-Type", contentType);
         const serializedBody = ObjectSerializer.stringify(
             ObjectSerializer.serialize(eventPayloadDto, "EventPayloadDto", ""),
+            contentType
+        );
+        requestContext.setBody(serializedBody);
+
+        let authMethod: SecurityAuthentication | undefined;
+        // Apply auth methods
+        authMethod = _config.authMethods["bearer"]
+        if (authMethod?.applySecurityAuthentication) {
+            await authMethod?.applySecurityAuthentication(requestContext);
+        }
+        
+        const defaultAuth: SecurityAuthentication | undefined = _options?.authMethods?.default || this.configuration?.authMethods?.default
+        if (defaultAuth?.applySecurityAuthentication) {
+            await defaultAuth?.applySecurityAuthentication(requestContext);
+        }
+
+        return requestContext;
+    }
+
+    /**
+     * @param myEventsPayloadDTO 
+     */
+    public async eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<RequestContext> {
+        let _config = _options || this.configuration;
+
+        // verify required parameter 'myEventsPayloadDTO' is not null or undefined
+        if (myEventsPayloadDTO === null || myEventsPayloadDTO === undefined) {
+            throw new RequiredError("EventsApi", "eventControllerCreateMyEvents", "myEventsPayloadDTO");
+        }
+
+
+        // Path Params
+        const localVarPath = '/v1/free-event-book';
+
+        // Make Request Context
+        const requestContext = _config.baseServer.makeRequestContext(localVarPath, HttpMethod.POST);
+        requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
+
+
+        // Body Params
+        const contentType = ObjectSerializer.getPreferredMediaType([
+            "application/json"
+        ]);
+        requestContext.setHeaderParam("Content-Type", contentType);
+        const serializedBody = ObjectSerializer.stringify(
+            ObjectSerializer.serialize(myEventsPayloadDTO, "MyEventsPayloadDTO", ""),
             contentType
         );
         requestContext.setBody(serializedBody);
@@ -745,6 +792,38 @@ export class EventsApiResponseProcessor {
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "EventResponseDto", ""
             ) as EventResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+
+        throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);
+    }
+
+    /**
+     * Unwraps the actual response sent by the server from the response context and deserializes the response content
+     * to the expected objects
+     *
+     * @params response Response returned by the server for a request to eventControllerCreateMyEvents
+     * @throws ApiException if the response code was not in [200, 299]
+     */
+     public async eventControllerCreateMyEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventResponseDto >> {
+        const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
+        if (isCodeInRange("200", response.httpStatusCode)) {
+            const body: MyEventResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MyEventResponseDto", ""
+            ) as MyEventResponseDto;
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("401", response.httpStatusCode)) {
+            throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
+        }
+
+        // Work around for missing responses in specification, e.g. for petstore.yaml
+        if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
+            const body: MyEventResponseDto = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "MyEventResponseDto", ""
+            ) as MyEventResponseDto;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
 

@@ -1399,26 +1399,15 @@ export class BooksApiResponseProcessor {
      * @params response Response returned by the server for a request to bookControllerRemoveTopBook
      * @throws ApiException if the response code was not in [200, 299]
      */
-     public async bookControllerRemoveTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<TopBooksResponseDTO >> {
+     public async bookControllerRemoveTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo< void>> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("200", response.httpStatusCode)) {
-            const body: TopBooksResponseDTO = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "TopBooksResponseDTO", ""
-            ) as TopBooksResponseDTO;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
-        }
         if (isCodeInRange("401", response.httpStatusCode)) {
             throw new ApiException<undefined>(response.httpStatusCode, "Unauthorized", undefined, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
         if (response.httpStatusCode >= 200 && response.httpStatusCode <= 299) {
-            const body: TopBooksResponseDTO = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "TopBooksResponseDTO", ""
-            ) as TopBooksResponseDTO;
-            return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+            return new HttpInfo(response.httpStatusCode, response.headers, response.body, undefined);
         }
 
         throw new ApiException<string | Blob | undefined>(response.httpStatusCode, "Unknown API Status Code!", await response.getBodyAsAny(), response.headers);

@@ -52,6 +52,6 @@ export declare class BooksApiResponseProcessor {
     bookControllerFindUserBookReviewCountWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookReviewCountResponseDto>>;
     bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
-    bookControllerRemoveTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerRemoveTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
     bookControllerUserBookMarkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewResponseDto>>;
 }

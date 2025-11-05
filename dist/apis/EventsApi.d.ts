@@ -14,11 +14,13 @@ import { EventsResponseDto } from '../models/EventsResponseDto';
 import { LocationPayloadDto } from '../models/LocationPayloadDto';
 import { LocationPlacesResponseDto } from '../models/LocationPlacesResponseDto';
 import { MyEventResponseDto } from '../models/MyEventResponseDto';
+import { MyEventsPayloadDTO } from '../models/MyEventsPayloadDTO';
 import { MyEventsResponseDto } from '../models/MyEventsResponseDto';
 export declare class EventsApiRequestFactory extends BaseAPIRequestFactory {
     eventControllerBookMarkEvent(bookMarkEventPayloadDto: BookMarkEventPayloadDto, _options?: Configuration): Promise<RequestContext>;
     eventControllerBookMarkEventList(page: number, limit?: number, userId?: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerCreateEvent(eventPayloadDto: EventPayloadDto, _options?: Configuration): Promise<RequestContext>;
+    eventControllerCreateMyEvents(myEventsPayloadDTO: MyEventsPayloadDTO, _options?: Configuration): Promise<RequestContext>;
     eventControllerDeleteBookMarkEvent(eventId: string, _options?: Configuration): Promise<RequestContext>;
     eventControllerDeleteEvent(id: string, withBookedEvent?: boolean, _options?: Configuration): Promise<RequestContext>;
     eventControllerFindCustomerOfEvents(userId: string, _options?: Configuration): Promise<RequestContext>;
@@ -34,6 +36,7 @@ export declare class EventsApiResponseProcessor {
     eventControllerBookMarkEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<CreateBookMarkEventResponseDto>>;
     eventControllerBookMarkEventListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookMarkEventListResponseDto>>;
     eventControllerCreateEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventResponseDto>>;
+    eventControllerCreateMyEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MyEventResponseDto>>;
     eventControllerDeleteBookMarkEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<DeleteBookMarkEventResponseDto>>;
     eventControllerDeleteEventWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventDeleteResponseDto>>;
     eventControllerFindCustomerOfEventsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<EventCustomerResponseDto>>;
