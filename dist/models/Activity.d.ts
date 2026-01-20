@@ -5,10 +5,10 @@ export declare class Activity {
     'userId': UserDetails;
     'type': string;
     'message': string;
-    'date': Date;
+    'date': string;
     'meta': MetaResponse;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'createdAt': string;
+    'updatedAt': string;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

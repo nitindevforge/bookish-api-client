@@ -29,7 +29,6 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindTopUserSetupBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<RequestContext>;
@@ -49,7 +48,6 @@ export declare class BooksApiResponseProcessor {
     bookControllerFindGoodReadsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindReadingGoalWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ReadingGoalResponseDTO>>;
     bookControllerFindTopBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopUserSetupBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindUserBookReviewWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReviewCountWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookReviewCountResponseDto>>;
     bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;

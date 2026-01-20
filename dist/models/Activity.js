@@ -36,8 +36,8 @@ var Activity = (function () {
         {
             "name": "date",
             "baseName": "date",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         },
         {
             "name": "meta",
@@ -48,14 +48,14 @@ var Activity = (function () {
         {
             "name": "createdAt",
             "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         },
         {
             "name": "updatedAt",
             "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         }
     ];
     return Activity;

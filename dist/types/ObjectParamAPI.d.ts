@@ -349,13 +349,6 @@ export interface BooksApiBookControllerFindTopBooksRequest {
     search?: string;
     user?: string;
 }
-export interface BooksApiBookControllerFindTopUserSetupBooksRequest {
-    rate: number;
-    page: number;
-    limit: number;
-    search?: string;
-    user?: string;
-}
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     bookId: string;
     status?: string;
@@ -408,8 +401,6 @@ export declare class ObjectBooksApi {
     bookControllerFindReadingGoal(param: BooksApiBookControllerFindReadingGoalRequest, options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
-    bookControllerFindTopUserSetupBooksWithHttpInfo(param: BooksApiBookControllerFindTopUserSetupBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopUserSetupBooks(param: BooksApiBookControllerFindTopUserSetupBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(param: BooksApiBookControllerFindUserBookReviewRequest, options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(param: BooksApiBookControllerFindUserBookReviewCountRequest, options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;

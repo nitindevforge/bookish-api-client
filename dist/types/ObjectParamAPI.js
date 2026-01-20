@@ -330,12 +330,6 @@ var ObjectBooksApi = (function () {
     ObjectBooksApi.prototype.bookControllerFindTopBooks = function (param, options) {
         return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
     };
-    ObjectBooksApi.prototype.bookControllerFindTopUserSetupBooksWithHttpInfo = function (param, options) {
-        return this.api.bookControllerFindTopUserSetupBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
-    };
-    ObjectBooksApi.prototype.bookControllerFindTopUserSetupBooks = function (param, options) {
-        return this.api.bookControllerFindTopUserSetupBooks(param.rate, param.page, param.limit, param.search, param.user, options).toPromise();
-    };
     ObjectBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (param, options) {
         return this.api.bookControllerFindUserBookReviewWithHttpInfo(param.bookId, param.status, param.rate, param.review, options).toPromise();
     };

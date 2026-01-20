@@ -19,10 +19,10 @@ export class Activity {
     'userId': UserDetails;
     'type': string;
     'message': string;
-    'date': Date;
+    'date': string;
     'meta': MetaResponse;
-    'createdAt': Date;
-    'updatedAt': Date;
+    'createdAt': string;
+    'updatedAt': string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -54,8 +54,8 @@ export class Activity {
         {
             "name": "date",
             "baseName": "date",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         },
         {
             "name": "meta",
@@ -66,14 +66,14 @@ export class Activity {
         {
             "name": "createdAt",
             "baseName": "createdAt",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         },
         {
             "name": "updatedAt",
             "baseName": "updatedAt",
-            "type": "Date",
-            "format": "date-time"
+            "type": "string",
+            "format": ""
         }    ];
 
     static getAttributeTypeMap() {
