@@ -192,6 +192,8 @@ export declare class PromiseBooksApi {
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindTopUserSetupBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopUserSetupBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;

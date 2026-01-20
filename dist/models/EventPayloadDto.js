@@ -80,6 +80,12 @@ var EventPayloadDto = (function () {
             "baseName": "link",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "timezone",
+            "baseName": "timezone",
+            "type": "string",
+            "format": ""
         }
     ];
     return EventPayloadDto;

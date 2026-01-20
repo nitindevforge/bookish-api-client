@@ -1340,6 +1340,39 @@ export interface BooksApiBookControllerFindTopBooksRequest {
     user?: string
 }
 
+export interface BooksApiBookControllerFindTopUserSetupBooksRequest {
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopUserSetupBooks
+     */
+    rate: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopUserSetupBooks
+     */
+    page: number
+    /**
+     * 
+     * @type number
+     * @memberof BooksApibookControllerFindTopUserSetupBooks
+     */
+    limit: number
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindTopUserSetupBooks
+     */
+    search?: string
+    /**
+     * 
+     * @type string
+     * @memberof BooksApibookControllerFindTopUserSetupBooks
+     */
+    user?: string
+}
+
 export interface BooksApiBookControllerFindUserBookReviewRequest {
     /**
      * 
@@ -1607,6 +1640,20 @@ export class ObjectBooksApi {
      */
     public bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
         return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindTopUserSetupBooksWithHttpInfo(param: BooksApiBookControllerFindTopUserSetupBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        return this.api.bookControllerFindTopUserSetupBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerFindTopUserSetupBooks(param: BooksApiBookControllerFindTopUserSetupBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
+        return this.api.bookControllerFindTopUserSetupBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
     }
 
     /**

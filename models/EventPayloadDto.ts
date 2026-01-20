@@ -26,6 +26,7 @@ export class EventPayloadDto {
     'book'?: string;
     'owner'?: string;
     'link'?: string;
+    'timezone'?: string;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -99,6 +100,12 @@ export class EventPayloadDto {
         {
             "name": "link",
             "baseName": "link",
+            "type": "string",
+            "format": ""
+        },
+        {
+            "name": "timezone",
+            "baseName": "timezone",
             "type": "string",
             "format": ""
         }    ];

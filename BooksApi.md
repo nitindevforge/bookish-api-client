@@ -15,6 +15,7 @@ Method | HTTP request | Description
 [**bookControllerFindGoodReads**](BooksApi.md#bookControllerFindGoodReads) | **POST** /v1/books/goodreads | 
 [**bookControllerFindReadingGoal**](BooksApi.md#bookControllerFindReadingGoal) | **GET** /v1/reading/goal | 
 [**bookControllerFindTopBooks**](BooksApi.md#bookControllerFindTopBooks) | **GET** /v1/top/books | 
+[**bookControllerFindTopUserSetupBooks**](BooksApi.md#bookControllerFindTopUserSetupBooks) | **GET** /v1/top/books/setup | 
 [**bookControllerFindUserBookReview**](BooksApi.md#bookControllerFindUserBookReview) | **GET** /v1/user/book/review | 
 [**bookControllerFindUserBookReviewCount**](BooksApi.md#bookControllerFindUserBookReviewCount) | **GET** /v1/book/review/count | 
 [**bookControllerFindUserBookReviews**](BooksApi.md#bookControllerFindUserBookReviews) | **GET** /v1/book/review | 
@@ -673,6 +674,71 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** |  |  -  |
 **401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerFindTopUserSetupBooks**
+> BooksReviewResponseDto bookControllerFindTopUserSetupBooks()
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerFindTopUserSetupBooksRequest = {
+  // number
+  rate: 3.14,
+  // number
+  page: 3.14,
+  // number
+  limit: 3.14,
+  // string (optional)
+  search: "search_example",
+  // string (optional)
+  user: "user_example",
+};
+
+apiInstance.bookControllerFindTopUserSetupBooks(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **rate** | [**number**] |  | defaults to undefined
+ **page** | [**number**] |  | defaults to undefined
+ **limit** | [**number**] |  | defaults to undefined
+ **search** | [**string**] |  | (optional) defaults to undefined
+ **user** | [**string**] |  | (optional) defaults to undefined
+
+
+### Return type
+
+**BooksReviewResponseDto**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

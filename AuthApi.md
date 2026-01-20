@@ -1119,7 +1119,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[bearer](README.md#bearer)
+No authorization required
 
 ### HTTP request headers
 
@@ -1131,7 +1131,6 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** |  |  -  |
-**401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
 

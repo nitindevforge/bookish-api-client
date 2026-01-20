@@ -1693,6 +1693,43 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param rate 
+     * @param page 
+     * @param limit 
+     * @param search 
+     * @param user 
+     */
+    public bookControllerFindTopUserSetupBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindTopUserSetupBooks(rate, page, limit, search, user, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerFindTopUserSetupBooksWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param rate 
+     * @param page 
+     * @param limit 
+     * @param search 
+     * @param user 
+     */
+    public bookControllerFindTopUserSetupBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindTopUserSetupBooksWithHttpInfo(rate, page, limit, search, user, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param bookId 
      * @param status 
      * @param rate 

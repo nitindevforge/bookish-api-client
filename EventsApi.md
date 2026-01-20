@@ -168,6 +168,7 @@ let body:.EventsApiEventControllerCreateEventRequest = {
     book: "book_example",
     owner: "owner_example",
     link: "link_example",
+    timezone: "timezone_example",
   },
 };
 
@@ -809,6 +810,7 @@ let body:.EventsApiEventControllerUpdateEventRequest = {
     book: "book_example",
     owner: "owner_example",
     link: "link_example",
+    timezone: "timezone_example",
   },
 };
 

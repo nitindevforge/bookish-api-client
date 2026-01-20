@@ -1041,6 +1041,30 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param rate 
+     * @param page 
+     * @param limit 
+     * @param search 
+     * @param user 
+     */
+    public bookControllerFindTopUserSetupBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindTopUserSetupBooksWithHttpInfo(rate, page, limit, search, user, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param rate 
+     * @param page 
+     * @param limit 
+     * @param search 
+     * @param user 
+     */
+    public bookControllerFindTopUserSetupBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindTopUserSetupBooks(rate, page, limit, search, user, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param bookId 
      * @param status 
      * @param rate 
