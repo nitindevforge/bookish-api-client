@@ -18,7 +18,6 @@ export class ReadingGoalResponse {
     'userId': UserDetails;
     'visibility': string;
     'bookReadGoal': number;
-    'noOffYear': number;
     'bookReadGoalCount'?: number;
 
     static readonly discriminator: string | undefined = undefined;
@@ -45,12 +44,6 @@ export class ReadingGoalResponse {
         {
             "name": "bookReadGoal",
             "baseName": "bookReadGoal",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "noOffYear",
-            "baseName": "noOffYear",
             "type": "number",
             "format": ""
         },

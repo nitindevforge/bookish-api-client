@@ -21,6 +21,7 @@ import { BookMarkEventListResponseDto } from '../models/BookMarkEventListRespons
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { Books } from '../models/Books';
@@ -35,6 +36,8 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ContactDetails } from '../models/ContactDetails';
+import { ContactDetailsDto } from '../models/ContactDetailsDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -50,6 +53,8 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { FileUploadDto } from '../models/FileUploadDto';
 import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
@@ -108,6 +113,7 @@ import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserAchievementResponse } from '../models/UserAchievementResponse';
 import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -214,6 +220,35 @@ export class ObservableAuthApi {
      */
     public authControllerAccountDeletion(_options?: Configuration): Observable<UserDeleteResponseDto> {
         return this.authControllerAccountDeletionWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<UserDeleteResponseDto>) => apiResponse.data));
+    }
+
+    /**
+     * @param feedbackPayloadDto 
+     */
+    public authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Observable<HttpInfo<FeedbackCreateResponseDto>> {
+        const requestContextPromise = this.requestFactory.authControllerAddFeedback(feedbackPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.authControllerAddFeedbackWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param feedbackPayloadDto 
+     */
+    public authControllerAddFeedback(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Observable<FeedbackCreateResponseDto> {
+        return this.authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto, _options).pipe(map((apiResponse: HttpInfo<FeedbackCreateResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1474,6 +1509,35 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookDeleteResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerDeleteReview(userBookPayloadDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerDeleteReviewWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerDeleteReview(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookDeleteResponseDto> {
+        return this.bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserBookDeleteResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param id 
      */
     public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Observable<HttpInfo<BookResponseDto>> {
@@ -1565,10 +1629,11 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindBooks(rate, page, limit, search, user, _options);
+    public bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Observable<HttpInfo<BooksResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindBooks(rate, page, limit, search, isPrompt, user, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1591,10 +1656,11 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<BooksResponseDto> {
-        return this.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, user, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
+    public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Observable<BooksResponseDto> {
+        return this.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options).pipe(map((apiResponse: HttpInfo<BooksResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1660,10 +1726,11 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
-        const requestContextPromise = this.requestFactory.bookControllerFindTopBooks(rate, page, limit, search, user, _options);
+    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Observable<HttpInfo<BooksReviewResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerFindTopBooks(rate, page, limit, search, isPrompt, user, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1686,10 +1753,11 @@ export class ObservableBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
-        return this.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, user, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
+    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Observable<BooksReviewResponseDto> {
+        return this.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options).pipe(map((apiResponse: HttpInfo<BooksReviewResponseDto>) => apiResponse.data));
     }
 
     /**
@@ -1856,6 +1924,35 @@ export class ObservableBooksApi {
     }
 
     /**
+     * @param bookPositionDto 
+     */
+    public bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto: BookPositionDto, _options?: Configuration): Observable<HttpInfo<BookResponseDto>> {
+        const requestContextPromise = this.requestFactory.bookControllerUpdateBookPosition(bookPositionDto, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.bookControllerUpdateBookPositionWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param bookPositionDto 
+     */
+    public bookControllerUpdateBookPosition(bookPositionDto: BookPositionDto, _options?: Configuration): Observable<BookResponseDto> {
+        return this.bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto, _options).pipe(map((apiResponse: HttpInfo<BookResponseDto>) => apiResponse.data));
+    }
+
+    /**
      * @param userBookPayloadDto 
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<HttpInfo<UserBookReviewResponseDto>> {
@@ -1882,6 +1979,53 @@ export class ObservableBooksApi {
      */
     public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Observable<UserBookReviewResponseDto> {
         return this.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options).pipe(map((apiResponse: HttpInfo<UserBookReviewResponseDto>) => apiResponse.data));
+    }
+
+}
+
+import { ContactApiRequestFactory, ContactApiResponseProcessor} from "../apis/ContactApi";
+export class ObservableContactApi {
+    private requestFactory: ContactApiRequestFactory;
+    private responseProcessor: ContactApiResponseProcessor;
+    private configuration: Configuration;
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ContactApiRequestFactory,
+        responseProcessor?: ContactApiResponseProcessor
+    ) {
+        this.configuration = configuration;
+        this.requestFactory = requestFactory || new ContactApiRequestFactory(configuration);
+        this.responseProcessor = responseProcessor || new ContactApiResponseProcessor();
+    }
+
+    /**
+     * @param contactDetails 
+     */
+    public contactControllerSyncContactsWithHttpInfo(contactDetails: Array<ContactDetails>, _options?: Configuration): Observable<HttpInfo<ContactDetailsDto>> {
+        const requestContextPromise = this.requestFactory.contactControllerSyncContacts(contactDetails, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.contactControllerSyncContactsWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * @param contactDetails 
+     */
+    public contactControllerSyncContacts(contactDetails: Array<ContactDetails>, _options?: Configuration): Observable<ContactDetailsDto> {
+        return this.contactControllerSyncContactsWithHttpInfo(contactDetails, _options).pipe(map((apiResponse: HttpInfo<ContactDetailsDto>) => apiResponse.data));
     }
 
 }

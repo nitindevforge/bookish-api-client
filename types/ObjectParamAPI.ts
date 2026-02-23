@@ -20,6 +20,7 @@ import { BookMarkEventListResponseDto } from '../models/BookMarkEventListRespons
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { Books } from '../models/Books';
@@ -34,6 +35,8 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ContactDetails } from '../models/ContactDetails';
+import { ContactDetailsDto } from '../models/ContactDetailsDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -49,6 +52,8 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { FileUploadDto } from '../models/FileUploadDto';
 import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
@@ -107,6 +112,7 @@ import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserAchievementResponse } from '../models/UserAchievementResponse';
 import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -164,6 +170,15 @@ import { ObservableAuthApi } from "./ObservableAPI";
 import { AuthApiRequestFactory, AuthApiResponseProcessor} from "../apis/AuthApi";
 
 export interface AuthApiAuthControllerAccountDeletionRequest {
+}
+
+export interface AuthApiAuthControllerAddFeedbackRequest {
+    /**
+     * 
+     * @type FeedbackPayloadDto
+     * @memberof AuthApiauthControllerAddFeedback
+     */
+    feedbackPayloadDto: FeedbackPayloadDto
 }
 
 export interface AuthApiAuthControllerAppfeepercentageUpdateRequest {
@@ -668,6 +683,20 @@ export class ObjectAuthApi {
      */
     public authControllerAccountDeletion(param: AuthApiAuthControllerAccountDeletionRequest = {}, options?: Configuration): Promise<UserDeleteResponseDto> {
         return this.api.authControllerAccountDeletion( options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerAddFeedbackWithHttpInfo(param: AuthApiAuthControllerAddFeedbackRequest, options?: Configuration): Promise<HttpInfo<FeedbackCreateResponseDto>> {
+        return this.api.authControllerAddFeedbackWithHttpInfo(param.feedbackPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public authControllerAddFeedback(param: AuthApiAuthControllerAddFeedbackRequest, options?: Configuration): Promise<FeedbackCreateResponseDto> {
+        return this.api.authControllerAddFeedback(param.feedbackPayloadDto,  options).toPromise();
     }
 
     /**
@@ -1229,6 +1258,15 @@ export interface BooksApiBookControllerAddTopBookRequest {
     topBookPayload: TopBookPayload
 }
 
+export interface BooksApiBookControllerDeleteReviewRequest {
+    /**
+     * 
+     * @type UserBookPayloadDto
+     * @memberof BooksApibookControllerDeleteReview
+     */
+    userBookPayloadDto: UserBookPayloadDto
+}
+
 export interface BooksApiBookControllerFindBookByIdRequest {
     /**
      * 
@@ -1283,6 +1321,12 @@ export interface BooksApiBookControllerFindBooksRequest {
     search?: string
     /**
      * 
+     * @type boolean
+     * @memberof BooksApibookControllerFindBooks
+     */
+    isPrompt?: boolean
+    /**
+     * 
      * @type string
      * @memberof BooksApibookControllerFindBooks
      */
@@ -1332,6 +1376,12 @@ export interface BooksApiBookControllerFindTopBooksRequest {
      * @memberof BooksApibookControllerFindTopBooks
      */
     search?: string
+    /**
+     * 
+     * @type boolean
+     * @memberof BooksApibookControllerFindTopBooks
+     */
+    isPrompt?: boolean
     /**
      * 
      * @type string
@@ -1439,6 +1489,15 @@ export interface BooksApiBookControllerRemoveTopBookRequest {
     topBookPayload: TopBookPayload
 }
 
+export interface BooksApiBookControllerUpdateBookPositionRequest {
+    /**
+     * 
+     * @type BookPositionDto
+     * @memberof BooksApibookControllerUpdateBookPosition
+     */
+    bookPositionDto: BookPositionDto
+}
+
 export interface BooksApiBookControllerUserBookMarkRequest {
     /**
      * 
@@ -1514,6 +1573,20 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
+    public bookControllerDeleteReviewWithHttpInfo(param: BooksApiBookControllerDeleteReviewRequest, options?: Configuration): Promise<HttpInfo<UserBookDeleteResponseDto>> {
+        return this.api.bookControllerDeleteReviewWithHttpInfo(param.userBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerDeleteReview(param: BooksApiBookControllerDeleteReviewRequest, options?: Configuration): Promise<UserBookDeleteResponseDto> {
+        return this.api.bookControllerDeleteReview(param.userBookPayloadDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public bookControllerFindBookByIdWithHttpInfo(param: BooksApiBookControllerFindBookByIdRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
         return this.api.bookControllerFindBookByIdWithHttpInfo(param.id,  options).toPromise();
     }
@@ -1557,14 +1630,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindBooksWithHttpInfo(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
-        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+        return this.api.bookControllerFindBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.isPrompt, param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindBooks(param: BooksApiBookControllerFindBooksRequest, options?: Configuration): Promise<BooksResponseDto> {
-        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+        return this.api.bookControllerFindBooks(param.rate, param.page, param.limit, param.search, param.isPrompt, param.user,  options).toPromise();
     }
 
     /**
@@ -1599,14 +1672,14 @@ export class ObjectBooksApi {
      * @param param the request object
      */
     public bookControllerFindTopBooksWithHttpInfo(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+        return this.api.bookControllerFindTopBooksWithHttpInfo(param.rate, param.page, param.limit, param.search, param.isPrompt, param.user,  options).toPromise();
     }
 
     /**
      * @param param the request object
      */
     public bookControllerFindTopBooks(param: BooksApiBookControllerFindTopBooksRequest, options?: Configuration): Promise<BooksReviewResponseDto> {
-        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.user,  options).toPromise();
+        return this.api.bookControllerFindTopBooks(param.rate, param.page, param.limit, param.search, param.isPrompt, param.user,  options).toPromise();
     }
 
     /**
@@ -1682,6 +1755,20 @@ export class ObjectBooksApi {
     /**
      * @param param the request object
      */
+    public bookControllerUpdateBookPositionWithHttpInfo(param: BooksApiBookControllerUpdateBookPositionRequest, options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        return this.api.bookControllerUpdateBookPositionWithHttpInfo(param.bookPositionDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public bookControllerUpdateBookPosition(param: BooksApiBookControllerUpdateBookPositionRequest, options?: Configuration): Promise<BookResponseDto> {
+        return this.api.bookControllerUpdateBookPosition(param.bookPositionDto,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
     public bookControllerUserBookMarkWithHttpInfo(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
         return this.api.bookControllerUserBookMarkWithHttpInfo(param.userBookPayloadDto,  options).toPromise();
     }
@@ -1691,6 +1778,41 @@ export class ObjectBooksApi {
      */
     public bookControllerUserBookMark(param: BooksApiBookControllerUserBookMarkRequest, options?: Configuration): Promise<UserBookReviewResponseDto> {
         return this.api.bookControllerUserBookMark(param.userBookPayloadDto,  options).toPromise();
+    }
+
+}
+
+import { ObservableContactApi } from "./ObservableAPI";
+import { ContactApiRequestFactory, ContactApiResponseProcessor} from "../apis/ContactApi";
+
+export interface ContactApiContactControllerSyncContactsRequest {
+    /**
+     * 
+     * @type Array&lt;ContactDetails&gt;
+     * @memberof ContactApicontactControllerSyncContacts
+     */
+    contactDetails: Array<ContactDetails>
+}
+
+export class ObjectContactApi {
+    private api: ObservableContactApi
+
+    public constructor(configuration: Configuration, requestFactory?: ContactApiRequestFactory, responseProcessor?: ContactApiResponseProcessor) {
+        this.api = new ObservableContactApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param param the request object
+     */
+    public contactControllerSyncContactsWithHttpInfo(param: ContactApiContactControllerSyncContactsRequest, options?: Configuration): Promise<HttpInfo<ContactDetailsDto>> {
+        return this.api.contactControllerSyncContactsWithHttpInfo(param.contactDetails,  options).toPromise();
+    }
+
+    /**
+     * @param param the request object
+     */
+    public contactControllerSyncContacts(param: ContactApiContactControllerSyncContactsRequest, options?: Configuration): Promise<ContactDetailsDto> {
+        return this.api.contactControllerSyncContacts(param.contactDetails,  options).toPromise();
     }
 
 }

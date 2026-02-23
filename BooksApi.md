@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**bookControllerAddMyGoodReadsBooks**](BooksApi.md#bookControllerAddMyGoodReadsBooks) | **POST** /v1/books/add-goodreads | 
 [**bookControllerAddReadingGoal**](BooksApi.md#bookControllerAddReadingGoal) | **POST** /v1/add/reading/books/goal | 
 [**bookControllerAddTopBook**](BooksApi.md#bookControllerAddTopBook) | **POST** /v1/add/top/books | 
+[**bookControllerDeleteReview**](BooksApi.md#bookControllerDeleteReview) | **POST** /v1/user/book/delete/review | 
 [**bookControllerFindBookById**](BooksApi.md#bookControllerFindBookById) | **GET** /v1/book | 
 [**bookControllerFindBookByStatus**](BooksApi.md#bookControllerFindBookByStatus) | **POST** /v1/books/by-status | 
 [**bookControllerFindBookReviewBase**](BooksApi.md#bookControllerFindBookReviewBase) | **POST** /v1/books/type | 
@@ -20,6 +21,7 @@ Method | HTTP request | Description
 [**bookControllerFindUserBookReviews**](BooksApi.md#bookControllerFindUserBookReviews) | **GET** /v1/book/review | 
 [**bookControllerFindUserWhichReadBook**](BooksApi.md#bookControllerFindUserWhichReadBook) | **GET** /v1/book/reader | 
 [**bookControllerRemoveTopBook**](BooksApi.md#bookControllerRemoveTopBook) | **DELETE** /v1/remove/top/books | 
+[**bookControllerUpdateBookPosition**](BooksApi.md#bookControllerUpdateBookPosition) | **PUT** /v1/book/position | 
 [**bookControllerUserBookMark**](BooksApi.md#bookControllerUserBookMark) | **POST** /v1/user/book | 
 
 
@@ -160,7 +162,6 @@ let body:.BooksApiBookControllerAddReadingGoalRequest = {
   readingGoalPayload: {
     visibility: "visibility_example",
     bookReadGoal: 3.14,
-    noOffYear: 3.14,
   },
 };
 
@@ -237,6 +238,65 @@ Name | Type | Description  | Notes
 ### Return type
 
 **TopBooksResponseDTO**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerDeleteReview**
+> UserBookDeleteResponseDto bookControllerDeleteReview(userBookPayloadDto)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerDeleteReviewRequest = {
+  // UserBookPayloadDto
+  userBookPayloadDto: {
+    bookId: "bookId_example",
+    status: "status_example",
+    rate: 3.14,
+    review: "review_example",
+  },
+};
+
+apiInstance.bookControllerDeleteReview(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **userBookPayloadDto** | **UserBookPayloadDto**|  |
+
+
+### Return type
+
+**UserBookDeleteResponseDto**
 
 ### Authorization
 
@@ -454,6 +514,8 @@ let body:.BooksApiBookControllerFindBooksRequest = {
   limit: 3.14,
   // string (optional)
   search: "search_example",
+  // boolean (optional)
+  isPrompt: true,
   // string (optional)
   user: "user_example",
 };
@@ -472,6 +534,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
+ **isPrompt** | [**boolean**] |  | (optional) defaults to undefined
  **user** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -633,6 +696,8 @@ let body:.BooksApiBookControllerFindTopBooksRequest = {
   limit: 3.14,
   // string (optional)
   search: "search_example",
+  // boolean (optional)
+  isPrompt: true,
   // string (optional)
   user: "user_example",
 };
@@ -651,6 +716,7 @@ Name | Type | Description  | Notes
  **page** | [**number**] |  | defaults to undefined
  **limit** | [**number**] |  | defaults to undefined
  **search** | [**string**] |  | (optional) defaults to undefined
+ **isPrompt** | [**boolean**] |  | (optional) defaults to undefined
  **user** | [**string**] |  | (optional) defaults to undefined
 
 
@@ -968,6 +1034,64 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**401** | Unauthorized |  -  |
+
+[[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)
+
+# **bookControllerUpdateBookPosition**
+> BookResponseDto bookControllerUpdateBookPosition(bookPositionDto)
+
+
+### Example
+
+
+```typescript
+import {  } from '';
+import * as fs from 'fs';
+
+const configuration = .createConfiguration();
+const apiInstance = new .BooksApi(configuration);
+
+let body:.BooksApiBookControllerUpdateBookPositionRequest = {
+  // BookPositionDto
+  bookPositionDto: {
+    books: [
+      "books_example",
+    ],
+  },
+};
+
+apiInstance.bookControllerUpdateBookPosition(body).then((data:any) => {
+  console.log('API called successfully. Returned data: ' + data);
+}).catch((error:any) => console.error(error));
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **bookPositionDto** | **BookPositionDto**|  |
+
+
+### Return type
+
+**BookResponseDto**
+
+### Authorization
+
+[bearer](README.md#bearer)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
 **401** | Unauthorized |  -  |
 
 [[Back to top]](#) [[Back to API list]](README.md#documentation-for-api-endpoints) [[Back to Model list]](README.md#documentation-for-models) [[Back to README]](README.md)

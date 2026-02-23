@@ -2,6 +2,7 @@
 AnalyticsApi.md
 AuthApi.md
 BooksApi.md
+ContactApi.md
 DefaultApi.md
 DeviceApi.md
 EventsApi.md
@@ -14,6 +15,7 @@ StorageApi.md
 apis/AnalyticsApi.ts
 apis/AuthApi.ts
 apis/BooksApi.ts
+apis/ContactApi.ts
 apis/DefaultApi.ts
 apis/DeviceApi.ts
 apis/EventsApi.ts
@@ -50,6 +52,7 @@ models/BookMarkEventListResponseDto.ts
 models/BookMarkEventPayloadDto.ts
 models/BookMarkEventStatusResponseDto.ts
 models/BookPayloadDto.ts
+models/BookPositionDto.ts
 models/BookResponseDto.ts
 models/BookReviewCountResponseDto.ts
 models/Books.ts
@@ -64,6 +67,8 @@ models/CardListResponseDto.ts
 models/CardNetwork.ts
 models/CardSecure.ts
 models/ChangePayloadDto.ts
+models/ContactDetails.ts
+models/ContactDetailsDto.ts
 models/CreateBookMarkEventResponseDto.ts
 models/CreateRoleDto.ts
 models/CreateStaffDto.ts
@@ -79,6 +84,8 @@ models/EventResponseDto.ts
 models/Events.ts
 models/EventsList.ts
 models/EventsResponseDto.ts
+models/FeedbackCreateResponseDto.ts
+models/FeedbackPayloadDto.ts
 models/FileUploadDto.ts
 models/FileUrl.ts
 models/Follower.ts
@@ -138,6 +145,7 @@ models/UpdateStaffDto.ts
 models/UpdateStaffRoleDto.ts
 models/UserAchievementResponse.ts
 models/UserAchievementResponseDTO.ts
+models/UserBookDeleteResponseDto.ts
 models/UserBookPayloadDto.ts
 models/UserBookReviewResponseDto.ts
 models/UserBookStatusQueryDto.ts

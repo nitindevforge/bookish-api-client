@@ -20,6 +20,7 @@ import { BookMarkEventListResponseDto } from '../models/BookMarkEventListRespons
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { Books } from '../models/Books';
@@ -34,6 +35,8 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ContactDetails } from '../models/ContactDetails';
+import { ContactDetailsDto } from '../models/ContactDetailsDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -49,6 +52,8 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { FileUploadDto } from '../models/FileUploadDto';
 import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
@@ -107,6 +112,7 @@ import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserAchievementResponse } from '../models/UserAchievementResponse';
 import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -184,6 +190,22 @@ export class PromiseAuthApi {
      */
     public authControllerAccountDeletion(_options?: Configuration): Promise<UserDeleteResponseDto> {
         const result = this.api.authControllerAccountDeletion(_options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param feedbackPayloadDto 
+     */
+    public authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Promise<HttpInfo<FeedbackCreateResponseDto>> {
+        const result = this.api.authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param feedbackPayloadDto 
+     */
+    public authControllerAddFeedback(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Promise<FeedbackCreateResponseDto> {
+        const result = this.api.authControllerAddFeedback(feedbackPayloadDto, _options);
         return result.toPromise();
     }
 
@@ -913,6 +935,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookDeleteResponseDto>> {
+        const result = this.api.bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param userBookPayloadDto 
+     */
+    public bookControllerDeleteReview(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookDeleteResponseDto> {
+        const result = this.api.bookControllerDeleteReview(userBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param id 
      */
     public bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
@@ -965,10 +1003,11 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
-        const result = this.api.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, user, _options);
+    public bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>> {
+        const result = this.api.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     }
 
@@ -977,10 +1016,11 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksResponseDto> {
-        const result = this.api.bookControllerFindBooks(rate, page, limit, search, user, _options);
+    public bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<BooksResponseDto> {
+        const result = this.api.bookControllerFindBooks(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     }
 
@@ -1021,10 +1061,11 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
-        const result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, user, _options);
+    public bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>> {
+        const result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     }
 
@@ -1033,10 +1074,11 @@ export class PromiseBooksApi {
      * @param page 
      * @param limit 
      * @param search 
+     * @param isPrompt 
      * @param user 
      */
-    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
-        const result = this.api.bookControllerFindTopBooks(rate, page, limit, search, user, _options);
+    public bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto> {
+        const result = this.api.bookControllerFindTopBooks(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     }
 
@@ -1139,6 +1181,22 @@ export class PromiseBooksApi {
     }
 
     /**
+     * @param bookPositionDto 
+     */
+    public bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto: BookPositionDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>> {
+        const result = this.api.bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param bookPositionDto 
+     */
+    public bookControllerUpdateBookPosition(bookPositionDto: BookPositionDto, _options?: Configuration): Promise<BookResponseDto> {
+        const result = this.api.bookControllerUpdateBookPosition(bookPositionDto, _options);
+        return result.toPromise();
+    }
+
+    /**
      * @param userBookPayloadDto 
      */
     public bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>> {
@@ -1151,6 +1209,41 @@ export class PromiseBooksApi {
      */
     public bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookReviewResponseDto> {
         const result = this.api.bookControllerUserBookMark(userBookPayloadDto, _options);
+        return result.toPromise();
+    }
+
+
+}
+
+
+
+import { ObservableContactApi } from './ObservableAPI';
+
+import { ContactApiRequestFactory, ContactApiResponseProcessor} from "../apis/ContactApi";
+export class PromiseContactApi {
+    private api: ObservableContactApi
+
+    public constructor(
+        configuration: Configuration,
+        requestFactory?: ContactApiRequestFactory,
+        responseProcessor?: ContactApiResponseProcessor
+    ) {
+        this.api = new ObservableContactApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * @param contactDetails 
+     */
+    public contactControllerSyncContactsWithHttpInfo(contactDetails: Array<ContactDetails>, _options?: Configuration): Promise<HttpInfo<ContactDetailsDto>> {
+        const result = this.api.contactControllerSyncContactsWithHttpInfo(contactDetails, _options);
+        return result.toPromise();
+    }
+
+    /**
+     * @param contactDetails 
+     */
+    public contactControllerSyncContacts(contactDetails: Array<ContactDetails>, _options?: Configuration): Promise<ContactDetailsDto> {
+        const result = this.api.contactControllerSyncContacts(contactDetails, _options);
         return result.toPromise();
     }
 

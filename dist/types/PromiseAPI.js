@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PromiseStorageApi = exports.PromisePaymentApi = exports.PromiseNielsenBooksApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseEventsApi = exports.PromiseDeviceApi = exports.PromiseDefaultApi = exports.PromiseBooksApi = exports.PromiseAuthApi = exports.PromiseAnalyticsApi = void 0;
+exports.PromiseStorageApi = exports.PromisePaymentApi = exports.PromiseNielsenBooksApi = exports.PromiseFriendsApi = exports.PromiseFollowerApi = exports.PromiseEventsApi = exports.PromiseDeviceApi = exports.PromiseDefaultApi = exports.PromiseContactApi = exports.PromiseBooksApi = exports.PromiseAuthApi = exports.PromiseAnalyticsApi = void 0;
 var ObservableAPI_1 = require("./ObservableAPI");
 var PromiseAnalyticsApi = (function () {
     function PromiseAnalyticsApi(configuration, requestFactory, responseProcessor) {
@@ -28,6 +28,14 @@ var PromiseAuthApi = (function () {
     };
     PromiseAuthApi.prototype.authControllerAccountDeletion = function (_options) {
         var result = this.api.authControllerAccountDeletion(_options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerAddFeedbackWithHttpInfo = function (feedbackPayloadDto, _options) {
+        var result = this.api.authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseAuthApi.prototype.authControllerAddFeedback = function (feedbackPayloadDto, _options) {
+        var result = this.api.authControllerAddFeedback(feedbackPayloadDto, _options);
         return result.toPromise();
     };
     PromiseAuthApi.prototype.authControllerAppfeepercentageUpdateWithHttpInfo = function (appfeepercentageUpdatePayloadDto, _options) {
@@ -366,6 +374,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerAddTopBook(topBookPayload, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerDeleteReviewWithHttpInfo = function (userBookPayloadDto, _options) {
+        var result = this.api.bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerDeleteReview = function (userBookPayloadDto, _options) {
+        var result = this.api.bookControllerDeleteReview(userBookPayloadDto, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerFindBookByIdWithHttpInfo = function (id, _options) {
         var result = this.api.bookControllerFindBookByIdWithHttpInfo(id, _options);
         return result.toPromise();
@@ -390,12 +406,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindBookReviewBase(userBookStatusQueryDto, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (rate, page, limit, search, user, _options) {
-        var result = this.api.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, user, _options);
+    PromiseBooksApi.prototype.bookControllerFindBooksWithHttpInfo = function (rate, page, limit, search, isPrompt, user, _options) {
+        var result = this.api.bookControllerFindBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindBooks = function (rate, page, limit, search, user, _options) {
-        var result = this.api.bookControllerFindBooks(rate, page, limit, search, user, _options);
+    PromiseBooksApi.prototype.bookControllerFindBooks = function (rate, page, limit, search, isPrompt, user, _options) {
+        var result = this.api.bookControllerFindBooks(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindGoodReadsWithHttpInfo = function (goodReadsBookPayloadDto, _options) {
@@ -414,12 +430,12 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerFindReadingGoal(user, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (rate, page, limit, search, user, _options) {
-        var result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, user, _options);
+    PromiseBooksApi.prototype.bookControllerFindTopBooksWithHttpInfo = function (rate, page, limit, search, isPrompt, user, _options) {
+        var result = this.api.bookControllerFindTopBooksWithHttpInfo(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     };
-    PromiseBooksApi.prototype.bookControllerFindTopBooks = function (rate, page, limit, search, user, _options) {
-        var result = this.api.bookControllerFindTopBooks(rate, page, limit, search, user, _options);
+    PromiseBooksApi.prototype.bookControllerFindTopBooks = function (rate, page, limit, search, isPrompt, user, _options) {
+        var result = this.api.bookControllerFindTopBooks(rate, page, limit, search, isPrompt, user, _options);
         return result.toPromise();
     };
     PromiseBooksApi.prototype.bookControllerFindUserBookReviewWithHttpInfo = function (bookId, status, rate, review, _options) {
@@ -462,6 +478,14 @@ var PromiseBooksApi = (function () {
         var result = this.api.bookControllerRemoveTopBook(topBookPayload, _options);
         return result.toPromise();
     };
+    PromiseBooksApi.prototype.bookControllerUpdateBookPositionWithHttpInfo = function (bookPositionDto, _options) {
+        var result = this.api.bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto, _options);
+        return result.toPromise();
+    };
+    PromiseBooksApi.prototype.bookControllerUpdateBookPosition = function (bookPositionDto, _options) {
+        var result = this.api.bookControllerUpdateBookPosition(bookPositionDto, _options);
+        return result.toPromise();
+    };
     PromiseBooksApi.prototype.bookControllerUserBookMarkWithHttpInfo = function (userBookPayloadDto, _options) {
         var result = this.api.bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto, _options);
         return result.toPromise();
@@ -474,9 +498,25 @@ var PromiseBooksApi = (function () {
 }());
 exports.PromiseBooksApi = PromiseBooksApi;
 var ObservableAPI_4 = require("./ObservableAPI");
+var PromiseContactApi = (function () {
+    function PromiseContactApi(configuration, requestFactory, responseProcessor) {
+        this.api = new ObservableAPI_4.ObservableContactApi(configuration, requestFactory, responseProcessor);
+    }
+    PromiseContactApi.prototype.contactControllerSyncContactsWithHttpInfo = function (contactDetails, _options) {
+        var result = this.api.contactControllerSyncContactsWithHttpInfo(contactDetails, _options);
+        return result.toPromise();
+    };
+    PromiseContactApi.prototype.contactControllerSyncContacts = function (contactDetails, _options) {
+        var result = this.api.contactControllerSyncContacts(contactDetails, _options);
+        return result.toPromise();
+    };
+    return PromiseContactApi;
+}());
+exports.PromiseContactApi = PromiseContactApi;
+var ObservableAPI_5 = require("./ObservableAPI");
 var PromiseDefaultApi = (function () {
     function PromiseDefaultApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_4.ObservableDefaultApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_5.ObservableDefaultApi(configuration, requestFactory, responseProcessor);
     }
     PromiseDefaultApi.prototype.appControllerGetHelloWithHttpInfo = function (_options) {
         var result = this.api.appControllerGetHelloWithHttpInfo(_options);
@@ -489,10 +529,10 @@ var PromiseDefaultApi = (function () {
     return PromiseDefaultApi;
 }());
 exports.PromiseDefaultApi = PromiseDefaultApi;
-var ObservableAPI_5 = require("./ObservableAPI");
+var ObservableAPI_6 = require("./ObservableAPI");
 var PromiseDeviceApi = (function () {
     function PromiseDeviceApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_5.ObservableDeviceApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_6.ObservableDeviceApi(configuration, requestFactory, responseProcessor);
     }
     PromiseDeviceApi.prototype.deviceControllerAddDeviceWithHttpInfo = function (addDevicePayload, _options) {
         var result = this.api.deviceControllerAddDeviceWithHttpInfo(addDevicePayload, _options);
@@ -505,10 +545,10 @@ var PromiseDeviceApi = (function () {
     return PromiseDeviceApi;
 }());
 exports.PromiseDeviceApi = PromiseDeviceApi;
-var ObservableAPI_6 = require("./ObservableAPI");
+var ObservableAPI_7 = require("./ObservableAPI");
 var PromiseEventsApi = (function () {
     function PromiseEventsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_6.ObservableEventsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_7.ObservableEventsApi(configuration, requestFactory, responseProcessor);
     }
     PromiseEventsApi.prototype.eventControllerBookMarkEventWithHttpInfo = function (bookMarkEventPayloadDto, _options) {
         var result = this.api.eventControllerBookMarkEventWithHttpInfo(bookMarkEventPayloadDto, _options);
@@ -625,10 +665,10 @@ var PromiseEventsApi = (function () {
     return PromiseEventsApi;
 }());
 exports.PromiseEventsApi = PromiseEventsApi;
-var ObservableAPI_7 = require("./ObservableAPI");
+var ObservableAPI_8 = require("./ObservableAPI");
 var PromiseFollowerApi = (function () {
     function PromiseFollowerApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_7.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_8.ObservableFollowerApi(configuration, requestFactory, responseProcessor);
     }
     PromiseFollowerApi.prototype.followerControllerFindMyFriendsWithHttpInfo = function (myFriendPayloadDto, _options) {
         var result = this.api.followerControllerFindMyFriendsWithHttpInfo(myFriendPayloadDto, _options);
@@ -657,10 +697,10 @@ var PromiseFollowerApi = (function () {
     return PromiseFollowerApi;
 }());
 exports.PromiseFollowerApi = PromiseFollowerApi;
-var ObservableAPI_8 = require("./ObservableAPI");
+var ObservableAPI_9 = require("./ObservableAPI");
 var PromiseFriendsApi = (function () {
     function PromiseFriendsApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_8.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_9.ObservableFriendsApi(configuration, requestFactory, responseProcessor);
     }
     PromiseFriendsApi.prototype.friendControllerFindFriendsWithHttpInfo = function (page, limit, search, _options) {
         var result = this.api.friendControllerFindFriendsWithHttpInfo(page, limit, search, _options);
@@ -673,10 +713,10 @@ var PromiseFriendsApi = (function () {
     return PromiseFriendsApi;
 }());
 exports.PromiseFriendsApi = PromiseFriendsApi;
-var ObservableAPI_9 = require("./ObservableAPI");
+var ObservableAPI_10 = require("./ObservableAPI");
 var PromiseNielsenBooksApi = (function () {
     function PromiseNielsenBooksApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_9.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_10.ObservableNielsenBooksApi(configuration, requestFactory, responseProcessor);
     }
     PromiseNielsenBooksApi.prototype.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo = function (id, body, _options) {
         var result = this.api.nielsenBooksControllerGetNielsenBookByIdWithHttpInfo(id, body, _options);
@@ -705,10 +745,10 @@ var PromiseNielsenBooksApi = (function () {
     return PromiseNielsenBooksApi;
 }());
 exports.PromiseNielsenBooksApi = PromiseNielsenBooksApi;
-var ObservableAPI_10 = require("./ObservableAPI");
+var ObservableAPI_11 = require("./ObservableAPI");
 var PromisePaymentApi = (function () {
     function PromisePaymentApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_10.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_11.ObservablePaymentApi(configuration, requestFactory, responseProcessor);
     }
     PromisePaymentApi.prototype.paymentControllerConnectAccountWithHttpInfo = function (_options) {
         var result = this.api.paymentControllerConnectAccountWithHttpInfo(_options);
@@ -769,10 +809,10 @@ var PromisePaymentApi = (function () {
     return PromisePaymentApi;
 }());
 exports.PromisePaymentApi = PromisePaymentApi;
-var ObservableAPI_11 = require("./ObservableAPI");
+var ObservableAPI_12 = require("./ObservableAPI");
 var PromiseStorageApi = (function () {
     function PromiseStorageApi(configuration, requestFactory, responseProcessor) {
-        this.api = new ObservableAPI_11.ObservableStorageApi(configuration, requestFactory, responseProcessor);
+        this.api = new ObservableAPI_12.ObservableStorageApi(configuration, requestFactory, responseProcessor);
     }
     PromiseStorageApi.prototype.storageControllerGetPreSignedURLWithHttpInfo = function (fileUploadDto, _options) {
         var result = this.api.storageControllerGetPreSignedURLWithHttpInfo(fileUploadDto, _options);

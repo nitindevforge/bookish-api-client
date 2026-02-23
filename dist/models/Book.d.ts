@@ -13,6 +13,7 @@ export declare class Book {
     'updateAt': Date;
     'date': Date;
     'publicationDate': string;
+    'isPrompt': boolean;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

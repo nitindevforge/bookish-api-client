@@ -17,6 +17,7 @@ export * from '../models/BookMarkEventListResponseDto';
 export * from '../models/BookMarkEventPayloadDto';
 export * from '../models/BookMarkEventStatusResponseDto';
 export * from '../models/BookPayloadDto';
+export * from '../models/BookPositionDto';
 export * from '../models/BookResponseDto';
 export * from '../models/BookReviewCountResponseDto';
 export * from '../models/Books';
@@ -31,6 +32,8 @@ export * from '../models/CardListResponseDto';
 export * from '../models/CardNetwork';
 export * from '../models/CardSecure';
 export * from '../models/ChangePayloadDto';
+export * from '../models/ContactDetails';
+export * from '../models/ContactDetailsDto';
 export * from '../models/CreateBookMarkEventResponseDto';
 export * from '../models/CreateRoleDto';
 export * from '../models/CreateStaffDto';
@@ -46,6 +49,8 @@ export * from '../models/EventResponseDto';
 export * from '../models/Events';
 export * from '../models/EventsList';
 export * from '../models/EventsResponseDto';
+export * from '../models/FeedbackCreateResponseDto';
+export * from '../models/FeedbackPayloadDto';
 export * from '../models/FileUploadDto';
 export * from '../models/FileUrl';
 export * from '../models/Follower';
@@ -104,6 +109,7 @@ export * from '../models/UpdateStaffDto';
 export * from '../models/UpdateStaffRoleDto';
 export * from '../models/UserAchievementResponse';
 export * from '../models/UserAchievementResponseDTO';
+export * from '../models/UserBookDeleteResponseDto';
 export * from '../models/UserBookPayloadDto';
 export * from '../models/UserBookReviewResponseDto';
 export * from '../models/UserBookStatusQueryDto';
@@ -141,6 +147,7 @@ import { BookMarkEventListResponseDto } from '../models/BookMarkEventListRespons
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { Books } from '../models/Books';
@@ -155,6 +162,8 @@ import { CardListResponseDto } from '../models/CardListResponseDto';
 import { CardNetwork } from '../models/CardNetwork';
 import { CardSecure } from '../models/CardSecure';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ContactDetails } from '../models/ContactDetails';
+import { ContactDetailsDto } from '../models/ContactDetailsDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -170,6 +179,8 @@ import { EventResponseDto } from '../models/EventResponseDto';
 import { Events } from '../models/Events';
 import { EventsList } from '../models/EventsList';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { FileUploadDto } from '../models/FileUploadDto';
 import { FileUrl } from '../models/FileUrl';
 import { Follower } from '../models/Follower';
@@ -228,6 +239,7 @@ import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserAchievementResponse } from '../models/UserAchievementResponse';
 import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -282,6 +294,7 @@ let typeMap: {[index: string]: any} = {
     "BookMarkEventPayloadDto": BookMarkEventPayloadDto,
     "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto,
     "BookPayloadDto": BookPayloadDto,
+    "BookPositionDto": BookPositionDto,
     "BookResponseDto": BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto,
     "Books": Books,
@@ -296,6 +309,8 @@ let typeMap: {[index: string]: any} = {
     "CardNetwork": CardNetwork,
     "CardSecure": CardSecure,
     "ChangePayloadDto": ChangePayloadDto,
+    "ContactDetails": ContactDetails,
+    "ContactDetailsDto": ContactDetailsDto,
     "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto,
     "CreateStaffDto": CreateStaffDto,
@@ -311,6 +326,8 @@ let typeMap: {[index: string]: any} = {
     "Events": Events,
     "EventsList": EventsList,
     "EventsResponseDto": EventsResponseDto,
+    "FeedbackCreateResponseDto": FeedbackCreateResponseDto,
+    "FeedbackPayloadDto": FeedbackPayloadDto,
     "FileUploadDto": FileUploadDto,
     "FileUrl": FileUrl,
     "Follower": Follower,
@@ -369,6 +386,7 @@ let typeMap: {[index: string]: any} = {
     "UpdateStaffRoleDto": UpdateStaffRoleDto,
     "UserAchievementResponse": UserAchievementResponse,
     "UserAchievementResponseDTO": UserAchievementResponseDTO,
+    "UserBookDeleteResponseDto": UserBookDeleteResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto,

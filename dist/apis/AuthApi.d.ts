@@ -8,6 +8,8 @@ import { ChangePayloadDto } from '../models/ChangePayloadDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
 import { CreateStaffRoleDto } from '../models/CreateStaffRoleDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { ForgetPasswordEntityResponseDto } from '../models/ForgetPasswordEntityResponseDto';
 import { ForgetPasswordPayloadDto } from '../models/ForgetPasswordPayloadDto';
 import { InterestsResponseDto } from '../models/InterestsResponseDto';
@@ -32,6 +34,7 @@ import { UserSyncResponseDto } from '../models/UserSyncResponseDto';
 import { UserUpdatePayloadDto } from '../models/UserUpdatePayloadDto';
 export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
     authControllerAccountDeletion(_options?: Configuration): Promise<RequestContext>;
+    authControllerAddFeedback(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerAppfeepercentageUpdate(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerChangePassword(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<RequestContext>;
     authControllerCreateBusinessUser(signupPayloadDto: SignupPayloadDto, _options?: Configuration): Promise<RequestContext>;
@@ -72,6 +75,7 @@ export declare class AuthApiRequestFactory extends BaseAPIRequestFactory {
 }
 export declare class AuthApiResponseProcessor {
     authControllerAccountDeletionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserDeleteResponseDto>>;
+    authControllerAddFeedbackWithHttpInfo(response: ResponseContext): Promise<HttpInfo<FeedbackCreateResponseDto>>;
     authControllerAppfeepercentageUpdateWithHttpInfo(response: ResponseContext): Promise<HttpInfo<AppfeepercentageResponseDto>>;
     authControllerChangePasswordWithHttpInfo(response: ResponseContext): Promise<HttpInfo<PasswordChangeResponseDto>>;
     authControllerCreateBusinessUserWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserResponseDto>>;

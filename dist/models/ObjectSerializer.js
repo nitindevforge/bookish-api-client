@@ -34,6 +34,7 @@ __exportStar(require("../models/BookMarkEventListResponseDto"), exports);
 __exportStar(require("../models/BookMarkEventPayloadDto"), exports);
 __exportStar(require("../models/BookMarkEventStatusResponseDto"), exports);
 __exportStar(require("../models/BookPayloadDto"), exports);
+__exportStar(require("../models/BookPositionDto"), exports);
 __exportStar(require("../models/BookResponseDto"), exports);
 __exportStar(require("../models/BookReviewCountResponseDto"), exports);
 __exportStar(require("../models/Books"), exports);
@@ -48,6 +49,8 @@ __exportStar(require("../models/CardListResponseDto"), exports);
 __exportStar(require("../models/CardNetwork"), exports);
 __exportStar(require("../models/CardSecure"), exports);
 __exportStar(require("../models/ChangePayloadDto"), exports);
+__exportStar(require("../models/ContactDetails"), exports);
+__exportStar(require("../models/ContactDetailsDto"), exports);
 __exportStar(require("../models/CreateBookMarkEventResponseDto"), exports);
 __exportStar(require("../models/CreateRoleDto"), exports);
 __exportStar(require("../models/CreateStaffDto"), exports);
@@ -63,6 +66,8 @@ __exportStar(require("../models/EventResponseDto"), exports);
 __exportStar(require("../models/Events"), exports);
 __exportStar(require("../models/EventsList"), exports);
 __exportStar(require("../models/EventsResponseDto"), exports);
+__exportStar(require("../models/FeedbackCreateResponseDto"), exports);
+__exportStar(require("../models/FeedbackPayloadDto"), exports);
 __exportStar(require("../models/FileUploadDto"), exports);
 __exportStar(require("../models/FileUrl"), exports);
 __exportStar(require("../models/Follower"), exports);
@@ -121,6 +126,7 @@ __exportStar(require("../models/UpdateStaffDto"), exports);
 __exportStar(require("../models/UpdateStaffRoleDto"), exports);
 __exportStar(require("../models/UserAchievementResponse"), exports);
 __exportStar(require("../models/UserAchievementResponseDTO"), exports);
+__exportStar(require("../models/UserBookDeleteResponseDto"), exports);
 __exportStar(require("../models/UserBookPayloadDto"), exports);
 __exportStar(require("../models/UserBookReviewResponseDto"), exports);
 __exportStar(require("../models/UserBookStatusQueryDto"), exports);
@@ -157,6 +163,7 @@ var BookMarkEventListResponseDto_1 = require("../models/BookMarkEventListRespons
 var BookMarkEventPayloadDto_1 = require("../models/BookMarkEventPayloadDto");
 var BookMarkEventStatusResponseDto_1 = require("../models/BookMarkEventStatusResponseDto");
 var BookPayloadDto_1 = require("../models/BookPayloadDto");
+var BookPositionDto_1 = require("../models/BookPositionDto");
 var BookResponseDto_1 = require("../models/BookResponseDto");
 var BookReviewCountResponseDto_1 = require("../models/BookReviewCountResponseDto");
 var Books_1 = require("../models/Books");
@@ -171,6 +178,8 @@ var CardListResponseDto_1 = require("../models/CardListResponseDto");
 var CardNetwork_1 = require("../models/CardNetwork");
 var CardSecure_1 = require("../models/CardSecure");
 var ChangePayloadDto_1 = require("../models/ChangePayloadDto");
+var ContactDetails_1 = require("../models/ContactDetails");
+var ContactDetailsDto_1 = require("../models/ContactDetailsDto");
 var CreateBookMarkEventResponseDto_1 = require("../models/CreateBookMarkEventResponseDto");
 var CreateRoleDto_1 = require("../models/CreateRoleDto");
 var CreateStaffDto_1 = require("../models/CreateStaffDto");
@@ -186,6 +195,8 @@ var EventResponseDto_1 = require("../models/EventResponseDto");
 var Events_1 = require("../models/Events");
 var EventsList_1 = require("../models/EventsList");
 var EventsResponseDto_1 = require("../models/EventsResponseDto");
+var FeedbackCreateResponseDto_1 = require("../models/FeedbackCreateResponseDto");
+var FeedbackPayloadDto_1 = require("../models/FeedbackPayloadDto");
 var FileUploadDto_1 = require("../models/FileUploadDto");
 var FileUrl_1 = require("../models/FileUrl");
 var Follower_1 = require("../models/Follower");
@@ -244,6 +255,7 @@ var UpdateStaffDto_1 = require("../models/UpdateStaffDto");
 var UpdateStaffRoleDto_1 = require("../models/UpdateStaffRoleDto");
 var UserAchievementResponse_1 = require("../models/UserAchievementResponse");
 var UserAchievementResponseDTO_1 = require("../models/UserAchievementResponseDTO");
+var UserBookDeleteResponseDto_1 = require("../models/UserBookDeleteResponseDto");
 var UserBookPayloadDto_1 = require("../models/UserBookPayloadDto");
 var UserBookReviewResponseDto_1 = require("../models/UserBookReviewResponseDto");
 var UserBookStatusQueryDto_1 = require("../models/UserBookStatusQueryDto");
@@ -294,6 +306,7 @@ var typeMap = {
     "BookMarkEventPayloadDto": BookMarkEventPayloadDto_1.BookMarkEventPayloadDto,
     "BookMarkEventStatusResponseDto": BookMarkEventStatusResponseDto_1.BookMarkEventStatusResponseDto,
     "BookPayloadDto": BookPayloadDto_1.BookPayloadDto,
+    "BookPositionDto": BookPositionDto_1.BookPositionDto,
     "BookResponseDto": BookResponseDto_1.BookResponseDto,
     "BookReviewCountResponseDto": BookReviewCountResponseDto_1.BookReviewCountResponseDto,
     "Books": Books_1.Books,
@@ -308,6 +321,8 @@ var typeMap = {
     "CardNetwork": CardNetwork_1.CardNetwork,
     "CardSecure": CardSecure_1.CardSecure,
     "ChangePayloadDto": ChangePayloadDto_1.ChangePayloadDto,
+    "ContactDetails": ContactDetails_1.ContactDetails,
+    "ContactDetailsDto": ContactDetailsDto_1.ContactDetailsDto,
     "CreateBookMarkEventResponseDto": CreateBookMarkEventResponseDto_1.CreateBookMarkEventResponseDto,
     "CreateRoleDto": CreateRoleDto_1.CreateRoleDto,
     "CreateStaffDto": CreateStaffDto_1.CreateStaffDto,
@@ -323,6 +338,8 @@ var typeMap = {
     "Events": Events_1.Events,
     "EventsList": EventsList_1.EventsList,
     "EventsResponseDto": EventsResponseDto_1.EventsResponseDto,
+    "FeedbackCreateResponseDto": FeedbackCreateResponseDto_1.FeedbackCreateResponseDto,
+    "FeedbackPayloadDto": FeedbackPayloadDto_1.FeedbackPayloadDto,
     "FileUploadDto": FileUploadDto_1.FileUploadDto,
     "FileUrl": FileUrl_1.FileUrl,
     "Follower": Follower_1.Follower,
@@ -381,6 +398,7 @@ var typeMap = {
     "UpdateStaffRoleDto": UpdateStaffRoleDto_1.UpdateStaffRoleDto,
     "UserAchievementResponse": UserAchievementResponse_1.UserAchievementResponse,
     "UserAchievementResponseDTO": UserAchievementResponseDTO_1.UserAchievementResponseDTO,
+    "UserBookDeleteResponseDto": UserBookDeleteResponseDto_1.UserBookDeleteResponseDto,
     "UserBookPayloadDto": UserBookPayloadDto_1.UserBookPayloadDto,
     "UserBookReviewResponseDto": UserBookReviewResponseDto_1.UserBookReviewResponseDto,
     "UserBookStatusQueryDto": UserBookStatusQueryDto_1.UserBookStatusQueryDto,

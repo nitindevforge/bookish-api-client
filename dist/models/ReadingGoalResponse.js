@@ -34,12 +34,6 @@ var ReadingGoalResponse = (function () {
             "format": ""
         },
         {
-            "name": "noOffYear",
-            "baseName": "noOffYear",
-            "type": "number",
-            "format": ""
-        },
-        {
             "name": "bookReadGoalCount",
             "baseName": "bookReadGoalCount",
             "type": "number",

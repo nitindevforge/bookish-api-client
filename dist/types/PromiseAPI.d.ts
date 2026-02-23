@@ -10,6 +10,7 @@ import { BookMarkEventListResponseDto } from '../models/BookMarkEventListRespons
 import { BookMarkEventPayloadDto } from '../models/BookMarkEventPayloadDto';
 import { BookMarkEventStatusResponseDto } from '../models/BookMarkEventStatusResponseDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
@@ -18,6 +19,8 @@ import { BooksStatusResponseDto } from '../models/BooksStatusResponseDto';
 import { BusinessConnectedAccount } from '../models/BusinessConnectedAccount';
 import { CardListResponseDto } from '../models/CardListResponseDto';
 import { ChangePayloadDto } from '../models/ChangePayloadDto';
+import { ContactDetails } from '../models/ContactDetails';
+import { ContactDetailsDto } from '../models/ContactDetailsDto';
 import { CreateBookMarkEventResponseDto } from '../models/CreateBookMarkEventResponseDto';
 import { CreateRoleDto } from '../models/CreateRoleDto';
 import { CreateStaffDto } from '../models/CreateStaffDto';
@@ -29,6 +32,8 @@ import { EventDeleteResponseDto } from '../models/EventDeleteResponseDto';
 import { EventPayloadDto } from '../models/EventPayloadDto';
 import { EventResponseDto } from '../models/EventResponseDto';
 import { EventsResponseDto } from '../models/EventsResponseDto';
+import { FeedbackCreateResponseDto } from '../models/FeedbackCreateResponseDto';
+import { FeedbackPayloadDto } from '../models/FeedbackPayloadDto';
 import { FileUploadDto } from '../models/FileUploadDto';
 import { FollowerPayloadDto } from '../models/FollowerPayloadDto';
 import { FollowerResponseDto } from '../models/FollowerResponseDto';
@@ -66,6 +71,7 @@ import { UpdateRoleDto } from '../models/UpdateRoleDto';
 import { UpdateStaffDto } from '../models/UpdateStaffDto';
 import { UpdateStaffRoleDto } from '../models/UpdateStaffRoleDto';
 import { UserAchievementResponseDTO } from '../models/UserAchievementResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -91,6 +97,8 @@ export declare class PromiseAuthApi {
     constructor(configuration: Configuration, requestFactory?: AuthApiRequestFactory, responseProcessor?: AuthApiResponseProcessor);
     authControllerAccountDeletionWithHttpInfo(_options?: Configuration): Promise<HttpInfo<UserDeleteResponseDto>>;
     authControllerAccountDeletion(_options?: Configuration): Promise<UserDeleteResponseDto>;
+    authControllerAddFeedbackWithHttpInfo(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Promise<HttpInfo<FeedbackCreateResponseDto>>;
+    authControllerAddFeedback(feedbackPayloadDto: FeedbackPayloadDto, _options?: Configuration): Promise<FeedbackCreateResponseDto>;
     authControllerAppfeepercentageUpdateWithHttpInfo(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<HttpInfo<AppfeepercentageResponseDto>>;
     authControllerAppfeepercentageUpdate(appfeepercentageUpdatePayloadDto: AppfeepercentageUpdatePayloadDto, _options?: Configuration): Promise<AppfeepercentageResponseDto>;
     authControllerChangePasswordWithHttpInfo(changePayloadDto: ChangePayloadDto, _options?: Configuration): Promise<HttpInfo<PasswordChangeResponseDto>>;
@@ -178,20 +186,22 @@ export declare class PromiseBooksApi {
     bookControllerAddReadingGoal(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<ReadingGoalResponseDTO>;
     bookControllerAddTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<TopBooksResponseDTO>>;
     bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<TopBooksResponseDTO>;
+    bookControllerDeleteReviewWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookDeleteResponseDto>>;
+    bookControllerDeleteReview(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookDeleteResponseDto>;
     bookControllerFindBookByIdWithHttpInfo(id: string, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerFindBookByStatusWithHttpInfo(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindBookReviewBaseWithHttpInfo(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
-    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
-    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksResponseDto>;
+    bookControllerFindBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<HttpInfo<BooksResponseDto>>;
+    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<BooksResponseDto>;
     bookControllerFindGoodReadsWithHttpInfo(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindReadingGoalWithHttpInfo(user: string, _options?: Configuration): Promise<HttpInfo<ReadingGoalResponseDTO>>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<ReadingGoalResponseDTO>;
-    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
-    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
+    bookControllerFindTopBooksWithHttpInfo(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<HttpInfo<BooksReviewResponseDto>>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<BooksReviewResponseDto>;
     bookControllerFindUserBookReviewWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<UserBookReviewResponseDto>;
     bookControllerFindUserBookReviewCountWithHttpInfo(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<HttpInfo<BookReviewCountResponseDto>>;
@@ -202,8 +212,17 @@ export declare class PromiseBooksApi {
     bookControllerFindUserWhichReadBook(_options?: Configuration): Promise<UserBooksResponseDto>;
     bookControllerRemoveTopBookWithHttpInfo(topBookPayload: TopBookPayload, _options?: Configuration): Promise<HttpInfo<void>>;
     bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<void>;
+    bookControllerUpdateBookPositionWithHttpInfo(bookPositionDto: BookPositionDto, _options?: Configuration): Promise<HttpInfo<BookResponseDto>>;
+    bookControllerUpdateBookPosition(bookPositionDto: BookPositionDto, _options?: Configuration): Promise<BookResponseDto>;
     bookControllerUserBookMarkWithHttpInfo(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<HttpInfo<UserBookReviewResponseDto>>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<UserBookReviewResponseDto>;
+}
+import { ContactApiRequestFactory, ContactApiResponseProcessor } from "../apis/ContactApi";
+export declare class PromiseContactApi {
+    private api;
+    constructor(configuration: Configuration, requestFactory?: ContactApiRequestFactory, responseProcessor?: ContactApiResponseProcessor);
+    contactControllerSyncContactsWithHttpInfo(contactDetails: Array<ContactDetails>, _options?: Configuration): Promise<HttpInfo<ContactDetailsDto>>;
+    contactControllerSyncContacts(contactDetails: Array<ContactDetails>, _options?: Configuration): Promise<ContactDetailsDto>;
 }
 import { DefaultApiRequestFactory, DefaultApiResponseProcessor } from "../apis/DefaultApi";
 export declare class PromiseDefaultApi {

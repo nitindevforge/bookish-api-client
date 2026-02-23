@@ -3,6 +3,7 @@ import { Configuration } from '../configuration';
 import { RequestContext, ResponseContext, HttpInfo } from '../http/http';
 import { BookByStatusDto } from '../models/BookByStatusDto';
 import { BookPayloadDto } from '../models/BookPayloadDto';
+import { BookPositionDto } from '../models/BookPositionDto';
 import { BookResponseDto } from '../models/BookResponseDto';
 import { BookReviewCountResponseDto } from '../models/BookReviewCountResponseDto';
 import { BooksResponseDto } from '../models/BooksResponseDto';
@@ -13,6 +14,7 @@ import { ReadingGoalPayload } from '../models/ReadingGoalPayload';
 import { ReadingGoalResponseDTO } from '../models/ReadingGoalResponseDTO';
 import { TopBookPayload } from '../models/TopBookPayload';
 import { TopBooksResponseDTO } from '../models/TopBooksResponseDTO';
+import { UserBookDeleteResponseDto } from '../models/UserBookDeleteResponseDto';
 import { UserBookPayloadDto } from '../models/UserBookPayloadDto';
 import { UserBookReviewResponseDto } from '../models/UserBookReviewResponseDto';
 import { UserBookStatusQueryDto } from '../models/UserBookStatusQueryDto';
@@ -22,18 +24,20 @@ export declare class BooksApiRequestFactory extends BaseAPIRequestFactory {
     bookControllerAddMyGoodReadsBooks(requestBody: Array<string>, _options?: Configuration): Promise<RequestContext>;
     bookControllerAddReadingGoal(readingGoalPayload: ReadingGoalPayload, _options?: Configuration): Promise<RequestContext>;
     bookControllerAddTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<RequestContext>;
+    bookControllerDeleteReview(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookById(id: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookByStatus(bookByStatusDto: BookByStatusDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindBookReviewBase(userBookStatusQueryDto: UserBookStatusQueryDto, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindGoodReads(goodReadsBookPayloadDto: GoodReadsBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindReadingGoal(user: string, _options?: Configuration): Promise<RequestContext>;
-    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, user?: string, _options?: Configuration): Promise<RequestContext>;
+    bookControllerFindTopBooks(rate: number, page: number, limit: number, search?: string, isPrompt?: boolean, user?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReview(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviewCount(bookId: string, status?: string, rate?: number, review?: string, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserBookReviews(bookId: string, page: number, limit: number, userId?: string, rate?: Array<number>, _options?: Configuration): Promise<RequestContext>;
     bookControllerFindUserWhichReadBook(_options?: Configuration): Promise<RequestContext>;
     bookControllerRemoveTopBook(topBookPayload: TopBookPayload, _options?: Configuration): Promise<RequestContext>;
+    bookControllerUpdateBookPosition(bookPositionDto: BookPositionDto, _options?: Configuration): Promise<RequestContext>;
     bookControllerUserBookMark(userBookPayloadDto: UserBookPayloadDto, _options?: Configuration): Promise<RequestContext>;
 }
 export declare class BooksApiResponseProcessor {
@@ -41,6 +45,7 @@ export declare class BooksApiResponseProcessor {
     bookControllerAddMyGoodReadsBooksWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksStatusResponseDto>>;
     bookControllerAddReadingGoalWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ReadingGoalResponseDTO>>;
     bookControllerAddTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<TopBooksResponseDTO>>;
+    bookControllerDeleteReviewWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookDeleteResponseDto>>;
     bookControllerFindBookByIdWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
     bookControllerFindBookByStatusWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
     bookControllerFindBookReviewBaseWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BooksReviewResponseDto>>;
@@ -53,5 +58,6 @@ export declare class BooksApiResponseProcessor {
     bookControllerFindUserBookReviewsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerFindUserWhichReadBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBooksResponseDto>>;
     bookControllerRemoveTopBookWithHttpInfo(response: ResponseContext): Promise<HttpInfo<void>>;
+    bookControllerUpdateBookPositionWithHttpInfo(response: ResponseContext): Promise<HttpInfo<BookResponseDto>>;
     bookControllerUserBookMarkWithHttpInfo(response: ResponseContext): Promise<HttpInfo<UserBookReviewResponseDto>>;
 }

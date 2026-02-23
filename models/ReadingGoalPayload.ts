@@ -15,7 +15,6 @@ import { HttpFile } from '../http/http';
 export class ReadingGoalPayload {
     'visibility': string;
     'bookReadGoal': number;
-    'noOffYear': number;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -29,12 +28,6 @@ export class ReadingGoalPayload {
         {
             "name": "bookReadGoal",
             "baseName": "bookReadGoal",
-            "type": "number",
-            "format": ""
-        },
-        {
-            "name": "noOffYear",
-            "baseName": "noOffYear",
             "type": "number",
             "format": ""
         }    ];

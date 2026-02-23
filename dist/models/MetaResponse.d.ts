@@ -8,6 +8,7 @@ export declare class MetaResponse {
     'eventId': Events;
     'bookId': Book;
     'reviewBookId': UserBooks;
+    'status'?: string;
     'location': Location;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

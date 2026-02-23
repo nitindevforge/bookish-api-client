@@ -1,7 +1,6 @@
 export declare class ReadingGoalPayload {
     'visibility': string;
     'bookReadGoal': number;
-    'noOffYear': number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{
         name: string;

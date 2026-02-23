@@ -86,6 +86,12 @@ var Book = (function () {
             "baseName": "publicationDate",
             "type": "string",
             "format": ""
+        },
+        {
+            "name": "isPrompt",
+            "baseName": "isPrompt",
+            "type": "boolean",
+            "format": ""
         }
     ];
     return Book;

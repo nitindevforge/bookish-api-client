@@ -22,6 +22,7 @@ export class MetaResponse {
     'eventId': Events;
     'bookId': Book;
     'reviewBookId': UserBooks;
+    'status'?: string;
     'location': Location;
 
     static readonly discriminator: string | undefined = undefined;
@@ -49,6 +50,12 @@ export class MetaResponse {
             "name": "reviewBookId",
             "baseName": "reviewBookId",
             "type": "UserBooks",
+            "format": ""
+        },
+        {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
             "format": ""
         },
         {

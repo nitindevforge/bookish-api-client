@@ -34,6 +34,12 @@ var MetaResponse = (function () {
             "format": ""
         },
         {
+            "name": "status",
+            "baseName": "status",
+            "type": "string",
+            "format": ""
+        },
+        {
             "name": "location",
             "baseName": "location",
             "type": "Location",

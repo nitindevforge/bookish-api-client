@@ -20,12 +20,6 @@ var ReadingGoalPayload = (function () {
             "baseName": "bookReadGoal",
             "type": "number",
             "format": ""
-        },
-        {
-            "name": "noOffYear",
-            "baseName": "noOffYear",
-            "type": "number",
-            "format": ""
         }
     ];
     return ReadingGoalPayload;

@@ -4,7 +4,6 @@ export declare class ReadingGoalResponse {
     'userId': UserDetails;
     'visibility': string;
     'bookReadGoal': number;
-    'noOffYear': number;
     'bookReadGoalCount'?: number;
     static readonly discriminator: string | undefined;
     static readonly attributeTypeMap: Array<{

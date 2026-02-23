@@ -27,6 +27,7 @@ export class Book {
     'updateAt': Date;
     'date': Date;
     'publicationDate': string;
+    'isPrompt': boolean;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -107,6 +108,12 @@ export class Book {
             "name": "publicationDate",
             "baseName": "publicationDate",
             "type": "string",
+            "format": ""
+        },
+        {
+            "name": "isPrompt",
+            "baseName": "isPrompt",
+            "type": "boolean",
             "format": ""
         }    ];
 
